@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D9D9D9"
+    android:orientation="vertical"
+    tools:context=".staff_workType">
+
+    <LinearLayout
+        android:id="@+id/staff_workType_top"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#E60D69F3"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/staff_workType_top_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="직원 근무 유형"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#D9D9D9"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/layout_background"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/staff_workType_localText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:text="근무유형 선택"
+                android:textColor="#737373"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/staff_workType_localText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text="추후 직원정보 설정에서 변경이 가능합니다."
+                android:textColor="#737373" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="#D9D9D9" />
+
+            <RadioGroup
+                android:id="@+id/staff_workType_RadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/staff_workType_scheduleOk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:buttonTintMode="src_in"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:text="일정이 있는 직원"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/staff_workType_localText3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:text="정해진 일정으로 출퇴근하며 캘린더에 근무현황(지각, 조퇴, 휴무 등)이 표시됩니다."
+                    android:textColor="#737373"
+                    android:textSize="12sp" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/staff_workType_selfwork"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:buttonTintMode="src_in"
+                    android:checked="true"
+                    android:clickable="true"
+                    android:text="자율출퇴근 직원"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/staff_workType_localText5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:text="정해진 일정없이 출퇴근이 가능하며 출근하였을 때만 캘린더에 표시됩니다."
+                    android:textColor="#737373"
+                    android:textSize="12sp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/staff_workType_completBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/layout_button_quad"
+            android:text="선택 완료"
+            android:textColor="#FFFFFF"
+            android:textSize="17dp" />
+    </LinearLayout>
+
+</LinearLayout>
