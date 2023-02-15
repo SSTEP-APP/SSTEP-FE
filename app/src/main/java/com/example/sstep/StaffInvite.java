@@ -9,14 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class StaffInvite extends AppCompatActivity {
 
-    Button staffInvite1_bottombtn;
+    Button staffInvite1_bottomonbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.staffinvite1);
-        staffInvite1_bottombtn = findViewById(R.id.staffInvite1_bottombtn);
+        staffInvite1_bottomonbtn = findViewById(R.id.staffInvite1_bottomonbtn);
 
-        staffInvite1_bottombtn.setOnClickListener(new View.OnClickListener() {
+        staffInvite1_bottomonbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),StaffInvite2.class);

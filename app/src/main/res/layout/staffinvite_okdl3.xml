@@ -2,29 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/staffInvite_nodialog1_L1"
+    android:id="@+id/staffInvite_okdialog3_L1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <FrameLayout
-        android:id="@+id/staffInvite_nodialog1_F1"
+        android:id="@+id/staffInvite_okdialog3_F1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/dialog_yesnored">
+        android:background="@drawable/ydialog_yesnoblue">
 
         <!-- 내용 textview-->
         <TextView
-            android:id="@+id/staffInvite_nodialog1_tv1"
+            android:id="@+id/staffInvite_okdialog3_tv1"
             android:layout_width="match_parent"
             android:layout_height="211dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="[이름]의 합류를 거절하시겠습니까?\n\n 거절 후에도 직원초대를 통해 합류요청이 가능합니다."
+            android:text="[이름] 직원을 합류시키시겠습니까?\n\n직원 정보 입력을 완료하신 후 합류완료 버튼을 눌러야 합류됩니다."
             android:textColor="#646464" />
 
         <!-- 취소 버튼 -->
         <Button
-            android:id="@+id/staffInvite_nodialog1_canclebtn1"
+            android:id="@+id/staffInvite_okdialog3_canclebtn1"
             android:layout_width="205dp"
             android:layout_height="78dp"
             android:layout_gravity="bottom"
@@ -34,15 +34,15 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <!-- 거절 버튼 -->
+        <!-- 승인 버튼 -->
         <Button
-            android:id="@+id/staffInvite_nodialog1_nobtn2"
+            android:id="@+id/staffInvite_okdialog3_okbtn2"
             android:layout_width="205dp"
             android:layout_height="78dp"
             android:layout_gravity="bottom|right"
             android:background="@null"
             android:gravity="center_horizontal|center_vertical"
-            android:text="거절"
+            android:text="승인"
             android:textColor="@color/white"
             android:textSize="17sp" />
     </FrameLayout>

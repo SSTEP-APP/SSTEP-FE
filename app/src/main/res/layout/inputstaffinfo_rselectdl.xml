@@ -36,7 +36,7 @@
                 android:id="@+id/inputStaffInfo_rselectdialog2_autorb1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:button="@drawable/radiobtn_red"
+                android:button="@drawable/yradiobtn_red"
                 android:checked="false"
                 android:text="(자동) 근로기준법 기준"
                 android:textSize="15sp"
@@ -45,7 +45,7 @@
                 android:id="@+id/inputStaffInfo_rselectdialog2_manualrb2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:button="@drawable/radiobtn_red"
+                android:button="@drawable/yradiobtn_red"
                 android:checked="true"
                 android:text="(수동) 월 근무시간 입력"
                 android:textSize="15sp"
@@ -53,26 +53,34 @@
                 android:paddingLeft="10dp"/>
         </RadioGroup>
 
-        <EditText
-            android:id="@+id/inputStaffInfo_rselectdialog2_manualet1"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="15dp"
-            android:hint=""
-            android:inputType="number"
-            android:textColor="@color/blue"
-            android:textColorHint="@color/blue"
-            android:textCursorDrawable="@drawable/et_cursor"/>
-
-        <TextView
-            android:id="@+id/inputStaffInfo_rselectdialog2_tv2"
+        <LinearLayout
+            android:id="@+id/inputStaffInfo_rselectdialog2_HL1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="0dp"
-            android:text="분"
-            android:textColor="@color/blue" />
+            android:visibility="invisible">
+            <EditText
+                android:id="@+id/inputStaffInfo_rselectdialog2_manualet1"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="15dp"
+                android:hint=""
+                android:inputType="number"
+                android:textColor="@color/blue"
+                android:textColorHint="@color/blue"
+                android:textCursorDrawable="@drawable/yet_cursor"/>
+
+            <TextView
+                android:id="@+id/inputStaffInfo_rselectdialog2_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="0dp"
+                android:text="분"
+                android:textColor="@color/blue" />
+        </LinearLayout>
     </LinearLayout>
     <View
         android:layout_width="0dp"

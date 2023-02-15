@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/icon_back" />
+            app:srcCompat="@drawable/yicon_back" />
 
         <!-- 홈 아이콘 -->
         <ImageView
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
             android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/icon_home" />
+            app:srcCompat="@drawable/yicon_home" />
     </FrameLayout>
 
     <!-- 스크롤 -->
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/roundrec_w"
+                android:background="@drawable/yroundrec_w"
                 android:paddingTop="25dp"
                 android:paddingBottom="25dp">
 
@@ -116,7 +116,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:minHeight="1dp"
-                        android:background="@drawable/underline_text"
+                        android:background="@drawable/yunderline_text"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
@@ -134,7 +134,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginLeft="15dp"
-                            app:srcCompat="@drawable/image_female" />
+                            app:srcCompat="@drawable/yimage_female" />
 
                         <!-- 이름 -->
                         <TextView
@@ -194,7 +194,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/roundrec_w"
+                android:background="@drawable/yroundrec_w"
                 android:paddingTop="25dp"
                 android:paddingBottom="25dp">
 
@@ -244,7 +244,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:minHeight="1dp"
-                        android:background="@drawable/underline_text"
+                        android:background="@drawable/yunderline_text"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
@@ -263,7 +263,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginLeft="15dp"
-                            app:srcCompat="@drawable/image_female" />
+                            app:srcCompat="@drawable/yimage_female" />
 
                         <!-- 이름 -->
                         <TextView
@@ -325,13 +325,31 @@
         android:layout_gravity="bottom"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/staffInvite3_bottombtn"
+        <!-- 맨 아래 버튼 변경 F -->
+        <FrameLayout
+            android:id="@+id/staffInvite3_changebtnF3"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:background="@color/blue"
-            android:text="직원 초대"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/staffInvite3_bottomoffbtn"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/yroundrec_bottombtnoff"
+                android:text="직원초대"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:visibility="gone"/>
+            <Button
+                android:id="@+id/staffInvite3_bottomonbtn"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/yroundrec_bottombtnon"
+                android:text="직원초대"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
     </LinearLayout>
 </LinearLayout>

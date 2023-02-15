@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/icon_back" />
+            app:srcCompat="@drawable/yicon_back" />
 
         <!-- 홈 아이콘 -->
         <ImageView
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
             android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/icon_home" />
+            app:srcCompat="@drawable/yicon_home" />
     </FrameLayout>
 
     <ScrollView
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/roundrec_w"
+                android:background="@drawable/yroundrec_w"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp">
 
@@ -74,7 +74,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="15dp"
-                    app:srcCompat="@drawable/image_female"
+                    app:srcCompat="@drawable/yimage_female"
                     android:layout_gravity="center_vertical"/>
 
                 <!-- 이름_text-->
@@ -94,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
                     android:layout_marginTop="23dp"
-                    app:srcCompat="@drawable/icon_call" />
+                    app:srcCompat="@drawable/yicon_call" />
 
                 <!-- 전화걸기_text-->
                 <TextView
@@ -126,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/roundrec_w"
+                android:background="@drawable/yroundrec_w"
                 android:paddingTop="25dp"
                 android:paddingBottom="25dp">
 
@@ -178,13 +178,13 @@
                                 android:id="@+id/inputStaffInfo_ci_upicon1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/icon_up"
+                                app:srcCompat="@drawable/yicon_up"
                                 android:visibility="visible"/>
                             <ImageView
                                 android:id="@+id/inputStaffInfo_ci_downicon1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/icon_down"
+                                app:srcCompat="@drawable/yicon_down"
                                 android:visibility="invisible"/>
                         </FrameLayout> <!-- up/down icon_F -->
                     </LinearLayout> <!-- commutInfo_HL1 -->
@@ -221,7 +221,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
                                 android:layout_marginRight="15dp"
-                                android:background="@drawable/roundrec_w_sblue"
+                                android:background="@drawable/yroundrec_w_sblue"
                                 android:cursorVisible="false"
                                 android:paddingLeft="15dp"
                                 android:paddingRight="15dp"
@@ -237,7 +237,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="10dp"
-                            android:button="@drawable/chbox_red"
+                            android:button="@drawable/ychbox_red"
                             android:checked="true"
                             android:paddingLeft="10dp"
                             android:text="퇴사일 미정" />
@@ -250,7 +250,7 @@
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
                             android:layout_marginRight="30dp"
-                            android:background="@drawable/roundrec_w_sbold"
+                            android:background="@drawable/yroundrec_w_sbold"
                             android:orientation="horizontal"
                             android:paddingTop="15dp"
                             android:paddingBottom="15dp"
@@ -279,7 +279,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="30dp"
                                     android:layout_marginRight="15dp"
-                                    android:background="@drawable/roundrec_b"
+                                    android:background="@drawable/yroundrec_b"
                                     android:paddingLeft="15dp"
                                     android:paddingRight="15dp"
                                     android:text="퇴사일 설정"
@@ -292,7 +292,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="30dp"
                                     android:layout_marginRight="15dp"
-                                    android:background="@drawable/roundrec_w_sblue"
+                                    android:background="@drawable/yroundrec_w_sblue"
                                     android:paddingLeft="15dp"
                                     android:paddingRight="15dp"
                                     android:text="2023년 1월 26일"
@@ -312,7 +312,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/roundrec_w"
+                android:background="@drawable/yroundrec_w"
                 android:paddingTop="25dp"
                 android:paddingBottom="25dp">
                 <!-- pi_L1수직 -->
@@ -363,14 +363,14 @@
                                 android:id="@+id/inputStaffInfo_pi_upicon2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/icon_up"
+                                app:srcCompat="@drawable/yicon_up"
                                 android:visibility="visible"/>
                             <!-- down icon -->
                             <ImageView
                                 android:id="@+id/inputStaffInfo_pi_downicon2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/icon_down"
+                                app:srcCompat="@drawable/yicon_down"
                                 android:visibility="invisible"/>
                         </FrameLayout> <!-- up/down icon_F -->
                     </LinearLayout> <!-- pi_HL1 -->
@@ -401,7 +401,7 @@
                                     android:id="@+id/inputStaffInfo_pi_hourrb1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:button="@drawable/radiobtn_red"
+                                    android:button="@drawable/yradiobtn_red"
                                     android:checked="true"
                                     android:paddingLeft="10dp"
                                     android:text="시급" />
@@ -412,7 +412,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="45dp"
                                     android:layout_marginRight="45dp"
-                                    android:button="@drawable/radiobtn_red"
+                                    android:button="@drawable/yradiobtn_red"
                                     android:checked="false"
                                     android:paddingLeft="10dp"
                                     android:text="일급" />
@@ -421,7 +421,7 @@
                                     android:id="@+id/inputStaffInfo_pi_monthrb3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:button="@drawable/radiobtn_red"
+                                    android:button="@drawable/yradiobtn_red"
                                     android:checked="false"
                                     android:paddingLeft="10dp"
                                     android:text="월급" />
@@ -448,7 +448,7 @@
                                     android:layout_marginLeft="30dp"
                                     android:layout_marginTop="20dp"
                                     android:layout_marginRight="30dp"
-                                    android:background="@drawable/roundrec_w_sbold"
+                                    android:background="@drawable/yroundrec_w_sbold"
                                     android:orientation="horizontal"
                                     android:paddingTop="15dp"
                                     android:paddingBottom="15dp">
@@ -475,7 +475,7 @@
                                         android:inputType="number"
                                         android:textSize="13sp"
                                         android:gravity="right"
-                                        android:textCursorDrawable="@drawable/et_cursor"/>
+                                        android:textCursorDrawable="@drawable/yet_cursor"/>
 
                                     <TextView
                                         android:id="@+id/inputStaffInfo_pi_tv4"
@@ -504,7 +504,7 @@
                                     android:layout_marginTop="10dp"
                                     android:layout_marginRight="10dp"
                                     android:layout_marginBottom="25dp"
-                                    android:background="@drawable/underline_text" />
+                                    android:background="@drawable/yunderline_text" />
                                 <!-- 시급 +- L -->
                                 <LinearLayout
                                     android:id="@+id/inputStaffInfo_pi_L4"
@@ -513,7 +513,7 @@
                                     android:orientation="vertical"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
-                                    android:background="@drawable/roundrec_w_sbold"
+                                    android:background="@drawable/yroundrec_w_sbold"
                                     android:paddingLeft="20dp"
                                     android:paddingTop="15dp"
                                     android:paddingBottom="15dp">
@@ -528,7 +528,7 @@
                                             android:id="@+id/inputStaffInfo_pi_pluspaych1"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:button="@drawable/chbox_black"
+                                            android:button="@drawable/ychbox_black"
                                             android:checked="false"
                                             android:paddingLeft="10dp"
                                             android:text="(+)"
@@ -554,7 +554,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginRight="15dp"
-                                            android:background="@drawable/roundrec_b"
+                                            android:background="@drawable/yroundrec_b"
                                             android:gravity="center"
                                             android:minWidth="0dp"
                                             android:minHeight="0dp"
@@ -580,7 +580,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="10dp"
                                             android:layout_marginBottom="10dp"
-                                            android:button="@drawable/chbox_black"
+                                            android:button="@drawable/ychbox_black"
                                             android:checked="false"
                                             android:paddingLeft="10dp"
                                             android:text="(-)"
@@ -609,7 +609,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_vertical"
                                             android:layout_marginRight="15dp"
-                                            android:background="@drawable/roundrec_b"
+                                            android:background="@drawable/yroundrec_b"
                                             android:gravity="center"
                                             android:minWidth="0dp"
                                             android:minHeight="0dp"
@@ -633,7 +633,7 @@
                                             android:id="@+id/inputStaffInfo_pi_pluspaych3"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:button="@drawable/chbox_black"
+                                            android:button="@drawable/ychbox_black"
                                             android:checked="false"
                                             android:paddingLeft="10dp"
                                             android:text="(+)"
@@ -660,7 +660,7 @@
                                 android:layout_marginLeft="30dp"
                                 android:layout_marginTop="20dp"
                                 android:layout_marginRight="30dp"
-                                android:background="@drawable/roundrec_w_sbold"
+                                android:background="@drawable/yroundrec_w_sbold"
                                 android:orientation="vertical"
                                 android:paddingTop="15dp"
                                 android:paddingBottom="15dp"
@@ -692,7 +692,7 @@
                                         android:inputType="number"
                                         android:textSize="13sp"
                                         android:gravity="right"
-                                        android:textCursorDrawable="@drawable/et_cursor"/>
+                                        android:textCursorDrawable="@drawable/yet_cursor"/>
                                     <TextView
                                         android:id="@+id/inputStaffInfo_pi_tv10"
                                         android:layout_width="wrap_content"
@@ -721,7 +721,7 @@
                                     android:layout_marginLeft="30dp"
                                     android:layout_marginTop="20dp"
                                     android:layout_marginRight="30dp"
-                                    android:background="@drawable/roundrec_w_sbold"
+                                    android:background="@drawable/yroundrec_w_sbold"
                                     android:orientation="vertical"
                                     android:paddingTop="15dp"
                                     android:paddingBottom="15dp">
@@ -754,7 +754,7 @@
                                             android:gravity="right"
                                             android:hint="금액을 입력해 주세요"
                                             android:inputType="number"
-                                            android:textCursorDrawable="@drawable/et_cursor"
+                                            android:textCursorDrawable="@drawable/yet_cursor"
                                             android:textSize="13sp" />
 
                                         <TextView
@@ -798,7 +798,7 @@
                                             android:hint="0"
                                             android:inputType="number"
                                             android:textColorHint="@color/black"
-                                            android:textCursorDrawable="@drawable/et_cursor"
+                                            android:textCursorDrawable="@drawable/yet_cursor"
                                             android:textSize="13sp" />
 
                                         <TextView
@@ -842,7 +842,7 @@
                                             android:hint="0"
                                             android:inputType="number"
                                             android:textColorHint="@color/black"
-                                            android:textCursorDrawable="@drawable/et_cursor"
+                                            android:textCursorDrawable="@drawable/yet_cursor"
                                             android:textSize="13sp" />
 
                                         <TextView
@@ -886,7 +886,7 @@
                                             android:hint="0"
                                             android:inputType="number"
                                             android:textColorHint="@color/black"
-                                            android:textCursorDrawable="@drawable/et_cursor"
+                                            android:textCursorDrawable="@drawable/yet_cursor"
                                             android:textSize="13sp" />
 
                                         <TextView
@@ -930,7 +930,7 @@
                                             android:hint="0"
                                             android:inputType="number"
                                             android:textColorHint="@color/black"
-                                            android:textCursorDrawable="@drawable/et_cursor"
+                                            android:textCursorDrawable="@drawable/yet_cursor"
                                             android:textSize="13sp" />
 
                                         <TextView
@@ -948,7 +948,7 @@
                                         android:id="@+id/inputStaffInfo_pi_tv21"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:background="@drawable/underline_text" />
+                                        android:background="@drawable/yunderline_text" />
 
                                     <LinearLayout
                                         android:id="@+id/inputStaffInfo_pi_HL13"
@@ -1005,14 +1005,14 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="25dp"
-                            android:background="@drawable/underline_text" />
+                            android:background="@drawable/yunderline_text" />
 
                         <CheckBox
                             android:id="@+id/inputStaffInfo_pi_notermch4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:button="@drawable/chbox_red"
+                            android:button="@drawable/ychbox_red"
                             android:checked="true"
                             android:paddingLeft="10dp"
                             android:text="수습기간 없음"
@@ -1024,7 +1024,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/roundrec_w_sbold"
+                            android:background="@drawable/yroundrec_w_sbold"
                             android:orientation="vertical"
                             android:paddingLeft="20dp"
                             android:paddingTop="15dp"
@@ -1052,7 +1052,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="30dp"
                                     android:layout_marginRight="15dp"
-                                    android:background="@drawable/roundrec_w_sblue"
+                                    android:background="@drawable/yroundrec_w_sblue"
                                     android:paddingLeft="15dp"
                                     android:paddingRight="15dp"
                                     android:text="2023년 1월 26일"
@@ -1082,7 +1082,7 @@
                                     android:minWidth="0dp"
                                     android:minHeight="0dp"
                                     android:layout_marginRight="15dp"
-                                    android:background="@drawable/roundrec_w_sblue"
+                                    android:background="@drawable/yroundrec_w_sblue"
                                     android:paddingLeft="15dp"
                                     android:paddingRight="15dp"
                                     android:text="100%"
@@ -1108,7 +1108,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="25dp"
-                            android:background="@drawable/underline_text" />
+                            android:background="@drawable/yunderline_text" />
 
                         <LinearLayout
                             android:id="@+id/inputStaffInfo_pi_HL16"
@@ -1127,7 +1127,7 @@
                                     android:id="@+id/inputStaffInfo_pi_lawrb4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:button="@drawable/radiobtn_red"
+                                    android:button="@drawable/yradiobtn_red"
                                     android:checked="false"
                                     android:paddingLeft="10dp"
                                     android:text="4대 보험" />
@@ -1138,7 +1138,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="20dp"
                                     android:layout_marginRight="20dp"
-                                    android:button="@drawable/radiobtn_red"
+                                    android:button="@drawable/yradiobtn_red"
                                     android:checked="false"
                                     android:paddingLeft="10dp"
                                     android:text="프리랜서(3.3%)" />
@@ -1147,7 +1147,7 @@
                                     android:id="@+id/inputStaffInfo_pi_lawrb6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:button="@drawable/radiobtn_red"
+                                    android:button="@drawable/yradiobtn_red"
                                     android:checked="true"
                                     android:paddingLeft="10dp"
                                     android:text="적용안함" />
@@ -1187,7 +1187,7 @@
                                         android:id="@+id/inputStaffInfo_pi_leftbtn1"
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
-                                        android:background="@drawable/icon_left" />
+                                        android:background="@drawable/yicon_left" />
 
                                     <TextView
                                         android:id="@+id/inputStaffInfo_pi_ymtv1"
@@ -1204,7 +1204,7 @@
                                         android:id="@+id/inputStaffInfo_pi_rightbtn1"
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
-                                        android:background="@drawable/icon_right" />
+                                        android:background="@drawable/yicon_right" />
                                 </LinearLayout>
 
                                 <TextView
@@ -1230,7 +1230,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="10dp"
                                     android:layout_marginRight="10dp"
-                                    android:background="@drawable/roundrec_w_sbold"
+                                    android:background="@drawable/yroundrec_w_sbold"
                                     android:orientation="vertical"
                                     android:paddingLeft="20dp"
                                     android:paddingTop="15dp"
@@ -1240,7 +1240,7 @@
                                         android:id="@+id/inputStaffInfo_pi_insch1"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:button="@drawable/chbox_black"
+                                        android:button="@drawable/ychbox_black"
                                         android:checked="true"
                                         android:text="국민연금"
                                         android:textSize="13sp"
@@ -1250,7 +1250,7 @@
                                         android:id="@+id/inputStaffInfo_pi_insch2"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:button="@drawable/chbox_black"
+                                        android:button="@drawable/ychbox_black"
                                         android:checked="true"
                                         android:text="건강보험"
                                         android:textSize="13sp"
@@ -1262,7 +1262,7 @@
                                         android:id="@+id/inputStaffInfo_pi_insch3"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:button="@drawable/chbox_black"
+                                        android:button="@drawable/ychbox_black"
                                         android:checked="true"
                                         android:text="고용보험"
                                         android:textSize="13sp"
@@ -1273,7 +1273,7 @@
                                         android:id="@+id/inputStaffInfo_pi_insch4"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:button="@drawable/chbox_black"
+                                        android:button="@drawable/ychbox_black"
                                         android:checked="true"
                                         android:text="산재보험"
                                         android:textSize="13sp"
@@ -1304,7 +1304,7 @@
                                         android:id="@+id/inputStaffInfo_pi_leftbtn2"
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
-                                        android:background="@drawable/icon_left" />
+                                        android:background="@drawable/yicon_left" />
 
                                     <TextView
                                         android:id="@+id/inputStaffInfo_pi_ymtv2"
@@ -1321,7 +1321,7 @@
                                         android:id="@+id/inputStaffInfo_pi_rightbtn2"
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
-                                        android:background="@drawable/icon_right" />
+                                        android:background="@drawable/yicon_right" />
                                 </LinearLayout>
 
                                 <TextView
@@ -1351,7 +1351,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/roundrec_w"
+                android:background="@drawable/yroundrec_w"
                 android:paddingTop="25dp"
                 android:paddingBottom="25dp">
 
@@ -1394,13 +1394,13 @@
                                 android:id="@+id/inputStaffInfo_yi_upicon3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/icon_up"
+                                app:srcCompat="@drawable/yicon_up"
                                 android:visibility="visible"/>
                             <ImageView
                                 android:id="@+id/inputStaffInfo_yi_downicon3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/icon_down"
+                                app:srcCompat="@drawable/yicon_down"
                                 android:visibility="invisible"/>
                         </FrameLayout>
                     </LinearLayout><!-- 수평 -->
@@ -1417,7 +1417,7 @@
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="25dp"
                             android:layout_marginRight="60dp"
-                            android:background="@drawable/roundrec_w_sbold"
+                            android:background="@drawable/yroundrec_w_sbold"
                             android:orientation="vertical"
                             android:paddingLeft="30dp"
                             android:paddingTop="15dp"
@@ -1453,7 +1453,7 @@
                                     android:textColorHint="@color/black"
                                     android:textSize="13sp"
                                     android:textStyle="bold"
-                                    android:textCursorDrawable="@drawable/et_cursor"/>
+                                    android:textCursorDrawable="@drawable/yet_cursor"/>
 
                                 <TextView
                                     android:id="@+id/inputStaffInfo_yi_tv3"
@@ -1497,7 +1497,7 @@
                                     android:textColorHint="@color/black"
                                     android:textSize="13sp"
                                     android:textStyle="bold"
-                                    android:textCursorDrawable="@drawable/et_cursor"/>
+                                    android:textCursorDrawable="@drawable/yet_cursor"/>
 
                                 <TextView
                                     android:id="@+id/inputStaffInfo_yi_tv5"
@@ -1538,7 +1538,7 @@
                                     android:textColorHint="@color/black"
                                     android:textSize="13sp"
                                     android:textStyle="bold"
-                                    android:textCursorDrawable="@drawable/et_cursor"/>
+                                    android:textCursorDrawable="@drawable/yet_cursor"/>
 
                                 <TextView
                                     android:id="@+id/inputStaffInfo_yi_tv7"
@@ -1562,7 +1562,7 @@
                                 android:id="@+id/inputStaffInfo_yi_leftbtn3"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:background="@drawable/icon_left" />
+                                android:background="@drawable/yicon_left" />
 
                             <TextView
                                 android:id="@+id/inputStaffInfo_yi_ymtv3"
@@ -1579,7 +1579,7 @@
                                 android:id="@+id/inputStaffInfo_yi_rightbtn3"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:background="@drawable/icon_right" />
+                                android:background="@drawable/yicon_right" />
                         </LinearLayout>
 
                         <TextView
@@ -1614,15 +1614,31 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="vertical">
-
-        <Button
-            android:id="@+id/inputStaffInfo_bottombtn"
+        <!-- 맨 아래 버튼 변경 F -->
+        <FrameLayout
+            android:id="@+id/inputStaffInfo_changebtnF3"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:background="@color/offbutton"
-            android:text="입력 완료"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            android:gravity="center"/>
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/inputStaffInfo_bottomoffbtn"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/yroundrec_bottombtnoff"
+                android:text="입력 완료"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:visibility="visible"/>
+            <Button
+                android:id="@+id/inputStaffInfo_bottomonbtn"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/yroundrec_bottombtnon"
+                android:text="입력 완료"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:visibility="gone"/>
+        </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
     </LinearLayout>
 </LinearLayout>

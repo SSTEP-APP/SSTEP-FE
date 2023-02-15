@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/icon_back" />
+            app:srcCompat="@drawable/yicon_back" />
 
         <!-- 홈 아이콘 -->
         <ImageView
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
             android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/icon_home" />
+            app:srcCompat="@drawable/yicon_home" />
     </FrameLayout>
 
     <FrameLayout
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="183dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/roundrec_w"
+            android:background="@drawable/yroundrec_w"
 
             android:gravity="top"
             android:paddingLeft="15dp"
@@ -75,7 +75,7 @@
             android:hint="이름"
             android:inputType="textPersonName"
             android:textSize="15sp"
-            android:textCursorDrawable="@drawable/et_cursor"/>
+            android:textCursorDrawable="@drawable/yet_cursor"/>
 
         <!-- 전화번호 editText-->
         <EditText
@@ -88,7 +88,7 @@
             android:hint="전화번호"
             android:inputType="phone"
             android:textSize="15sp"
-            android:textCursorDrawable="@drawable/et_cursor"/>
+            android:textCursorDrawable="@drawable/yet_cursor"/>
 
         <!-- 문자발송 버튼 -->
         <Button
@@ -98,7 +98,7 @@
             android:layout_gravity="bottom|right"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/roundrec_w_sblue"
+            android:background="@drawable/yroundrec_w_sblue"
             android:text="문자발송"
             android:textColor="@color/blue" />
     </FrameLayout>
@@ -113,15 +113,32 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/staffInvite2_bottombtn"
+        <!-- 맨 아래 버튼 변경 F -->
+        <FrameLayout
+            android:id="@+id/staffInvite1_changebtnF3"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:background="@color/blue"
-            android:text="직원 초대 완료"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
-
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/staffInvite1_bottomoffbtn"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/yroundrec_bottombtnoff"
+                android:text="직원초대 완료"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:visibility="visible"/>
+            <Button
+                android:id="@+id/staffInvite1_bottomonbtn"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/yroundrec_bottombtnon"
+                android:text="직원초대 완료"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:visibility="gone"/>
+        </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
     </LinearLayout>
 
 

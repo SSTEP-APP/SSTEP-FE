@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/icon_back" />
+            app:srcCompat="@drawable/yicon_back" />
 
         <!-- 홈 아이콘 -->
         <ImageView
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
             android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/icon_home" />
+            app:srcCompat="@drawable/yicon_home" />
     </FrameLayout>
 
     <!-- 스크롤 -->
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/roundrec_w"
+                android:background="@drawable/yroundrec_w"
                 android:paddingTop="25dp"
                 android:paddingBottom="25dp">
 
@@ -116,7 +116,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:minHeight="1dp"
-                        android:background="@drawable/underline_text"
+                        android:background="@drawable/yunderline_text"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
@@ -136,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/roundrec_w"
+                android:background="@drawable/yroundrec_w"
                 android:paddingTop="25dp"
                 android:paddingBottom="25dp">
 
@@ -186,7 +186,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:minHeight="1dp"
-                        android:background="@drawable/underline_text"
+                        android:background="@drawable/yunderline_text"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"

@@ -20,7 +20,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
-            app:srcCompat="@drawable/image_female" />
+            app:srcCompat="@drawable/yimage_female" />
 
         <!-- 이름 -->
         <TextView
