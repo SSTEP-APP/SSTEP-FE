@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/inputStaffInfo_pselectdialog1_L1"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/inputStaffInfo_pselectdialog1_tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="급여비율 선택(%)"
+        android:textColor="#737373"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="40dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/table_outsideline">
+        <RadioGroup
+            android:id="@+id/rg1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="83dp"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:checked="false"
+                android:text="100"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@drawable/radiobtn_tabletext"
+                android:background="@drawable/radiobtn_table"/>
+
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="83dp"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:checked="false"
+                android:text="90"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@drawable/radiobtn_tabletext"
+                android:background="@drawable/radiobtn_table"/>
+            <RadioButton
+                android:id="@+id/rb3"
+                android:layout_width="83dp"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:checked="false"
+                android:text="80"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@drawable/radiobtn_tabletext"
+                android:background="@drawable/radiobtn_table" />
+            <RadioButton
+                android:id="@+id/rb4"
+                android:layout_width="83dp"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:checked="false"
+                android:text="70"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@drawable/radiobtn_tabletext"
+                android:background="@drawable/radiobtn_table" />
+        </RadioGroup>
+        <RadioGroup
+            android:id="@+id/rg2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rb5"
+                android:layout_width="83dp"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:checked="false"
+                android:text="60"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@drawable/radiobtn_tabletext"
+                android:background="@drawable/radiobtn_table"/>
+
+            <RadioButton
+                android:id="@+id/rb6"
+                android:layout_width="83dp"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:checked="false"
+                android:text="50"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@drawable/radiobtn_tabletext"
+                android:background="@drawable/radiobtn_table"/>
+            <EditText
+                android:layout_width="166dp"
+                android:layout_height="match_parent"
+                android:hint="직접 입력"
+                android:inputType="number"
+                android:textSize="15sp"
+                android:textColorHint="#D0D0D0"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/blue"
+                android:background="@drawable/radiobtn_table"
+                android:textCursorDrawable="@drawable/et_cursor"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <!-- 확인 버튼 -->
+    <Button
+        android:id="@+id/inputStaffInfo_pselectdialog1_okbtn1"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_gravity="bottom"
+        android:background="@color/blue"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+</LinearLayout>

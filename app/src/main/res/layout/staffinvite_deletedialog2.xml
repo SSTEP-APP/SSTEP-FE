@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/staffInvite_deletedialog2_L1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/staffInvite_deletedialog2_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_yesnored">
+
+        <!-- 내용1 textview-->
+        <TextView
+            android:id="@+id/staffInvite_deletedialog2_tv1"
+            android:layout_width="match_parent"
+            android:layout_height="211dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="초대 메시지 미열람 직원\n\n"
+            android:textColor="@color/blue"
+            android:textSize="20sp" />
+        <!-- 내용2 textview-->
+        <TextView
+            android:id="@+id/staffInvite_deletedialog2_tv2"
+            android:layout_width="match_parent"
+            android:layout_height="211dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="\n\n초대내역을 삭제합니다"
+            android:textColor="#646464" />
+
+        <!-- 취소 버튼 -->
+        <Button
+            android:id="@+id/staffInvite_deletedialog2_canclebtn1"
+            android:layout_width="205dp"
+            android:layout_height="78dp"
+            android:layout_gravity="bottom"
+            android:background="@null"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="취소"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <!-- 삭제 버튼 -->
+        <Button
+            android:id="@+id/staffInvite_deletedialog2_deletebtn2"
+            android:layout_width="205dp"
+            android:layout_height="78dp"
+            android:layout_gravity="bottom|right"
+            android:background="@null"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="삭제"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </FrameLayout>
+</LinearLayout>
