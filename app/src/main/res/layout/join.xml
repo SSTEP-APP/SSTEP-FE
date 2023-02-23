@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D9D9D9"
+    android:orientation="vertical"
+    tools:context=".JoinActivity">
+
+    <FrameLayout
+        android:id="@+id/join_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 뒤로가기 아이콘 -->
+        <TextView
+            android:id="@+id/join_topText"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="#E60D69F3"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="회원 가입"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageButton
+            android:id="@+id/join_back_Btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/j_backspace1_img" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/j_layout_background"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="31dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/join_checkPassText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="비밀번호 확인"
+                        android:textColor="#424242" />
+
+                    <EditText
+                        android:id="@+id/join_checkPassEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#B9B9B9"
+                        android:ems="10"
+                        android:hint="새 비밀번호 확인"
+                        android:inputType="textPersonName"
+                        android:textColor="#000000"
+                        android:textColorHint="#DCDCDC"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="31dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/join_passText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="비밀번호"
+                        android:textColor="#424242" />
+
+                    <EditText
+                        android:id="@+id/join_passEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#B9B9B9"
+                        android:ems="10"
+                        android:hint="영문, 숫자, 특수문자 조합 6자 이상"
+                        android:inputType="textPersonName"
+                        android:textColor="#000000"
+                        android:textColorHint="#DCDCDC"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="31dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/join_userTypeText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="가입자 유형"
+                        android:textColor="#424242" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:id="@+id/join_view1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <RadioGroup
+                            android:id="@+id/join_userTypeRG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/join_ownerRadio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="사업주"
+                                android:textColor="#000000" />
+
+                            <RadioButton
+                                android:id="@+id/join_staffRadio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="45dp"
+                                android:layout_weight="1"
+                                android:text="직원" />
+                        </RadioGroup>
+
+                        <View
+                            android:id="@+id/join_view2"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="31dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/join_idText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ID"
+                        android:textColor="#424242" />
+
+                    <EditText
+                        android:id="@+id/join_idEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#B9B9B9"
+                        android:ems="10"
+                        android:hint="아이디"
+                        android:inputType="textPersonName"
+                        android:textColor="#000000"
+                        android:textColorHint="#DCDCDC"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="31dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/join_PhonumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="전화번호"
+                        android:textColor="#424242" />
+
+                    <EditText
+                        android:id="@+id/join_phonumEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#B9B9B9"
+                        android:ems="10"
+                        android:hint="01012345678"
+                        android:inputType="textPersonName"
+                        android:textColor="#000000"
+                        android:textColorHint="#DCDCDC"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="31dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/join_nameText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="이름"
+                        android:textColor="#424242" />
+
+                    <EditText
+                        android:id="@+id/join_nameEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#B9B9B9"
+                        android:ems="10"
+                        android:hint="이름"
+                        android:inputType="textPersonName"
+                        android:textColor="#000000"
+                        android:textColorHint="#DCDCDC"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/join_view3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/join_completeBtn"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:background="@drawable/j_layout_button_quad"
+                android:text="일정추가 완료"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

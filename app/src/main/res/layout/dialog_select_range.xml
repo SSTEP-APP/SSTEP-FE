@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/j_layout_background"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/select_range_150mBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="150m"
+            android:textAllCaps="false"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/select_range_line1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/select_range_200mBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:textAllCaps="false"
+            android:text="200m" />
+
+        <View
+            android:id="@+id/select_range_line2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/select_range_500mBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:textAllCaps="false"
+            android:text="500m"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/select_range_line3"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/select_range_1kmBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:textAllCaps="false"
+            android:text="1km"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/select_range_line4"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/select_range_1.5kmBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:textAllCaps="false"
+            android:text="1.5km"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/select_range_line5"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/select_range_2kmBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:textAllCaps="false"
+            android:text="2km"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/select_range_line6"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/select_range_4kmBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:textAllCaps="false"
+            android:text="4km"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/select_range_line7"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/select_range_homeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:textAllCaps="false"
+            android:text="재택근무 (거리 제한 없음)"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/select_range_line8"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#737373" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/select_range_cancleBtn"
+            android:layout_width="125dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:background="@drawable/j_layout_button_quad"
+            android:gravity="center"
+            android:text="닫기"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
