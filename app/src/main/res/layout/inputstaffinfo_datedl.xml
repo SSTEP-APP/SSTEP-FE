@@ -2,41 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/inputStaffInfo_datedialog_L1"
+    android:id="@+id/inputStaffInfo_datedl_L1"
     android:layout_width="match_parent"
     android:layout_height="360dp"
     android:orientation="vertical"
     android:layout_marginRight="50dp"
     android:layout_marginLeft="50dp"
-    android:background="@color/white">
+    android:background="@drawable/yroundrec_w">
 
     <LinearLayout
+        android:id="@+id/inputStaffInfo_datedl_HL1"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <DatePicker
+            android:id="@+id/inputStaffInfo_datedl_dp1"
+            android:datePickerMode="spinner"
             android:layout_width="wrap_content"
-            android:layout_height="384dp" />
-
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
     <Button
+        android:id="@+id/inputStaffInfo_datedl_okbtn1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:minHeight="1dp"
         android:background="@drawable/yroundrec_b"
         android:text="확인"
         android:textColor="@color/white"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
 
     <Button
+        android:id="@+id/inputStaffInfo_datedl_nobtn2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:minHeight="1dp"
         android:background="@drawable/yroundrec_w_s"
         android:text="취소"
         android:textColor="@color/black"
-        android:textSize="15sp"/>
-
-
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
 </LinearLayout>

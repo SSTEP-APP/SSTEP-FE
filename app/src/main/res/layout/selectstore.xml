@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/selectstore_L1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F1F1"
+    android:orientation="vertical"
+    tools:context=".SelectStore">
+
+    <!-- top_직원 초대현황-->
+    <FrameLayout
+        android:id="@+id/selectstore_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/selectstore_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/lightblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="사업장 선택"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <!-- 홈 아이콘 -->
+        <ImageView
+            android:id="@+id/selectstore_homeiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/yicon_logout" />
+    </FrameLayout>
+
+    <!-- 사업장 등록하기 버튼 -->
+
+    <Button
+        android:id="@+id/selectstore_regbtn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="50dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:text="사업장 등록하기"
+        android:textSize="17sp"
+        android:textColor="@color/blue"
+        android:gravity="left|center_vertical"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/yregbtn"/>
+
+    <!-- 스크롤 -->
+    <ScrollView
+        android:id="@+id/selectstore_scoll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/selectstore_L2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="15dp">
+
+            <!-- 텅/목록 list _숨김F -->
+            <FrameLayout
+                android:id="@+id/selectstore_hidF2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!-- 텅 _L -->
+                <LinearLayout
+                    android:id="@+id/selectstore_tengL3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="80dp"
+                    android:visibility="gone">
+                    <ImageView
+                        android:id="@+id/selectstore_tengiv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/yimage_teng"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:id="@+id/selectstore_tv1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="등록된 사업장이 없습니다."
+                        android:textColor="#A9A9A9"
+                        android:textSize="16sp"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="30dp"/>
+                </LinearLayout> <!-- 텅 _L -->
+                <!-- 목록 list _L -->
+                <LinearLayout
+                    android:id="@+id/selectstore_listL4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:visibility="visible">
+                    <!-- 목록 _F -->
+                    <FrameLayout
+                        android:id="@+id/selectstore_listF3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yroundrec_w"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
+                        <TextView
+                            android:id="@+id/selectstore_snametv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="사업장명"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#646464"/>
+                        <LinearLayout
+                            android:id="@+id/selectstore_HL1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="50dp">
+                            <ImageView
+                                android:id="@+id/selectstore_logoutiv2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/yicon_logoutred"/>
+                            <TextView
+                                android:id="@+id/selectstore_addresstv3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="사업장 주소 (ex.서울 송파구)"
+                                android:textSize="13sp"
+                                android:layout_marginLeft="10dp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/selectstore_HL2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="75dp">
+                            <ImageView
+                                android:id="@+id/selectstore_logoutiv4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/yicon_personred"/>
+                            <TextView
+                                android:id="@+id/selectstore_persontv5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0명 근무중, 직원을 초대하세요."
+                                android:textSize="13sp"
+                                android:layout_marginLeft="10dp"/>
+                        </LinearLayout>
+                        <ImageView
+                            android:id="@+id/selectstore_goiv5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/yicon_goblue"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_marginRight="20dp" />
+                    </FrameLayout> <!-- 목록 _F -->
+                </LinearLayout><!-- 목록 list _L -->
+            </FrameLayout> <!-- 텅/목록 list _숨김F -->
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

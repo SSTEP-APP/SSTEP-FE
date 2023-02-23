@@ -124,7 +124,8 @@
                     <ListView
                         android:id="@+id/staffInfo5_list_lv1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"/>
 
                 </LinearLayout>
             </FrameLayout> <!-- 초대 승인 전체 frame -->
@@ -192,9 +193,10 @@
                         android:layout_marginTop="10dp"
                         android:layout_gravity="bottom"/>
                     <ListView
-                        android:id="@+id/staffInfo5_list_lv1"
+                        android:id="@+id/staffInfo5_list_lv2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"/>
 
                 </LinearLayout>
             </FrameLayout> <!-- 초대 승인 대기중 전체 frame -->

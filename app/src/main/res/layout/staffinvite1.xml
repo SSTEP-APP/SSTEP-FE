@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1F1F1"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".StaffInvite">
 
     <!-- top_직원 초대현황-->
     <FrameLayout

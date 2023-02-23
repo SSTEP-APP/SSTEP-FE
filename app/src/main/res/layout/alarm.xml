@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F1F1"
+    tools:context=".Alarm">
+
+    <!-- top_알림-->
+    <FrameLayout
+        android:id="@+id/inputStaffInfo_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/inputStaffInfo_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/lightblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="알림"
+            android:textColor="@color/white"
+            android:textSize="17sp"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageView
+            android:id="@+id/inputStaffInfo_backiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:tabSelectedTextColor="@color/blue"
+        app:tabIndicatorColor="@color/blue"
+        app:tabTextAppearance="@style/tab_text">
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp" />
+</LinearLayout>

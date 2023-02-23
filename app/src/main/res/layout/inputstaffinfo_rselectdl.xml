@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/inputStaffInfo_rselectdialog2_L1"
+    android:id="@+id/inputStaffInfo_rselectdl2_L1"
     android:layout_width="match_parent"
     android:layout_height="250dp"
     android:orientation="vertical"
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/inputStaffInfo_rselectdialog2_tv1"
+        android:id="@+id/inputStaffInfo_rselectdl2_tv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal|center_vertical"
@@ -19,21 +19,21 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"/>
     <LinearLayout
-        android:id="@+id/inputStaffInfo_rselectdialog2_L2"
+        android:id="@+id/inputStaffInfo_rselectdl2_L2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/white">
         <!-- 내용 textview-->
         <RadioGroup
-            android:id="@+id/inputStaffInfo_rselectdialog2_rg1"
+            android:id="@+id/inputStaffInfo_rselectdl2_rg1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="15dp"
             android:paddingBottom="10dp">
             <RadioButton
-                android:id="@+id/inputStaffInfo_rselectdialog2_autorb1"
+                android:id="@+id/inputStaffInfo_rselectdl2_autorb1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:button="@drawable/yradiobtn_red"
@@ -42,7 +42,7 @@
                 android:textSize="15sp"
                 android:paddingLeft="10dp"/>
             <RadioButton
-                android:id="@+id/inputStaffInfo_rselectdialog2_manualrb2"
+                android:id="@+id/inputStaffInfo_rselectdl2_manualrb2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:button="@drawable/yradiobtn_red"
@@ -54,14 +54,14 @@
         </RadioGroup>
 
         <LinearLayout
-            android:id="@+id/inputStaffInfo_rselectdialog2_HL1"
+            android:id="@+id/inputStaffInfo_rselectdl2_HL1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="bottom"
             android:visibility="invisible">
             <EditText
-                android:id="@+id/inputStaffInfo_rselectdialog2_manualet1"
+                android:id="@+id/inputStaffInfo_rselectdl2_manualet1"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -73,7 +73,7 @@
                 android:textCursorDrawable="@drawable/yet_cursor"/>
 
             <TextView
-                android:id="@+id/inputStaffInfo_rselectdialog2_tv2"
+                android:id="@+id/inputStaffInfo_rselectdl2_tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -88,7 +88,7 @@
         android:layout_weight="1" />
     <!-- 확인 버튼 -->
     <Button
-        android:id="@+id/inputStaffInfo_rselectdialog2_okbtn1"
+        android:id="@+id/inputStaffInfo_rselectdl2_okbtn1"
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:layout_gravity="bottom"
