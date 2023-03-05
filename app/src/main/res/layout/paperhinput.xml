@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F1F1"
+    android:id="@+id/paperhinput_L1">
+
+    <!-- top_보건증 입력 -->
+    <FrameLayout
+        android:id="@+id/paperhinput_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/paperhinput_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/lightblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="보건증 입력"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/paperhinput_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/yicon_back" />
+
+        <!-- 홈 아이콘 -->
+        <ImageView
+            android:id="@+id/paperhinput_homeiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/yicon_home" />
+    </FrameLayout>
+
+    <!-- 스크롤 -->
+    <ScrollView
+        android:id="@+id/paperhinput_scoll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/paperhinput_L3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="15dp">
+
+            <!-- 보건증 촬용 Frame -->
+            <FrameLayout
+                android:id="@+id/paperhinput_F2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="25dp"
+                android:paddingBottom="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <LinearLayout
+                    android:id="@+id/paperhinput_L4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- 보건증 좔영_text -->
+                    <TextView
+                        android:id="@+id/paperhinput_tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:text="보건증 촬영"
+                        android:textColor="#737373"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/paperhinput_linetv3"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:minHeight="1dp"
+                        android:background="@drawable/yunderline_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="bottom"/>
+                    <!-- 사진촬영 F -->
+                    <FrameLayout
+                        android:id="@+id/paperhinput_F3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/yroundrec_w_sr"
+                        android:layout_gravity="center_horizontal">
+                        <ImageButton
+                            android:id="@+id/paperhinput_camerabtn1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/yicon_camerared"
+                            android:layout_gravity="center" />
+                        <TextView
+                            android:id="@+id/paperhinput_tv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="사진촬영"
+                            android:textSize="7sp"
+                            android:textColor="#EB8F8F"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp" />
+                    </FrameLayout> <!-- 사진촬영 F -->
+                </LinearLayout>
+            </FrameLayout> <!-- 보건증 촬용 Frame -->
+
+            <!-- 보건증 정보입력 Frame -->
+            <LinearLayout
+                android:id="@+id/paperhinput_F4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="25dp"
+                android:paddingBottom="25dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+                <!-- 성명_text -->
+                <TextView
+                    android:id="@+id/paperhinput_tv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성명"
+                    android:textColor="#737373"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/paperhinput_nameet1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="성명"
+                    android:text="김유경"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"/>
+                <LinearLayout
+                    android:id="@+id/paperhinput_HL1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp">
+                    <TextView
+                        android:id="@+id/paperhinput_tv5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="검진일"
+                        android:textColor="#737373"
+                        android:textSize="15sp" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <!-- 검진일 버튼 -->
+                    <Button
+                        android:id="@+id/paperhinput_datebtn2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="right"
+                        android:background="@drawable/yroundrec_w_sblue"
+                        android:cursorVisible="false"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="2023년 1월 25일"
+                        android:textColor="@color/blue"
+                        android:textSize="12sp" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/paperhinput_tv6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="만료일"
+                    android:textColor="#737373"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/paperhinput_nameet2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="만료일"
+                    android:text="2024년 1월 25일"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"/>
+            </LinearLayout> <!-- 보건증 정보입력 Frame -->
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 맨 아래 '입력완료' 버튼 -->
+    <LinearLayout
+        android:id="@+id/paperhinput_L2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+        <!-- 맨 아래 버튼 변경 F -->
+        <FrameLayout
+            android:id="@+id/paperhinput_changebtnF3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/paperhinput_bottomoffbtn"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/yroundrec_bottombtnoff"
+                android:text="입력 완료"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:visibility="visible"/>
+            <Button
+                android:id="@+id/paperhinput_bottomonbtn"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/yroundrec_bottombtnon"
+                android:text="입력 완료"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:visibility="gone"/>
+        </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
+    </LinearLayout>
+</LinearLayout>

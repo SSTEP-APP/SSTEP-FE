@@ -26,13 +26,13 @@
             android:textSize="17sp" />
 
         <!-- 뒤로가기 아이콘 -->
-        <ImageView
-            android:id="@+id/staffInvite1_backiv"
+        <ImageButton
+            android:id="@+id/staffInvite1_backib"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/yicon_back" />
+            android:background="@drawable/yicon_back" />
 
         <!-- 홈 아이콘 -->
         <ImageView

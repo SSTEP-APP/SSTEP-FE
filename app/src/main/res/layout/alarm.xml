@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F1F1F1"
-    tools:context=".Alarm">
+    tools:context=".alarm.Alarm">
 
     <!-- top_알림-->
     <FrameLayout
-        android:id="@+id/inputStaffInfo_F1"
+        android:id="@+id/alarm_F1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/inputStaffInfo_toptv"
+            android:id="@+id/alarm_toptv"
             android:layout_width="match_parent"
             android:layout_height="74dp"
             android:background="@color/lightblue"
@@ -25,17 +25,17 @@
             android:textSize="17sp"/>
 
         <!-- 뒤로가기 아이콘 -->
-        <ImageView
-            android:id="@+id/inputStaffInfo_backiv"
+        <ImageButton
+            android:id="@+id/alarm_backib"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/yicon_back" />
+            android:background="@drawable/yicon_back" />
     </FrameLayout>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs_layout"
+        android:id="@+id/alarm_tabs_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -45,7 +45,7 @@
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager"
+        android:id="@+id/alarm_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="20dp" />

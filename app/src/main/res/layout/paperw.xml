@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F1F1"
+    android:id="@+id/paperw_L1">
+
+    <!-- top_근로계약서 유형 선택 -->
+    <FrameLayout
+        android:id="@+id/paperw_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/paperw_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/lightblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="근로계약서 유형 선택"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/paperw_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/yicon_back" />
+
+        <!-- 홈 아이콘 -->
+        <ImageView
+            android:id="@+id/paperw_homeiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/yicon_home" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/paperw_L2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="15dp">
+
+        <!-- 근로계약서 _F -->
+        <LinearLayout
+            android:id="@+id/paperw_F2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/yroundrec_w"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <!-- 근로계약서 유형 선택_text -->
+            <TextView
+                android:id="@+id/paperw_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="근로계약서 유형 선택"
+                android:textColor="#737373"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"/>
+            <TextView
+                android:id="@+id/paperw_linetv1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:minHeight="1dp"
+                android:background="@drawable/yunderline_text"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="bottom"/>
+            <RadioGroup
+                android:id="@+id/paperw_rg1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp">
+                <!-- 기간에 정함이 있는 경우 rb -->
+                <RadioButton
+                    android:id="@+id/paperw_rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/yradiobtn_red"
+                    android:checked="false"
+                    android:paddingLeft="10dp"
+                    android:text="기간에 정함이 있는 경우" />
+                <!-- 기간에 정함이 없는 경우 rb -->
+                <RadioButton
+                    android:id="@+id/paperw_rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/yradiobtn_red"
+                    android:checked="false"
+                    android:paddingLeft="10dp"
+                    android:text="기간에 정함이 없는 경우"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"/>
+                <!-- 사진 촬영 rb -->
+                <RadioButton
+                    android:id="@+id/paperw_rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/yradiobtn_red"
+                    android:checked="false"
+                    android:paddingLeft="10dp"
+                    android:text="없음 (사진 촬영)" />
+            </RadioGroup>
+        </LinearLayout> <!-- 근로계약서 _F -->
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <!-- 맨 아래 버튼 변경 F -->
+    <FrameLayout
+        android:id="@+id/paperw_changebtnF1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/paperw_bottomoffbtn"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:text="선택 완료"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:visibility="visible"/>
+        <Button
+            android:id="@+id/paperw_bottomonbtn"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/yroundrec_bottombtnon"
+            android:text="선택 완료"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
+</LinearLayout>

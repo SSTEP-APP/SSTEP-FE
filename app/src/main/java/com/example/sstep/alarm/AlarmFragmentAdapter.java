@@ -1,4 +1,4 @@
-package com.example.sstep.fragments;
+package com.example.sstep.alarm;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

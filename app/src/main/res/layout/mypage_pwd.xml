@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F1F1F1"
-    android:id="@+id/mypage_pwd_L1">
+    android:id="@+id/mypage_pwd_L1"
+    tools:context=".mypage.MyPage_Pwd">
     <!-- top_비밀번호 변경-->
     <FrameLayout
         android:id="@+id/mypage_pwd_F1"
@@ -24,13 +25,13 @@
             android:textSize="17sp" />
 
         <!-- 뒤로가기 아이콘 -->
-        <ImageView
-            android:id="@+id/mypage_pwd_backiv"
+        <ImageButton
+            android:id="@+id/mypage_pwd_backib"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/yicon_back" />
+            android:background="@drawable/yicon_back" />
     </FrameLayout>
 
     <!-- 선택들 L-->
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/yroundrec_w"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -62,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/yroundrec_g"
+            android:textCursorDrawable="@drawable/yet_cursor"
             android:textColor="@color/black"
             android:textColorHint="#C6C6C8"
             android:hint="현재 비밀번호"
@@ -117,6 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/yroundrec_g"
+            android:textCursorDrawable="@drawable/yet_cursor"
             android:textColor="@color/black"
             android:textColorHint="#C6C6C8"
             android:hint="새 비밀번호"
@@ -133,7 +136,7 @@
             android:layout_height="wrap_content"
             android:text="* 영문,숫자,특수문자 조합하여 6자 이상 입력해 주세요."
             android:textSize="9sp"
-            android:textColor="#EF5E5E"
+            android:textColor="@color/lightred"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"/>
         <EditText
@@ -141,6 +144,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/yroundrec_g"
+            android:textCursorDrawable="@drawable/yet_cursor"
             android:textColor="@color/black"
             android:textColorHint="#C6C6C8"
             android:hint="새 비밀번호 재입력"

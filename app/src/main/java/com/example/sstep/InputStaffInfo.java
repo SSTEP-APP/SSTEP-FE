@@ -17,50 +17,37 @@ public class InputStaffInfo extends AppCompatActivity {
 
     RadioGroup pi_payrg1, pi_lawrg2;
     RadioButton pi_hourrb1, pi_dayrb2, pi_monthrb3, pi_lawrb4, pi_lawrb5, pi_lawrb6;
-    LinearLayout inputStaffInfo_pi_hidL3, inputStaffInfo_pi_hidL5, inputStaffInfo_pi_hidL6;
-    LinearLayout inputStaffInfo_ci_hidL2,inputStaffInfo_pi_hidL2,inputStaffInfo_yi_hidL2;
-    LinearLayout inputStaffInfo_ci_hidHL3;
-    LinearLayout inputStaffInfo_pi_hidL8;
-    LinearLayout inputStaffInfo_pi_hidL9, inputStaffInfo_pi_hidL10;
+    LinearLayout pi_hidL3, pi_hidL5, pi_hidL6;
+    LinearLayout ci_hidL2,pi_hidL2,yi_hidL2;
+    LinearLayout ci_hidHL3;
+    LinearLayout pi_hidL8;
+    LinearLayout pi_hidL9, pi_hidL10;
     FrameLayout ci_changeiconF1,pi_changeiconF2, yi_changeiconF3;
     ImageView ci_upicon1,ci_downicon1, pi_upicon2,pi_downicon2, yi_downicon3,yi_upicon3;
     CheckBox ci_outdatechbox1, pi_pluspaych1,pi_minuspaych2, pi_notermch4;
-    Button inputStaffInfo_pi_setbtn1, inputStaffInfo_pi_setbtn2;
+    Button pi_setbtn1, pi_setbtn2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inputstaffinfo);
-        ci_changeiconF1 = findViewById(R.id.inputStaffInfo_ci_changeiconF1);
-        pi_changeiconF2 = findViewById(R.id.inputStaffInfo_pi_changeiconF2);
-        yi_changeiconF3 = findViewById(R.id.inputStaffInfo_yi_changeiconF3);
-        inputStaffInfo_ci_hidL2 = findViewById(R.id.inputStaffInfo_ci_hidL2);
-        inputStaffInfo_pi_hidL2 = findViewById(R.id.inputStaffInfo_pi_hidL2);
-        inputStaffInfo_yi_hidL2 = findViewById(R.id.inputStaffInfo_yi_hidL2);
-        ci_outdatechbox1 = findViewById(R.id.inputStaffInfo_ci_outdatechbox1);
-        ci_upicon1 = findViewById(R.id.inputStaffInfo_ci_upicon1); ci_downicon1 = findViewById(R.id.inputStaffInfo_ci_downicon1);
-        pi_upicon2 = findViewById(R.id.inputStaffInfo_pi_upicon2); pi_downicon2 = findViewById(R.id.inputStaffInfo_pi_downicon2);
-        yi_upicon3 = findViewById(R.id.inputStaffInfo_yi_upicon3); yi_downicon3 = findViewById(R.id.inputStaffInfo_yi_downicon3);
-        inputStaffInfo_ci_hidHL3 = findViewById(R.id.inputStaffInfo_ci_hidHL3);
-        pi_payrg1 = findViewById(R.id.inputStaffInfo_pi_payrg1);
-        pi_hourrb1 = findViewById(R.id.inputStaffInfo_pi_hourrb1);
-        pi_dayrb2 = findViewById(R.id.inputStaffInfo_pi_dayrb2);
-        pi_monthrb3 = findViewById(R.id.inputStaffInfo_pi_monthrb3);
-        inputStaffInfo_pi_hidL3 = findViewById(R.id.inputStaffInfo_pi_hidL3); inputStaffInfo_pi_hidL5 = findViewById(R.id.inputStaffInfo_pi_hidL5); inputStaffInfo_pi_hidL6 = findViewById(R.id.inputStaffInfo_pi_hidL6);
-        pi_pluspaych1 = findViewById(R.id.inputStaffInfo_pi_pluspaych1);
-        pi_minuspaych2 = findViewById(R.id.inputStaffInfo_pi_minuspaych2);
-        inputStaffInfo_pi_setbtn1 = findViewById(R.id.inputStaffInfo_pi_setbtn1);
-        inputStaffInfo_pi_setbtn2 = findViewById(R.id.inputStaffInfo_pi_setbtn2);
-        pi_notermch4 = findViewById(R.id.inputStaffInfo_pi_notermch4);
-        inputStaffInfo_pi_hidL8 = findViewById(R.id.inputStaffInfo_pi_hidL8);
-        inputStaffInfo_pi_hidL9 = findViewById(R.id.inputStaffInfo_pi_hidL9); inputStaffInfo_pi_hidL10 = findViewById(R.id.inputStaffInfo_pi_hidL10);
-        pi_lawrg2 = findViewById(R.id.inputStaffInfo_pi_lawrg2);
-        pi_lawrb4 = findViewById(R.id.inputStaffInfo_pi_lawrb4);
-        pi_lawrb5 = findViewById(R.id.inputStaffInfo_pi_lawrb5);
-        pi_lawrb6 = findViewById(R.id.inputStaffInfo_pi_lawrb6);
-
-
+        ci_changeiconF1 = findViewById(R.id.isi_ci_changeiconF1); pi_changeiconF2 = findViewById(R.id.isi_pi_changeiconF2); yi_changeiconF3 = findViewById(R.id.isi_yi_changeiconF3);
+        ci_hidL2 = findViewById(R.id.isi_ci_hidL2); pi_hidL2 = findViewById(R.id.isi_pi_hidL2); yi_hidL2 = findViewById(R.id.isi_yi_hidL2);
+        ci_outdatechbox1 = findViewById(R.id.isi_ci_outdatechbox1);
+        ci_upicon1 = findViewById(R.id.isi_ci_upicon1); ci_downicon1 = findViewById(R.id.isi_ci_downicon1);
+        pi_upicon2 = findViewById(R.id.isi_pi_upicon2); pi_downicon2 = findViewById(R.id.isi_pi_downicon2);
+        yi_upicon3 = findViewById(R.id.isi_yi_upicon3); yi_downicon3 = findViewById(R.id.isi_yi_downicon3);
+        ci_hidHL3 = findViewById(R.id.isi_ci_hidHL3);
+        pi_payrg1 = findViewById(R.id.isi_pi_payrg1); pi_hourrb1 = findViewById(R.id.isi_pi_hourrb1); pi_dayrb2 = findViewById(R.id.isi_pi_dayrb2); pi_monthrb3 = findViewById(R.id.isi_pi_monthrb3);
+        pi_hidL3 = findViewById(R.id.isi_pi_hidL3); pi_hidL5 = findViewById(R.id.isi_pi_hidL5); pi_hidL6 = findViewById(R.id.isi_pi_hidL6);
+        pi_pluspaych1 = findViewById(R.id.isi_pi_pluspaych1);
+        pi_minuspaych2 = findViewById(R.id.isi_pi_minuspaych2);
+        pi_setbtn1 = findViewById(R.id.isi_pi_setbtn1);
+        pi_setbtn2 = findViewById(R.id.isi_pi_setbtn2);
+        pi_notermch4 = findViewById(R.id.isi_pi_notermch4);
+        pi_hidL8 = findViewById(R.id.isi_pi_hidL8); pi_hidL9 = findViewById(R.id.isi_pi_hidL9); pi_hidL10 = findViewById(R.id.isi_pi_hidL10);
+        pi_lawrg2 = findViewById(R.id.isi_pi_lawrg2); pi_lawrb4 = findViewById(R.id.isi_pi_lawrb4); pi_lawrb5 = findViewById(R.id.isi_pi_lawrb5); pi_lawrb6 = findViewById(R.id.isi_pi_lawrb6);
 
         // 출퇴근정보_up&down 아이콘 변경
         ci_changeiconF1.setOnClickListener(new View.OnClickListener() {
@@ -69,11 +56,11 @@ public class InputStaffInfo extends AppCompatActivity {
                 if (ci_upicon1.getVisibility() == View.VISIBLE){
                     ci_upicon1.setVisibility(View.INVISIBLE);
                     ci_downicon1.setVisibility(View.VISIBLE);
-                    inputStaffInfo_ci_hidL2.setVisibility(View.VISIBLE);
+                    ci_hidL2.setVisibility(View.VISIBLE);
                 } else {
                     ci_upicon1.setVisibility(View.VISIBLE);
                     ci_downicon1.setVisibility(View.INVISIBLE);
-                    inputStaffInfo_ci_hidL2.setVisibility(View.GONE);
+                    ci_hidL2.setVisibility(View.GONE);
                 }
             }
         });
@@ -84,11 +71,11 @@ public class InputStaffInfo extends AppCompatActivity {
                 if (pi_upicon2.getVisibility() == View.VISIBLE){
                     pi_upicon2.setVisibility(View.INVISIBLE);
                     pi_downicon2.setVisibility(View.VISIBLE);
-                    inputStaffInfo_pi_hidL2.setVisibility(View.VISIBLE);
+                    pi_hidL2.setVisibility(View.VISIBLE);
                 } else {
                     pi_upicon2.setVisibility(View.VISIBLE);
                     pi_downicon2.setVisibility(View.INVISIBLE);
-                    inputStaffInfo_pi_hidL2.setVisibility(View.GONE);
+                    pi_hidL2.setVisibility(View.GONE);
                 }
             }
         });
@@ -99,11 +86,11 @@ public class InputStaffInfo extends AppCompatActivity {
                 if (yi_upicon3.getVisibility() == View.VISIBLE){
                     yi_upicon3.setVisibility(View.INVISIBLE);
                     yi_downicon3.setVisibility(View.VISIBLE);
-                    inputStaffInfo_yi_hidL2.setVisibility(View.VISIBLE);
+                    yi_hidL2.setVisibility(View.VISIBLE);
                 } else {
                     yi_upicon3.setVisibility(View.VISIBLE);
                     yi_downicon3.setVisibility(View.INVISIBLE);
-                    inputStaffInfo_yi_hidL2.setVisibility(View.GONE);
+                    yi_hidL2.setVisibility(View.GONE);
                 }
             }
         });
@@ -113,9 +100,9 @@ public class InputStaffInfo extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (ci_outdatechbox1.isChecked() == true) {
-                    inputStaffInfo_ci_hidHL3.setVisibility(View.GONE);
+                    ci_hidHL3.setVisibility(View.GONE);
                 } else {
-                    inputStaffInfo_ci_hidHL3.setVisibility(View.VISIBLE);
+                    ci_hidHL3.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -125,17 +112,17 @@ public class InputStaffInfo extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 if (pi_hourrb1.isChecked() == true) {
-                    inputStaffInfo_pi_hidL3.setVisibility(View.VISIBLE);
-                    inputStaffInfo_pi_hidL5.setVisibility(View.GONE);
-                    inputStaffInfo_pi_hidL6.setVisibility(View.GONE);
+                    pi_hidL3.setVisibility(View.VISIBLE);
+                    pi_hidL5.setVisibility(View.GONE);
+                    pi_hidL6.setVisibility(View.GONE);
                 } else if (pi_dayrb2.isChecked() == true ) {
-                    inputStaffInfo_pi_hidL3.setVisibility(View.GONE);
-                    inputStaffInfo_pi_hidL5.setVisibility(View.VISIBLE);
-                    inputStaffInfo_pi_hidL6.setVisibility(View.GONE);
+                    pi_hidL3.setVisibility(View.GONE);
+                    pi_hidL5.setVisibility(View.VISIBLE);
+                    pi_hidL6.setVisibility(View.GONE);
                 } else {
-                    inputStaffInfo_pi_hidL3.setVisibility(View.GONE);
-                    inputStaffInfo_pi_hidL5.setVisibility(View.GONE);
-                    inputStaffInfo_pi_hidL6.setVisibility(View.VISIBLE);
+                    pi_hidL3.setVisibility(View.GONE);
+                    pi_hidL5.setVisibility(View.GONE);
+                    pi_hidL6.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -145,9 +132,9 @@ public class InputStaffInfo extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (pi_pluspaych1.isChecked() == true) {// 체크박스가 체크가 되어있으면,
-                    inputStaffInfo_pi_setbtn1.setVisibility(View.VISIBLE);
+                    pi_setbtn1.setVisibility(View.VISIBLE);
                 } else {
-                    inputStaffInfo_pi_setbtn1.setVisibility(View.INVISIBLE);
+                    pi_setbtn1.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -156,9 +143,9 @@ public class InputStaffInfo extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (pi_minuspaych2.isChecked() == true) {// 체크박스가 체크가 되어있으면,
-                    inputStaffInfo_pi_setbtn2.setVisibility(View.VISIBLE);
+                    pi_setbtn2.setVisibility(View.VISIBLE);
                 } else {
-                    inputStaffInfo_pi_setbtn2.setVisibility(View.INVISIBLE);
+                    pi_setbtn2.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -168,9 +155,9 @@ public class InputStaffInfo extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (pi_notermch4.isChecked() == true) {
-                    inputStaffInfo_pi_hidL8.setVisibility(View.GONE);
+                    pi_hidL8.setVisibility(View.GONE);
                 } else {
-                    inputStaffInfo_pi_hidL8.setVisibility(View.VISIBLE);
+                    pi_hidL8.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -180,14 +167,14 @@ public class InputStaffInfo extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 if (pi_lawrb4.isChecked() == true) {
-                    inputStaffInfo_pi_hidL9.setVisibility(View.GONE);
-                    inputStaffInfo_pi_hidL10.setVisibility(View.VISIBLE);
+                    pi_hidL9.setVisibility(View.GONE);
+                    pi_hidL10.setVisibility(View.VISIBLE);
                 } else if (pi_lawrb5.isChecked() == true ) {
-                    inputStaffInfo_pi_hidL9.setVisibility(View.VISIBLE);
-                    inputStaffInfo_pi_hidL10.setVisibility(View.GONE);
+                    pi_hidL9.setVisibility(View.VISIBLE);
+                    pi_hidL10.setVisibility(View.GONE);
                 } else {
-                    inputStaffInfo_pi_hidL9.setVisibility(View.VISIBLE);
-                    inputStaffInfo_pi_hidL10.setVisibility(View.GONE);
+                    pi_hidL9.setVisibility(View.VISIBLE);
+                    pi_hidL10.setVisibility(View.GONE);
                 }
             }
         });

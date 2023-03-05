@@ -26,13 +26,13 @@
             android:textSize="17sp" />
 
         <!-- 뒤로가기 아이콘 -->
-        <ImageView
-            android:id="@+id/staffInvite2_backiv"
+        <ImageButton
+            android:id="@+id/staffInvite2_backib"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/yicon_back" />
+            android:background="@drawable/yicon_back" />
 
         <!-- 홈 아이콘 -->
         <ImageView
@@ -111,23 +111,25 @@
             android:id="@+id/staffInvite2_F3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/staffInvite2_numberet2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/yroundrec_g"
+                android:maxLength="13"
+                android:hint="전화번호"
+                android:inputType="phone"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="15dp"
                 android:textColor="@color/black"
                 android:textColorHint="#C6C6C8"
-                android:hint="전화번호"
-                android:textSize="15sp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="5dp"
                 android:textCursorDrawable="@drawable/yet_cursor"
-                android:inputType="phone"/>
+                android:textSize="15sp" />
 
             <!-- 문자발송 버튼 -->
             <Button

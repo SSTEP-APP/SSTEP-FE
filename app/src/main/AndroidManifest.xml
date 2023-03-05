@@ -12,7 +12,7 @@
         android:theme="@style/Theme.SSTEP"
         tools:targetApi="31">
         <activity
-            android:name=".MyPage"
+            android:name=".alarm.Alarm"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,69 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Alarm"
+            android:name=".mypage.MyPage"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".mypage.MyPage_Profile" />
+        <activity android:name=".mypage.MyPage_Alarm" />
+        <activity android:name=".mypage.MyPage_Pwd" />
+        <activity android:name=".mypage.MyPage_Change" />
+        <activity android:name=".mypage.MyPage_Message" />
+        <activity android:name=".mypage.MyPage_Ask" />
+        <activity
+            android:name=".paper.Paper"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".paper.Paperh" />
+        <activity
+            android:name=".notice.Notice"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".notice.Notice_input" />
+        <activity
+            android:name=".notice.Notice_view"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".monthstate.MonthState"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".money.Money_Ceo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".money.Money_Staff"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

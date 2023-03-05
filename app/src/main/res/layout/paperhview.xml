@@ -25,13 +25,13 @@
             android:textSize="17sp" />
 
         <!-- 뒤로가기 아이콘 -->
-        <ImageView
-            android:id="@+id/paperview_backiv"
+        <ImageButton
+            android:id="@+id/paperview_backib"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/yicon_back" />
+            android:background="@drawable/yicon_back" />
 
         <!-- 홈 아이콘 -->
         <ImageView
@@ -64,56 +64,16 @@
             android:orientation="vertical"
             android:paddingTop="20dp"
             android:paddingBottom="20dp">
-            <!-- 버튼 HL -->
-            <LinearLayout
-                android:id="@+id/paperview_HL1"
-                android:layout_width="match_parent"
+            <!-- 회차 text -->
+            <TextView
+                android:id="@+id/paperview_tv1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-                <!-- 왼쪽 버튼 -->
-                <ImageButton
-                    android:id="@+id/paperview_leftbtn1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:background="@drawable/yicon_left" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-                <!-- 회차 text -->
-                <TextView
-                    android:id="@+id/paperview_tv1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nanumsquareneo_deb"
-                    android:text="1회차"
-                    android:textColor="#737373"
-                    android:textSize="13sp" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-                <!-- 새로고침 버튼 -->
-                <ImageButton
-                    android:id="@+id/paperview_refreshbtn2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:background="@drawable/yicon_refresh" />
-                <!-- 오른쪽 버튼 -->
-                <ImageButton
-                    android:id="@+id/paperview_rightbtn3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@drawable/yicon_right" />
-            </LinearLayout> <!-- 버튼 HL -->
+                android:text="최신 보건증"
+                android:textColor="#737373"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"/>
 
             <!-- 보건증 상세 정보 F -->
             <FrameLayout
@@ -122,19 +82,19 @@
                 android:layout_height="289dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/yline_paper">
+                android:background="@drawable/yicon_linepaper">
 
                 <!-- 성명 text -->
                 <TextView
-                android:id="@+id/paperview_tv2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="17dp"
-                android:text="성명"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                android:textStyle="bold"/>
+                    android:id="@+id/paperview_tv2"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:text="성명"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
                 <TextView
                     android:id="@+id/paperview_nametv1"
                     android:layout_width="215dp"
@@ -149,14 +109,14 @@
                 <!-- 회차 text -->
                 <TextView
                     android:id="@+id/paperview_tv3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="105dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
                     android:layout_marginTop="68dp"
-                    android:text="회차"
+                    android:text="검진일"
                     android:textColor="@color/black"
                     android:textSize="13sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
 
                 <TextView
                     android:id="@+id/paperview_numtv2"
@@ -164,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="68dp"
-                    android:text="12회차"
+                    android:text="2023.02.09"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     android:gravity="center_horizontal"/>
@@ -172,14 +132,14 @@
                 <!-- 검진일 text -->
                 <TextView
                     android:id="@+id/paperview_tv4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="105dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="33dp"
                     android:layout_marginTop="119dp"
-                    android:text="검진일"
+                    android:text="만료일"
                     android:textColor="@color/black"
                     android:textSize="13sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal" />
 
                 <TextView
                     android:id="@+id/paperview_datetv3"
@@ -187,7 +147,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="119dp"
-                    android:text="2023.02.09"
+                    android:text="2024.02.09"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     android:gravity="center_horizontal"/>
@@ -195,21 +155,21 @@
                 <!-- 사진 text -->
                 <TextView
                     android:id="@+id/paperview_tv5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="105dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="33dp"
                     android:layout_marginTop="210dp"
-                    android:text="검진일"
+                    android:text="사진"
                     android:textColor="@color/black"
                     android:textSize="13sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
 
                 <ImageView
                 android:id="@+id/paperview_photoiv1"
                 android:layout_width="194dp"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:layout_marginLeft="120dp"
-                android:layout_marginTop="170dp"
+                android:layout_marginTop="160dp"
                 android:background="@drawable/yroundrec_w_sg"/>
             </FrameLayout> <!-- 보건증 상세 정보 F -->
             <TextView

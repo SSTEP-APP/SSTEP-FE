@@ -1,15 +1,15 @@
-package com.example.sstep;
+package com.example.sstep.alarm;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
-import com.example.sstep.fragments.AlarmFragmentAdapter;
-import com.example.sstep.fragments.alarm1Fragment;
-import com.example.sstep.fragments.alarm2Fragment;
-import com.example.sstep.fragments.alarm3Fragment;
-import com.google.android.material.tabs.TabItem;
+import com.example.sstep.R;
+import com.example.sstep.alarm.AlarmFragmentAdapter;
+import com.example.sstep.alarm.alarm1Fragment;
+import com.example.sstep.alarm.alarm2Fragment;
+import com.example.sstep.alarm.alarm3Fragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class Alarm extends AppCompatActivity {
@@ -24,8 +24,8 @@ public class Alarm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alarm);
 
-        tabs_layout = findViewById(R.id.tabs_layout);
-        viewpager = findViewById(R.id.viewpager);
+        tabs_layout = findViewById(R.id.alarm_tabs_layout);
+        viewpager = findViewById(R.id.alarm_viewpager);
         adapter = new AlarmFragmentAdapter(getSupportFragmentManager(),1);
 
         // AlarmFragmentAdapter 에 컬렉션 담기

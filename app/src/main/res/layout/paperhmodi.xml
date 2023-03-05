@@ -6,36 +6,36 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F1F1F1"
-    android:id="@+id/paperinput_L1">
+    android:id="@+id/paperhmodify_L1">
 
-    <!-- top_보건증 입력 -->
+    <!-- top_보건증 수정 -->
     <FrameLayout
-        android:id="@+id/paperinput_F1"
+        android:id="@+id/paperhmodify_F1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/paperinput_toptv"
+            android:id="@+id/paperhmodify_toptv"
             android:layout_width="match_parent"
             android:layout_height="74dp"
             android:background="@color/lightblue"
             android:gravity="center_horizontal|center_vertical"
-            android:text="보건증 입력"
+            android:text="보건증 수정"
             android:textColor="@color/white"
             android:textSize="17sp" />
 
         <!-- 뒤로가기 아이콘 -->
-        <ImageView
-            android:id="@+id/paperinput_backiv"
+        <ImageButton
+            android:id="@+id/paperhmodify_backib"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/yicon_back" />
+            android:background="@drawable/yicon_back" />
 
         <!-- 홈 아이콘 -->
         <ImageView
-            android:id="@+id/paperinput_homeiv"
+            android:id="@+id/paperhmodify_homeiv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
@@ -43,16 +43,14 @@
             app:srcCompat="@drawable/yicon_home" />
     </FrameLayout>
 
-    <!-- 스크롤 -->
     <ScrollView
-        android:id="@+id/paperinput_scoll"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:scrollbars="none">
-
+        <!-- 보건증 수정 전체 L -->
         <LinearLayout
-            android:id="@+id/paperinput_L3"
+            android:id="@+id/paperhmodify_L3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -60,24 +58,26 @@
 
             <!-- 보건증 촬용 Frame -->
             <FrameLayout
-                android:id="@+id/paperinput_F2"
-                android:layout_width="380dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/paperhmodify_F2"
+                android:layout_width="match_parent"
+                android:layout_height="362dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/yroundrec_w"
                 android:paddingTop="25dp"
                 android:paddingBottom="25dp">
 
                 <LinearLayout
-                    android:id="@+id/paperinput_L4"
+                    android:id="@+id/paperhmodify_L4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <!-- 보건증 좔영_text -->
                     <TextView
-                        android:id="@+id/paperinput_tv1"
+                        android:id="@+id/paperhmodify_tv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="15dp"
@@ -86,59 +86,61 @@
                         android:textSize="15sp" />
 
                     <TextView
-                        android:id="@+id/paperinput_linetv3"
+                        android:id="@+id/paperhmodify_linetv3"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:minHeight="1dp"
-                        android:background="@drawable/yunderline_text"
+                        android:layout_gravity="bottom"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
-                        android:layout_gravity="bottom"/>
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/yunderline_text"
+                        android:minHeight="1dp" />
                     <!-- 사진촬영 F -->
                     <FrameLayout
-                        android:id="@+id/paperinput_F3"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/paperhmodify_F3"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:layout_marginTop="15dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@drawable/yroundrec_w_sr"
-                        android:layout_gravity="center_horizontal">
+                        android:layout_marginBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/paperview_photoiv1"
+                            android:layout_width="330dp"
+                            android:layout_height="250dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/yroundrec_w_sg"
+                            android:layout_gravity="center_horizontal"/>
+
                         <ImageButton
-                            android:id="@+id/paperinput_camerabtn1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/yicon_camerared"
-                            android:layout_gravity="center" />
-                        <TextView
-                            android:id="@+id/paperinput_tv3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="사진촬영"
-                            android:textSize="7sp"
-                            android:textColor="#EB8F8F"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="15dp" />
+                            android:id="@+id/paperview_closebtn1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/yicon_closeg" />
                     </FrameLayout> <!-- 사진촬영 F -->
                 </LinearLayout>
             </FrameLayout> <!-- 보건증 촬용 Frame -->
 
             <!-- 보건증 정보입력 Frame -->
             <LinearLayout
-                android:id="@+id/paperinput_F4"
-                android:layout_width="380dp"
+                android:id="@+id/paperhmodify_F4"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/yroundrec_w"
-                android:paddingTop="25dp"
-                android:paddingBottom="25dp"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
-                android:paddingRight="15dp">
+                android:paddingTop="25dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="25dp">
                 <!-- 성명_text -->
                 <TextView
-                    android:id="@+id/paperinput_tv4"
+                    android:id="@+id/paperhmodify_tv4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="성명"
@@ -146,37 +148,41 @@
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/paperinput_nameet1"
+                    android:id="@+id/paperhmodify_nameet1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="성명"
                     android:text="김유경"
-                    android:textSize="13sp" />
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"/>
+
                 <LinearLayout
-                    android:id="@+id/paperinput_HL1"
+                    android:id="@+id/paperhmodify_HL1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp">
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal">
+
                     <TextView
-                        android:id="@+id/paperinput_tv5"
+                        android:id="@+id/paperhmodify_tv5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="검진일"
                         android:textColor="#737373"
                         android:textSize="15sp" />
+
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
                     <!-- 검진일 버튼 -->
                     <Button
-                        android:id="@+id/paperinput_datebtn2"
+                        android:id="@+id/paperhmodify_datebtn2"
                         android:layout_width="wrap_content"
                         android:layout_height="25dp"
-                        android:layout_marginRight="15dp"
                         android:layout_gravity="right"
+                        android:layout_marginRight="15dp"
                         android:background="@drawable/yroundrec_w_sblue"
                         android:cursorVisible="false"
                         android:paddingLeft="15dp"
@@ -185,8 +191,9 @@
                         android:textColor="@color/blue"
                         android:textSize="12sp" />
                 </LinearLayout>
+
                 <TextView
-                    android:id="@+id/paperinput_tv6"
+                    android:id="@+id/paperhmodify_tv6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="만료일"
@@ -194,44 +201,56 @@
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/paperinput_nameet2"
+                    android:id="@+id/paperhmodify_nameet2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="만료일"
                     android:text="2024년 1월 25일"
-                    android:textSize="13sp" />
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"/>
             </LinearLayout> <!-- 보건증 정보입력 Frame -->
-        </LinearLayout>
+
+            <TextView
+                android:id="@+id/paperhmodify_deltv7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center_horizontal"
+                android:text="보건증 삭제하기"
+                android:textColor="@color/red"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+        </LinearLayout> <!-- 보건증 수정 전체 L -->
     </ScrollView>
 
     <!-- 맨 아래 '입력완료' 버튼 -->
     <LinearLayout
-        android:id="@+id/paperinput_L2"
+        android:id="@+id/paperhmodify_L2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="vertical">
         <!-- 맨 아래 버튼 변경 F -->
         <FrameLayout
-            android:id="@+id/paperinput_changebtnF3"
+            android:id="@+id/paperhmodify_changebtnF3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
-                android:id="@+id/paperinput_bottomoffbtn"
+                android:id="@+id/paperhmodify_bottomoffbtn"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:background="@drawable/yroundrec_bottombtnoff"
-                android:text="입력 완료"
+                android:text="수정 완료"
                 android:textColor="@color/white"
                 android:textSize="17sp"
                 android:gravity="center"
                 android:visibility="visible"/>
             <Button
-                android:id="@+id/paperinput_bottomonbtn"
+                android:id="@+id/paperhmodify_bottomonbtn"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:background="@drawable/yroundrec_bottombtnon"
-                android:text="입력 완료"
+                android:text="수정 완료"
                 android:textColor="@color/white"
                 android:textSize="17sp"
                 android:gravity="center"

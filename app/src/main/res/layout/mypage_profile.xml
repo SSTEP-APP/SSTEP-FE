@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F1F1F1"
-    android:id="@+id/mypage_profile_L1">
+    android:id="@+id/mypage_profile_L1"
+    tools:context=".mypage.MyPage_Profile">
     <!-- top_프로필 수정-->
     <FrameLayout
         android:id="@+id/mypage_profile_F1"
@@ -24,13 +25,13 @@
             android:textSize="17sp" />
 
         <!-- 뒤로가기 아이콘 -->
-        <ImageView
-            android:id="@+id/mypage_profile_backiv"
+        <ImageButton
+            android:id="@+id/mypage_profile_backib"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/yicon_back" />
+            android:background="@drawable/yicon_back" />
     </FrameLayout>
 
     <FrameLayout

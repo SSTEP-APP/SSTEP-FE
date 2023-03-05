@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/inputStaffInfo_pselectdl1_L1"
+    android:id="@+id/inputStaffInfo_pselectdl_L1"
     android:layout_width="match_parent"
     android:layout_height="250dp"
     android:orientation="vertical"
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/inputStaffInfo_pselectdl1_tv1"
+        android:id="@+id/inputStaffInfo_pselectdl_tv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="급여비율 선택(%)"
@@ -21,7 +21,7 @@
         android:layout_marginLeft="40dp"/>
 
     <LinearLayout
-        android:id="@+id/inputStaffInfo_pselectdl1_L2"
+        android:id="@+id/inputStaffInfo_pselectdl_L2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -29,12 +29,12 @@
         android:layout_marginRight="40dp"
         android:background="@drawable/ytable_outsideline">
         <RadioGroup
-            android:id="@+id/inputStaffInfo_pselectdl1_rg1"
+            android:id="@+id/inputStaffInfo_pselectdl_rg1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/inputStaffInfo_pselectdl1_rb1"
+                android:id="@+id/inputStaffInfo_pselectdl_rb1"
                 android:layout_width="83dp"
                 android:layout_height="match_parent"
                 android:button="@null"
@@ -48,7 +48,7 @@
                 android:background="@drawable/yradiobtn_table"/>
 
             <RadioButton
-                android:id="@+id/inputStaffInfo_pselectdl1_rb2"
+                android:id="@+id/inputStaffInfo_pselectdl_rb2"
                 android:layout_width="83dp"
                 android:layout_height="match_parent"
                 android:button="@null"
@@ -61,7 +61,7 @@
                 android:textColor="@drawable/yradiobtn_tabletext"
                 android:background="@drawable/yradiobtn_table"/>
             <RadioButton
-                android:id="@+id/inputStaffInfo_pselectdl1_rb3"
+                android:id="@+id/inputStaffInfo_pselectdl_rb3"
                 android:layout_width="83dp"
                 android:layout_height="match_parent"
                 android:button="@null"
@@ -74,7 +74,7 @@
                 android:textColor="@drawable/yradiobtn_tabletext"
                 android:background="@drawable/yradiobtn_table" />
             <RadioButton
-                android:id="@+id/inputStaffInfo_pselectdl1_rb4"
+                android:id="@+id/inputStaffInfo_pselectdl_rb4"
                 android:layout_width="83dp"
                 android:layout_height="match_parent"
                 android:button="@null"
@@ -88,12 +88,12 @@
                 android:background="@drawable/yradiobtn_table" />
         </RadioGroup>
         <RadioGroup
-            android:id="@+id/inputStaffInfo_pselectdl1_rg2"
+            android:id="@+id/inputStaffInfo_pselectdl_rg2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/inputStaffInfo_pselectdl1_rb5"
+                android:id="@+id/inputStaffInfo_pselectdl_rb5"
                 android:layout_width="83dp"
                 android:layout_height="match_parent"
                 android:button="@null"
@@ -107,7 +107,7 @@
                 android:background="@drawable/yradiobtn_table"/>
 
             <RadioButton
-                android:id="@+id/inputStaffInfo_pselectdl1_rb6"
+                android:id="@+id/inputStaffInfo_pselectdl_rb6"
                 android:layout_width="83dp"
                 android:layout_height="match_parent"
                 android:button="@null"
@@ -120,7 +120,7 @@
                 android:textColor="@drawable/yradiobtn_tabletext"
                 android:background="@drawable/yradiobtn_table"/>
             <EditText
-                android:id="@+id/inputStaffInfo_pselectdl1_et1"
+                android:id="@+id/inputStaffInfo_pselectdl_et1"
                 android:layout_width="166dp"
                 android:layout_height="match_parent"
                 android:hint="직접 입력"
@@ -142,7 +142,7 @@
         android:layout_weight="1" />
     <!-- 확인 버튼 -->
     <Button
-        android:id="@+id/inputStaffInfo_pselectdl1_okbtn1"
+        android:id="@+id/inputStaffInfo_pselectdl_okbtn1"
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:layout_gravity="bottom"

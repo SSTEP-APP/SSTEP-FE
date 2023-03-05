@@ -16,11 +16,13 @@ public class StaffInvite extends AppCompatActivity {
         setContentView(R.layout.staffinvite1);
         staffInvite1_bottomonbtn = findViewById(R.id.staffInvite1_bottomonbtn);
 
+        // 맨 아래 '직원초대' 클릭 시
         staffInvite1_bottomonbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),StaffInvite2.class);
                 startActivity(intent);
+                finish();
             }
         });
 
