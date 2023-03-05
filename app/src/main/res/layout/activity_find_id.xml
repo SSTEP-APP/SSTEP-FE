@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D6D6D6"
+    android:background="#F1F1F1"
+    android:orientation="vertical"
     tools:context=".Find_id">
 
     <FrameLayout
@@ -66,11 +66,10 @@
 
                 <EditText
                     android:id="@+id/findId_nameEt"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:backgroundTint="#B9B9B9"
-                    android:ems="18"
                     android:hint="이름"
                     android:inputType="textPersonName"
                     android:textColor="#000000"
@@ -93,19 +92,17 @@
                     android:text="전화번호"
                     android:textColor="#424242" />
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent">
 
                     <EditText
                         android:id="@+id/findId_phonumEt"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="20dp"
                         android:backgroundTint="#B9B9B9"
-                        android:ems="18"
                         android:hint="01012345678"
                         android:inputType="textPersonName"
                         android:textColor="#000000"
@@ -116,11 +113,18 @@
                         android:id="@+id/findId_certbtn"
                         android:layout_width="67dp"
                         android:layout_height="27dp"
-                        android:layout_marginRight="18dp"
+                        android:layout_gravity="right"
                         android:background="@drawable/j_button_shape"
                         android:text="인증확인"
                         android:textColor="#000000"
                         android:textSize="13sp" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
                 </LinearLayout>
 
             </LinearLayout>

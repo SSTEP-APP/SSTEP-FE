@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D9D9D9"
+    android:background="#F1F1F1"
     android:orientation="vertical"
     tools:context=".staff_infoInput">
 
@@ -213,7 +213,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/staff_info__termText"
+                android:id="@+id/staff_info_termText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="33dp"
         android:layout_marginTop="117dp"
-        android:text="안녕하세요. \n스텝입니다."
+        android:text="안녕하세요. \n스텦입니다."
         android:textColor="#616161"
         android:textSize="30sp"
         android:textStyle="bold" />

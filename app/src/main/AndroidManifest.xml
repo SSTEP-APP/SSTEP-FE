@@ -12,6 +12,15 @@
         android:theme="@style/Theme.SSTEP"
         tools:targetApi="31">
         <activity
+            android:name=".Checklist_complete_detail"
+            android:exported="false" />
+        <activity
+            android:name=".CheckList_write"
+            android:exported="false" />
+        <activity
+            android:name=".Checklist"
+            android:exported="false" />
+        <activity
             android:name=".Start"
             android:exported="false" />
         <activity

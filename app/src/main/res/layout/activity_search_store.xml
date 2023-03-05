@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D9D9D9"
+    android:background="#F1F1F1"
     android:orientation="vertical"
     tools:context=".Search_Store">
 
@@ -67,32 +67,33 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="15dp">
 
             <EditText
                 android:id="@+id/searchStore_searchEt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:backgroundTint="#000000"
-                android:ems="10"
+                android:ems="17"
                 android:hint="  예) 판교역로 235, 분당 주공, 삼평동 681"
                 android:inputType="textPersonName"
-                android:textColorHint="#8C8C8C" />
+                android:textColorHint="#8C8C8C"
+                android:textSize="15sp" />
 
             <ImageButton
                 android:id="@+id/searchStore_searchbtn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
                 android:background="@android:color/transparent"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/j_search_icon" />
-        </LinearLayout>
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -123,7 +124,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="예) 판교역로 235, 제주 첨단로 242 \n"
-                android:textColor="#20A7F2" />
+                android:textColor="#20A7F2"
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/searchStore_text4"
@@ -137,7 +139,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="예) 삼평동 681, 제주 양평동 2181 \n"
-                android:textColor="#20A7F2" />
+                android:textColor="#20A7F2"
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/searchStore_text6"
@@ -151,7 +154,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="예) 분당 주공, 연수동 주공 3차 \n"
-                android:textColor="#20A7F2" />
+                android:textColor="#20A7F2"
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/searchStore_text8"
@@ -165,7 +169,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="예) 분당우체국사서함 1-100"
-                android:textColor="#20A7F2" />
+                android:textColor="#20A7F2"
+                android:textSize="11sp" />
 
         </LinearLayout>
 

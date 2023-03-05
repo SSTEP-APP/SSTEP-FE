@@ -15,4 +15,13 @@
         <item name="colorAccent">#DD4545</item>        <!--라디오버튼색상-->
         <item name="colorControlNormal">#DADADA</item> <!--라디오버튼색상-->
     </style>
+
+    <style name="Theme.SSTEP.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.SSTEP.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.SSTEP.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
