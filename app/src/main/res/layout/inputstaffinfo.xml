@@ -1,0 +1,1668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/isi_L1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F1F1"
+    android:orientation="vertical"
+    tools:context=".InputStaffInfo">
+
+    <!-- top_직원정보입력-->
+    <FrameLayout
+        android:id="@+id/isi_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/isi_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/lightblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="직원 정보 입력"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/isi_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/yicon_back" />
+
+        <!-- 홈 아이콘 -->
+        <ImageView
+            android:id="@+id/isi_homeiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/yicon_home" />
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/isi_scoll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/isi_L3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 직원 프로필 -->
+            <FrameLayout
+                android:id="@+id/isi_F2"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <!-- 사람이미지 -->
+                <ImageView
+                    android:id="@+id/isi_pimage1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    app:srcCompat="@drawable/yimage_female"
+                    android:layout_gravity="center_vertical"/>
+
+                <!-- 이름_text-->
+                <TextView
+                    android:id="@+id/isi_nametv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="김유경"
+                    android:textColor="@color/likeblack"
+                    android:textSize="14sp" />
+
+                <!-- 전화걸기 아이콘-->
+                <ImageView
+                    android:id="@+id/isi_callicon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="23dp"
+                    app:srcCompat="@drawable/yicon_call" />
+
+                <!-- 전화걸기_text-->
+                <TextView
+                    android:id="@+id/isi_calltv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="20dp"
+                    android:text="전화걸기"
+                    android:textColor="@color/blue"
+                    android:textSize="10sp" />
+
+                <!-- 근무기간 (근무시작전)_text-->
+                <TextView
+                    android:id="@+id/isi_termtv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="40dp"
+                    android:text="근무기간 (근무시작전)"
+                    android:textColor="#A4A4A4"
+                    android:textSize="10sp" />
+            </FrameLayout>
+
+            <!-- (필수)출퇴근정보_Frame -->
+            <FrameLayout
+                android:id="@+id/isi_ci_F1"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="25dp"
+                android:paddingBottom="25dp">
+
+                <!-- commutInfo_L1수직 -->
+                <LinearLayout
+                    android:id="@+id/isi_ci_L1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <!-- commutInfo_HL1 -->
+                    <LinearLayout
+                        android:id="@+id/isi_ci_HL1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <!-- (필수)_text -->
+                        <TextView
+                            android:id="@+id/isi_ci_tv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:text="(필수)"
+                            android:textColor="@color/red"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                        <!-- 출퇴근정보_text -->
+                        <TextView
+                            android:id="@+id/isi_ci_tv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="5dp"
+                            android:text="출퇴근정보"
+                            android:textColor="#616161"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <!-- up/down icon_F -->
+                        <FrameLayout
+                            android:id="@+id/isi_ci_changeiconF1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp">
+                            <ImageView
+                                android:id="@+id/isi_ci_upicon1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/yicon_up"
+                                android:visibility="visible"/>
+                            <ImageView
+                                android:id="@+id/isi_ci_downicon1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/yicon_down"
+                                android:visibility="gone"/>
+                        </FrameLayout> <!-- up/down icon_F -->
+                    </LinearLayout> <!-- commutInfo_HL1 -->
+
+                    <!-- 출퇴근정보 숨김 L -->
+                    <LinearLayout
+                        android:id="@+id/isi_ci_hidL2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+                        <!-- 입사일_HL -->
+                        <LinearLayout
+                            android:id="@+id/isi_ci_HL2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/isi_ci_tv3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:text="입사일"
+                                android:textColor="@color/likeblack"
+                                android:textSize="14sp" />
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <!-- 입사일 버튼 -->
+                            <Button
+                                android:id="@+id/isi_ci_indatebtn1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="26dp"
+                                android:layout_marginRight="15dp"
+                                android:background="@drawable/yroundrec_w_sblue"
+                                android:cursorVisible="false"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
+                                android:text="2023년 1월 25일"
+                                android:textSize="15sp"
+                                android:textColor="@color/blue"
+                                android:visibility="visible" />
+                        </LinearLayout> <!-- 입사일_HL -->
+
+                        <!-- 퇴사일미정_chbox -->
+                        <CheckBox
+                            android:id="@+id/isi_ci_outdatechbox1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="10dp"
+                            android:button="@drawable/ychbox_red"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="퇴사일 미정"
+                            android:textColor="@color/likeblack"
+                            android:textSize="15sp"/>
+
+                        <!-- 퇴사일미정 숨김_HL -->
+                        <LinearLayout
+                            android:id="@+id/isi_ci_hidHL3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="30dp"
+                            android:background="@drawable/yroundrec_w_sbold"
+                            android:orientation="horizontal"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
+                            android:gravity="center_vertical"
+                            android:visibility="visible">
+                            <TextView
+                                android:id="@+id/isi_ci_tv4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="퇴사일"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:layout_marginLeft="20dp"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <!-- 퇴사일 버튼 F -->
+                            <FrameLayout
+                                android:id="@+id/isi_ci_changebtnF3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <!-- 설정 전 -->
+                                <Button
+                                    android:id="@+id/isi_ci_outdatebtn1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="15dp"
+                                    android:background="@drawable/yroundrec_b"
+                                    android:paddingLeft="15dp"
+                                    android:paddingRight="15dp"
+                                    android:text="퇴사일 설정"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/white"
+                                    android:layout_gravity="right"
+                                    android:visibility="visible"/>
+                                <!-- 설정 후 -->
+                                <Button
+                                    android:id="@+id/isi_ci_outdatebtn2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="15dp"
+                                    android:background="@drawable/yroundrec_w_sblue"
+                                    android:paddingLeft="15dp"
+                                    android:paddingRight="15dp"
+                                    android:text="2023년 1월 26일"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/blue"
+                                    android:layout_gravity="right"
+                                    android:visibility="invisible"/>
+                            </FrameLayout> <!-- 퇴사일 버튼 F -->
+                        </LinearLayout> <!-- 퇴사일미정 숨김_HL -->
+                    </LinearLayout> <!-- 출퇴근정보 숨김 L -->
+                </LinearLayout> <!-- commutInfo_L1수직 -->
+            </FrameLayout> <!-- (필수) 출퇴근정보_Frame -->
+
+            <!-- (필수) 급여정보_Frame -->
+            <FrameLayout
+                android:id="@+id/isi_pi_F1"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="25dp"
+                android:paddingBottom="25dp">
+                <!-- pi_L1수직 -->
+                <LinearLayout
+                    android:id="@+id/isi_pi_L1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <!-- pi_HL1 -->
+                    <LinearLayout
+                        android:id="@+id/isi_pi_HL1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <!-- (필수)_text -->
+                        <TextView
+                            android:id="@+id/isi_pi_tv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:text="(필수)"
+                            android:textColor="@color/red"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                        <!-- 급여정보_text -->
+                        <TextView
+                            android:id="@+id/isi_pi_tv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="5dp"
+                            android:text="급여정보"
+                            android:textColor="#616161"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <!-- up/down icon_F -->
+                        <FrameLayout
+                            android:id="@+id/isi_pi_changeiconF2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp">
+                            <!-- up icon -->
+                            <ImageView
+                                android:id="@+id/isi_pi_upicon2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/yicon_up"
+                                android:visibility="visible"/>
+                            <!-- down icon -->
+                            <ImageView
+                                android:id="@+id/isi_pi_downicon2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/yicon_down"
+                                android:visibility="gone"/>
+                        </FrameLayout> <!-- up/down icon_F -->
+                    </LinearLayout> <!-- pi_HL1 -->
+
+                    <!-- 급여정보 숨김 L -->
+                    <LinearLayout
+                        android:id="@+id/isi_pi_hidL2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+                        <!-- 라디오그룹 HL -->
+                        <LinearLayout
+                            android:id="@+id/isi_pi_HL2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="25dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+                            <RadioGroup
+                                android:id="@+id/isi_pi_payrg1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+                                <!-- 시급 rb -->
+                                <RadioButton
+                                    android:id="@+id/isi_pi_hourrb1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:button="@drawable/yradiobtn_red"
+                                    android:checked="true"
+                                    android:paddingLeft="10dp"
+                                    android:text="시급"
+                                    android:textSize="15sp"/>
+                                <!-- 일급 rb -->
+                                <RadioButton
+                                    android:id="@+id/isi_pi_dayrb2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="45dp"
+                                    android:layout_marginRight="45dp"
+                                    android:button="@drawable/yradiobtn_red"
+                                    android:checked="false"
+                                    android:paddingLeft="10dp"
+                                    android:text="일급"
+                                    android:textSize="15sp"/>
+                                <!-- 월급 rb -->
+                                <RadioButton
+                                    android:id="@+id/isi_pi_monthrb3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:button="@drawable/yradiobtn_red"
+                                    android:checked="false"
+                                    android:paddingLeft="10dp"
+                                    android:text="월급"
+                                    android:textSize="15sp"/>
+                            </RadioGroup>
+                        </LinearLayout> <!-- 라디오그룹 HL -->
+
+                        <!-- rb 클릭 시 F -->
+                        <FrameLayout
+                            android:id="@+id/isi_pi_hourF3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <!-- 라디오버튼(시급) 숨김 L -->
+                            <LinearLayout
+                                android:id="@+id/isi_pi_hidL3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+                                <!-- 시급 금액 입력 HL -->
+                                <LinearLayout
+                                    android:id="@+id/isi_pi_HL3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginRight="30dp"
+                                    android:background="@drawable/yroundrec_w_sbold"
+                                    android:orientation="horizontal"
+                                    android:paddingTop="15dp"
+                                    android:paddingBottom="15dp">
+                                    <TextView
+                                        android:id="@+id/isi_pi_tv3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="50dp"
+                                        android:text="시급"
+                                        android:textColor="@color/black"
+                                        android:textSize="14sp" />
+
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1" />
+
+                                    <EditText
+                                        android:id="@+id/isi_pi_inputpayet1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@null"
+                                        android:hint="금액을 입력해 주세요"
+                                        android:inputType="number"
+                                        android:textSize="14sp"
+                                        android:gravity="right"
+                                        android:textCursorDrawable="@drawable/yet_cursor"/>
+
+                                    <TextView
+                                        android:id="@+id/isi_pi_tv4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="40dp"
+                                        android:gravity="right"
+                                        android:text="원"
+                                        android:textColor="@color/black"
+                                        android:textSize="14sp" />
+                                </LinearLayout> <!-- 시급 금액 입력 HL -->
+                                <TextView
+                                    android:id="@+id/isi_pi_tv5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:text="2023년 최저시급은 9,620원입니다."
+                                    android:textColor="#737373"
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="7dp"/>
+                                <TextView
+                                    android:id="@+id/isi_pi_line1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginBottom="25dp"
+                                    android:background="@drawable/yunderline_text" />
+                                <!-- 시급 +- L -->
+                                <LinearLayout
+                                    android:id="@+id/isi_pi_L4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/yroundrec_w_sbold"
+                                    android:paddingLeft="20dp"
+                                    android:paddingTop="15dp"
+                                    android:paddingBottom="15dp">
+                                    <!-- + 주휴수당 HL -->
+                                    <LinearLayout
+                                        android:id="@+id/isi_pi_HL4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <CheckBox
+                                            android:id="@+id/isi_pi_pluspaych1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:button="@drawable/ychbox_black"
+                                            android:checked="false"
+                                            android:paddingLeft="10dp"
+                                            android:text="(+)"
+                                            android:textColor="#2496FF"
+                                            android:textSize="15sp" />
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv6"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="주휴수당 자동 가산"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                        <View
+                                            android:layout_width="0dp"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1" />
+                                        <!-- + 주휴수당 설정버튼 -->
+                                        <Button
+                                            android:id="@+id/isi_pi_setbtn1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginRight="15dp"
+                                            android:background="@drawable/yroundrec_b"
+                                            android:gravity="center"
+                                            android:minWidth="0dp"
+                                            android:minHeight="0dp"
+                                            android:paddingLeft="15dp"
+                                            android:paddingTop="2dp"
+                                            android:paddingRight="15dp"
+                                            android:paddingBottom="2dp"
+                                            android:text="설정"
+                                            android:textColor="@color/white"
+                                            android:textSize="14sp"
+                                            android:visibility="visible" />
+                                    </LinearLayout> <!-- + 주휴수당 HL -->
+                                    <!-- - 휴게시간 HL -->
+                                    <LinearLayout
+                                        android:id="@+id/isi_pi_HL5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <CheckBox
+                                            android:id="@+id/isi_pi_minuspaych2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:button="@drawable/ychbox_black"
+                                            android:checked="false"
+                                            android:paddingLeft="10dp"
+                                            android:text="(-)"
+                                            android:textColor="@color/lightred"
+                                            android:textSize="15sp" />
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv7"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:text="휴게시간 자동 차감"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                        <View
+                                            android:layout_width="0dp"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1" />
+                                        <!-- -휴게시간 설정버튼 -->
+                                        <Button
+                                            android:id="@+id/isi_pi_setbtn2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginRight="15dp"
+                                            android:background="@drawable/yroundrec_b"
+                                            android:gravity="center"
+                                            android:minWidth="0dp"
+                                            android:minHeight="0dp"
+                                            android:paddingLeft="15dp"
+                                            android:paddingTop="2dp"
+                                            android:paddingRight="15dp"
+                                            android:paddingBottom="2dp"
+                                            android:text="설정"
+                                            android:textColor="@color/white"
+                                            android:textSize="14sp"
+                                            android:visibility="visible" />
+                                    </LinearLayout> <!-- - 휴게시간 HL -->
+                                    <!-- + 휴일수당 HL -->
+                                    <LinearLayout
+                                        android:id="@+id/isi_pi_HL6"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <CheckBox
+                                            android:id="@+id/isi_pi_pluspaych3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:button="@drawable/ychbox_black"
+                                            android:checked="false"
+                                            android:paddingLeft="10dp"
+                                            android:text="(+)"
+                                            android:textColor="#2496FF"
+                                            android:textSize="15sp" />
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv8"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="추가, 야간 휴일수당 50% 자동 가산"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+                                    </LinearLayout> <!-- + 휴일수당 HL -->
+                                </LinearLayout> <!-- 시급 +- L -->
+                            </LinearLayout> <!-- 라디오버튼(시급) 숨김 L -->
+
+                            <!-- 라디오버튼(일급) 숨김 L -->
+                            <LinearLayout
+                                android:id="@+id/isi_pi_hidL5"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="30dp"
+                                android:background="@drawable/yroundrec_w_sbold"
+                                android:orientation="vertical"
+                                android:paddingTop="15dp"
+                                android:paddingBottom="15dp"
+                                android:visibility="gone">
+                                <!-- 일급 금액 입력 HL -->
+                                <LinearLayout
+                                    android:id="@+id/isi_pi_HL7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:id="@+id/isi_pi_tv9"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="50dp"
+                                        android:text="일급"
+                                        android:textColor="@color/black"
+                                        android:textSize="14sp" />
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1" />
+                                    <EditText
+                                        android:id="@+id/isi_pi_inputpayet2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@null"
+                                        android:hint="금액을 입력해 주세요"
+                                        android:inputType="number"
+                                        android:textSize="15sp"
+                                        android:gravity="right"
+                                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                                    <TextView
+                                        android:id="@+id/isi_pi_tv10"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="40dp"
+                                        android:gravity="right"
+                                        android:text="원"
+                                        android:textColor="@color/black"
+                                        android:textSize="15sp" />
+                                </LinearLayout> <!-- 일급 금액 입력 HL -->
+                            </LinearLayout> <!-- 라디오버튼(일급) 숨김 L -->
+
+                            <!-- 라디오버튼(월급) 숨김 L -->
+                            <LinearLayout
+                                android:id="@+id/isi_pi_hidL6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+                                <!-- 월급 합계 L -->
+                                <LinearLayout
+                                    android:id="@+id/isi_pi_L7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginRight="30dp"
+                                    android:background="@drawable/yroundrec_w_sbold"
+                                    android:orientation="vertical"
+                                    android:paddingTop="15dp"
+                                    android:paddingBottom="15dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/isi_pi_HL8"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv11"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="50dp"
+                                            android:text="기본급"
+                                            android:textColor="@color/black"
+                                            android:textSize="14sp" />
+
+                                        <View
+                                            android:layout_width="0dp"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1" />
+
+                                        <EditText
+                                            android:id="@+id/isi_pi_inputpayet3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="@null"
+                                            android:gravity="right"
+                                            android:hint="금액을 입력해 주세요"
+                                            android:inputType="number"
+                                            android:textCursorDrawable="@drawable/yet_cursor"
+                                            android:textSize="15sp" />
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv12"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="40dp"
+                                            android:gravity="right"
+                                            android:text="원"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+                                    </LinearLayout> <!-- 수평 -->
+                                    <LinearLayout
+                                        android:id="@+id/isi_pi_HL9"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="15dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv13"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="50dp"
+                                            android:text="식대"
+                                            android:textColor="@color/black"
+                                            android:textSize="14sp" />
+
+                                        <View
+                                            android:layout_width="0dp"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1" />
+
+                                        <EditText
+                                            android:id="@+id/isi_pi_inputpayet4"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="@null"
+                                            android:gravity="right"
+                                            android:hint="0"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/black"
+                                            android:textCursorDrawable="@drawable/yet_cursor"
+                                            android:textSize="15sp" />
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv14"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="40dp"
+                                            android:gravity="right"
+                                            android:text="원"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+                                    </LinearLayout> <!-- 수평 -->
+                                    <LinearLayout
+                                        android:id="@+id/isi_pi_HL10"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="15dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv15"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="50dp"
+                                            android:text="자가운전"
+                                            android:textColor="@color/black"
+                                            android:textSize="14sp" />
+
+                                        <View
+                                            android:layout_width="0dp"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1" />
+
+                                        <EditText
+                                            android:id="@+id/isi_pi_inputpayet5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="@null"
+                                            android:gravity="right"
+                                            android:hint="0"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/black"
+                                            android:textCursorDrawable="@drawable/yet_cursor"
+                                            android:textSize="15sp" />
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv16"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="40dp"
+                                            android:gravity="right"
+                                            android:text="원"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+                                    </LinearLayout> <!-- 수평 -->
+                                    <LinearLayout
+                                        android:id="@+id/isi_pi_HL11"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="15dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv17"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="50dp"
+                                            android:text="상여"
+                                            android:textColor="@color/black"
+                                            android:textSize="14sp" />
+
+                                        <View
+                                            android:layout_width="0dp"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1" />
+
+                                        <EditText
+                                            android:id="@+id/isi_pi_inputpayet6"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="@null"
+                                            android:gravity="right"
+                                            android:hint="0"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/black"
+                                            android:textCursorDrawable="@drawable/yet_cursor"
+                                            android:textSize="15sp" />
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv18"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="40dp"
+                                            android:gravity="right"
+                                            android:text="원"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+                                    </LinearLayout> <!-- 수평 -->
+                                    <LinearLayout
+                                        android:id="@+id/isi_pi_HL12"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="15dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv19"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="50dp"
+                                            android:text="성과급"
+                                            android:textColor="@color/black"
+                                            android:textSize="14sp" />
+
+                                        <View
+                                            android:layout_width="0dp"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1" />
+
+                                        <EditText
+                                            android:id="@+id/isi_pi_inputpayet7"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="@null"
+                                            android:gravity="right"
+                                            android:hint="0"
+                                            android:inputType="number"
+                                            android:textColorHint="@color/black"
+                                            android:textCursorDrawable="@drawable/yet_cursor"
+                                            android:textSize="15sp" />
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv20"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="40dp"
+                                            android:gravity="right"
+                                            android:text="원"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+                                    </LinearLayout> <!-- 수평 -->
+                                    <TextView
+                                        android:id="@+id/isi_pi_tv21"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/yunderline_text" />
+
+                                    <LinearLayout
+                                        android:id="@+id/isi_pi_HL13"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="15dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv22"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="50dp"
+                                            android:text="합계"
+                                            android:textColor="@color/black"
+                                            android:textSize="16sp" />
+
+                                        <View
+                                            android:layout_width="0dp"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1" />
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_totaltv23"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="right"
+                                            android:text="0"
+                                            android:textColor="@color/black"
+                                            android:textSize="16sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/isi_pi_tv24"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="40dp"
+                                            android:gravity="right"
+                                            android:text="원"
+                                            android:textColor="@color/black"
+                                            android:textSize="16sp" />
+                                    </LinearLayout> <!-- 수평 -->
+                                </LinearLayout> <!-- 수직 -->
+                            </LinearLayout> <!-- 월급 합계 L -->
+                        </FrameLayout>
+
+
+                        <TextView
+                            android:id="@+id/isi_pi_line2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="25dp"
+                            android:background="@drawable/yunderline_text" />
+
+                        <CheckBox
+                            android:id="@+id/isi_pi_notermch4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:button="@drawable/ychbox_red"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:text="수습기간 없음"
+                            android:textSize="15sp" />
+
+                        <LinearLayout
+                            android:id="@+id/isi_pi_hidL8"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/yroundrec_w_sbold"
+                            android:orientation="vertical"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
+                            android:layout_marginTop="20dp"
+                            android:visibility="gone">
+                            <LinearLayout
+                                android:id="@+id/isi_pi_HL14"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/isi_pi_tv26"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="수습종료일"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/black" />
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+                                <Button
+                                    android:id="@+id/isi_pi_setbtn3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="26dp"
+                                    android:layout_marginRight="15dp"
+                                    android:background="@drawable/yroundrec_w_sblue"
+                                    android:paddingLeft="15dp"
+                                    android:paddingRight="15dp"
+                                    android:text="2023년 1월 26일"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/blue" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/isi_pi_HL15"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="15dp">
+                                <TextView
+                                    android:id="@+id/isi_pi_tv27"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="수습기간 급여비율"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/black" />
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+                                <Button
+                                    android:id="@+id/isi_pi_setbtn4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="26dp"
+                                    android:minWidth="0dp"
+                                    android:minHeight="0dp"
+                                    android:layout_marginRight="15dp"
+                                    android:background="@drawable/yroundrec_w_sblue"
+                                    android:paddingLeft="15dp"
+                                    android:paddingRight="15dp"
+                                    android:text="100%"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/blue" />
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/isi_pi_applytv1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="* 수습기간은 [입사일]인 2023년 1월 26일부터\n[수습종료일]까지 적용됩니다."
+                                android:textSize="12sp"
+                                android:textColor="#737373"
+                                android:lineSpacingExtra="5dp"
+                                android:gravity="center_horizontal"
+                                android:layout_marginTop="15dp"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/isi_pi_tv28"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="25dp"
+                            android:background="@drawable/yunderline_text" />
+
+                        <LinearLayout
+                            android:id="@+id/isi_pi_HL16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <RadioGroup
+                                android:id="@+id/isi_pi_lawrg2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/isi_pi_lawrb4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:button="@drawable/yradiobtn_red"
+                                    android:checked="false"
+                                    android:paddingLeft="10dp"
+                                    android:text="4대 보험"
+                                    android:textSize="15sp"/>
+
+                                <RadioButton
+                                    android:id="@+id/isi_pi_lawrb5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginRight="20dp"
+                                    android:button="@drawable/yradiobtn_red"
+                                    android:checked="false"
+                                    android:paddingLeft="10dp"
+                                    android:text="프리랜서(3.3%)"
+                                    android:textSize="15sp"/>
+
+                                <RadioButton
+                                    android:id="@+id/isi_pi_lawrb6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:button="@drawable/yradiobtn_red"
+                                    android:checked="true"
+                                    android:paddingLeft="10dp"
+                                    android:text="적용안함"
+                                    android:textSize="15sp"/>
+
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/isi_pi_F4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <LinearLayout
+                                android:id="@+id/isi_pi_hidL9"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+                                <TextView
+                                    android:id="@+id/isi_pi_applytv2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:gravity="center_horizontal"
+                                    android:text="급여정산일은 13일입니다.\n2023년 1월 14일부터 급여에 적용됩니다."
+                                    android:textColor="#737373"
+                                    android:textSize="12sp"
+                                    android:lineSpacingExtra="5dp"/>
+
+                                <LinearLayout
+                                    android:id="@+id/isi_pi_HL17"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="horizontal">
+
+                                    <Button
+                                        android:id="@+id/isi_pi_leftbtn1"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:background="@drawable/yicon_left" />
+
+                                    <TextView
+                                        android:id="@+id/isi_pi_ymtv1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:layout_marginRight="40dp"
+                                        android:paddingTop="2dp"
+                                        android:paddingBottom="2dp"
+                                        android:text="2023년 1월"
+                                        android:textStyle="bold"
+                                        android:textSize="15sp"/>
+
+                                    <Button
+                                        android:id="@+id/isi_pi_rightbtn1"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:background="@drawable/yicon_right" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/isi_pi_applytv3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:gravity="center"
+                                    android:text="급여 적용 시작월은 1월입니다."
+                                    android:textColor="#737373"
+                                    android:textSize="12sp" /> <!-- 수평 -->
+                            </LinearLayout>
+                            <!-- 2 -->
+                            <LinearLayout
+                                android:id="@+id/isi_pi_hidL10"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+                                <LinearLayout
+                                    android:id="@+id/isi_pi_L11"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/yroundrec_w_sbold"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="20dp"
+                                    android:paddingTop="15dp"
+                                    android:paddingBottom="15dp"
+                                    android:layout_marginTop="20dp">
+                                    <CheckBox
+                                        android:id="@+id/isi_pi_insch1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:button="@drawable/ychbox_black"
+                                        android:checked="true"
+                                        android:text="국민연금"
+                                        android:textSize="13sp"
+                                        android:textColor="@color/black"
+                                        android:paddingLeft="10dp"/>
+                                    <CheckBox
+                                        android:id="@+id/isi_pi_insch2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:button="@drawable/ychbox_black"
+                                        android:checked="true"
+                                        android:text="건강보험"
+                                        android:textSize="13sp"
+                                        android:textColor="@color/black"
+                                        android:paddingLeft="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="10dp"/>
+                                    <CheckBox
+                                        android:id="@+id/isi_pi_insch3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:button="@drawable/ychbox_black"
+                                        android:checked="true"
+                                        android:text="고용보험"
+                                        android:textSize="13sp"
+                                        android:textColor="@color/black"
+                                        android:paddingLeft="10dp"
+                                        android:layout_marginBottom="10dp"/>
+                                    <CheckBox
+                                        android:id="@+id/isi_pi_insch4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:button="@drawable/ychbox_black"
+                                        android:checked="true"
+                                        android:text="산재보험"
+                                        android:textSize="13sp"
+                                        android:textColor="@color/black"
+                                        android:paddingLeft="10dp"/>
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/isi_pi_applytv4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:gravity="center_horizontal"
+                                    android:text="급여정산일은 13일입니다.\n2023년 1월 14일부터 급여에 적용됩니다."
+                                    android:textColor="#737373"
+                                    android:textSize="10sp" />
+
+                                <LinearLayout
+                                    android:id="@+id/isi_pi_HL18"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="horizontal">
+
+                                    <Button
+                                        android:id="@+id/isi_pi_leftbtn2"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:background="@drawable/yicon_left" />
+
+                                    <TextView
+                                        android:id="@+id/isi_pi_ymtv2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:layout_marginRight="40dp"
+                                        android:paddingTop="2dp"
+                                        android:paddingBottom="2dp"
+                                        android:text="2023년 1월"
+                                        android:textStyle="bold" />
+
+                                    <Button
+                                        android:id="@+id/isi_pi_rightbtn2"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:background="@drawable/yicon_right" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/isi_pi_applytv5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
+                                    android:gravity="center"
+                                    android:text="급여 적용 시작월은 1월입니다."
+                                    android:textColor="#737373"
+                                    android:textSize="10sp" /> <!-- 수평 -->
+                                <!-- 3 -->
+                            </LinearLayout>
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout> <!-- 수직 -->
+
+
+            </FrameLayout>
+
+            <!-- (선택) 연차_Frame -->
+            <FrameLayout
+                android:id="@+id/isi_yi_F1"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="25dp"
+                android:paddingBottom="25dp">
+
+                <!-- 수직 -->
+                <LinearLayout
+                    android:id="@+id/isi_yi_L1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <!-- 수평 -->
+                    <LinearLayout
+                        android:id="@+id/isi_yi_HL1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <!-- (선택) 연차_text -->
+                        <TextView
+                            android:id="@+id/isi_yi_tv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:text="(선택) 연차"
+                            android:textColor="#616161"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <!-- down icon -->
+                        <FrameLayout
+                            android:id="@+id/isi_yi_changeiconF3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp">
+                            <ImageView
+                                android:id="@+id/isi_yi_upicon3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/yicon_up"
+                                android:visibility="visible"/>
+                            <ImageView
+                                android:id="@+id/isi_yi_downicon3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/yicon_down"
+                                android:visibility="gone"/>
+                        </FrameLayout>
+                    </LinearLayout><!-- 수평 -->
+                    <LinearLayout
+                        android:id="@+id/isi_yi_hidL2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+                        <LinearLayout
+                            android:id="@+id/isi_yi_L3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginRight="60dp"
+                            android:background="@drawable/yroundrec_w_sbold"
+                            android:orientation="vertical"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="15dp"
+                            android:paddingRight="30dp"
+                            android:paddingBottom="15dp">
+
+                            <LinearLayout
+                                android:id="@+id/isi_yi_HL2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/isi_yi_tv2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="총 연차"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:layout_gravity="center_vertical"/>
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <EditText
+                                    android:id="@+id/isi_yi_totalet1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:background="@null"
+                                    android:hint="0"
+                                    android:inputType="number"
+                                    android:textColorHint="@color/likeblack"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/likeblack"
+                                    android:textCursorDrawable="@drawable/yet_cursor"/>
+
+                                <TextView
+                                    android:id="@+id/isi_yi_tv3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right|center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="일"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/isi_yi_HL3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginBottom="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/isi_yi_tv4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="사용 연차"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:layout_gravity="center_vertical"/>
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <EditText
+                                    android:id="@+id/isi_yi_useet2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:hint="0"
+                                    android:inputType="number"
+                                    android:textColorHint="@color/likeblack"
+                                    android:textColor="@color/likeblack"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:textCursorDrawable="@drawable/yet_cursor"
+                                    android:layout_gravity="center_vertical"/>
+
+                                <TextView
+                                    android:id="@+id/isi_yi_tv5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="일"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:layout_gravity="right|center_vertical"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/isi_yi_HL4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/isi_yi_tv6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="남은 연차"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:layout_gravity="center_vertical"/>
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <EditText
+                                    android:id="@+id/isi_yi_leftet3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:hint="0"
+                                    android:inputType="number"
+                                    android:textColorHint="@color/black"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:textCursorDrawable="@drawable/yet_cursor"
+                                    android:layout_gravity="center_vertical"/>
+
+                                <TextView
+                                    android:id="@+id/isi_yi_tv7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="일"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:layout_gravity="right|center_vertical"/>
+                            </LinearLayout>
+                        </LinearLayout> <!-- 수직 -->
+                        <LinearLayout
+                            android:id="@+id/isi_yi_HL5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/isi_yi_leftbtn3"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:background="@drawable/yicon_left" />
+
+                            <TextView
+                                android:id="@+id/isi_yi_ymtv3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:paddingTop="2dp"
+                                android:paddingBottom="2dp"
+                                android:text="2023년 1월"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/isi_yi_rightbtn3"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:background="@drawable/yicon_right" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/isi_yi_applytv6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_horizontal"
+                            android:text="2023년에 연차가 적용됩니다."
+                            android:textColor="#737373"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                </LinearLayout> <!-- 수직 -->
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/isi_scrollmargin"
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+        </LinearLayout>
+    </ScrollView>
+    
+    <!-- 맨 아래 '입력완료' 버튼 -->
+    <LinearLayout
+        android:id="@+id/isi_L2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+        <!-- 맨 아래 버튼 변경 F -->
+        <FrameLayout
+            android:id="@+id/isi_changebtnF3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/isi_bottomoffbtn"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/yroundrec_bottombtnoff"
+                android:text="입력 완료"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:visibility="visible"/>
+            <Button
+                android:id="@+id/isi_bottomonbtn"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/yroundrec_bottombtnon"
+                android:text="입력 완료"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:visibility="gone"/>
+        </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
+    </LinearLayout>
+</LinearLayout>

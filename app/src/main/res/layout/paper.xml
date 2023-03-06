@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F1F1"
+    android:id="@+id/paper_L1">
+
+    <!-- top_문서관리 -->
+    <FrameLayout
+        android:id="@+id/paper_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/paper_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/lightblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="문서 관리"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/paper_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/yicon_back" />
+
+        <!-- 홈 아이콘 -->
+        <ImageView
+            android:id="@+id/paper_homeiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/yicon_home" />
+    </FrameLayout>
+
+    <!-- 스크롤 -->
+    <ScrollView
+        android:id="@+id/paper_scoll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/paper_L2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="15dp">
+
+            <!-- 근로계약서 _F -->
+            <FrameLayout
+                android:id="@+id/paper_wF2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp">
+
+                <!-- 근로계약서 _L -->
+                <LinearLayout
+                    android:id="@+id/paper_L3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp">
+                    <!-- 근로계약서_text -->
+                    <TextView
+                        android:id="@+id/paper_tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="근로계약서"
+                        android:textColor="#737373"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/paper_tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="근로계약서 미등록"
+                        android:textColor="@color/lightred"
+                        android:textSize="13sp" />
+                </LinearLayout> <!-- 근로계약서 _L -->
+
+                <ImageView
+                    android:id="@+id/paper_goiv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yicon_go"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="20dp" />
+            </FrameLayout> <!-- 근로계약서 _F -->
+
+            <!-- 보건증 _F -->
+            <FrameLayout
+                android:id="@+id/paper_hF3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp">
+
+                <!-- 보건증 _L -->
+                <LinearLayout
+                    android:id="@+id/paper_L4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp">
+                    <!-- 보건증_text -->
+                    <TextView
+                        android:id="@+id/paper_tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="보건증"
+                        android:textColor="#737373"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/paper_tv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="등록 중(2명 중 1명 완료)"
+                        android:textColor="@color/lightred"
+                        android:textSize="13sp" />
+                </LinearLayout> <!-- 보건증 _L -->
+
+                <ImageView
+                    android:id="@+id/paper_goiv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yicon_go"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="20dp" />
+            </FrameLayout> <!-- 보건증 _F -->
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

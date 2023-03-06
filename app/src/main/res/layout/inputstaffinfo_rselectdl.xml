@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/inputStaffInfo_rselectdl_L1"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/inputStaffInfo_rselectdl_tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="휴게시간 계산 방법 선택"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"/>
+    <LinearLayout
+        android:id="@+id/inputStaffInfo_rselectdl_L2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white">
+        <!-- 내용 textview-->
+        <RadioGroup
+            android:id="@+id/inputStaffInfo_rselectdl_rg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:paddingBottom="10dp">
+            <RadioButton
+                android:id="@+id/inputStaffInfo_rselectdl_autorb1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/yradiobtn_red"
+                android:checked="false"
+                android:text="(자동) 근로기준법 기준"
+                android:textSize="15sp"
+                android:paddingLeft="10dp"/>
+            <RadioButton
+                android:id="@+id/inputStaffInfo_rselectdl_manualrb2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/yradiobtn_red"
+                android:checked="true"
+                android:text="(수동) 월 근무시간 입력"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="10dp"/>
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/inputStaffInfo_rselectdl_HL1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:visibility="invisible">
+            <EditText
+                android:id="@+id/inputStaffInfo_rselectdl_manualet1"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="15dp"
+                android:hint=""
+                android:inputType="number"
+                android:textColor="@color/blue"
+                android:textColorHint="@color/blue"
+                android:textCursorDrawable="@drawable/yet_cursor"/>
+
+            <TextView
+                android:id="@+id/inputStaffInfo_rselectdl_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="0dp"
+                android:text="분"
+                android:textColor="@color/blue" />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <!-- 확인 버튼 -->
+    <Button
+        android:id="@+id/inputStaffInfo_rselectdl_okbtn1"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_gravity="bottom"
+        android:background="@color/blue"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+</LinearLayout>

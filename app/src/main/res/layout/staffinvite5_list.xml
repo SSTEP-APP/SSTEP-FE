@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/staffInvite5_list_L1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F1F1"
+    android:orientation="vertical">
+
+    <!-- top_직원 초대현황-->
+    <FrameLayout
+        android:id="@+id/staffInvite5_list_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/staffInvite5_list_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/lightblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="직원 초대현황"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageView
+            android:id="@+id/staffInvite5_list_backiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/yicon_back" />
+
+        <!-- 홈 아이콘 -->
+        <ImageView
+            android:id="@+id/staffInvite5_list_homeiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/yicon_home" />
+    </FrameLayout>
+
+    <!-- 스크롤 -->
+    <ScrollView
+        android:id="@+id/staffInvite5_list_scoll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/staffInvite5_list_L3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="15dp">
+
+            <!-- 초대 승인 Frame -->
+            <FrameLayout
+                android:id="@+id/staffInvite5_list_F2"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="25dp"
+                android:paddingBottom="25dp">
+
+                <LinearLayout
+                    android:id="@+id/staffInvite5_list_L4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- 위에 초대승인 + 숫자 -->
+                    <LinearLayout
+                        android:id="@+id/staffInvite5_list_HL1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <!-- 초대 승인_text -->
+                        <TextView
+                            android:id="@+id/staffInvite5_list_tv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:paddingLeft="15dp"
+                            android:text="초대 승인"
+                            android:textColor="#737373"
+                            android:textSize="15sp" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <!-- 숫자_text-->
+                        <TextView
+                            android:id="@+id/staffInvite5_list_numtv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:gravity="right"
+                            android:paddingRight="5dp"
+                            android:text="1"
+                            android:textColor="#0D69F3"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/staffInvite5_list_linetv3"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:minHeight="1dp"
+                        android:background="@drawable/yunderline_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="bottom"/>
+                    <ListView
+                        android:id="@+id/staffInfo5_list_lv1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"/>
+
+                </LinearLayout>
+            </FrameLayout> <!-- 초대 승인 전체 frame -->
+
+            <!-- 초대 승인 대기중 Frame -->
+            <FrameLayout
+                android:id="@+id/staffInvite5_list_F4"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="25dp"
+                android:paddingBottom="25dp">
+
+                <LinearLayout
+                    android:id="@+id/staffInvite5_list_L5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- 위에 초대승인대기중 + 숫자 -->
+                    <LinearLayout
+                        android:id="@+id/staffInvite5_list_HL2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <!-- 초대 승인 대기중_text -->
+                        <TextView
+                            android:id="@+id/staffInvite5_list_tv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:paddingLeft="15dp"
+                            android:text="초대 승인 대기중"
+                            android:textColor="#737373"
+                            android:textSize="15sp" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <!-- 숫자_text-->
+                        <TextView
+                            android:id="@+id/staffInvite5_list_numtv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:gravity="right"
+                            android:paddingRight="5dp"
+                            android:text="1"
+                            android:textColor="#0D69F3"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/staffInvite5_list_linetv4"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:minHeight="1dp"
+                        android:background="@drawable/yunderline_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="bottom"/>
+                    <ListView
+                        android:id="@+id/staffInfo5_list_lv2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"/>
+
+                </LinearLayout>
+            </FrameLayout> <!-- 초대 승인 대기중 전체 frame -->
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 맨 아래 '직원 초대' 버튼 -->
+    <LinearLayout
+        android:id="@+id/staffInvite5_list_L2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/staffInvite5_list_bottombtn"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@color/blue"
+            android:text="직원 초대"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </LinearLayout>
+</LinearLayout>
