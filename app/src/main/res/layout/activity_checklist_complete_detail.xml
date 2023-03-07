@@ -102,19 +102,6 @@
                         android:layout_gravity="center"
                         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-                    <Button
-                        android:id="@+id/checkComDetail_memoBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_gravity="bottom|center_horizontal"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/j_button_stroke737373"
-                        android:drawableLeft="@drawable/j_pencil_img"
-                        android:paddingLeft="5dp"
-                        android:text="메모 작성"
-                        android:textColor="#000000"
-                        android:textSize="13sp" />
-
                 </FrameLayout>
 
                 <LinearLayout

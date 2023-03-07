@@ -183,20 +183,11 @@
 
                 <ImageView
                     android:id="@+id/checkDetail_addImageview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="18dp"
                     app:srcCompat="@android:drawable/ic_menu_camera" />
-
-                <TextView
-                    android:id="@+id/checkDetail_addImageText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="관련 사진을 추가해 보세요."
-                    android:textColor="#8E8E8E"
-                    android:textSize="11sp" />
 
                 <Button
                     android:id="@+id/checkDetail_addImageBtn"

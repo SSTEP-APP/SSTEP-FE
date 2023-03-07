@@ -311,13 +311,7 @@
                     android:layout_marginRight="27dp"
                     android:layout_marginBottom="10dp"
                     android:orientation="horizontal">
-
-                    <RadioGroup
-                        android:id="@+id/checkList_write_endTimeRG"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
-
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/checkList_write_endTimeRB"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -327,7 +321,6 @@
                             android:drawablePadding="5dp"
                             android:text="마감 예정 시간 미입력"
                             android:textSize="11sp" />
-                    </RadioGroup>
                 </LinearLayout>
 
                 <TextView
@@ -387,12 +380,7 @@
                     android:layout_marginBottom="10dp"
                     android:orientation="horizontal">
 
-                    <RadioGroup
-                        android:id="@+id/checkList_write_pictureRG"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/checkList_write_pictureRB"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -402,7 +390,6 @@
                             android:drawablePadding="5dp"
                             android:text="할 일 관련내용 사진촬영 필수"
                             android:textSize="11sp" />
-                    </RadioGroup>
                 </LinearLayout>
 
                 <TextView
@@ -480,12 +467,7 @@
                     android:layout_marginBottom="10dp"
                     android:orientation="horizontal">
 
-                    <RadioGroup
-                        android:id="@+id/checkList_write_staffRG"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/checkList_write_staffRB"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -495,7 +477,6 @@
                             android:drawablePadding="5dp"
                             android:text="담당직원만 체크할 수 있도록 설정합니다."
                             android:textSize="11sp" />
-                    </RadioGroup>
                 </LinearLayout>
 
                 <TextView
