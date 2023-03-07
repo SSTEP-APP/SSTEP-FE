@@ -12,39 +12,6 @@
         android:theme="@style/Theme.SSTEP"
         tools:targetApi="31">
         <activity
-            android:name=".Checklist_complete_detail"
-            android:exported="false" />
-        <activity
-            android:name=".CheckList_write"
-            android:exported="false" />
-        <activity
-            android:name=".Checklist"
-            android:exported="false" />
-        <activity
-            android:name=".Start"
-            android:exported="false" />
-        <activity
-            android:name=".Search_Store"
-            android:exported="false" />
-        <activity
-            android:name=".modifyStore"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterStore"
-            android:exported="false" />
-        <activity
-            android:name=".Find_id"
-            android:exported="false" />
-        <activity
-            android:name=".Find_password"
-            android:exported="false" />
-        <activity
-            android:name=".Login"
-            android:exported="false" />
-        <activity
-            android:name=".JoinActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
