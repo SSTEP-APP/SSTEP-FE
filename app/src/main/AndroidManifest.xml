@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
             android:name=".Checklist_complete_detail"
             android:exported="false" />
         <activity
@@ -36,6 +37,7 @@
         <activity android:name=".mypage.MyPage_Change" />
         <activity android:name=".mypage.MyPage_Message" />
         <activity android:name=".mypage.MyPage_Ask" />
+        <activity
             android:name=".CheckList_write"
             android:exported="false" />
         <activity
@@ -48,6 +50,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".paper.Paperh" />
+        <activity
             android:name=".Checklist"
             android:exported="false" />
         <activity
@@ -60,6 +63,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".notice.Notice_input" />
+        <activity
             android:name=".Start"
             android:exported="false" />
         <activity
@@ -71,6 +75,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
             android:name=".Search_Store"
             android:exported="false" />
         <activity
@@ -82,6 +87,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
             android:name=".modifyStore"
             android:exported="false" />
         <activity
@@ -93,6 +99,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
             android:name=".RegisterStore"
             android:exported="false" />
         <activity
@@ -104,6 +111,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
             android:name=".Find_id"
             android:exported="false" />
         <activity
@@ -115,6 +123,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
             android:name=".Find_password"
             android:exported="false" />
         <activity
@@ -126,6 +135,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
             android:name=".Login"
             android:exported="false" />
         <activity
@@ -138,6 +148,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".StaffInvite2" />
+        <activity
             android:name=".JoinActivity"
             android:exported="false" />
         <activity
