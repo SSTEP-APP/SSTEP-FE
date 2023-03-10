@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/j_layout_background"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/dialog_selectType_restaurantBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="요식업(음식점,카페 등)" />
+
+        <View
+            android:id="@+id/dialog_selectType_line1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/dialog_selectType_conBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="도,소매업(편의점 등)"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/dialog_selectType_line2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/dialog_selectType_serviceBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="서비스업(PC방,헬스장 등)"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/dialog_selectType_line3"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/dialog_selectType_businessBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="일반회사"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/dialog_selectType_line4"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/dialog_selectType_etcBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="기타"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/dialog_selectType_line5"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#737373" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialog_selectType_cancleBtn"
+            android:layout_width="125dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:background="@drawable/j_layout_button_quad"
+            android:gravity="center"
+            android:text="닫기"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+</LinearLayout>

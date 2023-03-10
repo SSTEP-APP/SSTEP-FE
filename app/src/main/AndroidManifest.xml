@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -20,6 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+            android:name=".Checklist_complete_detail"
+            android:exported="false" />
         <activity
             android:name=".mypage.MyPage"
             android:exported="true">
@@ -35,6 +36,8 @@
         <activity android:name=".mypage.MyPage_Change" />
         <activity android:name=".mypage.MyPage_Message" />
         <activity android:name=".mypage.MyPage_Ask" />
+            android:name=".CheckList_write"
+            android:exported="false" />
         <activity
             android:name=".paper.Paper"
             android:exported="true">
@@ -45,6 +48,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".paper.Paperh" />
+            android:name=".Checklist"
+            android:exported="false" />
         <activity
             android:name=".notice.Notice"
             android:exported="true">
@@ -55,6 +60,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".notice.Notice_input" />
+            android:name=".Start"
+            android:exported="false" />
         <activity
             android:name=".notice.Notice_view"
             android:exported="true">
@@ -64,6 +71,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+            android:name=".Search_Store"
+            android:exported="false" />
         <activity
             android:name=".monthstate.MonthState"
             android:exported="true">
@@ -73,6 +82,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+            android:name=".modifyStore"
+            android:exported="false" />
         <activity
             android:name=".money.Money_Ceo"
             android:exported="true">
@@ -82,6 +93,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+            android:name=".RegisterStore"
+            android:exported="false" />
         <activity
             android:name=".money.Money_Staff"
             android:exported="true">
@@ -91,6 +104,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+            android:name=".Find_id"
+            android:exported="false" />
         <activity
             android:name=".SelectStore"
             android:exported="true">
@@ -100,6 +115,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+            android:name=".Find_password"
+            android:exported="false" />
         <activity
             android:name=".InputStaffInfo"
             android:exported="true">
@@ -109,6 +126,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+            android:name=".Login"
+            android:exported="false" />
         <activity
             android:name=".StaffInvite"
             android:exported="true">
@@ -119,15 +138,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".StaffInvite2" />
+            android:name=".JoinActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
