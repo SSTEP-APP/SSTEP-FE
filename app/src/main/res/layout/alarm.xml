@@ -10,7 +10,7 @@
 
     <!-- top_알림-->
     <FrameLayout
-        android:id="@+id/alarm_F1"
+        android:id="@+id/alarm_topF1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

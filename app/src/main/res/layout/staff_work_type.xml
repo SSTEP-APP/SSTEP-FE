@@ -33,9 +33,7 @@
             android:background="@android:color/transparent"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/j_backspace1_img" />
-
     </FrameLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,7 +43,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/j_layout_background"
             android:orientation="vertical">
 
@@ -80,33 +80,21 @@
             <RadioGroup
                 android:id="@+id/staff_workType_RadioGroup"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <androidx.appcompat.widget.AppCompatRadioButton
+                <RadioButton
                     android:id="@+id/staff_workType_scheduleOk"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="25dp"
                     android:layout_marginTop="20dp"
+                    android:button="@drawable/yradiobtn_red"
                     android:buttonTintMode="src_in"
-                    android:checked="true"
-                    android:clickable="false"
-                    android:text="일정이 있는 직원"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <!-- 실행해보기 -->
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:checked="false"
+                    android:paddingLeft="10dp"
                     android:text="일정이 있는 직원"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:paddingLeft="10dp"
-                    android:button="@drawable/yradiobtn_red"/>
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/staff_workType_localText3"
@@ -117,15 +105,18 @@
                     android:textColor="#535353"
                     android:textSize="9sp" />
 
-                <androidx.appcompat.widget.AppCompatRadioButton
+                <RadioButton
                     android:id="@+id/staff_workType_selfwork"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="25dp"
+                    android:button="@drawable/yradiobtn_red"
                     android:buttonTintMode="src_in"
                     android:checked="true"
-                    android:clickable="true"
+                    android:paddingLeft="10dp"
                     android:text="자율출퇴근 직원"
+                    android:textColor="@color/black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -137,12 +128,8 @@
                     android:text="정해진 일정없이 출퇴근이 가능하며 출근하였을 때만 캘린더에 표시됩니다."
                     android:textColor="#535353"
                     android:textSize="9sp" />
-
             </RadioGroup>
-
         </LinearLayout>
-
-
     </LinearLayout>
 
     <LinearLayout

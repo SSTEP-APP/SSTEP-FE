@@ -100,7 +100,7 @@
                         android:id="@+id/staff_info_callPic"
                         android:layout_width="10dp"
                         android:layout_height="10dp"
-                        app:srcCompat="@drawable/j_call_icon" />
+                        app:srcCompat="@drawable/yicon_call" />
 
                     <TextView
                         android:id="@+id/staff_info_callText"
