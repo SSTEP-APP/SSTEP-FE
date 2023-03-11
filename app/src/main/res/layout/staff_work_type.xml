@@ -95,6 +95,7 @@
                     android:textColor="#000000"
                     android:textSize="15sp" />
 
+                <!-- 실행해보기 -->
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
