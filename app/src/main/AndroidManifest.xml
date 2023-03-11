@@ -64,7 +64,7 @@
         </activity>
         <activity android:name=".notice.Notice_input" />
         <activity
-            android:name=".Start"
+            android:name=".start.Start"
             android:exported="false" />
         <activity
             android:name=".notice.Notice_view"

@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="18dp"
                 android:background="@drawable/j_layout_background"
                 android:orientation="vertical">
@@ -80,7 +80,7 @@
                         android:layout_marginTop="5dp"
                         android:backgroundTint="#C6C6C6"
                         android:ems="10"
-                        android:inputType="textPersonName"
+                        android:inputType="text"
                         android:textColor="#000000"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -131,7 +131,7 @@
                         android:backgroundTint="#C6C6C6"
                         android:ems="10"
                         android:hint="ex. 가스벨브 잠그기"
-                        android:inputType="textPersonName"
+                        android:inputType="textMultiLine"
                         android:textColor="#000000"
                         android:textColorHint="#DCDCDC"
                         android:textSize="13sp" />
@@ -317,7 +317,7 @@
                             android:layout_height="wrap_content"
                             android:button="@null"
                             android:checked="false"
-                            android:drawableLeft="@drawable/j_radiobtn"
+                            android:drawableLeft="@drawable/ychbox_black"
                             android:drawablePadding="5dp"
                             android:text="마감 예정 시간 미입력"
                             android:textSize="11sp" />
@@ -386,7 +386,7 @@
                             android:layout_height="wrap_content"
                             android:button="@null"
                             android:checked="true"
-                            android:drawableLeft="@drawable/j_radiobtn"
+                            android:drawableLeft="@drawable/ychbox_black"
                             android:drawablePadding="5dp"
                             android:text="할 일 관련내용 사진촬영 필수"
                             android:textSize="11sp" />
@@ -473,7 +473,7 @@
                             android:layout_height="wrap_content"
                             android:button="@null"
                             android:checked="true"
-                            android:drawableLeft="@drawable/j_radiobtn"
+                            android:drawableLeft="@drawable/ychbox_black"
                             android:drawablePadding="5dp"
                             android:text="담당직원만 체크할 수 있도록 설정합니다."
                             android:textSize="11sp" />

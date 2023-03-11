@@ -9,30 +9,30 @@
     tools:context=".Checklist_detail">
 
     <FrameLayout
-        android:id="@+id/checkDetail_top"
+        android:id="@+id/checkList_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <TextView
-            android:id="@+id/checkDetail_topText"
+            android:id="@+id/checkList_topText"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:background="#FFFFFF"
+            android:background="#E60D69F3"
             android:gravity="center_horizontal|center_vertical"
-            android:text="마감시 에어컨 끄기"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            android:text="마감 시 에어컨 끄기"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
 
         <ImageButton
-            android:id="@+id/checkDetail_back_Btn"
+            android:id="@+id/checkList_backBtn"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_backspace1black_img" />
+            app:srcCompat="@drawable/j_backspace1_img" />
 
     </FrameLayout>
 
@@ -69,7 +69,7 @@
                         android:layout_marginTop="18dp"
                         android:text="마감 예정시간"
                         android:textColor="#636363"
-                        android:textSize="11sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <View
@@ -87,7 +87,7 @@
                         android:layout_marginRight="16dp"
                         android:text="2023년 2월 10일 13:00까지"
                         android:textColor="#636363"
-                        android:textSize="11sp"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -103,7 +103,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="27dp"
+                    android:layout_marginLeft="35dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginRight="50dp"
                     android:layout_marginBottom="15dp"
@@ -115,8 +115,7 @@
                         android:layout_height="wrap_content"
                         android:text="담당직원"
                         android:textColor="#636363"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
+                        android:textSize="13sp" />
 
                     <View
                         android:id="@+id/checkDetail_view2"
@@ -130,15 +129,14 @@
                         android:layout_height="wrap_content"
                         android:text="000"
                         android:textColor="#636363"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="27dp"
+                    android:layout_marginLeft="35dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginRight="50dp"
                     android:layout_marginBottom="15dp"
@@ -150,8 +148,7 @@
                         android:layout_height="wrap_content"
                         android:text="확인시간"
                         android:textColor="#636363"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
+                        android:textSize="13sp" />
 
                     <View
                         android:id="@+id/checkDetail_view3"
@@ -165,8 +162,7 @@
                         android:layout_height="wrap_content"
                         android:text="확인 전"
                         android:textColor="#636363"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -232,8 +228,8 @@
                     android:ems="10"
                     android:gravity="top"
                     android:hint="내용을 입력하세요."
-                    android:inputType="textPersonName"
-                    android:padding="5dp"
+                    android:inputType="textMultiLine"
+                    android:padding="10dp"
                     android:textColorHint="#9A9A9A"
                     android:textSize="13sp" />
             </LinearLayout>

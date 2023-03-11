@@ -9,6 +9,6 @@ public class CheckList_write extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_list_write);
+        setContentView(R.layout.check_list_write);
     }
 }

@@ -9,30 +9,30 @@
     tools:context=".Checklist_complete_detail">
 
     <FrameLayout
-        android:id="@+id/checkComDetail_top"
+        android:id="@+id/checkList_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <TextView
-            android:id="@+id/checkComDetail_topText"
+            android:id="@+id/checkList_topText"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:background="#FFFFFF"
+            android:background="#E60D69F3"
             android:gravity="center_horizontal|center_vertical"
             android:text="완료된 항목"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            android:textColor="@color/white"
+            android:textSize="17sp" />
 
         <ImageButton
-            android:id="@+id/checkComDetail_back_Btn"
+            android:id="@+id/checkList_backBtn"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_backspace1black_img" />
+            app:srcCompat="@drawable/j_backspace1_img" />
 
     </FrameLayout>
 
@@ -51,7 +51,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="18dp"
-                android:background="@drawable/j_layout_square_background"
+                android:background="@drawable/yroundrec_w"
                 android:orientation="vertical">
 
 
@@ -67,7 +67,7 @@
                         android:layout_marginTop="18dp"
                         android:text="마감시 에어컨 끄기"
                         android:textColor="#000000"
-                        android:textSize="12sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -75,10 +75,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="27dp"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginTop="40dp"
                         android:text="000"
                         android:textColor="#414141"
-                        android:textSize="12sp" />
+                        android:textSize="13sp" />
 
                     <ImageButton
                         android:id="@+id/checkComDetail_menuBtn"
@@ -98,9 +98,11 @@
                     <ImageView
                         android:id="@+id/checkComDetail_picture"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        app:srcCompat="@android:drawable/ic_menu_gallery" />
+                        app:srcCompat="@drawable/yicon_image"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"/>
 
                 </FrameLayout>
 
@@ -115,11 +117,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:drawableLeft="@drawable/j_bubble_icon"
+                        android:drawableLeft="@drawable/yicon_comment"
                         android:gravity="left|center_vertical"
-                        android:paddingLeft="15dp"
+                        android:paddingLeft="20dp"
                         android:text=" 댓글 쓰기"
-                        android:textColor="#969696" />
+                        android:textColor="#737373"
+                        android:drawablePadding="10dp"/>
                 </LinearLayout>
 
             </LinearLayout>

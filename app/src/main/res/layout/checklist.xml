@@ -83,13 +83,13 @@
             android:layout_marginEnd="18dp"
             android:background="@drawable/j_237a95_roundqurd"
             android:foregroundTint="#FF0000"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center_vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="26dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="26dp"
                 android:orientation="horizontal">
 
@@ -140,6 +140,7 @@
                         android:id="@+id/checkList_weekofdayText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:layout_gravity="center"
                         android:text="금요일"
                         android:textColor="#595959"
@@ -277,6 +278,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/j_layout_background"
             android:orientation="vertical">
 

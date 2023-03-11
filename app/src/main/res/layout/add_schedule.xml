@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:layout_marginStart="18dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="18dp"
                 android:background="@drawable/j_layout_background"
                 android:orientation="vertical">
@@ -377,9 +377,7 @@
                         android:scaleType="centerInside"
                         app:srcCompat="@drawable/j_delete_schedule" />
                 </LinearLayout>
-
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 

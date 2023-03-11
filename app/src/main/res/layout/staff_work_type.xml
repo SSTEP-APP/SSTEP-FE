@@ -95,6 +95,18 @@
                     android:textColor="#000000"
                     android:textSize="15sp" />
 
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="일정이 있는 직원"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="10dp"
+                    android:button="@drawable/yradiobtn_red"/>
+
                 <TextView
                     android:id="@+id/staff_workType_localText3"
                     android:layout_width="match_parent"

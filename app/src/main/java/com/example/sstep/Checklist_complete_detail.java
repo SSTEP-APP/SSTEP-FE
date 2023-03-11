@@ -9,6 +9,6 @@ public class Checklist_complete_detail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_checklist_complete_detail);
+        setContentView(R.layout.checklist_complete_detail);
     }
 }

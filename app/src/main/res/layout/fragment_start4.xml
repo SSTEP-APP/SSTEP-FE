@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Start4">
+    tools:context=".start.Start4">
 
     <TextView
         android:id="@+id/strat4_localText"

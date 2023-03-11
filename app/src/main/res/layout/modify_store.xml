@@ -38,7 +38,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="18dp"
                 android:background="@drawable/j_layout_background"
                 android:orientation="vertical">
@@ -215,7 +217,6 @@
                         android:textSize="13sp" />
 
                 </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
@@ -266,7 +267,8 @@
                         android:id="@+id/modistore_scaleRadioGroup"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp">
 
                         <View
                             android:id="@+id/modistore_view9"
@@ -278,7 +280,9 @@
                             android:id="@+id/modistore_under5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5인 미만" />
+                            android:text="5인 미만"
+                            android:paddingLeft="10dp"
+                            android:button="@drawable/yradiobtn_red"/>
 
                         <View
                             android:id="@+id/modistore_view10"
@@ -290,7 +294,9 @@
                             android:id="@+id/modistore_over5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5인 이상" />
+                            android:text="5인 이상"
+                            android:paddingLeft="10dp"
+                            android:button="@drawable/yradiobtn_red"/>
 
                         <View
                             android:id="@+id/modistore_view11"
@@ -305,7 +311,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="17dp"
                     android:layout_marginRight="15dp"
                     android:orientation="horizontal">
 
@@ -342,25 +348,17 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:background="#00FFFFFF"
+                android:background="#f1f1f1"
                 android:text="사업장 폐업하기"
-                android:textColor="#FF0000" />
-
-            <View
-                android:id="@+id/modistore_view13"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/modistore_completeBtn"
-                android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:background="@drawable/j_layout_button_quad"
-                android:text="일정추가 완료"
-                android:textColor="#FFFFFF" />
-
+                android:textColor="@color/red" />
         </LinearLayout>
     </ScrollView>
+    <Button
+        android:id="@+id/modistore_completeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="@drawable/j_layout_button_quad"
+        android:text="일정추가 완료"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>

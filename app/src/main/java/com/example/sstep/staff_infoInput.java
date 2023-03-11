@@ -9,6 +9,6 @@ public class staff_infoInput extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_staff_info_input);
+        setContentView(R.layout.staff_info_input);
     }
 }

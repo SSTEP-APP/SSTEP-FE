@@ -70,18 +70,20 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp">
 
             <EditText
                 android:id="@+id/searchStore_searchEt"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#000000"
+                android:backgroundTint="#737373"
                 android:ems="17"
                 android:hint="  예) 판교역로 235, 분당 주공, 삼평동 681"
                 android:inputType="textPersonName"
                 android:textColorHint="#8C8C8C"
-                android:textSize="15sp" />
+                android:textSize="15sp"/>
 
             <ImageButton
                 android:id="@+id/searchStore_searchbtn"

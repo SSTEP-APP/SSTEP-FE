@@ -196,7 +196,7 @@
                     android:layout_gravity="center"
                     android:text="2023년 1월"
                     android:textColor="#737373"
-                    android:textSize="13sp" />
+                    android:textSize="15sp" />
 
                 <View
                     android:id="@+id/staff_info_view2"

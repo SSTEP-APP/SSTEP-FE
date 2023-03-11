@@ -1,4 +1,4 @@
-package com.example.sstep;
+package com.example.sstep.start;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,8 +8,8 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
+import com.example.sstep.R;
 
 import java.util.ArrayList;
 
