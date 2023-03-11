@@ -38,14 +38,15 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#F1F1F1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="70dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -242,7 +243,7 @@
                         android:checked="false"
                         android:gravity="center"
                         android:text="일"
-                        android:textColor="#DADADA" />
+                        android:textColor="#DADADA"/>
 
                     <CheckBox
                         android:id="@+id/addSch_monBtn"
@@ -370,9 +371,9 @@
 
                     <ImageButton
                         android:id="@+id/addSch_deleteBtn"
-                        android:layout_width="19dp"
-                        android:layout_height="19dp"
-                        android:layout_marginLeft="150dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="120dp"
                         android:background="@android:color/transparent"
                         android:scaleType="centerInside"
                         app:srcCompat="@drawable/j_delete_schedule" />

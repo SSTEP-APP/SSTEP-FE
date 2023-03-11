@@ -1,8 +1,10 @@
-package com.example.sstep;
+package com.example.sstep.checklist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.sstep.R;
 
 public class Checklist_complete_detail extends AppCompatActivity {
 

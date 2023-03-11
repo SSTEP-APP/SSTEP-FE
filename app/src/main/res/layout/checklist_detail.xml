@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F1F1F1"
     android:orientation="vertical"
-    tools:context=".Checklist_detail">
+    tools:context=".checklist.Checklist_detail">
 
     <FrameLayout
         android:id="@+id/checkList_top"

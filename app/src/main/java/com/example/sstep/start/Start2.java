@@ -61,6 +61,6 @@ public class Start2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_start2, container, false);
+        return inflater.inflate(R.layout.start2_fragment, container, false);
     }
 }
