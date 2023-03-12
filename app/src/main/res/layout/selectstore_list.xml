@@ -23,15 +23,6 @@
             android:text="직원 초대현황"
             android:textColor="@color/white"
             android:textSize="17sp" />
-
-        <!-- 홈 아이콘 -->
-        <ImageView
-            android:id="@+id/selectstore_list_homeiv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/yicon_logout" />
     </FrameLayout>
 
     <!-- 사업장 등록하기 버튼 -->

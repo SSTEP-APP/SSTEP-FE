@@ -8,32 +8,30 @@
     android:orientation="vertical"
     tools:context=".checklist.Checklist_complete_detail">
 
+    <!-- top_완료된 항목-->
     <FrameLayout
         android:id="@+id/checkList_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <TextView
             android:id="@+id/checkList_topText"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:background="#E60D69F3"
+            android:background="@color/lightblue"
             android:gravity="center_horizontal|center_vertical"
             android:text="완료된 항목"
             android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textSize="17sp"/>
 
+        <!-- 뒤로가기 아이콘 -->
         <ImageButton
             android:id="@+id/checkList_backBtn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_backspace1_img" />
-
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
     </FrameLayout>
 
     <ScrollView
@@ -82,13 +80,13 @@
 
                     <ImageButton
                         android:id="@+id/checkComDetail_menuBtn"
-                        android:layout_width="14dp"
-                        android:layout_height="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginRight="15dp"
                         android:background="@android:color/transparent"
                         android:scaleType="centerInside"
-                        app:srcCompat="@drawable/j_menu_icon" />
+                        app:srcCompat="@drawable/yicon_more" />
                 </FrameLayout>
 
                 <FrameLayout

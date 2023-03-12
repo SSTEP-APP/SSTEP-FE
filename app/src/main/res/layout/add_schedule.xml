@@ -8,32 +8,30 @@
     android:orientation="vertical"
     tools:context=".addSchedule">
 
+    <!-- top_일정 추가-->
     <FrameLayout
         android:id="@+id/addSch_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <TextView
             android:id="@+id/addSch_topText"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:background="#E60D69F3"
+            android:background="@color/lightblue"
             android:gravity="center_horizontal|center_vertical"
             android:text="일정 추가"
             android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textSize="17sp"/>
 
+        <!-- 뒤로가기 아이콘 -->
         <ImageButton
             android:id="@+id/addSch_backBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_backspace1_img" />
-
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
     </FrameLayout>
 
     <ScrollView

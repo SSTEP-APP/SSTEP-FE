@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:button="@null"
                     android:checked="true"
-                    android:drawableLeft="@drawable/j_dialog_radiobtn"
+                    android:drawableLeft="@drawable/ychbox_black"
                     android:drawablePadding="5dp"
                     android:textSize="12sp" />
 
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:button="@null"
                     android:checked="true"
-                    android:drawableLeft="@drawable/j_dialog_radiobtn"
+                    android:drawableLeft="@drawable/ychbox_black"
                     android:drawablePadding="5dp"
                     android:textSize="12sp" />
 

@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".RegisterStore">
 
+    <!-- top_사업장 등록-->
     <FrameLayout
         android:id="@+id/regiStore_top"
         android:layout_width="match_parent"
@@ -17,22 +18,20 @@
             android:id="@+id/regiStore_topText"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:background="#E60D69F3"
+            android:background="@color/lightblue"
             android:gravity="center_horizontal|center_vertical"
             android:text="사업장 등록"
             android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textSize="17sp"/>
 
+        <!-- 뒤로가기 아이콘 -->
         <ImageButton
             android:id="@+id/regiStore_back_Btn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_backspace1_img" />
-
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
     </FrameLayout>
 
     <LinearLayout
@@ -261,7 +260,8 @@
                     android:id="@+id/regiStore_scaleRadioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
 
                     <View
                         android:id="@+id/regiStore_view5"
@@ -273,7 +273,9 @@
                         android:id="@+id/regiStore_under5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5인 미만" />
+                        android:text="5인 미만"
+                        android:button="@drawable/yradiobtn_red"
+                        android:paddingLeft="10dp"/>
 
                     <View
                         android:id="@+id/regiStore_view6"
@@ -285,7 +287,9 @@
                         android:id="@+id/regiStore_over5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5인 이상" />
+                        android:text="5인 이상"
+                        android:button="@drawable/yradiobtn_red"
+                        android:paddingLeft="10dp"/>
 
                     <View
                         android:id="@+id/regiStore_view7"
@@ -300,7 +304,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
                 android:orientation="horizontal">
 

@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
     </FrameLayout>
 
@@ -66,8 +66,8 @@
                     android:gravity="center_vertical">
                     <ImageButton
                         android:id="@+id/money_ceo_leftib"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:background="@drawable/yicon_left"
                         android:layout_marginLeft="20dp"/>
                     <View
@@ -110,8 +110,8 @@
                         android:layout_marginRight="5dp"/>
                     <ImageButton
                         android:id="@+id/money_ceo_rightib"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:background="@drawable/yicon_right"
                         android:layout_marginRight="20dp"/>
                 </LinearLayout> <!-- 날짜 선택 버튼 _HL -->
@@ -284,7 +284,7 @@
                                 android:id="@+id/money_ceo_iv1"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:background="@drawable/yimage_female2"
+                                android:background="@drawable/yicon_stafffemale"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginRight="15dp"/>
                             <!-- 직원 정보 _L -->

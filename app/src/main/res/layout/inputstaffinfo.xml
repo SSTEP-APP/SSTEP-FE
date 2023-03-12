@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
 
         <!-- 홈 아이콘 -->
@@ -74,7 +74,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="15dp"
-                    app:srcCompat="@drawable/yimage_female"
+                    app:srcCompat="@drawable/yicon_stafffemale"
                     android:layout_gravity="center_vertical"/>
 
                 <!-- 이름_text-->
@@ -238,9 +238,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="10dp"
-                            android:button="@drawable/ychbox_red"
+                            android:button="@null"
+                            android:drawableLeft="@drawable/ychbox_red"
+                            android:drawablePadding="10dp"
                             android:checked="true"
-                            android:paddingLeft="10dp"
                             android:text="퇴사일 미정"
                             android:textColor="@color/likeblack"
                             android:textSize="15sp"/>
@@ -527,7 +528,7 @@
                                     android:paddingTop="15dp"
                                     android:paddingBottom="15dp">
                                     <!-- + 주휴수당 HL -->
-                                    <LinearLayout
+                                    <FrameLayout
                                         android:id="@+id/isi_pi_HL4"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
@@ -537,20 +538,21 @@
                                             android:id="@+id/isi_pi_pluspaych1"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:button="@drawable/ychbox_black"
+                                            android:button="@null"
+                                            android:drawableLeft="@drawable/ychbox_black"
+                                            android:drawablePadding="30dp"
                                             android:checked="false"
-                                            android:paddingLeft="10dp"
-                                            android:text="(+)"
-                                            android:textColor="#2496FF"
+                                            android:text="주휴수당 자동 가산"
+                                            android:textColor="@color/black"
                                             android:textSize="15sp" />
 
                                         <TextView
                                             android:id="@+id/isi_pi_tv6"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="5dp"
-                                            android:text="주휴수당 자동 가산"
-                                            android:textColor="@color/black"
+                                            android:layout_marginLeft="27dp"
+                                            android:text="(+)"
+                                            android:textColor="#2496FF"
                                             android:textSize="15sp" />
 
                                         <View
@@ -565,6 +567,7 @@
                                             android:layout_marginRight="15dp"
                                             android:background="@drawable/yroundrec_b"
                                             android:gravity="center"
+                                            android:layout_gravity="right"
                                             android:minWidth="0dp"
                                             android:minHeight="0dp"
                                             android:paddingLeft="15dp"
@@ -575,36 +578,35 @@
                                             android:textColor="@color/white"
                                             android:textSize="14sp"
                                             android:visibility="visible" />
-                                    </LinearLayout> <!-- + 주휴수당 HL -->
+                                    </FrameLayout> <!-- + 주휴수당 HL -->
                                     <!-- - 휴게시간 HL -->
-                                    <LinearLayout
+                                    <FrameLayout
                                         android:id="@+id/isi_pi_HL5"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:orientation="horizontal">
+                                        android:orientation="horizontal"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="10dp">
 
                                         <CheckBox
                                             android:id="@+id/isi_pi_minuspaych2"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="10dp"
-                                            android:layout_marginBottom="10dp"
-                                            android:button="@drawable/ychbox_black"
+                                            android:button="@null"
+                                            android:drawableLeft="@drawable/ychbox_black"
+                                            android:drawablePadding="30dp"
                                             android:checked="false"
-                                            android:paddingLeft="10dp"
-                                            android:text="(-)"
-                                            android:textColor="@color/lightred"
-                                            android:textSize="15sp" />
+                                            android:text="휴게시간 자동 차감"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp"/>
 
                                         <TextView
                                             android:id="@+id/isi_pi_tv7"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="5dp"
-                                            android:layout_marginTop="10dp"
-                                            android:layout_marginBottom="10dp"
-                                            android:text="휴게시간 자동 차감"
-                                            android:textColor="@color/black"
+                                            android:layout_marginLeft="28dp"
+                                            android:text="(-)"
+                                            android:textColor="@color/lightred"
                                             android:textSize="15sp" />
 
                                         <View
@@ -616,7 +618,7 @@
                                             android:id="@+id/isi_pi_setbtn2"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_gravity="center_vertical"
+                                            android:layout_gravity="center_vertical|right"
                                             android:layout_marginRight="15dp"
                                             android:background="@drawable/yroundrec_b"
                                             android:gravity="center"
@@ -630,9 +632,9 @@
                                             android:textColor="@color/white"
                                             android:textSize="14sp"
                                             android:visibility="visible" />
-                                    </LinearLayout> <!-- - 휴게시간 HL -->
+                                    </FrameLayout> <!-- - 휴게시간 HL -->
                                     <!-- + 휴일수당 HL -->
-                                    <LinearLayout
+                                    <FrameLayout
                                         android:id="@+id/isi_pi_HL6"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
@@ -642,22 +644,23 @@
                                             android:id="@+id/isi_pi_pluspaych3"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:button="@drawable/ychbox_black"
+                                            android:button="@null"
+                                            android:drawableLeft="@drawable/ychbox_black"
+                                            android:drawablePadding="30dp"
                                             android:checked="false"
-                                            android:paddingLeft="10dp"
-                                            android:text="(+)"
-                                            android:textColor="#2496FF"
-                                            android:textSize="15sp" />
+                                            android:text="추가, 야간 휴일수당 50% 자동 가산"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp"/>
 
                                         <TextView
                                             android:id="@+id/isi_pi_tv8"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="5dp"
-                                            android:text="추가, 야간 휴일수당 50% 자동 가산"
-                                            android:textColor="@color/black"
+                                            android:layout_marginLeft="27dp"
+                                            android:text="(+)"
+                                            android:textColor="#2496FF"
                                             android:textSize="15sp" />
-                                    </LinearLayout> <!-- + 휴일수당 HL -->
+                                    </FrameLayout> <!-- + 휴일수당 HL -->
                                 </LinearLayout> <!-- 시급 +- L -->
                             </LinearLayout> <!-- 라디오버튼(시급) 숨김 L -->
 
@@ -1201,8 +1204,8 @@
 
                                     <Button
                                         android:id="@+id/isi_pi_leftbtn1"
-                                        android:layout_width="20dp"
-                                        android:layout_height="20dp"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
                                         android:background="@drawable/yicon_left" />
 
                                     <TextView
@@ -1219,8 +1222,8 @@
 
                                     <Button
                                         android:id="@+id/isi_pi_rightbtn1"
-                                        android:layout_width="20dp"
-                                        android:layout_height="20dp"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
                                         android:background="@drawable/yicon_right" />
                                 </LinearLayout>
 

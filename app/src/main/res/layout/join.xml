@@ -8,42 +8,43 @@
     android:orientation="vertical"
     tools:context=".JoinActivity">
 
+    <!-- top_회원가입-->
     <FrameLayout
         android:id="@+id/join_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- 뒤로가기 아이콘 -->
         <TextView
             android:id="@+id/join_topText"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:background="#E60D69F3"
+            android:background="@color/lightblue"
             android:gravity="center_horizontal|center_vertical"
-            android:text="회원 가입"
+            android:text="회원가입"
             android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textSize="17sp"/>
 
+        <!-- 뒤로가기 아이콘 -->
         <ImageButton
             android:id="@+id/join_back_Btn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_backspace1_img" />
-
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
     </FrameLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -152,7 +153,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="사업주"
-                                android:textColor="#000000" />
+                                android:textColor="#000000"
+                                android:button="@drawable/yradiobtn_red"
+                                android:paddingLeft="15dp"/>
 
                             <RadioButton
                                 android:id="@+id/join_staffRadio"
@@ -160,7 +163,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="45dp"
                                 android:layout_weight="1"
-                                android:text="직원" />
+                                android:text="직원"
+                                android:button="@drawable/yradiobtn_red"
+                                android:paddingLeft="15dp"/>
                         </RadioGroup>
 
                         <View
@@ -237,6 +242,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="31dp"
                     android:layout_marginRight="15dp"
+                    android:layout_marginBottom="20dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -261,21 +267,14 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-            <View
-                android:id="@+id/join_view3"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/join_completeBtn"
-                android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:background="@drawable/j_layout_button_quad"
-                android:text="일정추가 완료"
-                android:textColor="#FFFFFF" />
         </LinearLayout>
     </ScrollView>
 
+    <Button
+        android:id="@+id/join_completeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="@drawable/j_layout_button_quad"
+        android:text="일정추가 완료"
+        android:textColor="#FFFFFF" />
 </LinearLayout>

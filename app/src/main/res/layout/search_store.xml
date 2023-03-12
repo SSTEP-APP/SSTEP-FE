@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".Search_Store">
 
+    <!-- top_사업장 검색-->
     <FrameLayout
         android:id="@+id/searchStore_top"
         android:layout_width="match_parent"
@@ -17,49 +18,20 @@
             android:id="@+id/searchStore_topText"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:background="#E60D69F3"
+            android:background="@color/lightblue"
             android:gravity="center_horizontal|center_vertical"
             android:text="사업장 검색"
             android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textSize="17sp"/>
 
+        <!-- 뒤로가기 아이콘 -->
         <ImageButton
             android:id="@+id/searchStore_back_Btn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_backspace1_img" />
-
-        <LinearLayout
-            android:id="@+id/searchStore_homeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/searchStore_homebtn"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="13dp"
-                android:background="@android:color/transparent"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/j_home_img" />
-
-            <TextView
-                android:id="@+id/searchStore_homeText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="HOME"
-                android:textColor="#FFFFFF"
-                android:textSize="10sp" />
-        </LinearLayout>
-
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
     </FrameLayout>
 
     <LinearLayout

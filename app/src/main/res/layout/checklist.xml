@@ -12,42 +12,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <!-- top_해야할 일-->
         <FrameLayout
             android:id="@+id/checkList_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <TextView
                 android:id="@+id/checkList_topText"
                 android:layout_width="match_parent"
                 android:layout_height="74dp"
-                android:background="#E60D69F3"
+                android:background="@color/lightblue"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="해야할 일"
                 android:textColor="@color/white"
-                android:textSize="17sp" />
+                android:textSize="17sp"/>
 
+            <!-- 뒤로가기 아이콘 -->
             <ImageButton
                 android:id="@+id/checkList_backBtn"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:background="@android:color/transparent"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/j_backspace1_img" />
-
-            <ImageButton
-                android:id="@+id/checkList_bellBtn"
-                android:layout_width="20dp"
-                android:layout_height="24dp"
-                android:layout_gravity="right|center_vertical"
-                android:layout_marginRight="15dp"
-                android:background="@android:color/transparent"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/j_bell_img" />
-
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/yicon_back" />
         </FrameLayout>
 
         <!--받는 데이터가 없을때 표시-->

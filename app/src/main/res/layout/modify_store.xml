@@ -8,32 +8,30 @@
     android:orientation="vertical"
     tools:context=".modifyStore">
 
+    <!-- top_사업장 수정-->
     <FrameLayout
         android:id="@+id/modistore_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- 뒤로가기 아이콘 -->
         <TextView
             android:id="@+id/modistore_topText"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:background="#E60D69F3"
+            android:background="@color/lightblue"
             android:gravity="center_horizontal|center_vertical"
             android:text="사업장 수정"
             android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textSize="17sp"/>
 
+        <!-- 뒤로가기 아이콘 -->
         <ImageButton
             android:id="@+id/modistore_back_Btn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_backspace1_img" />
-
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
     </FrameLayout>
 
     <ScrollView
@@ -58,12 +56,12 @@
 
 
                 <TextView
-                    android:id="@+id/modistore_storeInfoText"
+                    android:id="@+id/alarm_toptv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="18dp"
-                    android:text="사업장 정보"
+                    android:text="사업장 수정"
                     android:textColor="#616161"
                     android:textSize="15sp"
                     android:textStyle="bold" />

@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
     </FrameLayout>
 
@@ -51,7 +51,7 @@
                 android:id="@+id/mypage_profile_pimage1"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/yimage_female2"
+                app:srcCompat="@drawable/yicon_stafffemale"
                 android:layout_gravity="center_horizontal"/>
 
             <!-- 프로필 변경 버튼 _HL -->
