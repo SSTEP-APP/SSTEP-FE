@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.sstep'
+    namespace 'com.example.sstep_yuuuky02'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.sstep"
+        applicationId "com.example.sstep_yuuuky02"
         minSdk 21
         targetSdk 33
         versionCode 1
