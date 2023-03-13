@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -21,10 +20,9 @@ public class InputStaffInfo extends AppCompatActivity {
     LinearLayout ci_hidL2,pi_hidL2,yi_hidL2;
     LinearLayout ci_hidHL3;
     LinearLayout pi_hidL8;
-    LinearLayout pi_hidL9, pi_hidL10;
-    FrameLayout ci_changeiconF1,pi_changeiconF2, yi_changeiconF3;
-    ImageView ci_upicon1,ci_downicon1, pi_upicon2,pi_downicon2, yi_downicon3,yi_upicon3;
+    LinearLayout pi_hidL9, pi_hidL10, ci_updownHL1, pi_updownHL1, yi_updownHL1;
     CheckBox ci_outdatechbox1, pi_pluspaych1,pi_minuspaych2, pi_notermch4;
+    ImageView ci_upicon1,ci_downicon1, pi_upicon2,pi_downicon2, yi_upicon3,yi_downicon3;
     Button pi_setbtn1, pi_setbtn2;
 
 
@@ -32,12 +30,12 @@ public class InputStaffInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inputstaffinfo);
-        ci_changeiconF1 = findViewById(R.id.isi_ci_changeiconF1); pi_changeiconF2 = findViewById(R.id.isi_pi_changeiconF2); yi_changeiconF3 = findViewById(R.id.isi_yi_changeiconF3);
         ci_hidL2 = findViewById(R.id.isi_ci_hidL2); pi_hidL2 = findViewById(R.id.isi_pi_hidL2); yi_hidL2 = findViewById(R.id.isi_yi_hidL2);
         ci_outdatechbox1 = findViewById(R.id.isi_ci_outdatechbox1);
         ci_upicon1 = findViewById(R.id.isi_ci_upicon1); ci_downicon1 = findViewById(R.id.isi_ci_downicon1);
         pi_upicon2 = findViewById(R.id.isi_pi_upicon2); pi_downicon2 = findViewById(R.id.isi_pi_downicon2);
         yi_upicon3 = findViewById(R.id.isi_yi_upicon3); yi_downicon3 = findViewById(R.id.isi_yi_downicon3);
+        ci_updownHL1 = findViewById(R.id.isi_ci_updownHL1); pi_updownHL1 = findViewById(R.id.isi_pi_updownHL1); yi_updownHL1 = findViewById(R.id.isi_yi_updownHL1);
         ci_hidHL3 = findViewById(R.id.isi_ci_hidHL3);
         pi_payrg1 = findViewById(R.id.isi_pi_payrg1); pi_hourrb1 = findViewById(R.id.isi_pi_hourrb1); pi_dayrb2 = findViewById(R.id.isi_pi_dayrb2); pi_monthrb3 = findViewById(R.id.isi_pi_monthrb3);
         pi_hidL3 = findViewById(R.id.isi_pi_hidL3); pi_hidL5 = findViewById(R.id.isi_pi_hidL5); pi_hidL6 = findViewById(R.id.isi_pi_hidL6);
@@ -50,7 +48,7 @@ public class InputStaffInfo extends AppCompatActivity {
         pi_lawrg2 = findViewById(R.id.isi_pi_lawrg2); pi_lawrb4 = findViewById(R.id.isi_pi_lawrb4); pi_lawrb5 = findViewById(R.id.isi_pi_lawrb5); pi_lawrb6 = findViewById(R.id.isi_pi_lawrb6);
 
         // 출퇴근정보_up&down 아이콘 변경
-        ci_changeiconF1.setOnClickListener(new View.OnClickListener() {
+        ci_updownHL1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (ci_upicon1.getVisibility() == View.VISIBLE){
@@ -65,7 +63,7 @@ public class InputStaffInfo extends AppCompatActivity {
             }
         });
         // 급여정보_up&down 아이콘 변경
-        pi_changeiconF2.setOnClickListener(new View.OnClickListener() {
+        pi_updownHL1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (pi_upicon2.getVisibility() == View.VISIBLE){
@@ -80,7 +78,7 @@ public class InputStaffInfo extends AppCompatActivity {
             }
         });
         // 연차_up&down 아이콘 변경
-        yi_changeiconF3.setOnClickListener(new View.OnClickListener() {
+        yi_updownHL1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (yi_upicon3.getVisibility() == View.VISIBLE){

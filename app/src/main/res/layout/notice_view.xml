@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
     </FrameLayout>
 
@@ -342,7 +342,7 @@
                             android:id="@+id/notice_view_staffiv5"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:background="@drawable/yimage_female2"
+                            android:background="@drawable/yicon_stafffemale"
                             android:layout_marginRight="15dp"/>
                         <!-- 댓글 내용 _L -->
                         <LinearLayout

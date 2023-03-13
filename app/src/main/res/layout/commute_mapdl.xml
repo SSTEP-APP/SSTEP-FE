@@ -15,8 +15,8 @@
         <!-- 현재 위치로 버튼 -->
         <ImageButton
             android:id="@+id/commute_mapdl_mapbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="bottom|right"
             android:layout_marginBottom="30dp"
             android:layout_marginRight="20dp"

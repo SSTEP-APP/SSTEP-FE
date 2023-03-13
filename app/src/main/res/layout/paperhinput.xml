@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
 
         <!-- 홈 아이콘 -->
@@ -120,7 +120,7 @@
                             android:textSize="7sp"
                             android:textColor="#EB8F8F"
                             android:layout_gravity="center"
-                            android:layout_marginTop="15dp" />
+                            android:layout_marginTop="19dp" />
                     </FrameLayout> <!-- 사진촬영 F -->
                 </LinearLayout>
             </FrameLayout> <!-- 보건증 촬용 Frame -->

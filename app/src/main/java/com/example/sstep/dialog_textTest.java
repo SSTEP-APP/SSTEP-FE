@@ -29,7 +29,7 @@ public class dialog_textTest extends AppCompatActivity {
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         // 커스텀 다이얼로그의 레이아웃을 설정한다.
-        dlg.setContentView(R.layout.activity_dialog_text_test);
+        dlg.setContentView(R.layout.dialog_text_test);
 
         // 커스텀 다이얼로그를 노출한다.
         dlg.show();

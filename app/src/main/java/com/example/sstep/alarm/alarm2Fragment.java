@@ -1,19 +1,13 @@
 package com.example.sstep.alarm;
 
-import android.app.Dialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.sstep.R;
-import com.example.sstep.monthstate.MonthState;
 
 public class alarm2Fragment extends Fragment {
 

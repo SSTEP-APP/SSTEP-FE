@@ -1,7 +1,6 @@
 package com.example.sstep.monthstate;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.widget.LinearLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.sstep.R;
-import com.example.sstep.mypage.MyPage;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
