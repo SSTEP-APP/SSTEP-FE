@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F1F1"
+    android:id="@+id/paperwinput_L1">
+
+    <!-- top_근로계약서 입력 -->
+    <FrameLayout
+        android:id="@+id/paperwinput_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/paperwinput_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/lightblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="근로계약서 입력"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/paperwinput_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/yicon_back" />
+
+        <!-- 홈 아이콘 -->
+        <ImageView
+            android:id="@+id/paperwinput_homeiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/yicon_home" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/paperwinput_L2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="15dp">
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <!-- 맨 아래 버튼 변경 F -->
+    <FrameLayout
+        android:id="@+id/paperwinput_changebtnF1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/paperwinput_bottomoffbtn"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:text="입력 완료"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:visibility="visible"/>
+        <Button
+            android:id="@+id/paperwinput_bottomonbtn"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/yroundrec_bottombtnon"
+            android:text="입력 완료"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
+</LinearLayout>

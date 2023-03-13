@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F1F1">
+
+    <!-- top_공지사항 등록-->
+    <FrameLayout
+        android:id="@+id/notice_input_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/notice_input_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/lightblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="공지사항 등록"
+            android:textColor="@color/white"
+            android:textSize="17sp"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/notice_input_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/notice_input_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/notice_input_scrollL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
+            <!-- 제목 _L -->
+            <LinearLayout
+                android:id="@+id/notice_input_L1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:background="@drawable/yroundrec_w">
+                <TextView
+                    android:id="@+id/notice_input_tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="제목"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/likeblack"/>
+                <EditText
+                    android:id="@+id/notice_input_titleet1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yroundrec_g"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:textColor="@color/black"
+                    android:textColorHint="#C6C6C8"
+                    android:hint="제목"
+                    android:textSize="15sp"
+                    android:padding="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="5dp"
+                    android:inputType="text"/>
+            </LinearLayout> <!-- 제목 _L -->
+            <!-- 내용 _L -->
+            <LinearLayout
+                android:id="@+id/notice_input_L2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:background="@drawable/yroundrec_w">
+                <TextView
+                    android:id="@+id/notice_input_tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="내용"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/likeblack"/>
+                <EditText
+                    android:id="@+id/notice_input_contentet2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yroundrec_g"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:textColor="@color/black"
+                    android:textColorHint="#C6C6C8"
+                    android:hint="내용을 입력해 주세요."
+                    android:textSize="15sp"
+                    android:padding="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="5dp"
+                    android:inputType="textMultiLine"/>
+            </LinearLayout> <!-- 내용 _L -->
+            <!-- 사진 첨부 _L -->
+            <LinearLayout
+                android:id="@+id/notice_input_L3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:background="@drawable/yroundrec_w">
+                <TextView
+                    android:id="@+id/notice_input_tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사진 첨부"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/likeblack"/>
+                <!-- 사진 첨부 내용 _L -->
+                <LinearLayout
+                    android:id="@+id/notice_input_L4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/yroundrec_g"
+                    android:padding="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="5dp">
+                    <!-- 사진 첨부 버튼 _HL -->
+                    <LinearLayout
+                        android:id="@+id/notice_input_HL1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageButton
+                            android:id="@+id/notice_input_cameraib1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/yicon_camera"
+                            android:layout_marginRight="10dp"/>
+                        <ImageButton
+                            android:id="@+id/notice_input_photoib2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/yicon_photo"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/notice_input_num1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0/4"
+                            android:textSize="13sp"/>
+                        <ImageButton
+                            android:id="@+id/notice_input_deleteib3"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/yicon_trash"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout> <!-- 사진 첨부 버튼 _HL -->
+                    <!-- 사진 첨부 사진 _HL -->
+                    <LinearLayout
+                        android:id="@+id/notice_input_L5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+                        <ImageView
+                            android:id="@+id/notice_input_iv1"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w_sg"
+                            android:layout_marginRight="15dp"/>
+                        <ImageView
+                            android:id="@+id/notice_input_iv2"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w_sg"
+                            android:layout_marginRight="15dp"/>
+                        <ImageView
+                            android:id="@+id/notice_input_iv3"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w_sg"
+                            android:layout_marginRight="15dp"/>
+                        <ImageView
+                            android:id="@+id/notice_input_iv4"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w_sg"
+                            android:layout_marginRight="15dp"/>
+                    </LinearLayout> <!-- 사진 첨부 사진 _HL -->
+                </LinearLayout> <!-- 사진 첨부 내용 _L -->
+            </LinearLayout> <!-- 사진 첨부 _L -->
+            <!-- 공지 종료일  _L -->
+            <LinearLayout
+                android:id="@+id/notice_input_L6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:background="@drawable/yroundrec_w">
+                <TextView
+                    android:id="@+id/notice_input_tv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="공지 종료일"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/likeblack"/>
+                <!-- 공지 종료일 없음 _HL -->
+                <LinearLayout
+                    android:id="@+id/notice_input_HL2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:padding="15dp"
+                    android:background="@drawable/yroundrec_g"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/notice_input_datetv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지 종료일 없음"
+                        android:textColor="@color/likeblack"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="5dp"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:id="@+id/notice_input_iv5"
+                        android:layout_width="14dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/yicon_linedown"
+                        android:layout_marginRight="5dp"/>
+                </LinearLayout> <!-- 공지 종료일 없음 _HL -->
+            </LinearLayout> <!-- 공지 종료일 _L -->
+        </LinearLayout> <!-- 스크롤 _L -->
+    </ScrollView>
+
+    <!-- 맨 아래 버튼 변경 F -->
+    <FrameLayout
+        android:id="@+id/notice_input_changebtnF1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/notice_input_bottomoffbtn"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:text="등록"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:visibility="visible"/>
+        <Button
+            android:id="@+id/notice_input_bottomonbtn"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/yroundrec_bottombtnon"
+            android:text="등록"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
+</LinearLayout>

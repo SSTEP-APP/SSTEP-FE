@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/j_layout_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="24dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialog_category_topText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="추가할 카테고리를 입력해주세요."
+            android:textColor="#000000"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/dialog_category_topText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  * 카테고리는 3개까지만 추가 가능합니다."
+            android:textColor="#80000000"
+            android:textSize="8sp" />
+
+        <EditText
+            android:id="@+id/dialog_category_addCategoryET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#C6C6C6"
+            android:ems="16"
+            android:hint="ex) 오늘까지"
+            android:inputType="textPersonName"
+            android:textColorHint="#B4B4B4"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="36dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/dialog_category_leftBtnLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/dialog_category_firstCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dialog_category_firstText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="필수"
+                    android:textColor="#7C7C7C"
+                    android:textSize="11sp" />
+
+                <View
+                    android:id="@+id/dialog_category_firstCategoryView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/dialog_category_firstCategoryImg"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="30dp"
+                    app:srcCompat="@drawable/j_x_img" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dialog_category_thirdCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dialog_category_thirdText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="오전"
+                    android:textColor="#7C7C7C"
+                    android:textSize="11sp" />
+
+                <View
+                    android:id="@+id/dialog_category_thirdCategoryView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/dialog_category_thirdCategoryImg"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="30dp"
+                    app:srcCompat="@drawable/j_x_img" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dialog_category_rightBtnLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/dialog_category_secondCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dialog_category_secondCategoryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="카테고리"
+                    android:textColor="#7C7C7C"
+                    android:textSize="11sp" />
+
+                <View
+                    android:id="@+id/dialog_category_secondCategoryView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/dialog_category_secondCategoryImg"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="30dp"
+                    app:srcCompat="@drawable/j_x_img" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/dialog_category_addBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/j_button_round"
+        android:backgroundTint="#0D69F3"
+        android:text="추가"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/dialog_category_cancelBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/j_button_round"
+        android:text="취소"
+        android:textSize="11sp" />
+
+</LinearLayout>

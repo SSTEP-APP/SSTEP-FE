@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F1F1"
+    android:orientation="vertical"
+    tools:context=".modifyStore">
+
+    <FrameLayout
+        android:id="@+id/modistore_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 뒤로가기 아이콘 -->
+        <TextView
+            android:id="@+id/modistore_topText"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="#E60D69F3"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="사업장 수정"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageButton
+            android:id="@+id/modistore_back_Btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/j_backspace1_img" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/j_layout_background"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/modistore_storeInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="18dp"
+                    android:text="사업장 정보"
+                    android:textColor="#616161"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/modistore_view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#E1E1E1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/modistore_nameText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="사업장명"
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/modistore_nameEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#B9B9B9"
+                        android:ems="10"
+                        android:hint="ex) 스텦"
+                        android:inputType="textPersonName"
+                        android:textColor="#000000"
+                        android:textColorHint="#DCDCDC"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/modistore_addressText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="기본주소"
+                            android:textColor="#000000" />
+
+                        <View
+                            android:id="@+id/modistore_view2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/modistore_addserchbtn"
+                            android:layout_width="67dp"
+                            android:layout_height="27dp"
+                            android:background="@drawable/j_button_round_check"
+                            android:text="주소 검색"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/modistore_addressEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#B9B9B9"
+                        android:ems="10"
+                        android:hint="시흥시 산기대학로"
+                        android:inputType="textPersonName"
+                        android:textColor="#000000"
+                        android:textColorHint="#DCDCDC"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/modistore_detailText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="상세주소"
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/modistore_detailEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="#B9B9B9"
+                        android:ems="10"
+                        android:hint="1층 102호"
+                        android:inputType="textPersonName"
+                        android:textColor="#000000"
+                        android:textColorHint="#DCDCDC"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/modistore_userTypeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="27dp"
+                        android:text="사업자 분류"
+                        android:textColor="#000000" />
+
+                    <View
+                        android:id="@+id/modistore_view3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/modistore_choicebtn"
+                        android:layout_width="67dp"
+                        android:layout_height="27dp"
+                        android:background="@drawable/j_button_round_check"
+                        android:text="분류 선택"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/j_layout_background"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/modistore_userInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="18dp"
+                    android:text="급여 사용자 정보"
+                    android:textColor="#616161"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/modistore_view8"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#E1E1E1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/modistore_storeScale"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="사업장 규모"
+                        android:textColor="#000000" />
+
+                    <RadioGroup
+                        android:id="@+id/modistore_scaleRadioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:id="@+id/modistore_view9"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <RadioButton
+                            android:id="@+id/modistore_under5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5인 미만" />
+
+                        <View
+                            android:id="@+id/modistore_view10"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <RadioButton
+                            android:id="@+id/modistore_over5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5인 이상" />
+
+                        <View
+                            android:id="@+id/modistore_view11"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/modistore_paydayText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="27dp"
+                        android:text="급여날"
+                        android:textColor="#000000" />
+
+                    <View
+                        android:id="@+id/modistore_view12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/modistore_paydaybtn"
+                        android:layout_width="90dp"
+                        android:layout_height="27dp"
+                        android:background="@drawable/j_button_shape"
+                        android:text="급여날 설정"
+                        android:textColor="#0D69F3"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/modistore_closeStore"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:background="#00FFFFFF"
+                android:text="사업장 폐업하기"
+                android:textColor="#FF0000" />
+
+            <View
+                android:id="@+id/modistore_view13"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/modistore_completeBtn"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:background="@drawable/j_layout_button_quad"
+                android:text="일정추가 완료"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

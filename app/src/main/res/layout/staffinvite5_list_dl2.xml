@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/staffInvite5_list_dl2_L1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- 승인 대기중 내용_frame -->
+    <FrameLayout
+        android:id="@+id/staffInvite5_list_dl2_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp">
+        <!-- 사람이미지 -->
+        <ImageView
+            android:id="@+id/staffInvite5_list_dl2_pimage1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            app:srcCompat="@drawable/yimage_female" />
+
+        <!-- 이름 -->
+        <TextView
+            android:id="@+id/staffInvite5_list_dl2_nametv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="5dp"
+            android:text="이름"
+            android:textColor="#737373"
+            android:textSize="13sp" />
+
+        <!-- 아이디 -->
+        <TextView
+            android:id="@+id/staffInvite5_list_dl2_idtv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="25dp"
+            android:text="아이디"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+        <FrameLayout
+            android:id="@+id/staffInvite5_list_dl2_changebtnF1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="25dp"
+            android:text="삭제">
+            <!-- 재전송 버튼 -->
+            <TextView
+                android:id="@+id/staffInvite5_list_dl2_yesbtn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="45dp"
+                android:text="재전송"
+                android:textColor="@color/blue"
+                android:textSize="13sp"
+                android:visibility="visible"/>
+            <!-- 삭제 버튼 -->
+            <TextView
+                android:id="@+id/staffInvite5_list_dl2_nobtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="삭제"
+                android:textColor="#737373"
+                android:textSize="13sp"
+                android:visibility="visible"/>
+            <!-- 전송완료 버튼 -->
+            <TextView
+                android:id="@+id/staffInvite5_list_dl2_fibtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="15dp"
+                android:text="전송 완료"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:visibility="gone"/>
+
+        </FrameLayout>
+    </FrameLayout> <!-- 승인대기중 내용 리스트 frame -->
+</LinearLayout>

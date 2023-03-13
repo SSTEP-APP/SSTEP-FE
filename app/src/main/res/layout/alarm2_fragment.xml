@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".alarm.alarm2Fragment">
+
+    <!-- 텅/이전알림 _숨김F -->
+    <FrameLayout
+        android:id="@+id/fragment_alarm2_hidF2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <!-- 텅 _L -->
+        <LinearLayout
+            android:id="@+id/fragment_alarm2_tengL2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="80dp"
+            android:layout_gravity="center_horizontal"
+            android:visibility="visible">
+            <ImageView
+                android:id="@+id/fragment_alarm2_tengiv1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/yimage_teng"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/fragment_alarm2_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="알림이 없습니다."
+                android:textColor="#A9A9A9"
+                android:textSize="16sp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="30dp"/>
+        </LinearLayout> <!-- 텅 _L -->
+
+        <!-- 이전알림 _L -->
+        <LinearLayout
+            android:id="@+id/fragment_alarm2_listL3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/fragment_alarm2_tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="이전 알림"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="@font/nanumsquareneo_brg"
+                android:gravity="center_horizontal"
+                android:paddingTop="17dp"
+                android:paddingBottom="20dp"/>
+            <TextView
+                android:id="@+id/fragment_alarm2_linetv1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:minHeight="1dp"
+                android:background="@drawable/yunderline_text"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="bottom"/>
+
+            <!-- 이전알림 list _HL -->
+            <LinearLayout
+                android:id="@+id/fragment_alarm2_HL1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+                <ImageView
+                    android:id="@+id/fragment_alarm2_iv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yicon_calb"/>
+                <!-- 이전알림 내용 _L -->
+                <LinearLayout
+                    android:id="@+id/fragment_alarm2_L4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp">
+                    <TextView
+                        android:id="@+id/fragment_alarm2_tv3"
+                        android:layout_width="270dp"
+                        android:layout_height="wrap_content"
+                        android:text="[졸작]에 아직 완료되지 않은 할 일이 있습니다."
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:lineSpacingExtra="5dp"
+                        android:fontFamily="@font/nanumsquareneo_brg"
+                        android:layout_marginBottom="8dp"/>
+                    <TextView
+                        android:id="@+id/fragment_alarm2_tv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="설거지"
+                        android:textSize="10sp"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="5dp"/>
+                    <!-- 날짜 HL -->
+                    <LinearLayout
+                        android:id="@+id/fragment_alarm2_HL2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/fragment_alarm2_iv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/yicon_scircleb"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="5dp"/>
+                        <TextView
+                            android:id="@+id/fragment_alarm2_tv5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2023.02.10"
+                            android:textSize="10sp"
+                            android:textColor="@color/blue"/>
+                    </LinearLayout> <!-- 날짜 HL -->
+                </LinearLayout> <!-- 이전알림 내용 _L -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <ImageView
+                    android:id="@+id/fragment_alarm2_iv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yicon_close2"
+                    android:layout_gravity="right"/>
+            </LinearLayout> <!-- 이전알림 list _HL -->
+
+            <!-- 이전알림 list2 _HL -->
+            <LinearLayout
+                android:id="@+id/fragment_alarm2_HL3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+                <FrameLayout
+                    android:id="@+id/fragment_alarm2_F3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/fragment_alarm2_iv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_circleg"/>
+                    <TextView
+                        android:id="@+id/fragment_alarm2_tv9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="유경"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+                <!-- 이전알림 내용 _L -->
+                <LinearLayout
+                    android:id="@+id/fragment_alarm2_L5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp">
+                    <TextView
+                        android:id="@+id/fragment_alarm2_tv6"
+                        android:layout_width="270dp"
+                        android:layout_height="wrap_content"
+                        android:text="김유경님이 [졸작]에 김유경님에게 지정된 업무를 추가했습니다."
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:lineSpacingExtra="5dp"
+                        android:fontFamily="@font/nanumsquareneo_brg"
+                        android:layout_marginBottom="8dp"/>
+                    <TextView
+                        android:id="@+id/fragment_alarm2_tv7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="설거지"
+                        android:textSize="10sp"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="5dp"/>
+                    <!-- 날짜 HL -->
+                    <LinearLayout
+                        android:id="@+id/fragment_alarm2_HL4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/fragment_alarm2_iv5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/yicon_scircleb"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="5dp"/>
+                        <TextView
+                            android:id="@+id/fragment_alarm2_tv8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2023.02.10"
+                            android:textSize="10sp"
+                            android:textColor="@color/blue"/>
+                    </LinearLayout> <!-- 날짜 HL -->
+                </LinearLayout> <!-- 이전알림 내용 _L -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <ImageView
+                    android:id="@+id/fragment_alarm2_iv6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yicon_close2"
+                    android:layout_gravity="right"/>
+            </LinearLayout> <!-- 이전알림 list _HL -->
+        </LinearLayout> <!-- 이전알림 _L -->
+    </FrameLayout> <!-- 텅/이전알림 _숨김F -->
+</LinearLayout>
