@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
     </FrameLayout>
 
@@ -54,7 +54,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
-            app:srcCompat="@drawable/yimage_female2"
+            app:srcCompat="@drawable/yicon_stafffemale"
             android:layout_gravity="center_vertical"/>
 
         <!-- 프로필 내용 L -->
@@ -158,7 +158,10 @@
                 android:layout_height="wrap_content"
                 android:text="알림 설정"
                 android:textSize="15sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:drawableLeft="@drawable/yicon_bell"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -185,7 +188,10 @@
                 android:layout_height="wrap_content"
                 android:text="비밀번호 변경"
                 android:textSize="15sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:drawableLeft="@drawable/yicon_lock"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -213,7 +219,10 @@
                 android:layout_height="wrap_content"
                 android:text="사업주 - 직원 전환"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:drawableLeft="@drawable/yicon_leftright"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -241,7 +250,10 @@
                 android:layout_height="wrap_content"
                 android:text="문자 수신 설정"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:drawableLeft="@drawable/yicon_envelope"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -269,7 +281,10 @@
                 android:layout_height="wrap_content"
                 android:text="문의하기"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:drawableLeft="@drawable/yicon_question"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -296,7 +311,10 @@
                 android:layout_height="wrap_content"
                 android:text="로그아웃"
                 android:textSize="15sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:drawableLeft="@drawable/yicon_logoutblack"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -323,7 +341,10 @@
                 android:layout_height="wrap_content"
                 android:text="회원탈퇴"
                 android:textSize="15sp"
-                android:textColor="#737373"/>
+                android:textColor="#737373"
+                android:drawableLeft="@drawable/yicon_greytrash"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"

@@ -30,17 +30,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
 
-        <!-- 홈 아이콘 -->
-        <ImageView
-            android:id="@+id/paperh_homeiv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/yicon_home" />
     </FrameLayout>
 
     <!-- 스크롤 -->
@@ -135,7 +127,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginLeft="15dp"
-                            app:srcCompat="@drawable/yimage_female" />
+                            app:srcCompat="@drawable/yicon_stafffemale" />
 
                         <!-- 이름 [직책] -->
                         <TextView
@@ -247,7 +239,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginLeft="15dp"
-                            app:srcCompat="@drawable/yimage_female" />
+                            app:srcCompat="@drawable/yicon_stafffemale" />
 
                         <!-- 이름 -->
                         <TextView
