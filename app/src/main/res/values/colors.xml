@@ -16,5 +16,7 @@
     <color name="lightred">#F16F75</color>
     <color name="red">#DF1515</color>
     <color name="currentColor">#000000</color>
+    <color name="background">#F6F6F6</color>
+
 
 </resources>

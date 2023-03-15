@@ -5,7 +5,7 @@
     android:id="@+id/isi_L1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context=".InputStaffInfo">
 
@@ -55,7 +55,8 @@
             android:id="@+id/isi_L3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
 
             <!-- 직원 프로필 -->
             <FrameLayout
@@ -448,7 +449,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="vertical"
-                                android:visibility="visible">
+                                android:visibility="gone">
                                 <!-- 시급 금액 입력 HL -->
                                 <LinearLayout
                                     android:id="@+id/isi_pi_HL3"
@@ -722,289 +723,54 @@
                             <LinearLayout
                                 android:id="@+id/isi_pi_hidL6"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="30dp"
+                                android:background="@drawable/yroundrec_w_sbold"
                                 android:orientation="vertical"
-                                android:visibility="gone">
-                                <!-- 월급 합계 L -->
+                                android:paddingTop="15dp"
+                                android:paddingBottom="15dp"
+                                android:visibility="visible">
+                                <!-- 월급 금액 입력 HL -->
                                 <LinearLayout
-                                    android:id="@+id/isi_pi_L7"
+                                    android:id="@+id/isi_pi_mHL8"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="30dp"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_marginRight="30dp"
-                                    android:background="@drawable/yroundrec_w_sbold"
-                                    android:orientation="vertical"
-                                    android:paddingTop="15dp"
-                                    android:paddingBottom="15dp">
-
-                                    <LinearLayout
-                                        android:id="@+id/isi_pi_HL8"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv11"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="50dp"
-                                            android:text="기본급"
-                                            android:textColor="@color/black"
-                                            android:textSize="14sp" />
-
-                                        <View
-                                            android:layout_width="0dp"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1" />
-
-                                        <EditText
-                                            android:id="@+id/isi_pi_inputpayet3"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:background="@null"
-                                            android:gravity="right"
-                                            android:hint="금액을 입력해 주세요"
-                                            android:inputType="number"
-                                            android:textCursorDrawable="@drawable/yet_cursor"
-                                            android:textSize="15sp" />
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv12"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="40dp"
-                                            android:gravity="right"
-                                            android:text="원"
-                                            android:textColor="@color/black"
-                                            android:textSize="15sp" />
-                                    </LinearLayout> <!-- 수평 -->
-                                    <LinearLayout
-                                        android:id="@+id/isi_pi_HL9"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="15dp"
-                                        android:orientation="horizontal">
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv13"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="50dp"
-                                            android:text="식대"
-                                            android:textColor="@color/black"
-                                            android:textSize="14sp" />
-
-                                        <View
-                                            android:layout_width="0dp"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1" />
-
-                                        <EditText
-                                            android:id="@+id/isi_pi_inputpayet4"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:background="@null"
-                                            android:gravity="right"
-                                            android:hint="0"
-                                            android:inputType="number"
-                                            android:textColorHint="@color/black"
-                                            android:textCursorDrawable="@drawable/yet_cursor"
-                                            android:textSize="15sp" />
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv14"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="40dp"
-                                            android:gravity="right"
-                                            android:text="원"
-                                            android:textColor="@color/black"
-                                            android:textSize="15sp" />
-                                    </LinearLayout> <!-- 수평 -->
-                                    <LinearLayout
-                                        android:id="@+id/isi_pi_HL10"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="15dp"
-                                        android:orientation="horizontal">
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv15"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="50dp"
-                                            android:text="자가운전"
-                                            android:textColor="@color/black"
-                                            android:textSize="14sp" />
-
-                                        <View
-                                            android:layout_width="0dp"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1" />
-
-                                        <EditText
-                                            android:id="@+id/isi_pi_inputpayet5"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:background="@null"
-                                            android:gravity="right"
-                                            android:hint="0"
-                                            android:inputType="number"
-                                            android:textColorHint="@color/black"
-                                            android:textCursorDrawable="@drawable/yet_cursor"
-                                            android:textSize="15sp" />
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv16"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="40dp"
-                                            android:gravity="right"
-                                            android:text="원"
-                                            android:textColor="@color/black"
-                                            android:textSize="15sp" />
-                                    </LinearLayout> <!-- 수평 -->
-                                    <LinearLayout
-                                        android:id="@+id/isi_pi_HL11"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="15dp"
-                                        android:orientation="horizontal">
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv17"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="50dp"
-                                            android:text="상여"
-                                            android:textColor="@color/black"
-                                            android:textSize="14sp" />
-
-                                        <View
-                                            android:layout_width="0dp"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1" />
-
-                                        <EditText
-                                            android:id="@+id/isi_pi_inputpayet6"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:background="@null"
-                                            android:gravity="right"
-                                            android:hint="0"
-                                            android:inputType="number"
-                                            android:textColorHint="@color/black"
-                                            android:textCursorDrawable="@drawable/yet_cursor"
-                                            android:textSize="15sp" />
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv18"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="40dp"
-                                            android:gravity="right"
-                                            android:text="원"
-                                            android:textColor="@color/black"
-                                            android:textSize="15sp" />
-                                    </LinearLayout> <!-- 수평 -->
-                                    <LinearLayout
-                                        android:id="@+id/isi_pi_HL12"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="15dp"
-                                        android:orientation="horizontal">
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv19"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="50dp"
-                                            android:text="성과급"
-                                            android:textColor="@color/black"
-                                            android:textSize="14sp" />
-
-                                        <View
-                                            android:layout_width="0dp"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1" />
-
-                                        <EditText
-                                            android:id="@+id/isi_pi_inputpayet7"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:background="@null"
-                                            android:gravity="right"
-                                            android:hint="0"
-                                            android:inputType="number"
-                                            android:textColorHint="@color/black"
-                                            android:textCursorDrawable="@drawable/yet_cursor"
-                                            android:textSize="15sp" />
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv20"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="40dp"
-                                            android:gravity="right"
-                                            android:text="원"
-                                            android:textColor="@color/black"
-                                            android:textSize="15sp" />
-                                    </LinearLayout> <!-- 수평 -->
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
                                     <TextView
-                                        android:id="@+id/isi_pi_tv21"
-                                        android:layout_width="match_parent"
+                                        android:id="@+id/isi_pi_mtv10"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:background="@drawable/yunderline_text" />
-
-                                    <LinearLayout
-                                        android:id="@+id/isi_pi_HL13"
-                                        android:layout_width="match_parent"
+                                        android:layout_marginLeft="50dp"
+                                        android:text="월급"
+                                        android:textColor="@color/black"
+                                        android:textSize="14sp" />
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1" />
+                                    <EditText
+                                        android:id="@+id/isi_pi_inputpayet3"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="15dp"
-                                        android:orientation="horizontal">
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv22"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="50dp"
-                                            android:text="합계"
-                                            android:textColor="@color/black"
-                                            android:textSize="16sp" />
-
-                                        <View
-                                            android:layout_width="0dp"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1" />
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_totaltv23"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:gravity="right"
-                                            android:text="0"
-                                            android:textColor="@color/black"
-                                            android:textSize="16sp"
-                                            android:textStyle="bold" />
-
-                                        <TextView
-                                            android:id="@+id/isi_pi_tv24"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginRight="40dp"
-                                            android:gravity="right"
-                                            android:text="원"
-                                            android:textColor="@color/black"
-                                            android:textSize="16sp" />
-                                    </LinearLayout> <!-- 수평 -->
-                                </LinearLayout> <!-- 수직 -->
+                                        android:background="@null"
+                                        android:hint="금액을 입력해 주세요"
+                                        android:inputType="number"
+                                        android:textSize="15sp"
+                                        android:gravity="right"
+                                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                                    <TextView
+                                        android:id="@+id/isi_yi_tv10"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="40dp"
+                                        android:gravity="right"
+                                        android:text="원"
+                                        android:textColor="@color/black"
+                                        android:textSize="15sp" />
+                                </LinearLayout> <!-- 월급 금액 입력 HL -->
                             </LinearLayout> <!-- 월급 합계 L -->
                         </FrameLayout>
 
@@ -1590,8 +1356,8 @@
 
                             <Button
                                 android:id="@+id/isi_yi_leftbtn3"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:background="@drawable/yicon_left" />
 
                             <TextView
@@ -1608,8 +1374,8 @@
 
                             <Button
                                 android:id="@+id/isi_yi_rightbtn3"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:background="@drawable/yicon_right" />
                         </LinearLayout>
 
@@ -1626,46 +1392,33 @@
                     </LinearLayout>
                 </LinearLayout> <!-- 수직 -->
             </FrameLayout>
-
-            <TextView
-                android:id="@+id/isi_scrollmargin"
-                android:layout_width="match_parent"
-                android:layout_height="100dp" />
         </LinearLayout>
     </ScrollView>
-    
-    <!-- 맨 아래 '입력완료' 버튼 -->
-    <LinearLayout
-        android:id="@+id/isi_L2"
+
+    <!-- 맨 아래 입력완료' 변경 F -->
+    <FrameLayout
+        android:id="@+id/isi_changebtnF3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="vertical">
-        <!-- 맨 아래 버튼 변경 F -->
-        <FrameLayout
-            android:id="@+id/isi_changebtnF3"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/isi_bottomoffbtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/isi_bottomoffbtn"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:background="@drawable/yroundrec_bottombtnoff"
-                android:text="입력 완료"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:gravity="center"
-                android:visibility="visible"/>
-            <Button
-                android:id="@+id/isi_bottomonbtn"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:background="@drawable/yroundrec_bottombtnon"
-                android:text="입력 완료"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:gravity="center"
-                android:visibility="gone"/>
-        </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
-    </LinearLayout>
+            android:layout_height="64dp"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:text="입력 완료"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:visibility="visible"/>
+        <Button
+            android:id="@+id/isi_bottomonbtn"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/yroundrec_bottombtnon"
+            android:text="입력 완료"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
 </LinearLayout>

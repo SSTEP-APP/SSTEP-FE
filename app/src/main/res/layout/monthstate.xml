@@ -5,7 +5,7 @@
     android:id="@+id/monthstate_L1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- top_직원정보입력-->
