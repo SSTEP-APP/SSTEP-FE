@@ -171,7 +171,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/yicon_goblue"
-                android:layout_gravity="center_vertical|right" />
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="10dp"/>
         </LinearLayout> <!-- 알림설정 HL-->
 
         <!-- 비밀번호 변경 HL-->
@@ -201,7 +202,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/yicon_goblue"
-                android:layout_gravity="center_vertical|right" />
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="10dp"/>
         </LinearLayout> <!-- 비밀번호 변경 HL-->
 
         <!-- 사업주 - 직원 전환 HL-->
@@ -232,7 +234,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/yicon_goblue"
-                android:layout_gravity="center_vertical|right" />
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="10dp"/>
         </LinearLayout> <!-- 사업주 - 직원 전환 HL-->
 
         <!-- 문사 수신 설정 HL-->
@@ -263,7 +266,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/yicon_goblue"
-                android:layout_gravity="center_vertical|right" />
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="10dp"/>
         </LinearLayout> <!-- 문자 수신 설정HL-->
 
         <!-- 문의하기 HL-->
@@ -294,7 +298,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/yicon_goblue"
-                android:layout_gravity="center_vertical|right" />
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="10dp"/>
         </LinearLayout> <!-- 문의하기 HL-->
 
         <!-- 로그아웃 HL-->
@@ -324,7 +329,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/yicon_goblue"
-                android:layout_gravity="center_vertical|right" />
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="10dp"/>
         </LinearLayout> <!-- 로그아웃 HL-->
 
         <!-- 회원탈퇴 HL-->
@@ -354,8 +360,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/yicon_goblue"
-                android:layout_gravity="center_vertical|right" />
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="10dp"/>
         </LinearLayout> <!-- 회원탈퇴 HL-->
-
     </LinearLayout> <!-- 선택들 L-->
 </LinearLayout>

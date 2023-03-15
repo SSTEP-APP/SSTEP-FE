@@ -21,7 +21,7 @@
             android:layout_height="300dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/j_tung_img" />
+            app:srcCompat="@drawable/yimage_teng" />
 
         <TextView
             android:id="@+id/fragment_checkList1_nodataText"
