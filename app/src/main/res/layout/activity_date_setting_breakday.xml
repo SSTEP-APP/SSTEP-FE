@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F1F1"
+    android:orientation="vertical"
+    tools:context=".date.Date_settingBreakDay">
+
+    <FrameLayout
+        android:id="@+id/dateSetBreakDay_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dateSetBreakDay_topText"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="#E60D69F3"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="휴무 설정"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageButton
+            android:id="@+id/dateSetBreakDay_BackBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/j_backspace1_img" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/j_button_stroke737373"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="vertical">
+                    <!--일자 설정-->
+                    <TextView
+                        android:id="@+id/dateSetBreakDay_dayText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="2023년 01월 26일"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+                        <!--설정할 사람 이름-->
+                        <TextView
+                            android:id="@+id/dateSetBreakDay_userText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="000"
+                            android:textColor="#000000"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/dateSetBreakDay_localsetBreakText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=" 직원의 휴무설정"
+                            android:textColor="#383838" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/dateSetBreakDay_localTotalBreakTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="총 연차"
+                            android:textColor="#4D4D4D" />
+
+                        <View
+                            android:id="@+id/dateSetBreakDay_view1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/dateSetBreakDay_totalBreakDayText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="20"
+                            android:textColor="#4D4D4D" />
+
+                        <TextView
+                            android:id="@+id/dateSetBreakDay_localdayText1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 일"
+                            android:textColor="#4D4D4D" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/dateSetBreakDay_localUsedBreakDayText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="사용한 연차"
+                            android:textColor="#4D4D4D" />
+
+                        <View
+                            android:id="@+id/dateSetBreakDay_view2"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/dateSetBreakDay_usedBreakDayText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="0"
+                            android:textColor="#4D4D4D" />
+
+                        <TextView
+                            android:id="@+id/dateSetBreakDay_dayText2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 일"
+                            android:textColor="#4D4D4D" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/dateSetBreakDay_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_weight="1"
+                        android:background="#ACACAC" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/dateSetBreakDay_localLeftBreakDaytext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="남은 연차"
+                            android:textColor="#4D4D4D" />
+
+                        <View
+                            android:id="@+id/dateSetBreakDay_view3"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/dateSetBreakDay_leftBreakDatText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="20"
+                            android:textColor="#4D4D4D" />
+
+                        <TextView
+                            android:id="@+id/dateSetBreakDay_dayText3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 일"
+                            android:textColor="#4D4D4D" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/dateSetBreakDay_view4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dateSetBreakDay_paidBtn"
+            android:layout_width="125dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:background="@drawable/j_button_left_round"
+            android:backgroundTint="#0D69F3"
+            android:gravity="center"
+            android:text="유급휴무 적용"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+
+        <View
+            android:id="@+id/dateSetBreakDay_btn_line"
+            android:layout_width="0.5dp"
+            android:layout_height="58dp" />
+
+        <Button
+            android:id="@+id/dateSetBreakDay_noPaidBtn"
+            android:layout_width="125dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:background="@drawable/j_button_right_round"
+            android:backgroundTint="#0D69F3"
+            android:gravity="center"
+            android:text="무급휴무 적용"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
