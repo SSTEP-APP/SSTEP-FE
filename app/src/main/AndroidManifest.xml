@@ -12,6 +12,18 @@
         android:theme="@style/Theme.SSTEP"
         tools:targetApi="31">
         <activity
+            android:name=".date.Date_plus"
+            android:exported="false" />
+        <activity
+            android:name=".date.Date"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+        <activity
             android:name=".Checklist_complete_detail"
             android:exported="false" />
         <activity
@@ -21,7 +33,7 @@
             android:name=".Checklist"
             android:exported="false" />
         <activity
-            android:name=".Start"
+            android:name=".start.Start"
             android:exported="false" />
         <activity
             android:name=".Search_Store"

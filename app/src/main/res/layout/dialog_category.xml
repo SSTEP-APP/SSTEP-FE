@@ -85,7 +85,7 @@
                     android:layout_height="8dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="30dp"
-                    app:srcCompat="@drawable/j_x_img" />
+                    app:srcCompat="@drawable/j_red_x_img" />
 
             </LinearLayout>
 
@@ -116,7 +116,7 @@
                     android:layout_height="8dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="30dp"
-                    app:srcCompat="@drawable/j_x_img" />
+                    app:srcCompat="@drawable/j_red_x_img" />
 
             </LinearLayout>
 
@@ -155,7 +155,7 @@
                     android:layout_height="8dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="30dp"
-                    app:srcCompat="@drawable/j_x_img" />
+                    app:srcCompat="@drawable/j_red_x_img" />
 
             </LinearLayout>
         </LinearLayout>

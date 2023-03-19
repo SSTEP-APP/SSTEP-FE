@@ -1,0 +1,1297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 버튼위치때문에 프레임 레이아웃 처리 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FFFFFF"
+    android:orientation="vertical"
+    tools:context=".date.Date">
+
+    <FrameLayout
+        android:id="@+id/date_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/date_topText"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="#E60D69F3"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="해야할 일"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageButton
+            android:id="@+id/date_backBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/j_backspace1_img" />
+
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="74dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <View
+                                android:id="@+id/date_dayV1"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_sun"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="일" />
+
+                            <View
+                                android:id="@+id/date_dayV2"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_sunText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="22" />
+
+                            <View
+                                android:id="@+id/date_dayV3"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <View
+                                android:id="@+id/date_dayV4"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_mon"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="월" />
+
+                            <View
+                                android:id="@+id/date_dayV5"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_monText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="23" />
+
+                            <View
+                                android:id="@+id/date_dayV6"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <View
+                                android:id="@+id/date_dayV7"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_tue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="화" />
+
+                            <View
+                                android:id="@+id/date_dayV8"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_tueText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="24" />
+
+                            <View
+                                android:id="@+id/date_dayV9"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <View
+                                android:id="@+id/date_dayV10"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_wed"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="수" />
+
+                            <View
+                                android:id="@+id/date_dayV11"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_wedText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="25" />
+
+                            <View
+                                android:id="@+id/date_dayV12"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <View
+                                android:id="@+id/date_dayV13"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_thu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="목" />
+
+                            <View
+                                android:id="@+id/date_dayV14"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_thuText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="26" />
+
+                            <View
+                                android:id="@+id/date_dayV15"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <View
+                                android:id="@+id/date_dayV16"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_fri"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="금" />
+
+                            <View
+                                android:id="@+id/date_dayV17"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_friText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="27" />
+
+                            <View
+                                android:id="@+id/date_dayV18"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <View
+                                android:id="@+id/date_dayV19"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_sat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="토" />
+
+                            <View
+                                android:id="@+id/date_dayV20"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/date_satText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="28" />
+
+                            <View
+                                android:id="@+id/date_dayV21"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="39dp"
+                        android:background="#ECECEC"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/date_dayText1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="1월 26일 목요일"
+                            android:textColor="#656565" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="18dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginBottom="15dp"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="63dp"
+                                        android:layout_height="63dp"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:id="@+id/date_userIconImg1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            app:srcCompat="@drawable/yimage_female2" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/date_userName1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginBottom="5dp"
+                                                android:text="000"
+                                                android:textColor="#747474"
+                                                android:textSize="17sp" />
+
+                                            <TextView
+                                                android:id="@+id/date_userPosition1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:text="[직원]"
+                                                android:textColor="#747474" />
+
+                                            <View
+                                                android:id="@+id/date_view1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1" />
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="match_parent"
+                                                android:layout_gravity="right"
+                                                android:orientation="horizontal">
+
+                                                <ImageView
+                                                    android:id="@+id/date_dot1"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="center"
+                                                    android:layout_weight="1"
+                                                    app:srcCompat="@drawable/j_blackdot_img" />
+
+                                                <TextView
+                                                    android:id="@+id/date_status1"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginLeft="5dp"
+                                                    android:layout_weight="1"
+                                                    android:gravity="center"
+                                                    android:text="퇴근"
+                                                    android:textColor="#99000000" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:orientation="vertical">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginBottom="7dp"
+                                                android:orientation="horizontal">
+
+                                                <TextView
+                                                    android:id="@+id/date_scheduleText1"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="근무일정"
+                                                    android:textColor="#B3000000"
+                                                    android:textSize="8sp" />
+
+                                                <View
+                                                    android:id="@+id/date_view2"
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="0dp"
+                                                    android:layout_weight="1" />
+
+                                                <TextView
+                                                    android:id="@+id/date_scheduleTime1"
+                                                    android:layout_width="100dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="right"
+                                                    android:layout_marginRight="80dp"
+                                                    android:text="17:30~23:30"
+                                                    android:textColor="#B3000000"
+                                                    android:textSize="8sp" />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginBottom="7dp"
+                                                android:orientation="horizontal">
+
+                                                <TextView
+                                                    android:id="@+id/date_localWorkTimeText1"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="출퇴근시간"
+                                                    android:textColor="#B3000000"
+                                                    android:textSize="8sp" />
+
+                                                <View
+                                                    android:id="@+id/date_view3"
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="0dp"
+                                                    android:layout_weight="1" />
+
+                                                <TextView
+                                                    android:id="@+id/date_workTimeText1"
+                                                    android:layout_width="100dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="right"
+                                                    android:layout_marginRight="80dp"
+                                                    android:text="17:30~24:00"
+                                                    android:textColor="#B3000000"
+                                                    android:textSize="8sp" />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginBottom="7dp"
+                                                android:orientation="horizontal">
+
+                                                <TextView
+                                                    android:id="@+id/date_localBreakTime1"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="휴식시간"
+                                                    android:textColor="#B3000000"
+                                                    android:textSize="8sp" />
+
+                                                <View
+                                                    android:id="@+id/date_view4"
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="0dp"
+                                                    android:layout_weight="1" />
+
+                                                <TextView
+                                                    android:id="@+id/date_BreakTime1"
+                                                    android:layout_width="100dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="right"
+                                                    android:layout_marginRight="80dp"
+                                                    android:text="30분"
+                                                    android:textColor="#B3000000"
+                                                    android:textSize="8sp" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginBottom="10dp"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/date_changeBtn1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/j_button_stroke737373"
+                                    android:text="일정 수정"
+                                    android:textColor="#8E8E8E" />
+
+                                <View
+                                    android:id="@+id/date_view5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <Button
+                                    android:id="@+id/date_deleteBtn1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/j_button_stroke737373"
+                                    android:text="삭제"
+                                    android:textColor="#8E8E8E" />
+
+                                <View
+                                    android:id="@+id/date_view6"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <Button
+                                    android:id="@+id/date_settingBtn1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/j_button_stroke737373"
+                                    android:text="기타 설정"
+                                    android:textColor="#8E8E8E" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/date_notext1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="70dp"
+                                android:layout_marginTop="40dp"
+                                android:layout_marginBottom="20dp"
+                                android:text="일정근무 직원이 없습니다."
+                                android:textColor="#66000000" />
+
+                            <ImageView
+                                android:id="@+id/date_nodataImg1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="20dp"
+                                app:srcCompat="@drawable/j_date_nodataimg" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:background="#ECECEC"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/date_dayText2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="1월 27일 금요일"
+                        android:textColor="#656565" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="18dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="63dp"
+                                    android:layout_height="63dp"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/date_userIconImg2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        app:srcCompat="@drawable/yimage_female2" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/date_userName2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:text="000"
+                                            android:textColor="#747474"
+                                            android:textSize="17sp" />
+
+                                        <TextView
+                                            android:id="@+id/date_userPosition2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="[직원]"
+                                            android:textColor="#747474" />
+
+                                        <View
+                                            android:id="@+id/date_view1_2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" />
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:layout_gravity="right"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:id="@+id/date_dot2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_weight="1"
+                                                app:srcCompat="@drawable/j_blackdot_img" />
+
+                                            <TextView
+                                                android:id="@+id/date_status2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_weight="1"
+                                                android:gravity="center"
+                                                android:text="퇴근"
+                                                android:textColor="#99000000" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginBottom="7dp"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/date_scheduleText2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="근무일정"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+
+                                            <View
+                                                android:id="@+id/date_view2_2"
+                                                android:layout_width="0dp"
+                                                android:layout_height="0dp"
+                                                android:layout_weight="1" />
+
+                                            <TextView
+                                                android:id="@+id/date_scheduleTime2"
+                                                android:layout_width="100dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="right"
+                                                android:layout_marginRight="80dp"
+                                                android:text="17:30~23:30"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginBottom="7dp"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/date_localWorkTimeText2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="출퇴근시간"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+
+                                            <View
+                                                android:id="@+id/date_view3_2"
+                                                android:layout_width="0dp"
+                                                android:layout_height="0dp"
+                                                android:layout_weight="1" />
+
+                                            <TextView
+                                                android:id="@+id/date_workTimeText2"
+                                                android:layout_width="100dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="right"
+                                                android:layout_marginRight="80dp"
+                                                android:text="17:30~24:00"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginBottom="7dp"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/date_localBreakTime2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="휴식시간"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+
+                                            <View
+                                                android:id="@+id/date_view4_2"
+                                                android:layout_width="0dp"
+                                                android:layout_height="0dp"
+                                                android:layout_weight="1" />
+
+                                            <TextView
+                                                android:id="@+id/date_BreakTime2"
+                                                android:layout_width="100dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="right"
+                                                android:layout_marginRight="80dp"
+                                                android:text="30분"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/date_changeBtn2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/j_button_stroke737373"
+                                android:text="일정 수정"
+                                android:textColor="#8E8E8E" />
+
+                            <View
+                                android:id="@+id/date_view5_2"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <Button
+                                android:id="@+id/date_deleteBtn2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/j_button_stroke737373"
+                                android:text="삭제"
+                                android:textColor="#8E8E8E" />
+
+                            <View
+                                android:id="@+id/date_view6_2"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <Button
+                                android:id="@+id/date_settingBtn2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/j_button_stroke737373"
+                                android:text="기타 설정"
+                                android:textColor="#8E8E8E" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/date_notext2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginBottom="20dp"
+                            android:text="일정근무 직원이 없습니다."
+                            android:textColor="#66000000" />
+
+                        <ImageView
+                            android:id="@+id/date_nodata2Img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="20dp"
+                            app:srcCompat="@drawable/j_date_nodataimg" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:background="#ECECEC"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/date_dayText3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="1월 28일 토요일"
+                        android:textColor="#656565" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="18dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="63dp"
+                                    android:layout_height="63dp"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/date_userIconImg3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        app:srcCompat="@drawable/yimage_female2" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/date_userName3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:text="000"
+                                            android:textColor="#747474"
+                                            android:textSize="17sp" />
+
+                                        <TextView
+                                            android:id="@+id/date_userPosition3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="[직원]"
+                                            android:textColor="#747474" />
+
+                                        <View
+                                            android:id="@+id/date_view1_3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" />
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:layout_gravity="right"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:id="@+id/date_dot3"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_weight="1"
+                                                app:srcCompat="@drawable/j_blackdot_img" />
+
+                                            <TextView
+                                                android:id="@+id/date_status3"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_weight="1"
+                                                android:gravity="center"
+                                                android:text="퇴근"
+                                                android:textColor="#99000000" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginBottom="7dp"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/date_scheduleText3"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="근무일정"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+
+                                            <View
+                                                android:id="@+id/date_view2_3"
+                                                android:layout_width="0dp"
+                                                android:layout_height="0dp"
+                                                android:layout_weight="1" />
+
+                                            <TextView
+                                                android:id="@+id/date_scheduleTime3"
+                                                android:layout_width="100dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="right"
+                                                android:layout_marginRight="80dp"
+                                                android:text="17:30~23:30"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginBottom="7dp"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/date_localWorkTimeText3"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="출퇴근시간"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+
+                                            <View
+                                                android:id="@+id/date_view3_3"
+                                                android:layout_width="0dp"
+                                                android:layout_height="0dp"
+                                                android:layout_weight="1" />
+
+                                            <TextView
+                                                android:id="@+id/date_workTimeText3"
+                                                android:layout_width="100dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="right"
+                                                android:layout_marginRight="80dp"
+                                                android:text="17:30~24:00"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginBottom="7dp"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/date_localBreakTime3"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="휴식시간"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+
+                                            <View
+                                                android:id="@+id/date_view4_3"
+                                                android:layout_width="0dp"
+                                                android:layout_height="0dp"
+                                                android:layout_weight="1" />
+
+                                            <TextView
+                                                android:id="@+id/date_BreakTime3"
+                                                android:layout_width="100dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="right"
+                                                android:layout_marginRight="80dp"
+                                                android:text="30분"
+                                                android:textColor="#B3000000"
+                                                android:textSize="8sp" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/date_changeBtn3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/j_button_stroke737373"
+                                android:text="일정 수정"
+                                android:textColor="#8E8E8E" />
+
+                            <View
+                                android:id="@+id/date_view5_3"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <Button
+                                android:id="@+id/date_deleteBtn3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/j_button_stroke737373"
+                                android:text="삭제"
+                                android:textColor="#8E8E8E" />
+
+                            <View
+                                android:id="@+id/date_view6_3"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <Button
+                                android:id="@+id/date_settingBtn3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/j_button_stroke737373"
+                                android:text="기타 설정"
+                                android:textColor="#8E8E8E" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/date_notext3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginBottom="20dp"
+                            android:text="일정근무 직원이 없습니다."
+                            android:textColor="#66000000" />
+
+                        <ImageView
+                            android:id="@+id/date_nodata3Img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="20dp"
+                            app:srcCompat="@drawable/j_date_nodataimg" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:background="#00FFFFFF"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/date_plusBtn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/j_plus_img" />
+    </LinearLayout>
+
+
+</FrameLayout>
