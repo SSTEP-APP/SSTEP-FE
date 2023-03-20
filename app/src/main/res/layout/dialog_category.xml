@@ -81,11 +81,11 @@
 
                 <ImageButton
                     android:id="@+id/dialog_category_firstCategoryImg"
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="30dp"
-                    app:srcCompat="@drawable/j_red_x_img" />
+                    android:background="@drawable/yicon_closered" />
 
             </LinearLayout>
 
@@ -112,11 +112,11 @@
 
                 <ImageButton
                     android:id="@+id/dialog_category_thirdCategoryImg"
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="30dp"
-                    app:srcCompat="@drawable/j_red_x_img" />
+                    android:background="@drawable/yicon_closered" />
 
             </LinearLayout>
 
@@ -151,11 +151,11 @@
 
                 <ImageButton
                     android:id="@+id/dialog_category_secondCategoryImg"
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="30dp"
-                    app:srcCompat="@drawable/j_red_x_img" />
+                    android:background="@drawable/yicon_closered" />
 
             </LinearLayout>
         </LinearLayout>

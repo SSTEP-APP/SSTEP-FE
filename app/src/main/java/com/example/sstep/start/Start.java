@@ -1,5 +1,7 @@
 package com.example.sstep.start;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -20,7 +22,7 @@ public class Start extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.start);
 
         //pager = findViewById(R.id.start_pagers);
         pager.setOffscreenPageLimit(4); // 페이지 개수

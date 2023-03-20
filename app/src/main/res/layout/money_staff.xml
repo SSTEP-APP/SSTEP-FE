@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
     </FrameLayout>
 
@@ -63,7 +63,7 @@
                     android:id="@+id/money_staff_siiv1"
                     android:layout_width="55dp"
                     android:layout_height="55dp"
-                    android:background="@drawable/yimage_female2"
+                    android:background="@drawable/yicon_stafffemale"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="15dp"/>
                 <!-- 직원 정보 _L -->
@@ -186,8 +186,8 @@
                     android:layout_weight="1" />
                 <ImageButton
                     android:id="@+id/money_staff_reib"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:background="@drawable/yicon_refresh"
                     android:layout_marginRight="5dp"
                     android:layout_gravity="center_vertical"/>

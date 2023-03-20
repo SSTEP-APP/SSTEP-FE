@@ -94,7 +94,7 @@
                         android:id="@+id/monthstate1_fragment_iv1"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/yimage_female2"
+                        android:background="@drawable/yicon_stafffemale"
                         android:layout_marginLeft="10dp"/>
                     <!-- 이름, 직책 _L -->
                     <LinearLayout
@@ -148,7 +148,7 @@
                         android:id="@+id/monthstate1_fragment_iv2"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/yimage_female2"
+                        android:background="@drawable/yicon_stafffemale"
                         android:layout_marginLeft="10dp"/>
                     <!-- 이름, 직책 _L -->
                     <LinearLayout
@@ -202,7 +202,7 @@
                         android:id="@+id/monthstate1_fragment_iv3"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/yimage_female2"
+                        android:background="@drawable/yicon_stafffemale"
                         android:layout_marginLeft="10dp"/>
                     <!-- 이름, 직책 _L -->
                     <LinearLayout

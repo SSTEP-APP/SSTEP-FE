@@ -78,7 +78,7 @@
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp">
                 <ImageView
-                    android:id="@+id/fragment_alarm1_iv1"
+                    android:id="@+id/fragment_alarm1_caliv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/yicon_calb"/>
@@ -91,7 +91,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp">
                     <TextView
-                        android:id="@+id/fragment_alarm1_tv3"
+                        android:id="@+id/fragment_alarm1_alarmtv1"
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
                         android:text="[졸작]에 아직 완료되지 않은 할 일이 있습니다."
@@ -102,7 +102,7 @@
                         android:fontFamily="@font/nanumsquareneo_brg"
                         android:layout_marginBottom="8dp"/>
                     <TextView
-                        android:id="@+id/fragment_alarm1_tv4"
+                        android:id="@+id/fragment_alarm1_catetv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="설거지"
@@ -123,7 +123,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginRight="5dp"/>
                         <TextView
-                            android:id="@+id/fragment_alarm1_tv5"
+                            android:id="@+id/fragment_alarm1_datetv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2023.02.10"
@@ -136,7 +136,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1" />
                 <ImageView
-                    android:id="@+id/fragment_alarm1_iv2"
+                    android:id="@+id/fragment_alarm1_closeiv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/yicon_close2"
@@ -157,7 +157,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:id="@+id/fragment_alarm1_iv4"
+                        android:id="@+id/fragment_alarm1_nameiv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yicon_circleg"/>
@@ -179,7 +179,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="15dp">
                     <TextView
-                        android:id="@+id/fragment_alarm1_tv6"
+                        android:id="@+id/fragment_alarm1_alarmtv2"
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
                         android:text="김유경님이 [졸작]에 김유경님에게 지정된 업무를 추가했습니다."
@@ -190,7 +190,7 @@
                         android:fontFamily="@font/nanumsquareneo_brg"
                         android:layout_marginBottom="8dp"/>
                     <TextView
-                        android:id="@+id/fragment_alarm1_tv7"
+                        android:id="@+id/fragment_alarm1_catetv2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="설거지"
@@ -211,7 +211,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginRight="5dp"/>
                         <TextView
-                            android:id="@+id/fragment_alarm1_tv8"
+                            android:id="@+id/fragment_alarm1_datetv2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2023.02.10"
@@ -224,7 +224,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1" />
                 <ImageView
-                    android:id="@+id/fragment_alarm1_iv6"
+                    android:id="@+id/fragment_alarm1_closeiv2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/yicon_close2"

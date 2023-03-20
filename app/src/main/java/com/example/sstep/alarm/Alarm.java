@@ -1,15 +1,11 @@
 package com.example.sstep.alarm;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.os.Bundle;
-
 import com.example.sstep.R;
-import com.example.sstep.alarm.AlarmFragmentAdapter;
-import com.example.sstep.alarm.alarm1Fragment;
-import com.example.sstep.alarm.alarm2Fragment;
-import com.example.sstep.alarm.alarm3Fragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class Alarm extends AppCompatActivity {
