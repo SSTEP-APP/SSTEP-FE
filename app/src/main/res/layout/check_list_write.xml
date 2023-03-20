@@ -485,15 +485,213 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
                     android:layout_marginBottom="10dp"
-                    android:text="미선택시 전 직원이 체크할 수 있습니다."
+                    android:text="미선택시 전 직원이 체크될 수 있습니다."
                     android:textColor="#8E8E8E"
                     android:textSize="9sp" />
-                <!--버튼 생성시 들어갈 레이아웃-->
+
                 <LinearLayout
-                    android:id="@+id/checkWrite_staff_btn_layout"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"></LinearLayout>
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="70dp"
+                            android:layout_height="80dp"
+                            android:layout_marginRight="25dp">
+
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="62dp"
+                                android:layout_height="63dp"
+                                android:layout_gravity="center_horizontal|top"
+                                app:srcCompat="@drawable/j_femail_img2" />
+                            <!--에러로 인해 임시적으로 jpg파일 사용-->
+                            <ImageButton
+                                android:id="@+id/imageButton"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="right|top"
+                                android:background="@android:color/transparent"
+                                android:scaleType="centerInside"
+                                app:srcCompat="@drawable/j_x_btn_img" />
+
+                            <TextView
+                                android:id="@+id/textView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|center_horizontal"
+                                android:text="000"
+                                android:textColor="#000000"
+                                android:textSize="11sp" />
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--버튼 생성시 들어갈 레이아웃-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="18dp"
+                android:background="@drawable/j_layout_background"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/checkList_write_repeatCheckText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="반복 여부"
+                        android:textColor="#969696"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/checkList_write_line5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="12dp"
+                    android:background="#ACACAC" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:id="@+id/checkList_write_view11"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton2"
+                            android:layout_width="113dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/j_repeat_radio_btn"
+                            android:button="@null"
+                            android:checked="true"
+                            android:drawableLeft="@drawable/j_repeat_radio_ximg"
+                            android:paddingLeft="20dp"
+                            android:text="  반복 안함"
+                            android:textColor="@drawable/j_repeat_radio_text" />
+
+                        <View
+                            android:id="@+id/checkList_write_view12"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton"
+                            android:layout_width="113dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/j_repeat_radio_btn"
+                            android:button="@null"
+                            android:checked="true"
+                            android:drawableLeft="@drawable/j_repeat_radio_repeatimg"
+                            android:paddingLeft="32dp"
+                            android:text="  반복"
+                            android:textColor="@drawable/j_repeat_radio_text" />
+
+                        <View
+                            android:id="@+id/checkList_write_view13"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/checkList_write_repeatTimeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/j_layout_background"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/checkList_write_repeatTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="반복 여부"
+                        android:textColor="#969696"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/checkList_write_line6"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="12dp"
+                    android:background="#ACACAC" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/checkList_write_repeatTimespinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/j_spinner_backgroundcdcdc35"
+                        android:backgroundTint="#80000000" />
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
@@ -507,3 +705,4 @@
         android:textColor="#FFFFFF" />
 
 </LinearLayout>
+
