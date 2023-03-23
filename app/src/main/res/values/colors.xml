@@ -17,6 +17,6 @@
     <color name="red">#DF1515</color>
     <color name="currentColor">#000000</color>
     <color name="background">#F6F6F6</color>
-
-
+    <color name="editTextHint">#828282</color>
+    <color name="top">#FFFFFFFF</color>
 </resources>

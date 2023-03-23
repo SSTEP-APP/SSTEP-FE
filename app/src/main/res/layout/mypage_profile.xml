@@ -68,14 +68,16 @@
                     android:background="@drawable/yicon_mypcamera"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="5dp"/>
+
                 <Button
+                    android:id="@+id/mypage_profile_camerabtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:minHeight="1dp"
-                    android:text="프로필 사진 변경"
-                    android:textSize="10sp"
                     android:padding="0dp"
-                    android:layout_gravity="center_vertical"/>
+                    android:text="프로필 사진 변경"
+                    android:textSize="10sp" />
             </LinearLayout> <!-- 프로필 변경 버튼 _HL -->
 
 

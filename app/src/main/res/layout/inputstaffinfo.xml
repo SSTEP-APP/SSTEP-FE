@@ -485,7 +485,8 @@
                                         android:inputType="number"
                                         android:textSize="14sp"
                                         android:gravity="right"
-                                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                                        android:textCursorDrawable="@drawable/yet_cursor"
+                                        android:fontFamily="@font/nanumsquareneo_brg"/>
 
                                     <TextView
                                         android:id="@+id/isi_pi_tv4"
@@ -705,7 +706,8 @@
                                         android:inputType="number"
                                         android:textSize="15sp"
                                         android:gravity="right"
-                                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                                        android:textCursorDrawable="@drawable/yet_cursor"
+                                        android:fontFamily="@font/nanumsquareneo_brg"/>
                                     <TextView
                                         android:id="@+id/isi_pi_tv10"
                                         android:layout_width="wrap_content"
@@ -759,6 +761,7 @@
                                         android:inputType="number"
                                         android:textSize="15sp"
                                         android:gravity="right"
+                                        android:fontFamily="@font/nanumsquareneo_brg"
                                         android:textCursorDrawable="@drawable/yet_cursor"/>
                                     <TextView
                                         android:id="@+id/isi_yi_tv10"
@@ -1242,7 +1245,8 @@
                                     android:textSize="15sp"
                                     android:textStyle="bold"
                                     android:textColor="@color/likeblack"
-                                    android:textCursorDrawable="@drawable/yet_cursor"/>
+                                    android:textCursorDrawable="@drawable/yet_cursor"
+                                    android:fontFamily="@font/nanumsquareneo_brg"/>
 
                                 <TextView
                                     android:id="@+id/isi_yi_tv3"
@@ -1289,7 +1293,8 @@
                                     android:textSize="15sp"
                                     android:textStyle="bold"
                                     android:textCursorDrawable="@drawable/yet_cursor"
-                                    android:layout_gravity="center_vertical"/>
+                                    android:layout_gravity="center_vertical"
+                                    android:fontFamily="@font/nanumsquareneo_brg"/>
 
                                 <TextView
                                     android:id="@+id/isi_yi_tv5"
@@ -1333,7 +1338,8 @@
                                     android:textSize="15sp"
                                     android:textStyle="bold"
                                     android:textCursorDrawable="@drawable/yet_cursor"
-                                    android:layout_gravity="center_vertical"/>
+                                    android:layout_gravity="center_vertical"
+                                    android:fontFamily="@font/nanumsquareneo_brg"/>
 
                                 <TextView
                                     android:id="@+id/isi_yi_tv7"
