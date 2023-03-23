@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".JoinActivity">
+    tools:context=".joinlogin.JoinActivity">
 
     <!-- top_회원가입-->
     <FrameLayout
@@ -93,7 +93,8 @@
                         android:inputType="text"
                         android:padding="15dp"
                         android:textColorHint="@color/editTextHint"
-                        android:textSize="13sp" />
+                        android:textSize="13sp"
+                        android:textCursorDrawable="@drawable/yet_cursor"/>
                 </LinearLayout>
                 <!-- 이름 -->
                 <LinearLayout
@@ -123,7 +124,8 @@
                         android:inputType="textPersonName"
                         android:padding="15dp"
                         android:textColorHint="@color/editTextHint"
-                        android:textSize="13sp" />
+                        android:textSize="13sp"
+                        android:textCursorDrawable="@drawable/yet_cursor"/>
                 </LinearLayout>
                 <!-- 전화번호 -->
                 <LinearLayout
@@ -153,7 +155,8 @@
                         android:inputType="phone"
                         android:padding="15dp"
                         android:textColorHint="@color/editTextHint"
-                        android:textSize="13sp" />
+                        android:textSize="13sp"
+                        android:textCursorDrawable="@drawable/yet_cursor"/>
                 </LinearLayout>
 
 
@@ -185,7 +188,8 @@
                         android:inputType="textPassword"
                         android:padding="15dp"
                         android:textColorHint="@color/editTextHint"
-                        android:textSize="13sp" />
+                        android:textSize="13sp"
+                        android:textCursorDrawable="@drawable/yet_cursor"/>
                 </LinearLayout>
 
                 <!-- 비밀번호 확인 -->
@@ -216,7 +220,19 @@
                         android:inputType="textPassword"
                         android:padding="15dp"
                         android:textColorHint="@color/editTextHint"
-                        android:textSize="13sp" />
+                        android:textSize="13sp"
+                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                    <TextView
+                        android:id="@+id/join_checkText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="* 비밀번호가 일치하지 않습니다."
+                        android:textColor="@color/red"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:visibility="invisible"/>
                 </LinearLayout>
 
                 <!-- 가입자 유형 -->
@@ -261,7 +277,8 @@
                                 android:button="@drawable/yradiobtn_red"
                                 android:paddingLeft="15dp"
                                 android:text="사업주"
-                                android:textColor="#000000" />
+                                android:textColor="#000000"
+                                android:checked="true"/>
 
                             <RadioButton
                                 android:id="@+id/join_staffRadio"
@@ -295,8 +312,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/j_layout_button_quad"
+        android:background="@drawable/yroundrec_bottombtnoff"
         android:text="회원가입"
+        android:clickable="false"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"

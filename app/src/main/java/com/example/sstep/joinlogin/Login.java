@@ -1,8 +1,10 @@
-package com.example.sstep;
+package com.example.sstep.joinlogin;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.sstep.R;
 
 public class Login extends AppCompatActivity {
 

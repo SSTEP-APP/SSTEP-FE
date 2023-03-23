@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".date.Date_plus">
+
+    <FrameLayout
+        android:id="@+id/datePlus_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/datePlus_topText"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="#E60D69F3"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="일정추가"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageButton
+            android:id="@+id/datePlus_BackBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/yicon_back" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/j_button_stroke737373"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/datePlus_selectStaffText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="직원선택" />
+
+                        <View
+                            android:id="@+id/datePlus_view1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/datePlus_selectStaffBtn"
+                            android:layout_width="98dp"
+                            android:layout_height="26dp"
+                            android:background="@drawable/j_button_date_plus"
+                            android:text="직원 선택하기"
+                            android:textColor="#0D69F3"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!-- 선택 후 보여주는 레이아웃 -->
+                <LinearLayout
+                    android:id="@+id/datePlus_SelectedStaffLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <View
+                        android:id="@+id/datePlus_line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="12dp"
+                        android:background="#ACACAC" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="horizontal">
+                        <!-- 리스트뷰 필요 직원 아이콘및 이름-->
+                        <FrameLayout
+                            android:layout_width="70dp"
+                            android:layout_height="80dp"
+                            android:layout_marginRight="25dp">
+
+                            <ImageView
+                                android:id="@+id/datePlus_staffImg"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_horizontal|top"
+                                app:srcCompat="@drawable/yicon_stafffemale" />
+
+                            <ImageButton
+                                android:id="@+id/datePlus_staffCancelBtn"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="right|top"
+                                android:background="@android:color/transparent"
+                                android:scaleType="centerInside"
+                                app:srcCompat="@drawable/j_x_btn_img" />
+
+                            <TextView
+                                android:id="@+id/datePlus_staffNameText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|center_horizontal"
+                                android:text="000"
+                                android:textColor="#000000"
+                                android:textSize="11sp" />
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/j_button_stroke737373"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/datePlus_inputTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="출퇴근 시간 입력"
+                        android:textColor="#969696"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/datePlus_line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="12dp"
+                    android:background="#ACACAC" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/datePlus_localWorkTimeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="출근시간"
+                            android:textColor="#99000000" />
+
+                        <View
+                            android:id="@+id/datePlus_view2"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/datePlus_workTimeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="07:00" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/datePlus_localHomeTimeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="퇴근시간"
+                            android:textColor="#99000000" />
+
+                        <View
+                            android:id="@+id/datePlus_view3"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/datePlus_homeTimeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12:00" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/datePlus_inputTimeBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/j_button_shape"
+                        android:text="확인"
+                        android:textColor="#0D69F3"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/j_button_stroke737373"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/datePlus_inputDayText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="근무일 입력"
+                        android:textColor="#969696"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/datePlus_line3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="12dp"
+                    android:background="#ACACAC" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <CalendarView
+                        android:id="@+id/datePlus_calendar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/j_button_stroke737373"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/datePlus_payText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="수당 포함여부"
+                        android:textColor="#969696"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:id="@+id/datePlus_wageRG"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <RadioButton
+                            android:id="@+id/datePlus_basicRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:paddingLeft="15dp"
+                            android:text="기본 적용(1배)"
+                            android:textColor="#B3000000" />
+
+                        <RadioButton
+                            android:id="@+id/datePlus_overRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:paddingLeft="15dp"
+                            android:text="초과근무수당 적용(1.5배)"
+                            android:textColor="#B3000000" />
+
+                        <RadioButton
+                            android:id="@+id/datePlus_nightRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:paddingLeft="15dp"
+                            android:text="야간근무수당 적용(1.5배)"
+                            android:textColor="#B3000000" />
+
+                        <RadioButton
+                            android:id="@+id/datePlus_nightOverRB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:paddingLeft="15dp"
+                            android:text="초과, 야간근무수당 중복적용(2배)"
+                            android:textColor="#B3000000" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/datePlus_view4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/datePlus__completeBtn"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:background="@drawable/j_layout_button_quad"
+                android:text="수정완료"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

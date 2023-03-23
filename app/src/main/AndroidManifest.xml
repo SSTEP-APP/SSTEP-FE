@@ -3,11 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!-- 카메라 권한 -->
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -18,6 +16,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SSTEP"
         tools:targetApi="31">
+        <!-- 카메라 추가 -->
+        <provider
+            android:authorities="com.example.sstep"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
         <activity
             android:name=".circlemenu.CircleMenu"
             android:exported="true">
@@ -29,6 +38,21 @@
         </activity>
         <activity
             android:name=".addSchedule"
+            android:exported="false" />
+        <activity
+            android:name=".date.Date_settingBreaktime"
+            android:exported="false" />
+        <activity
+            android:name=".date.Date_settingmodify"
+            android:exported="false" />
+        <activity
+            android:name=".date.Date_settingBreakDay"
+            android:exported="false" />
+        <activity
+            android:name=".date.Date_plus"
+            android:exported="false" />
+        <activity
+            android:name=".date.Date"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -179,7 +203,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Find_id"
+            android:name=".joinlogin.Find_id"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -197,7 +221,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Find_password"
+            android:name=".joinlogin.Find_password"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -215,7 +239,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".joinlogin.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -234,7 +258,7 @@
         </activity>
         <activity android:name=".StaffInvite2" />
         <activity
-            android:name=".JoinActivity"
+            android:name=".joinlogin.JoinActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -255,8 +279,10 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

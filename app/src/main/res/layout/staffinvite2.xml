@@ -60,6 +60,11 @@
             android:textColor="#737373"
             android:textSize="16sp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/yunderline_text" />
         <!-- 이름 -->
         <TextView
             android:id="@+id/staffInvite2_tv2"
@@ -68,13 +73,12 @@
             android:text="이름"
             android:textSize="15sp"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="30dp"/>
         <EditText
             android:id="@+id/staffInvite2_nameet1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/yroundrec_g"
+            android:background="@drawable/yedittext_w_sg"
             android:textColor="@color/black"
             android:textColorHint="#C6C6C8"
             android:hint="이름"
@@ -86,7 +90,8 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="5dp"
             android:textCursorDrawable="@drawable/yet_cursor"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+            android:fontFamily="@font/nanumsquareneo_brg"/>
 
         <!-- 전화번호 -->
         <TextView
@@ -96,21 +101,20 @@
             android:text="전화번호"
             android:textSize="15sp"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:layout_marginTop="20dp"/>
         <!-- 전화번호 입력 _F -->
         <FrameLayout
             android:id="@+id/staffInvite2_F3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp">
 
             <EditText
                 android:id="@+id/staffInvite2_numberet2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/yroundrec_g"
+                android:background="@drawable/yedittext_w_sg"
                 android:maxLength="13"
                 android:hint="전화번호"
                 android:inputType="phone"
@@ -121,16 +125,16 @@
                 android:textColor="@color/black"
                 android:textColorHint="#C6C6C8"
                 android:textCursorDrawable="@drawable/yet_cursor"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:fontFamily="@font/nanumsquareneo_brg"/>
 
             <!-- 문자발송 버튼 -->
             <Button
                 android:id="@+id/gomesbtn1"
                 android:layout_width="70dp"
                 android:layout_height="30dp"
-                android:layout_gravity="right"
+                android:layout_gravity="right|center_vertical"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="26dp"
                 android:background="@drawable/yroundrec_w_sblue"
                 android:text="문자발송"
                 android:textSize="13sp"
