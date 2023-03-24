@@ -10,7 +10,6 @@
     tools:context=".mypage.MyPage_Profile">
     <!-- top_프로필 수정-->
     <FrameLayout
-        android:id="@+id/mypage_profile_F1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -35,13 +34,12 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/mypage_profile_F2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
             <!-- 사람이미지 -->
             <ImageView
-                android:id="@+id/mypage_profile_pimage1"
+                android:id="@+id/mypage_profile_profileIv"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 app:srcCompat="@drawable/yicon_stafffemale"
@@ -57,7 +55,6 @@
                 android:layout_marginTop="85dp"
                 android:layout_marginLeft="30dp"/>
         <LinearLayout
-            android:id="@+id/mypage_profile_L3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -71,7 +68,6 @@
             android:layout_marginTop="140dp">
             <!-- 이름 -->
             <TextView
-                android:id="@+id/mypage_profile_tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이름"
@@ -98,7 +94,6 @@
                 android:inputType="textPersonName"/>
             <!-- 전화번호 -->
             <TextView
-                android:id="@+id/mypage_profile_tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="전화번호"
@@ -126,7 +121,6 @@
                 android:fontFamily="@font/nanumsquareneo_brg"/>
             <!-- 이메일 -->
             <TextView
-                android:id="@+id/mypage_profile_tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이메일"

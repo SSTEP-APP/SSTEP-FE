@@ -41,7 +41,6 @@
     </FrameLayout>
 
     <ScrollView
-        android:id="@+id/mypage_scoll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -51,12 +50,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="70dp">
-            <!-- 직원 프로필 전체 HL-->
-            <!-- 직원 프로필 전체 HL-->
 
-            <!-- 선택들 L-->
             <LinearLayout
-                android:id="@+id/mypage_HL1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -68,7 +63,7 @@
 
                 <!-- 사람이미지 -->
                 <ImageView
-                    android:id="@+id/mypage_pimage1"
+                    android:id="@+id/mypage_profileIv"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
@@ -76,7 +71,6 @@
 
                 <!-- 이름,직급 HL -->
                 <LinearLayout
-                    android:id="@+id/mypage_HL2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -86,7 +80,7 @@
                     android:orientation="horizontal">
                     <!-- 이름_text-->
                     <TextView
-                        android:id="@+id/mypage_nametv1"
+                        android:id="@+id/mypage_nametv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="김유경"
@@ -94,7 +88,7 @@
                         android:textSize="15sp" />
                     <!-- 직급_text-->
                     <TextView
-                        android:id="@+id/mypage_positv2"
+                        android:id="@+id/mypage_positv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -103,6 +97,7 @@
                         android:textSize="14sp" />
                 </LinearLayout> <!-- 이름,직급 HL -->
                 <Button
+                    android:id="@+id/mypage_profileBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -118,8 +113,8 @@
                     android:textSize="13sp" />
             </LinearLayout>
 
+            <!-- 선택들 -->
             <LinearLayout
-                android:id="@+id/mypage_L3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -132,14 +127,14 @@
                 android:paddingBottom="10dp">
                 <!-- 알림설정 HL-->
                 <LinearLayout
-                    android:id="@+id/mypage_HL3"
+                    android:id="@+id/mypage_alarmHL1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="25dp"
-                    android:paddingBottom="25dp">
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
                     <TextView
-                        android:id="@+id/mypage_tv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="알림 설정"
@@ -153,7 +148,6 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
                     <ImageView
-                        android:id="@+id/mypage_goiv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yicon_goblue"
@@ -163,14 +157,14 @@
 
                 <!-- 비밀번호 변경 HL-->
                 <LinearLayout
-                    android:id="@+id/mypage_HL4"
+                    android:id="@+id/mypage_pwdHL2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="25dp"
-                    android:paddingBottom="25dp">
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
                     <TextView
-                        android:id="@+id/mypage_tv2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="비밀번호 변경"
@@ -184,7 +178,6 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
                     <ImageView
-                        android:id="@+id/mypage_goiv2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yicon_goblue"
@@ -194,15 +187,15 @@
 
                 <!-- 사업주 - 직원 전환 HL-->
                 <LinearLayout
-                    android:id="@+id/mypage_HL5"
+                    android:id="@+id/mypage_changeHL3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="25dp"
-                    android:paddingBottom="25dp">
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
 
                     <TextView
-                        android:id="@+id/mypage_tv3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="사업주 - 직원 전환"
@@ -216,7 +209,6 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
                     <ImageView
-                        android:id="@+id/mypage_goiv3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yicon_goblue"
@@ -226,15 +218,15 @@
 
                 <!-- 문사 수신 설정 HL-->
                 <LinearLayout
-                    android:id="@+id/mypage_HL6"
+                    android:id="@+id/mypage_messageHL4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="25dp"
-                    android:paddingBottom="25dp">
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
 
                     <TextView
-                        android:id="@+id/mypage_tv4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="문자 수신 설정"
@@ -248,7 +240,6 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
                     <ImageView
-                        android:id="@+id/mypage_goiv4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yicon_goblue"
@@ -258,15 +249,15 @@
 
                 <!-- 문의하기 HL-->
                 <LinearLayout
-                    android:id="@+id/mypage_HL7"
+                    android:id="@+id/mypage_askHL5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="25dp"
-                    android:paddingBottom="25dp">
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
 
                     <TextView
-                        android:id="@+id/mypage_tv5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="문의하기"
@@ -280,7 +271,6 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
                     <ImageView
-                        android:id="@+id/mypage_goiv5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yicon_goblue"
@@ -290,14 +280,14 @@
 
                 <!-- 로그아웃 HL-->
                 <LinearLayout
-                    android:id="@+id/mypage_HL8"
+                    android:id="@+id/mypage_logoutHL6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="25dp"
-                    android:paddingBottom="25dp">
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
                     <TextView
-                        android:id="@+id/mypage_tv6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="로그아웃"
@@ -311,7 +301,6 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
                     <ImageView
-                        android:id="@+id/mypage_goiv6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yicon_goblue"
@@ -321,14 +310,14 @@
 
                 <!-- 회원탈퇴 HL-->
                 <LinearLayout
-                    android:id="@+id/mypage_HL9"
+                    android:id="@+id/mypage_dropHL7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingTop="25dp"
-                    android:paddingBottom="25dp">
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
                     <TextView
-                        android:id="@+id/mypage_tv7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="회원탈퇴"
@@ -342,7 +331,6 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
                     <ImageView
-                        android:id="@+id/mypage_goiv7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yicon_goblue"
