@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
+    android:id="@+id/join_layoutF"
     tools:context=".joinlogin.JoinActivity">
 
     <!-- top_회원가입-->
@@ -41,6 +42,7 @@
     </FrameLayout>
 
     <ScrollView
+        android:id="@+id/join_scroll"
         android:layout_width="match_parent"
         android:layout_height="663dp"
         android:layout_weight="1"
@@ -156,7 +158,8 @@
                         android:padding="15dp"
                         android:textColorHint="@color/editTextHint"
                         android:textSize="13sp"
-                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                        android:maxLength="11"
+                        android:textCursorDrawable="@drawable/yet_cursor" />
                 </LinearLayout>
 
 
@@ -176,20 +179,34 @@
                         android:text="비밀번호"
                         android:textColor="#424242" />
 
-                    <EditText
-                        android:id="@+id/join_passEt"
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/yedittext_w_sg"
-                        android:ems="10"
-                        android:fontFamily="@font/nanumsquareneo_brg"
-                        android:hint="영문, 숫자, 특수문자 조합 6자 이상"
-                        android:inputType="textPassword"
-                        android:padding="15dp"
-                        android:textColorHint="@color/editTextHint"
-                        android:textSize="13sp"
-                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                        android:layout_marginTop="10dp">
+                        <EditText
+                            android:id="@+id/join_passEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/yedittext_w_sg"
+                            android:ems="10"
+                            android:fontFamily="@font/nanumsquareneo_brg"
+                            android:hint="영문, 숫자, 특수문자 조합 6자 이상"
+                            android:inputType="textPassword"
+                            android:padding="15dp"
+                            android:textColorHint="@color/editTextHint"
+                            android:textSize="13sp"
+                            android:textCursorDrawable="@drawable/yet_cursor"
+                            android:typeface="normal"/>
+                        <CheckBox
+                            android:id="@+id/join_passEyeCb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_marginRight="15dp"
+                            android:checked="false"
+                            android:button="@drawable/ychbox_eyeonoff"/>
+                    </FrameLayout>
+
                 </LinearLayout>
 
                 <!-- 비밀번호 확인 -->
@@ -208,20 +225,34 @@
                         android:text="비밀번호 확인"
                         android:textColor="#424242" />
 
-                    <EditText
-                        android:id="@+id/join_checkPassEt"
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/yedittext_w_sg"
-                        android:ems="10"
-                        android:fontFamily="@font/nanumsquareneo_brg"
-                        android:hint="비밀번호 확인"
-                        android:inputType="textPassword"
-                        android:padding="15dp"
-                        android:textColorHint="@color/editTextHint"
-                        android:textSize="13sp"
-                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                        android:layout_marginTop="10dp">
+                        <EditText
+                            android:id="@+id/join_checkPassEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/yedittext_w_sg"
+                            android:ems="10"
+                            android:fontFamily="@font/nanumsquareneo_brg"
+                            android:hint="비밀번호 확인"
+                            android:inputType="textPassword"
+                            android:padding="15dp"
+                            android:textColorHint="@color/editTextHint"
+                            android:textSize="13sp"
+                            android:textCursorDrawable="@drawable/yet_cursor"
+                            android:typeface="normal"/>
+                        <CheckBox
+                            android:id="@+id/join_checkPassEyeCb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_marginRight="15dp"
+                            android:checked="false"
+                            android:button="@drawable/ychbox_eyeonoff"/>
+                    </FrameLayout>
+
                     <TextView
                         android:id="@+id/join_checkText"
                         android:layout_width="match_parent"
@@ -232,7 +263,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:gravity="center_vertical"
-                        android:visibility="invisible"/>
+                        android:visibility="invisible"
+                        android:typeface="normal"/>
                 </LinearLayout>
 
                 <!-- 가입자 유형 -->
