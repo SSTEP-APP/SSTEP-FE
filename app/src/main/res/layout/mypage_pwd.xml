@@ -172,7 +172,8 @@
             android:textSize="11sp"
             android:textColor="@color/red"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp"
+            android:visibility="invisible"/>
 
     </LinearLayout> <!-- 선택들 L-->
 

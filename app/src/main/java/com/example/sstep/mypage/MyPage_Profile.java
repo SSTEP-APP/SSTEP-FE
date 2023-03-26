@@ -18,11 +18,13 @@ import androidx.core.app.ActivityCompat;
 
 import com.example.sstep.R;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MyPage_Profile extends AppCompatActivity implements View.OnClickListener{
 
     EditText nameEt, phoneEt, emailEt;
     ImageButton backib, cameraIb;
-    ImageView profileIv;
+    CircleImageView profileIv;
     Intent intent;
     private static final int REQ_CODE_SELECT_CAMERA = 100;
     @Override

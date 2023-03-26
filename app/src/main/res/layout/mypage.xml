@@ -62,12 +62,13 @@
                 android:paddingBottom="15dp">
 
                 <!-- 사람이미지 -->
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/mypage_profileIv"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_gravity="center_horizontal"
-                    app:srcCompat="@drawable/yicon_stafffemale" />
+                    android:background="@drawable/yicon_stafffemale"
+                    android:layout_gravity="center_horizontal"/>
+
 
                 <!-- 이름,직급 HL -->
                 <LinearLayout
