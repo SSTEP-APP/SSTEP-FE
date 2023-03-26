@@ -28,7 +28,6 @@ public class MonthState extends AppCompatActivity {
         // AlarmFragmentAdapter 에 컬렉션 담기
         adapter.addFragment(new monthstate1Fragment());
         adapter.addFragment(new monthstate2Fragment());
-        adapter.addFragment(new monthstate3Fragment());
 
         viewpager.setClipToPadding(false);
         viewpager.setPadding(0, 0, 80, 0);
