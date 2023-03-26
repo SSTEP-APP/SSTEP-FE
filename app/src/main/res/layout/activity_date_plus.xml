@@ -125,7 +125,7 @@
                                 android:layout_width="62dp"
                                 android:layout_height="63dp"
                                 android:layout_gravity="center_horizontal|top"
-                                app:srcCompat="@drawable/yimage_female2" />
+                                app:srcCompat="@drawable/j_femail_img2" />
 
                             <ImageButton
                                 android:id="@+id/datePlus_staffCancelBtn"
