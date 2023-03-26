@@ -13,6 +13,7 @@
     <color name="offbutton">#D6D6D6</color>
     <color name="pielight">#DDDDDD</color>
     <color name="piedark">#AAAAAA</color>
+    <color name="dialogred">#D15D60</color>
     <color name="lightred">#F16F75</color>
     <color name="red">#DF1515</color>
     <color name="currentColor">#000000</color>
