@@ -38,8 +38,6 @@ public class CheckList extends AppCompatActivity {
 
     Calendar calendar = new GregorianCalendar(); //오늘날짜 받기
 
-    Calendar todayCalendar = new GregorianCalendar(); //오늘날짜 저장
-
     String chkDate = mFormat.format(calendar.getTime());
     private String selectedItem;
     private CheckList_Spinner spinnerAdapter;
@@ -126,7 +124,6 @@ public class CheckList extends AppCompatActivity {
             public void onClick(View view) {
                 int refresh = -(changeDate);
                 changeDate =0;
-                calendar = todayCalendar;
                 calendar.add(Calendar.DATE, refresh);
                 chkDate = mFormat.format(calendar.getTime());
                 todayText.setText(chkDate);
