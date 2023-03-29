@@ -58,7 +58,7 @@ public class CheckList_write extends AppCompatActivity {
         repeatRG = findViewById(R.id.checkList_write_repeatRG);
         repeatTimeSpinner = findViewById(R.id.checkList_write_repeatTimespinner);
 
-
+//리사이클 뷰
         firstInit();
 //      임의로 5개 입력
         for (int i = 0; i < 5; i++) {
@@ -159,6 +159,8 @@ public class CheckList_write extends AppCompatActivity {
         });
 
         //반복시작일 스피너?
+
+
         //스피너 값 설정
 
 

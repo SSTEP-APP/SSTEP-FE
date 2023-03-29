@@ -38,8 +38,6 @@ public class CheckList extends AppCompatActivity {
 
     Calendar calendar = new GregorianCalendar(); //오늘날짜 받기
 
-    Calendar todayCalendar = new GregorianCalendar(); //오늘날짜 저장
-
     String chkDate = mFormat.format(calendar.getTime());
     private String selectedItem;
     private CheckList_Spinner spinnerAdapter;
@@ -76,8 +74,8 @@ public class CheckList extends AppCompatActivity {
         // ViewPager TabLayout 연결
         tabs_layout.setupWithViewPager(viewpager);
 
-        tabs_layout.getTabAt(0).setText("미완료");
-        tabs_layout.getTabAt(1).setText("완료");
+        tabs_layout.getTabAt(0).setText("미완료"); //db에서 리스트 갯수 받아서 표시 해야됨
+        tabs_layout.getTabAt(1).setText("완료"); //db에서 리스트 갯수 받아서 표시 해야됨 or 프래그먼트에서 갯수 받아오기
 
         //오늘 날짜 표시
         todayText.setText(chkDate);
@@ -126,7 +124,6 @@ public class CheckList extends AppCompatActivity {
             public void onClick(View view) {
                 int refresh = -(changeDate);
                 changeDate =0;
-                calendar = todayCalendar;
                 calendar.add(Calendar.DATE, refresh);
                 chkDate = mFormat.format(calendar.getTime());
                 todayText.setText(chkDate);
@@ -172,6 +169,7 @@ public class CheckList extends AppCompatActivity {
         //체크리스트 플러스 버튼
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CheckList_write.class);
                 startActivity(intent);

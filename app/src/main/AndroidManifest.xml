@@ -14,13 +14,12 @@
         android:theme="@style/Theme.SSTEP"
         tools:targetApi="31">
         <activity
+            android:name=".checklist.Checklist_complete_detail"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".checklist.Checklist_detail"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
         <activity
             android:name=".checklist.CheckList_write"
