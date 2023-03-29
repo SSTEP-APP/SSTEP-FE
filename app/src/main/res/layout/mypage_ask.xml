@@ -14,17 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- 뒤로가기 아이콘 -->
         <TextView
             android:id="@+id/mypage_ask_toptv"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:background="@color/top"
             android:gravity="center_horizontal|center_vertical"
             android:text="문의하기"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <!-- 뒤로가기 아이콘 -->
         <ImageButton
             android:id="@+id/mypage_ask_backib"
             android:layout_width="wrap_content"

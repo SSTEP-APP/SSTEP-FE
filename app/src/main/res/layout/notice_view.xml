@@ -476,9 +476,9 @@
                 android:layout_weight="1" />
             <Button
                 android:id="@+id/notice_input_bottombtn1"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/yicon_bluecheck"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/yicon_send"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="15dp"
                 android:layout_gravity="center_vertical"/>

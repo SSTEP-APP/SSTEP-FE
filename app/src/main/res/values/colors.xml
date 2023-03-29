@@ -10,7 +10,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#0D69F3</color>
     <color name="lightblue">#2375F2</color>
-    <color name="offbutton">#D6D6D6</color>
+    <color name="offbutton">#DCECF9</color>
     <color name="pielight">#DDDDDD</color>
     <color name="piedark">#AAAAAA</color>
     <color name="dialogred">#D15D60</color>

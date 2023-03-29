@@ -11,7 +11,6 @@
 
     <!-- top_직원 초대현황-->
     <FrameLayout
-        android:id="@+id/staffInvite1_F1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -19,10 +18,10 @@
             android:id="@+id/staffInvite1_toptv"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:background="@color/top"
             android:gravity="center_horizontal|center_vertical"
             android:text="직원 초대현황"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="17sp" />
 
         <!-- 뒤로가기 아이콘 -->
@@ -164,38 +163,17 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- 맨 아래 '직원 초대' 버튼 -->
-    <LinearLayout
-        android:id="@+id/staffInvite1_L2"
+    <Button
+        android:id="@+id/staffInvite1_completeBtn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="vertical">
-        <!-- 맨 아래 버튼 변경 F -->
-        <FrameLayout
-            android:id="@+id/staffInvite1_changebtnF3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/staffInvite1_bottomoffbtn"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:background="@drawable/yroundrec_bottombtnoff"
-                android:text="직원초대"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:gravity="center"
-                android:visibility="gone"/>
-            <Button
-                android:id="@+id/staffInvite1_bottomonbtn"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:background="@drawable/yroundrec_bottombtnon"
-                android:text="직원초대"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:gravity="center"
-                android:visibility="visible"/>
-        </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
-    </LinearLayout>
+        android:layout_height="58dp"
+        android:background="@drawable/yroundrec_bottombtnon"
+        android:text="직원초대"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"/>
 </LinearLayout>
