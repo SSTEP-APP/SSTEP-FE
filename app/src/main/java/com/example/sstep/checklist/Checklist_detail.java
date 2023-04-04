@@ -92,7 +92,7 @@ public class Checklist_detail extends AppCompatActivity {
             });
         }catch (Exception e){
             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
-            Log.i("통신 결과", e+"에러");
+            Log.i("error", e+"에러");
         }
 
 

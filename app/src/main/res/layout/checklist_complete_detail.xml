@@ -10,12 +10,12 @@
 
     <!-- top_완료된 항목-->
     <FrameLayout
-        android:id="@+id/checkList_top"
+        android:id="@+id/checkComDetail_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/checkList_topText"
+            android:id="@+id/checkComDetail_topText"
             android:layout_width="match_parent"
             android:layout_height="74dp"
             android:background="@color/lightblue"
@@ -26,7 +26,7 @@
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
-            android:id="@+id/checkList_backBtn"
+            android:id="@+id/checkComDetail_backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
