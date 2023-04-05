@@ -150,6 +150,93 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="18dp"
+                android:background="@drawable/j_layout_background"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/checkList_write_endTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top|left"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="3dp"
+                        android:text="마감 예정 시간"
+                        android:textColor="#969696"
+                        android:textSize="15sp" />
+
+                    <View
+                        android:id="@+id/checkList_write_view5"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/checkList_write_addEndTimeBtn"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/j_button_round"
+                        android:backgroundTint="#0D69F3"
+                        android:text="선택"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/checkList_write_line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="12dp"
+                    android:background="#ACACAC" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkList_write_endTimeRB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:checked="false"
+                        android:drawableLeft="@drawable/ychbox_black"
+                        android:drawablePadding="5dp"
+                        android:text="마감 예정 시간 미입력"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/checkList_write_localEndtimeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="미입력 선택시 정해진 시간없이 체크할 수 있으며 근무중인 직원에게 \n알람을 보내지 않습니다."
+                    android:textColor="#8E8E8E"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
@@ -171,6 +258,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
+                        android:gravity="top|left"
                         android:text="카테고리"
                         android:textColor="#969696"
                         android:textSize="15sp" />
@@ -210,128 +298,62 @@
                     android:layout_marginBottom="26dp"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/checkList_write_firstCategoryBtn"
-                        android:layout_width="76dp"
-                        android:layout_height="32dp"
-                        android:background="@drawable/j_button_stroke737373"
-                        android:text="홀"
-                        android:textColor="#808080" />
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                    <View
-                        android:id="@+id/checkList_write_view3"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
+                        <RadioButton
+                            android:id="@+id/checkList_write_firstCategoryBtn"
+                            android:layout_width="76dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/j_checklist_write_radiobtn"
+                            android:button="@null"
+                            android:checked="true"
+                            android:gravity="center"
+                            android:text="홀"
+                            android:textColor="@drawable/j_checklist_write_radiotext"
+                            android:textSize="12dp" />
 
-                    <Button
-                        android:id="@+id/checkList_write_secondCategoryBtn"
-                        android:layout_width="76dp"
-                        android:layout_height="32dp"
-                        android:background="@drawable/j_button_stroke737373"
-                        android:text="커피 머신"
-                        android:textColor="#808080" />
+                        <View
+                            android:id="@+id/checkList_write_view3"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
 
-                    <View
-                        android:id="@+id/checkList_write_view4"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-
-                    <Button
-                        android:id="@+id/checkList_write_thirdCategoryBtn"
-                        android:layout_width="76dp"
-                        android:layout_height="32dp"
-                        android:background="@drawable/j_button_stroke737373"
-                        android:text="오전"
-                        android:textColor="#808080" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="18dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="18dp"
-                android:background="@drawable/j_layout_background"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/checkList_write_endTimeText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:text="마감 예정 시간"
-                        android:textColor="#969696"
-                        android:textSize="15sp" />
-
-                    <View
-                        android:id="@+id/checkList_write_view5"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-
-                    <Button
-                        android:id="@+id/checkList_write_addEndTimeBtn"
-                        android:layout_width="50dp"
-                        android:layout_height="25dp"
-                        android:background="@drawable/j_button_round"
-                        android:backgroundTint="#0D69F3"
-                        android:text="선택"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-                <View
-                    android:id="@+id/checkList_write_line2"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="12dp"
-                    android:background="#ACACAC" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="27dp"
-                    android:layout_marginTop="22dp"
-                    android:layout_marginRight="27dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="horizontal">
-                        <CheckBox
-                            android:id="@+id/checkList_write_endTimeRB"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                        <RadioButton
+                            android:id="@+id/checkList_write_secondCategoryBtn"
+                            android:layout_width="76dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/j_checklist_write_radiobtn"
                             android:button="@null"
                             android:checked="false"
-                            android:drawableLeft="@drawable/ychbox_black"
-                            android:drawablePadding="5dp"
-                            android:text="마감 예정 시간 미입력"
-                            android:textSize="11sp" />
+                            android:gravity="center"
+                            android:text="커피 머신"
+                            android:textColor="@drawable/j_checklist_write_radiotext"
+                            android:textSize="12dp" />
+
+                        <View
+                            android:id="@+id/checkList_write_view4"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <RadioButton
+                            android:id="@+id/checkList_write_thirdCategoryBtn"
+                            android:layout_width="76dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/j_checklist_write_radiobtn"
+                            android:button="@null"
+                            android:checked="false"
+                            android:gravity="center"
+                            android:text="오전"
+                            android:textColor="@drawable/j_checklist_write_radiotext"
+                            android:textSize="12dp" />
+                    </RadioGroup>
+
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/checkList_write_localEndtimeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="미입력 선택시 정해진 시간없이 체크할 수 있으며 근무중인 직원에게 \n알람을 보내지 않습니다."
-                    android:textColor="#8E8E8E"
-                    android:textSize="9sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -380,26 +402,26 @@
                     android:layout_marginBottom="10dp"
                     android:orientation="horizontal">
 
-                        <CheckBox
-                            android:id="@+id/checkList_write_pictureRB"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:button="@null"
-                            android:checked="true"
-                            android:drawableLeft="@drawable/ychbox_black"
-                            android:drawablePadding="5dp"
-                            android:text="할 일 관련내용 사진촬영 필수"
-                            android:textSize="11sp" />
+                    <CheckBox
+                        android:id="@+id/checkList_write_pictureRB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:checked="true"
+                        android:drawableLeft="@drawable/ychbox_black"
+                        android:drawablePadding="5dp"
+                        android:text="할 일 관련내용 사진촬영 필수"
+                        android:textSize="11sp" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/checkList_write_localPictureText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="선택시 할 일 관련 사진을 등록해야만 체크완료 가능합니다."
-                    android:textColor="#8E8E8E"
                     android:layout_marginLeft="40dp"
                     android:layout_marginBottom="10dp"
+                    android:text="선택시 할 일 관련 사진을 등록해야만 체크완료 가능합니다."
+                    android:textColor="#8E8E8E"
                     android:textSize="9sp" />
 
             </LinearLayout>
@@ -410,7 +432,6 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="18dp"
-                android:layout_marginBottom="20dp"
                 android:background="@drawable/j_layout_background"
                 android:orientation="vertical">
 
@@ -467,16 +488,16 @@
                     android:layout_marginBottom="10dp"
                     android:orientation="horizontal">
 
-                        <CheckBox
-                            android:id="@+id/checkList_write_staffRB"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:button="@null"
-                            android:checked="true"
-                            android:drawableLeft="@drawable/ychbox_black"
-                            android:drawablePadding="5dp"
-                            android:text="담당직원만 체크할 수 있도록 설정합니다."
-                            android:textSize="11sp" />
+                    <CheckBox
+                        android:id="@+id/checkList_write_staffRB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:checked="true"
+                        android:drawableLeft="@drawable/ychbox_black"
+                        android:drawablePadding="5dp"
+                        android:text="담당직원만 체크할 수 있도록 설정합니다."
+                        android:textSize="11sp" />
                 </LinearLayout>
 
                 <TextView
@@ -490,6 +511,7 @@
                     android:textSize="9sp" />
 
                 <LinearLayout
+                    android:id="@+id/checkList_write_staffList_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -501,36 +523,13 @@
                         android:layout_marginRight="20dp"
                         android:orientation="horizontal">
 
-                        <FrameLayout
-                            android:layout_width="70dp"
-                            android:layout_height="80dp"
-                            android:layout_marginRight="25dp">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/checkList_write_staffList_recycleView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="12dp" />
 
-                            <ImageView
-                                android:id="@+id/imageView2"
-                                android:layout_width="62dp"
-                                android:layout_height="63dp"
-                                android:layout_gravity="center_horizontal|top"
-                                app:srcCompat="@drawable/j_femail_img2" />
-                            <!--에러로 인해 임시적으로 jpg파일 사용-->
-                            <ImageButton
-                                android:id="@+id/imageButton"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_gravity="right|top"
-                                android:background="@android:color/transparent"
-                                android:scaleType="centerInside"
-                                app:srcCompat="@drawable/j_x_btn_img" />
 
-                            <TextView
-                                android:id="@+id/textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom|center_horizontal"
-                                android:text="000"
-                                android:textColor="#000000"
-                                android:textSize="11sp" />
-                        </FrameLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -585,6 +584,7 @@
                     android:orientation="horizontal">
 
                     <RadioGroup
+                        android:id="@+id/checkList_write_repeatRG"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
@@ -596,7 +596,7 @@
                             android:layout_weight="1" />
 
                         <RadioButton
-                            android:id="@+id/radioButton2"
+                            android:id="@+id/checkList_write_norepeatRB"
                             android:layout_width="113dp"
                             android:layout_height="30dp"
                             android:background="@drawable/j_repeat_radio_btn"
@@ -614,7 +614,7 @@
                             android:layout_weight="1" />
 
                         <RadioButton
-                            android:id="@+id/radioButton"
+                            android:id="@+id/checkList_write_repeatRB"
                             android:layout_width="113dp"
                             android:layout_height="30dp"
                             android:background="@drawable/j_repeat_radio_btn"
@@ -643,7 +643,6 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="18dp"
-                android:layout_marginBottom="20dp"
                 android:background="@drawable/j_layout_background"
                 android:orientation="vertical">
 
@@ -661,7 +660,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:text="반복 여부"
+                        android:text="반복 주기"
                         android:textColor="#969696"
                         android:textSize="15sp" />
 
@@ -694,8 +693,97 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/checkList_write_repeatPeriodLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/j_layout_background"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/checkList_write_repeatStartDayText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="반복 시작일"
+                        android:textColor="#969696"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/checkList_write_repeatStratDayspinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/j_spinner_backgroundcdcdc35"
+                        android:backgroundTint="#80000000" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/checkList_write_repeatEndDayText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="반복 종료일"
+                        android:textColor="#969696"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/checkList_write_repeatEndDayspinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/j_spinner_backgroundcdcdc35"
+                        android:backgroundTint="#80000000" />
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
     <Button
         android:id="@+id/checkList_write_completeBtn"
         android:layout_width="match_parent"

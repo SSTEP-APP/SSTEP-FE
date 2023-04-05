@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="70dp"
+    android:layout_height="80dp"
+    android:layout_marginRight="25dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/checklist_write_staffImg"
+        android:layout_width="62dp"
+        android:layout_height="63dp"
+        android:layout_gravity="center_horizontal|top"
+        app:srcCompat="@drawable/j_femail_img2" />
+    <!--에러로 인해 임시적으로 jpg파일 사용-->
+    <ImageButton
+        android:id="@+id/checklist_write_cancelBtn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="right|top"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/j_x_btn_img" />
+
+    <TextView
+        android:id="@+id/checklist_write_staffName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="000"
+        android:textColor="#000000"
+        android:textSize="11sp" />
+</FrameLayout>

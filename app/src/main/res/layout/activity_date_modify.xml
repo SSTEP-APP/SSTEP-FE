@@ -76,7 +76,7 @@
                                 android:id="@+id/dateModify_userIconImg"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/yimage_female2" />
+                                app:srcCompat="@drawable/j_femail_img2" />
                         </LinearLayout>
 
                         <LinearLayout
