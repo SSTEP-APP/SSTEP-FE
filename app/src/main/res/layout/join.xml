@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,17 +13,18 @@
     <FrameLayout
         android:id="@+id/join_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/join_topText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/top"
             android:gravity="center_horizontal|center_vertical"
             android:text="회원가입"
-            android:textColor="@color/likeblack"
-            android:textSize="17sp"/>
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/join_line"
             android:layout_width="match_parent"
@@ -44,10 +45,9 @@
     <ScrollView
         android:id="@+id/join_scroll"
         android:layout_width="match_parent"
-        android:layout_height="663dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:scrollbars="none"
-        android:layout_marginTop="60dp">
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,9 +58,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/j_layout_background"
                 android:orientation="vertical"
                 android:paddingTop="10dp"
@@ -81,22 +81,41 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="ID"
-                        android:textColor="#424242" />
+                        android:textColor="@color/likeblack"
+                        android:textStyle="bold"/>
 
-                    <EditText
-                        android:id="@+id/join_idEt"
+
+
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/yedittext_w_sg"
-                        android:ems="10"
-                        android:fontFamily="@font/nanumsquareneo_brg"
-                        android:hint="아이디"
-                        android:inputType="text"
-                        android:padding="15dp"
-                        android:textColorHint="@color/editTextHint"
-                        android:textSize="13sp"
-                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                        android:layout_marginTop="10dp">
+                        <EditText
+                            android:id="@+id/join_idEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/yedittext_w_sg"
+                            android:ems="10"
+                            android:fontFamily="@font/nanumsquareneo_brg"
+                            android:hint="아이디"
+                            android:inputType="text"
+                            android:padding="15dp"
+                            android:textColorHint="@color/editTextHint"
+                            android:textSize="13sp"
+                            android:textCursorDrawable="@drawable/yet_cursor"/>
+                        <Button
+                            android:id="@+id/join_certBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="26dp"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/yroundrec_w_sblue"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:text="중복확인"
+                            android:textSize="13sp"
+                            android:textColor="@color/blue"
+                            android:layout_gravity="right|center_vertical"/>
+                    </FrameLayout>
                 </LinearLayout>
                 <!-- 이름 -->
                 <LinearLayout
@@ -112,7 +131,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="이름"
-                        android:textColor="#424242" />
+                        android:textColor="@color/likeblack"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/join_nameEt"
@@ -143,7 +163,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="전화번호"
-                        android:textColor="#424242" />
+                        android:textColor="@color/likeblack"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/join_phonumEt"
@@ -153,7 +174,7 @@
                         android:background="@drawable/yedittext_w_sg"
                         android:ems="10"
                         android:fontFamily="@font/nanumsquareneo_brg"
-                        android:hint="전화번호 입력"
+                        android:hint="010-0000-0000"
                         android:inputType="phone"
                         android:padding="15dp"
                         android:textColorHint="@color/editTextHint"
@@ -177,7 +198,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="비밀번호"
-                        android:textColor="#424242" />
+                        android:textColor="@color/likeblack"
+                        android:textStyle="bold" />
 
                     <FrameLayout
                         android:layout_width="match_parent"
@@ -223,7 +245,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="비밀번호 확인"
-                        android:textColor="#424242" />
+                        android:textColor="@color/likeblack"
+                        android:textStyle="bold" />
 
                     <FrameLayout
                         android:layout_width="match_parent"
@@ -270,16 +293,27 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/join_completeBtn"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/yroundrec_bottombtnoff"
-        android:text="회원가입"
-        android:clickable="false"
-        android:textColor="@color/white"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"/>
-</FrameLayout>
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/join_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:text="회원가입"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -386,7 +386,8 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/yicon_stafffemale"
-                        android:layout_marginRight="15dp"/>
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="20dp"/>
                     <!-- 댓글 내용 _L -->
                     <LinearLayout
                         android:id="@+id/notice_view_L6"

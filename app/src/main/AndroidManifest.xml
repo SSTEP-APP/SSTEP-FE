@@ -28,6 +28,15 @@
                 android:resource="@xml/provider_paths" />
         </provider>
         <activity
+            android:name=".joinlogin.JoinActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".circlemenu.CircleMenu"
             android:exported="true">
             <intent-filter>
@@ -257,15 +266,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".StaffInvite2" />
-        <activity
-            android:name=".joinlogin.JoinActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".staff_workType"
             android:exported="true">

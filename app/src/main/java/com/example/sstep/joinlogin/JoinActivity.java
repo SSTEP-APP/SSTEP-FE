@@ -28,12 +28,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
 
-public class JoinActivity extends AppCompatActivity implements View.OnClickListener{
+public class JoinActivity extends AppCompatActivity implements View.OnClickListener,
+        CompoundButton.OnCheckedChangeListener {
 
     ScrollView scroll;
     EditText idEt, nameEt, phonumEt, passEt, checkPassEt; String id, name, phonum, pass, checkPass;
     ImageButton back_Btn; Button completeBtn;
-    RadioGroup userTypeRG; RadioButton ownerRadio, staffRadio;
     CheckBox passEyeCb, checkPassEyeCb;
     TextView checkText;
 
@@ -55,9 +55,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         phonumEt=findViewById(R.id.join_phonumEt);
         passEt=findViewById(R.id.join_passEt);
         checkPassEt=findViewById(R.id.join_checkPassEt);
-        userTypeRG=findViewById(R.id.join_userTypeRG);
-        ownerRadio=findViewById(R.id.join_ownerRadio);
-        staffRadio=findViewById(R.id.join_staffRadio);
         checkText=findViewById(R.id.join_checkText);
 
         idEt.addTextChangedListener(textWatcher);
@@ -74,30 +71,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
             public boolean onTouch(View v, MotionEvent event) {
                 hideKeyboard(); // EditText 밖에 터치 시 키보드 내리기
                 return false;
-            }
-        });
-
-        // 비밀번호 textPassword 보이게/안보이게
-        passEyeCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    passEt.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD); // 보이게
-                } else {
-                    passEt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD); //안 보이게
-                }
-            }
-        });
-
-        // 비밀번호 확인 textPassword 보이게/안보이게
-        checkPassEyeCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    checkPassEt.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD); // 보이게
-                } else {
-                    checkPassEt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD); // 안 보이게
-                }
             }
         });
     }
@@ -175,5 +148,27 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
     void hideKeyboard() {
         InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
         inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        switch (buttonView.getId()){
+            case R.id.join_passEyeCb: // 비밀번호 textPassword 보이게/안보이게
+                if (isChecked) {
+                    passEt.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD); // 보이게
+                } else {
+                    passEt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD); //안 보이게
+                }
+                break;
+            case R.id.join_checkPassEyeCb: // '비밀번호 확인' textPassword 보이게/안보이게
+                if (isChecked) {
+                    checkPassEt.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD); // 보이게
+                } else {
+                    checkPassEt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD); // 안 보이게
+                }
+                break;
+            default:
+                break;
+        }
     }
 }

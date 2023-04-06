@@ -10,14 +10,24 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#0D69F3</color>
     <color name="lightblue">#2375F2</color>
-    <color name="offbutton">#DCECF9</color>
     <color name="pielight">#DDDDDD</color>
     <color name="piedark">#AAAAAA</color>
     <color name="dialogred">#D15D60</color>
     <color name="lightred">#F16F75</color>
     <color name="red">#DF1515</color>
     <color name="currentColor">#000000</color>
-    <color name="background">#F6F6F6</color>
+
     <color name="editTextHint">#828282</color>
+
+    <!-- 전체 배경 -->
+    <color name="background">#F6F6F6</color>
+
+    <!-- 맨 위에 top_배경,text -->
     <color name="top">#FFFFFFFF</color>
+    <color name="topText">#FF000000</color>
+
+    <!-- 맨 아래 버튼 off/on -->
+    <color name="offbutton">#DCECF9</color>
+    <color name="onbutton">#0D69F3</color>
+    <color name="bottombackground">#FFFFFFFF</color>
 </resources>

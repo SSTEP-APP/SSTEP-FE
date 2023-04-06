@@ -104,8 +104,8 @@
                         android:layout_weight="1" />
                     <ImageButton
                         android:id="@+id/money_ceo_reib"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:background="@drawable/yicon_refresh"
                         android:layout_marginRight="5dp"/>
                     <ImageButton

@@ -13,17 +13,18 @@
     <FrameLayout
         android:id="@+id/findId_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/findId_topText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/top"
             android:gravity="center_horizontal|center_vertical"
             android:text="아이디 찾기"
-            android:textColor="@color/likeblack"
-            android:textSize="17sp"/>
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/findId_line"
             android:layout_width="match_parent"
@@ -48,9 +49,9 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:background="@drawable/yroundrec_w"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,7 +73,8 @@
                     android:layout_height="wrap_content"
                     android:text="이름"
                     android:textColor="@color/likeblack"
-                    android:textSize="12sp"/>
+                    android:textSize="13sp"
+                    android:textStyle="bold"/>
 
                 <EditText
                     android:id="@+id/findId_nameEt"
@@ -100,8 +102,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="전화번호"
-                    android:textSize="12sp"
-                    android:textColor="@color/likeblack" />
+                    android:textSize="13sp"
+                    android:textColor="@color/likeblack"
+                    android:textStyle="bold"/>
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -113,7 +116,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yedittext_w_sg"
-                        android:hint="전화번호 입력"
+                        android:hint="010-0000-0000"
                         android:inputType="phone"
                         android:textColorHint="@color/editTextHint"
                         android:fontFamily="@font/nanumsquareneo_brg"
@@ -142,16 +145,26 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_weight="1" />
-    <Button
-        android:id="@+id/findId_completeBtn"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="@drawable/yroundrec_bottombtnoff"
-        android:clickable="false"
-        android:textSize="15sp"
-        android:text="아이디 찾기"
-        android:textColor="#FFFFFF"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/findId_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:text="아이디 찾기"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
 </LinearLayout>

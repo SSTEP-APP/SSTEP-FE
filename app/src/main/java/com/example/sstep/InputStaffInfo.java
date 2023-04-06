@@ -18,9 +18,9 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
 
     ImageButton backib, homeib;
     LinearLayout ci_updownHL,pi_updownHL,yi_updownHL, ci_updownhidL,pi_updownhidL,yi_updownhidL,
-            ci_outdatehidHL, pi_rbhidL1, pi_rbhidL2, pi_rbhidL3, pi_tgcbhidL, pi_lawrbcbhidL;
+            pi_rbhidL1, pi_rbhidL2, pi_rbhidL3, pi_tgcbhidL, pi_lawrbcbhidL;
     ImageView ci_upiconIv,pi_upiconIv,yi_upiconIv;
-    CheckBox ci_outdateCb, pi_hourCb1,pi_hourCb2,pi_hourCb3, pi_trainingCb;
+    CheckBox pi_hourCb1,pi_hourCb2,pi_hourCb3, pi_trainingCb;
     RadioGroup pi_payRg, pi_lawRg;
     RadioButton pi_payhourRb,pi_paydayRb,pi_paymonthRb, pi_lawRb1,pi_lawRb2,pi_lawRb3;
     Button pi_setBtn1, pi_setBtn2;
@@ -42,8 +42,6 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
         ci_upiconIv = findViewById(R.id.isi_ci_upiconIv);
         pi_upiconIv = findViewById(R.id.isi_pi_upiconIv);
         yi_upiconIv = findViewById(R.id.isi_yi_upiconIv);
-        ci_outdateCb = findViewById(R.id.isi_ci_outdateCb); ci_outdateCb.setOnCheckedChangeListener(this);
-        ci_outdatehidHL = findViewById(R.id.isi_ci_outdatehidHL);
         pi_payRg = findViewById(R.id.isi_pi_payRg); pi_payRg.setOnCheckedChangeListener(this);
         pi_payhourRb = findViewById(R.id.isi_pi_payhourRb);
         pi_paydayRb = findViewById(R.id.isi_pi_paydayRb);
@@ -107,13 +105,6 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         switch (buttonView.getId()){
-            case R.id.isi_ci_outdateCb: // 퇴사일 미정
-                if (isChecked){
-                    ci_outdatehidHL.setVisibility(View.GONE);
-                }else{
-                    ci_outdatehidHL.setVisibility(View.VISIBLE);
-                }
-                break;
             case R.id.isi_pi_hourCb1: // (+)주휴수당 자동 가산
                 if (isChecked){
                     pi_setBtn1.setVisibility(View.VISIBLE);
