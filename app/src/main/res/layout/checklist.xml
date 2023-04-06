@@ -55,7 +55,9 @@
                     android:id="@+id/checkList_selectCategory"
                     android:layout_width="80dp"
                     android:layout_height="23dp"
-                    android:background="@drawable/yroundrec_w" />
+                    android:background="@drawable/yroundrec_w"
+                    android:foregroundGravity="center"
+                    android:gravity="center" />
 
                 <ImageView
                     android:id="@+id/checkList_categoryImg"
@@ -149,10 +151,10 @@
 
                     <ImageButton
                         android:id="@+id/checkList_nextDayBtn"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:scaleType="centerInside"
-                        android:background="@drawable/yicon_right" />
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_right"
+                        android:scaleType="centerInside" />
                 </LinearLayout>
 
             </LinearLayout>

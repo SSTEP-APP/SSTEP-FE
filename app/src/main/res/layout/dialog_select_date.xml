@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/j_layout_background"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialog_selectDate_mainText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="날짜 선택"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <CalendarView
+            android:id="@+id/dialog_selectDate_calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+
+    <View
+        android:id="@+id/dialog_selectDate_line1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="30dp"
+        android:background="#737373" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialog_selectDate_cancleBtn"
+            android:layout_width="125dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:background="@drawable/j_button_left_round"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center"
+            android:text="닫기"
+            android:textColor="#0D69F3"
+            android:textSize="16dp" />
+
+        <View
+            android:id="@+id/dialog_cal_line2"
+            android:layout_width="0.5dp"
+            android:layout_height="58dp" />
+
+        <Button
+            android:id="@+id/dialog_selectDate_okBtn"
+            android:layout_width="125dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:background="@drawable/j_button_right_round"
+            android:backgroundTint="#0D69F3"
+            android:gravity="center"
+            android:text="확인"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

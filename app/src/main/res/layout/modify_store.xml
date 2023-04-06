@@ -368,7 +368,7 @@
                         android:layout_height="wrap_content"
                         android:minHeight="0dp"
                         android:background="@drawable/j_button_shape"
-                        android:text="22일ㄴ"
+                        android:text="22일"
                         android:textColor="@color/blue"
                         android:textSize="13sp"
                         android:paddingRight="15dp"

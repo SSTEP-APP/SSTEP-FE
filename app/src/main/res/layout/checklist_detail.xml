@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="#F1F1F1"
     android:orientation="vertical"
     tools:context=".checklist.Checklist_detail">
 
@@ -22,7 +22,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="마감 시 에어컨 끄기"
             android:textColor="@color/white"
-            android:textSize="17sp"/>
+            android:textSize="17sp" />
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -173,35 +173,27 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="18dp"
                 android:background="@drawable/j_layout_background"
-                android:orientation="vertical"
-                android:paddingTop="30dp"
-                android:paddingBottom="30dp">
+                android:orientation="vertical">
 
-                <!-- 사진촬영 F -->
-                <FrameLayout
-                    android:id="@+id/checkDetail_addImageF"
-                    android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/checkDetail_addImageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/yicon_camerablack" />
+
+                <Button
+                    android:id="@+id/checkDetail_addImageBtn"
+                    android:layout_width="216dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/yroundrec_w_sr"
-                    android:layout_gravity="center_horizontal"
-                    android:clickable="true">
-                    <ImageButton
-                        android:id="@+id/checkDetail_addImageBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/yicon_camerared"
-                        android:layout_gravity="center" />
-                    <TextView
-                        android:id="@+id/checkDetail_addImageText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="사진촬영"
-                        android:textSize="7sp"
-                        android:textColor="#EB8F8F"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="19dp" />
-                </FrameLayout> <!-- 사진촬영 F -->
-
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="25dp"
+                    android:background="@android:color/transparent"
+                    android:text="등록하기"
+                    android:textColor="#000000"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="#00FFFFFF"
     android:orientation="vertical"
     tools:context=".date.Date">
 
@@ -407,9 +407,9 @@
 
                                         <ImageView
                                             android:id="@+id/date_userIconImg1"
-                                            android:layout_width="60dp"
-                                            android:layout_height="60dp"
-                                            app:srcCompat="@drawable/yicon_stafffemale" />
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            app:srcCompat="@drawable/j_femail_img2" />
                                     </LinearLayout>
 
                                     <LinearLayout
@@ -716,9 +716,9 @@
 
                                     <ImageView
                                         android:id="@+id/date_userIconImg2"
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-                                        app:srcCompat="@drawable/yicon_stafffemale" />
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        app:srcCompat="@drawable/j_femail_img2" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -1022,9 +1022,9 @@
 
                                     <ImageView
                                         android:id="@+id/date_userIconImg3"
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-                                        app:srcCompat="@drawable/yicon_stafffemale" />
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        app:srcCompat="@drawable/j_femail_img2" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -1283,8 +1283,8 @@
 
         <ImageButton
             android:id="@+id/date_plusBtn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="right"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="30dp"
@@ -1292,6 +1292,4 @@
             android:scaleType="centerInside"
             app:srcCompat="@drawable/yicon_plus" />
     </LinearLayout>
-
-
 </FrameLayout>

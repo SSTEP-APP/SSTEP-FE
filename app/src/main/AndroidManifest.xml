@@ -37,90 +37,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".circlemenu.CircleMenu"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".addSchedule"
             android:exported="false" />
         <activity
-            android:name=".date.Date_settingBreaktime"
-            android:exported="false" />
-        <activity
-            android:name=".date.Date_settingmodify"
-            android:exported="false" />
-        <activity
-            android:name=".date.Date_settingBreakDay"
-            android:exported="false" />
-        <activity
-            android:name=".date.Date_plus"
-            android:exported="false" />
-        <activity
-            android:name=".date.Date"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".alarm.Alarm"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".checklist.Checklist_complete_detail"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
         <activity
-            android:name=".mypage.MyPage"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".checklist.Checklist_detail"
+            android:exported="false">
         </activity>
-        <activity android:name=".mypage.MyPage_Profile" />
-        <activity android:name=".mypage.MyPage_Alarm" />
-        <activity android:name=".mypage.MyPage_Pwd" />
-        <activity android:name=".mypage.MyPage_Change" />
-        <activity android:name=".mypage.MyPage_Message" />
-        <activity android:name=".mypage.MyPage_Ask" />
         <activity
             android:name=".checklist.CheckList_write"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".paper.Paper"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".paper.Paperh" />
+            android:exported="false" />
         <activity
             android:name=".checklist.CheckList"
             android:exported="true">
