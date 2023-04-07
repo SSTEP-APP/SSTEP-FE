@@ -932,13 +932,14 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginBottom="30dp">
 
                                 <TextView
                                     android:id="@+id/isi_pi_insapplyTv1"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="15dp"
                                     android:gravity="center_horizontal"
                                     android:lineSpacingExtra="5dp"
                                     android:text="급여정산일은 13일입니다.\n2023년 1월 14일부터 급여에 적용됩니다."
@@ -1192,7 +1193,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center_horizontal"
                             android:orientation="horizontal">
 
@@ -1226,6 +1227,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginBottom="30dp"
                             android:gravity="center_horizontal"
                             android:text="2023년에 연차가 적용됩니다."
                             android:textColor="#737373"
