@@ -33,4 +33,7 @@
 
     <!-- 구분선 line -->
     <color name="line">#D9D9D9</color>
+
+    <!-- 밝은 글씨 line -->
+    <color name="lightText">#A4A4A4</color>
 </resources>
