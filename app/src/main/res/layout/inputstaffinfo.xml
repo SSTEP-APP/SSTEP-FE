@@ -40,6 +40,7 @@
             android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
     </FrameLayout>
+
     <ScrollView
         android:id="@+id/isi_scoll"
         android:layout_width="match_parent"

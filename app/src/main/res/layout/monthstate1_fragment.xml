@@ -8,9 +8,9 @@
     android:layout_marginRight="20dp">
     <!-- 지각률 L -->
     <LinearLayout
-        android:id="@+id/monthstate1_fragment_L1"
+        android:id="@+id/monthstate1_fragment_lateL"
         android:layout_width="match_parent"
-        android:layout_height="560dp"
+        android:layout_height="620dp"
         android:background="@drawable/yroundrec_w"
         android:gravity="center_vertical"
         android:orientation="vertical"
@@ -20,20 +20,19 @@
         android:paddingBottom="20dp">
 
         <TextView
-            android:id="@+id/monthstate1_fragment_tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="지각률"
-            android:textColor="#737373"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
-        <TextView
-            android:id="@+id/monthstate1_fragment_line1"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@drawable/yunderline_text"
-            android:minHeight="1dp" />
+            android:layout_height="0.5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/line" />
 
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/monthstate1_fragment_piechart1"
@@ -43,29 +42,28 @@
             android:layout_marginTop="20dp" />
 
         <TextView
-            android:id="@+id/monthstate1_fragment_tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="지각 상위직원"
-            android:textColor="#737373"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
-        <TextView
-            android:id="@+id/monthstate1_fragment_line2"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@drawable/yunderline_text"
-            android:minHeight="1dp" />
+            android:layout_height="0.5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/line" />
 
         <FrameLayout
-            android:id="@+id/monthstate1_fragment_hidF1"
+            android:id="@+id/monthstate1_fragment_latehidF1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/monthstate1_fragment_tv3"
+                android:id="@+id/monthstate1_fragment_lateTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -76,11 +74,13 @@
                 android:textSize="15sp"
                 android:visibility="gone"/>
             <LinearLayout
-                android:id="@+id/monthstate1_fragment_hidL1"
+                android:id="@+id/monthstate1_fragment_latehidL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
                 android:visibility="visible">
                 <!-- 상위직원 1위 _HL -->
                 <LinearLayout
@@ -88,46 +88,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="25dp">
+                    android:gravity="center_vertical">
                     <ImageView
-                        android:id="@+id/monthstate1_fragment_iv1"
+                        android:id="@+id/monthstate1_fragment_personIv1"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/yicon_stafffemale"
                         android:layout_marginLeft="10dp"/>
                     <!-- 이름, 직책 _L -->
                     <LinearLayout
-                        android:id="@+id/monthstate1_fragment_L2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_marginLeft="15dp">
-                        <LinearLayout
-                            android:id="@+id/monthstate1_fragment_HL1"
+                        <TextView
+                            android:id="@+id/monthstate1_fragment_nameTv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:id="@+id/monthstate1_fragment_nametv1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="이름"
-                                android:textSize="13sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/black"/>
-                            <TextView
-                                android:id="@+id/monthstate1_fragment_positv1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="[매니저]"
-                                android:textSize="13sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/black"
-                                android:layout_marginLeft="5dp"/>
-                        </LinearLayout>
+                            android:text="이름"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
                         <TextView
-                            android:id="@+id/monthstate1_fragment_numtv1"
+                            android:id="@+id/monthstate1_fragment_numTv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1회"
@@ -143,45 +126,29 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:layout_marginTop="25dp">
+                    android:layout_marginTop="15dp">
                     <ImageView
-                        android:id="@+id/monthstate1_fragment_iv2"
+                        android:id="@+id/monthstate1_fragment_personIv2"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/yicon_stafffemale"
                         android:layout_marginLeft="10dp"/>
                     <!-- 이름, 직책 _L -->
                     <LinearLayout
-                        android:id="@+id/monthstate1_fragment_L3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_marginLeft="15dp">
-                        <LinearLayout
-                            android:id="@+id/monthstate1_fragment_HL2"
+                        <TextView
+                            android:id="@+id/monthstate1_fragment_nameTv2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:id="@+id/monthstate1_fragment_nametv2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="이름"
-                                android:textSize="13sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/black"/>
-                            <TextView
-                                android:id="@+id/monthstate1_fragment_positv2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="[매니저]"
-                                android:textSize="13sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/black"
-                                android:layout_marginLeft="5dp"/>
-                        </LinearLayout>
+                            android:text="이름"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
                         <TextView
-                            android:id="@+id/monthstate1_fragment_numtv2"
+                            android:id="@+id/monthstate1_fragment_numTv2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1회"
@@ -197,45 +164,29 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:layout_marginTop="25dp">
+                    android:layout_marginTop="15dp">
                     <ImageView
-                        android:id="@+id/monthstate1_fragment_iv3"
+                        android:id="@+id/monthstate1_fragment_personIv3"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/yicon_stafffemale"
                         android:layout_marginLeft="10dp"/>
                     <!-- 이름, 직책 _L -->
                     <LinearLayout
-                        android:id="@+id/monthstate1_fragment_L4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_marginLeft="15dp">
-                        <LinearLayout
-                            android:id="@+id/monthstate1_fragment_HL3"
+                        <TextView
+                            android:id="@+id/monthstate1_fragment_nameTv3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:id="@+id/monthstate1_fragment_nametv3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="이름"
-                                android:textSize="13sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/black"/>
-                            <TextView
-                                android:id="@+id/monthstate1_fragment_positv3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="[매니저]"
-                                android:textSize="13sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/black"
-                                android:layout_marginLeft="5dp"/>
-                        </LinearLayout>
+                            android:text="이름"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
                         <TextView
-                            android:id="@+id/monthstate1_fragment_numtv3"
+                            android:id="@+id/monthstate1_fragment_numTv3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1회"
