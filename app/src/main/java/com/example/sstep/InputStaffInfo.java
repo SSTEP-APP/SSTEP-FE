@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class InputStaffInfo extends AppCompatActivity implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener{
 
-    ImageButton backib, homeib;
+    ImageButton backib;
     LinearLayout ci_updownHL,pi_updownHL,yi_updownHL, ci_updownhidL,pi_updownhidL,yi_updownhidL,
             pi_rbhidL1, pi_rbhidL2, pi_rbhidL3, pi_tgcbhidL, pi_lawrbcbhidL;
     ImageView ci_upiconIv,pi_upiconIv,yi_upiconIv;
@@ -32,7 +32,6 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.inputstaffinfo);
 
         backib = findViewById(R.id.isi_backib); backib.setOnClickListener(this);
-        homeib = findViewById(R.id.isi_homeib); homeib.setOnClickListener(this);
         ci_updownHL = findViewById(R.id.isi_ci_updownHL); ci_updownHL.setOnClickListener(this);
         pi_updownHL = findViewById(R.id.isi_pi_updownHL); pi_updownHL.setOnClickListener(this);
         yi_updownHL = findViewById(R.id.isi_yi_updownHL); yi_updownHL.setOnClickListener(this);
@@ -67,8 +66,6 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.isi_backib: // 뒤로가기
-                break;
-            case R.id.isi_homeib: // 홈
                 break;
             case R.id.isi_ci_updownHL: // 출퇴근정보
                 if (ci_updownhidL.getVisibility() == View.GONE) {

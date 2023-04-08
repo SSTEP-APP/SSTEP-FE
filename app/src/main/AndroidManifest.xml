@@ -27,112 +27,19 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+
+        <!-- joinlogin -->
+        <activity
+            android:name=".joinlogin.Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".joinlogin.JoinActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".addSchedule"
-            android:exported="false" />
-        <activity
-            android:name=".checklist.Checklist_complete_detail"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".checklist.Checklist_detail"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".checklist.CheckList_write"
-            android:exported="false" />
-        <activity
-            android:name=".checklist.CheckList"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".notice.Notice"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".notice.Notice_input" />
-        <activity
-            android:name=".start.Start"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".start.Start1" />
-        <activity android:name=".start.Start2" />
-        <activity android:name=".start.Start3" />
-        <activity android:name=".start.Start4" />
-
-        <activity
-            android:name=".notice.Notice_view"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".Search_Store"
-            android:exported="false" />
-        <activity
-            android:name=".monthstate.MonthState"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".modifyStore"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".money.Money_Ceo"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".RegisterStore"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".money.Money_Staff"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -150,15 +57,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectStore"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".joinlogin.Find_password"
             android:exported="true">
             <intent-filter>
@@ -167,8 +65,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- checklist -->
         <activity
-            android:name=".InputStaffInfo"
+            android:name=".checklist.CheckList"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -177,7 +77,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".joinlogin.Login"
+            android:name=".checklist.Checklist_complete_detail"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".checklist.Checklist_detail"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".checklist.CheckList_write"
+            android:exported="false" />
+
+        <!-- notice -->
+        <activity
+            android:name=".notice.Notice"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -185,6 +98,98 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".notice.Notice_view"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".notice.Notice_input" />
+
+        <!-- start -->
+        <activity
+            android:name=".start.Start"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".start.Start1" />
+        <activity android:name=".start.Start2" />
+        <activity android:name=".start.Start3" />
+        <activity android:name=".start.Start4" />
+
+
+
+        <activity
+            android:name=".monthstate.MonthState"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- money -->
+        <activity
+            android:name=".money.Money_Ceo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".money.Money_Staff"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".RegisterStore"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".modifyStore"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Search_Store"
+            android:exported="false" />
+        <activity
+            android:name=".SelectStore"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- staffInvite -->
         <activity
             android:name=".StaffInvite"
             android:exported="true">
@@ -195,6 +200,46 @@
             </intent-filter>
         </activity>
         <activity android:name=".StaffInvite2" />
+        <activity
+            android:name=".StaffInvite3"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".InputStaffInfo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".addSchedule"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".mypage.MyPage"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".mypage.MyPage_Profile" />
+        <activity android:name=".mypage.MyPage_Alarm" />
+        <activity android:name=".mypage.MyPage_Ask" />
+        <activity android:name=".mypage.MyPage_Message" />
+        <activity android:name=".mypage.MyPage_Pwd" />
+        <activity android:name=".mypage.MyPage_Change" />
 
         <activity
             android:name=".MainActivity"

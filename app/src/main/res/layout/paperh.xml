@@ -10,19 +10,25 @@
 
     <!-- top_보건증 직원 목록-->
     <FrameLayout
-        android:id="@+id/paperh_F1"
+        android:id="@+id/paperh_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
-            android:id="@+id/paperh_toptv"
+            android:id="@+id/paperh_topTv"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="보건증 직원 목록"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_gravity="bottom"
+            android:background="@color/line" />
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -32,7 +38,6 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
-
     </FrameLayout>
 
     <!-- 스크롤 -->
@@ -51,227 +56,254 @@
             android:paddingBottom="15dp">
 
             <!-- 보건증 등록 직원 Frame -->
-            <FrameLayout
-                android:id="@+id/paperh_F2"
+            <LinearLayout
+                android:id="@+id/paperh_regF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:background="@drawable/yroundrec_w"
-                android:paddingTop="25dp"
-                android:paddingBottom="25dp">
+                android:paddingTop="35dp"
+                android:paddingBottom="35dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
 
+                <!-- 위에 보건증 등록 직원 + 숫자 -->
                 <LinearLayout
-                    android:id="@+id/paperh_L4"
+                    android:id="@+id/paperh_regHL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <!-- 위에 보건증 등록 직원 + 숫자 -->
-                    <LinearLayout
-                        android:id="@+id/paperh_HL1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <!-- 보건증 등록 직원_text -->
-                        <TextView
-                            android:id="@+id/paperh_tv1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:paddingLeft="15dp"
-                            android:text="보건증 등록 직원"
-                            android:textColor="#737373"
-                            android:textSize="15sp" />
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-
-                        <!-- 숫자_text-->
-                        <TextView
-                            android:id="@+id/paperh_numtv1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:layout_marginRight="15dp"
-                            android:gravity="right"
-                            android:paddingRight="5dp"
-                            android:text="1"
-                            android:textColor="#0D69F3"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
+                    android:orientation="horizontal"
+                    android:layout_marginRight="10dp">
+                    <!-- 보건증 등록 직원_text -->
                     <TextView
-                        android:id="@+id/paperh_linetv3"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:minHeight="1dp"
-                        android:background="@drawable/yunderline_text"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_gravity="bottom"/>
-                    <!-- 보건증 등록 직원 리스트 frame -->
-                    <FrameLayout
-                        android:id="@+id/paperh_F3"
-                        android:layout_width="match_parent"
+                        android:id="@+id/paperh_regTv"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="5dp">
-                        <!-- 사람이미지 -->
-                        <ImageView
-                            android:id="@+id/paperh_pimage1"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginLeft="15dp"
-                            app:srcCompat="@drawable/yicon_stafffemale" />
+                        android:layout_gravity="center_horizontal"
+                        android:text="보건증 등록 직원"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
 
-                        <!-- 이름 [직책] -->
-                        <TextView
-                            android:id="@+id/paperh_nametv1"
+                    <!-- 숫자_text-->
+                    <TextView
+                        android:id="@+id/paperh_regnumTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:text="1"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/nanumsquareneo_ehv" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/line" />
+                <!-- 보건증 등록 직원 리스트 frame -->
+                <LinearLayout
+                    android:id="@+id/paperh_reglistL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+                    <!-- 사람이미지 -->
+                    <ImageView
+                        android:id="@+id/paperh_regpersonIv"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:srcCompat="@drawable/yicon_stafffemale" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp">
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="80dp"
-                            android:layout_marginTop="5dp"
-                            android:text="이름 [직책]"
-                            android:textColor="#737373"
-                            android:textSize="13sp" />
+                            android:orientation="horizontal">
+                            <!-- 이름 [직책] -->
+                            <TextView
+                                android:id="@+id/paperh_regnameTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="이름"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+                            <!-- 이름 [직책] -->
+                            <TextView
+                                android:id="@+id/paperh_regposiTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="[직책]"
+                                android:textColor="#737373"
+                                android:textSize="13sp" />
+                        </LinearLayout>
 
                         <!-- 검진일 -->
                         <TextView
-                            android:id="@+id/paperh_idtv1"
+                            android:id="@+id/paperh_regdateTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="80dp"
-                            android:layout_marginTop="30dp"
+                            android:layout_marginTop="10dp"
                             android:text="검진일 : 2023.02.17 (갱신 D-362)"
                             android:textColor="#737373"
                             android:textSize="13sp" />
-
-                        <ImageView
-                            android:id="@+id/paperh_goiv1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/yicon_go"
-                            android:layout_gravity="right|center_vertical"
-                            android:layout_marginRight="20dp" />
-                    </FrameLayout> <!-- 보건증 등록 직원 리스트 frame -->
-                </LinearLayout>
-            </FrameLayout> <!-- 보건증 등록 직원 Frame -->
+                    </LinearLayout>
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:id="@+id/paperh_reggoIv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_go"
+                        android:layout_gravity="right|center_vertical" />
+                </LinearLayout> <!-- 보건증 등록 직원 리스트 frame -->
+            </LinearLayout> <!-- 보건증 등록 직원 Frame -->
 
             <!-- 보건증 미등록 직원 Frame -->
-            <FrameLayout
-                android:id="@+id/paperh_F4"
+            <LinearLayout
+                android:id="@+id/paperh_unregF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:background="@drawable/yroundrec_w"
-                android:paddingTop="25dp"
-                android:paddingBottom="25dp">
+                android:paddingTop="35dp"
+                android:paddingBottom="35dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
 
+                <!-- 위에 보건증 등록 직원 + 숫자 -->
                 <LinearLayout
-                    android:id="@+id/paperh_L5"
+                    android:id="@+id/paperh_unregHL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <!-- 위에 보건증 미등록 직원 + 숫자 -->
-                    <LinearLayout
-                        android:id="@+id/paperh_HL2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <!-- 보건증 미등록 직원_text -->
-                        <TextView
-                            android:id="@+id/paperh_tv2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:paddingLeft="15dp"
-                            android:text="보건증 미등록 직원"
-                            android:textColor="#737373"
-                            android:textSize="15sp" />
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-
-                        <!-- 숫자_text-->
-                        <TextView
-                            android:id="@+id/paperh_numtv2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:layout_marginRight="15dp"
-                            android:gravity="right"
-                            android:paddingRight="5dp"
-                            android:text="1"
-                            android:textColor="#0D69F3"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                    android:orientation="horizontal"
+                    android:layout_marginRight="10dp">
+                    <!-- 보건증 등록 직원_text -->
                     <TextView
-                        android:id="@+id/paperh_linetv4"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:minHeight="1dp"
-                        android:background="@drawable/yunderline_text"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_gravity="bottom"/>
-
-                    <!-- 보건증 미등록 직원 리스트 frame -->
-                    <FrameLayout
-                        android:id="@+id/paperh_F5"
-                        android:layout_width="match_parent"
+                        android:id="@+id/paperh_unregTv"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="5dp">
-                        <!-- 사람이미지 -->
-                        <ImageView
-                            android:id="@+id/paperh_pimage2"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginLeft="15dp"
-                            app:srcCompat="@drawable/yicon_stafffemale" />
+                        android:layout_gravity="center_horizontal"
+                        android:text="보건증 등록 직원"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
 
-                        <!-- 이름 -->
-                        <TextView
-                            android:id="@+id/paperh_nametv2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="80dp"
-                            android:layout_marginTop="5dp"
-                            android:text="이름 [직책]"
-                            android:textColor="#737373"
-                            android:textSize="13sp" />
-
-                        <!-- 아이디 -->
-                        <TextView
-                            android:id="@+id/paperh_idtv2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="80dp"
-                            android:layout_marginTop="30dp"
-                            android:text="보건증 미등록"
-                            android:textColor="@color/lightred"
-                            android:textSize="13sp" />
-                        <ImageView
-                            android:id="@+id/paperh_goiv2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/yicon_go"
-                            android:layout_gravity="right|center_vertical"
-                            android:layout_marginRight="20dp" />
-                    </FrameLayout> <!-- 보건증 미등록 직원 리스트 frame -->
+                    <!-- 숫자_text-->
+                    <TextView
+                        android:id="@+id/paperh_unregnumTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:text="1"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/nanumsquareneo_ehv" />
                 </LinearLayout>
-            </FrameLayout> <!-- 보건증 미등록 직원 Frame -->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/line" />
+                <!-- 보건증 등록 직원 리스트 frame -->
+                <LinearLayout
+                    android:id="@+id/paperh_unreglistL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+                    <!-- 사람이미지 -->
+                    <ImageView
+                        android:id="@+id/paperh_unregpersonIv"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:srcCompat="@drawable/yicon_stafffemale" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <!-- 이름 [직책] -->
+                            <TextView
+                                android:id="@+id/paperh_unregnameTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="이름"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+                            <!-- 이름 [직책] -->
+                            <TextView
+                                android:id="@+id/paperh_unregposiTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="[직책]"
+                                android:textColor="#737373"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <!-- 검진일 -->
+                        <TextView
+                            android:id="@+id/paperh_unregdateTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="보건증 미등록"
+                            android:textColor="@color/red"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:id="@+id/paperh_unreggoIv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_go"
+                        android:layout_gravity="right|center_vertical" />
+                </LinearLayout> <!-- 보건증 등록 직원 리스트 frame -->
+            </LinearLayout> <!-- 보건증 미등록 직원 Frame -->
 
         </LinearLayout>
     </ScrollView>
