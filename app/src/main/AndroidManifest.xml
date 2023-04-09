@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.DIAL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +15,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SSTEP"
         tools:targetApi="31">
+
+        <activity
+            android:name=".staff.addSchedule"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".staff.staff_infoInput"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".Search_Store"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F1F1F1"
     android:orientation="vertical"
-    tools:context=".staff_infoInput">
+    tools:context=".staff.staff_infoInput">
 
     <!-- top_직원 정보 입력 -->
     <FrameLayout
@@ -82,7 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="12dp"
-                        android:text="[매니저]"
+                        android:text="[직원]"
                         android:textColor="#A4A4A4"
                         android:textSize="10sp" />
 
@@ -90,7 +90,7 @@
 
                 <LinearLayout
                     android:id="@+id/staff_info_callLay"
-                    android:layout_width="66dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="10dp"
                     android:layout_marginTop="4dp">
 
@@ -105,7 +105,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
-                        android:text="전화걸기"
+                        android:text="010-0000-0000"
                         android:textColor="#2477F3"
                         android:textSize="7sp" />
                 </LinearLayout>
@@ -173,12 +173,11 @@
 
                 <ImageButton
                     android:id="@+id/staff_info_preMonthBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
                     android:layout_gravity="top"
                     android:background="@android:color/transparent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:scaleType="centerCrop"
                     app:srcCompat="@drawable/j_left_icon" />
 
                 <View
@@ -204,8 +203,9 @@
 
                 <ImageButton
                     android:id="@+id/staff_info_nextMonthBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:scaleType="centerCrop"
                     android:background="@android:color/transparent"
                     app:srcCompat="@drawable/j_right_icon" />
             </LinearLayout>
@@ -289,14 +289,6 @@
                     android:layout_height="0dp"
                     android:layout_weight="1" />
 
-                <Button
-                    android:id="@+id/staff_info_comChangeBtn"
-                    android:layout_width="160dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginRight="12dp"
-                    android:background="@drawable/j_button_shape"
-                    android:text="자율 출퇴근으로 전환" />
             </LinearLayout>
 
             <View
@@ -324,27 +316,8 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/j_layout_background"
-                    android:backgroundTint="#737373"
-                    android:backgroundTintMode="add"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-                    android:text="일정 추가"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <View
-                    android:id="@+id/staff_info_line4"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginEnd="12dp"
-                    android:background="#D9D9D9"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:background="@drawable/j_button_stroke737373"
+                    android:text="일정 추가" />
 
                 <TextView
                     android:id="@+id/staff_info_schedule_text"
@@ -352,12 +325,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="36dp"
-                    android:text="등록된 일정이 없습니다 \n 일정을 추가해주세요"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/staff_info_schedule_addBtn" />
+                    android:text="등록된 일정이 없습니다 \n 일정을 추가해주세요"/>
 
             </LinearLayout>
 
@@ -425,88 +393,46 @@
                     android:layout_marginEnd="12dp"
                     android:background="#D9D9D9" />
 
-                <TextView
-                    android:id="@+id/staff_info_workSchedule"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="20dp"
-                    android:text="월   03:00 ~ 05:00  (2h 0m)"
-                    android:textColor="#000000"
-                    android:textSize="13sp" />
+                    android:orientation="horizontal">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/staff_info_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:id="@+id/staff_info_workScheduleDay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="월"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/staff_info_workScheduleTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:text="03:00 ~ 05:00"
+                        android:textColor="#000000"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/staff_info_workScheduleOurs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(2h 0m)"
+                        android:textColor="#000000" />
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/staff_info_selfworkScheduleLayout"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="18dp"
-            android:background="@drawable/j_layout_background"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/staff_info_local_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
-                    android:text="근무일정"
-                    android:textSize="13sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <View
-                    android:id="@+id/staff_info_line8"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/staff_info_selfChangeBtn"
-                    android:layout_width="160dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="12dp"
-                    android:background="@drawable/j_button_round_check"
-                    android:text="일정출퇴근으로 전환하기"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-            <View
-                android:id="@+id/staff_info_line5"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="12dp"
-                android:background="#D9D9D9" />
-
-            <Button
-                android:id="@+id/staff_info_selfWorkText"
-                android:layout_width="208dp"
-                android:layout_height="31dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="46dp"
-                android:background="@drawable/j_layout_background"
-                android:backgroundTint="#737373"
-                android:backgroundTintMode="add"
-                android:text="자율출퇴근 근무중"
-                android:textColor="#737373"
-                android:visibility="visible" />
         </LinearLayout>
 
     </LinearLayout>

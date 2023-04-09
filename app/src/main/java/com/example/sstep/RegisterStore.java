@@ -79,7 +79,7 @@ public class RegisterStore extends AppCompatActivity {
                 checkList_photo_dialog.show();
             }
         });
-        //뒤로가기 버튼 메인
+        //뒤로가기 버튼
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

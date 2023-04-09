@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/staff_info_RI_recycle_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="33dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <TextView
+            android:id="@+id/staff_info_RI_workScheduleDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:layout_marginRight="10dp"
+            android:text="월" />
+
+        <TextView
+            android:id="@+id/staff_info_RI_workScheduleTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="03:00 ~ 05:00"
+            android:textColor="#000000"
+            android:layout_marginRight="5dp"
+            android:textSize="13sp" />
+        <TextView
+            android:id="@+id/staff_info_RI_workScheduleOurs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="(2h 0m)" />
+</LinearLayout>
+

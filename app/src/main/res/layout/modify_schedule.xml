@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F1F1F1"
     android:orientation="vertical"
-    tools:context=".modifySchedule">
+    tools:context=".staff.modifySchedule">
 
     <!-- top_일정 수정-->
     <FrameLayout
@@ -349,18 +349,40 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/modifySch_workSchedule"
+                        android:id="@+id/modifySch_workScheduleDay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="월   03:00 ~ 05:00  (2h 0m)"
                         android:textColor="#000000"
+                        android:layout_marginRight="10dp"
+                        android:text="월" />
+
+                    <TextView
+                        android:id="@+id/modifySch_workScheduleTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="03:00 ~ 05:00"
+                        android:textColor="#000000"
+                        android:layout_marginRight="5dp"
                         android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/modifySch_workScheduleOurs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:text="(2h 0m)" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
 
                     <ImageButton
                         android:id="@+id/modifySch_deleteBtn"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
-                        android:layout_marginLeft="150dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
                         android:background="@android:color/transparent"
                         android:scaleType="centerInside"
                         app:srcCompat="@drawable/j_delete_schedule" />
