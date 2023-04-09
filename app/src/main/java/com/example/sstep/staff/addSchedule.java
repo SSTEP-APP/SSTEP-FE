@@ -78,10 +78,23 @@ public class addSchedule extends AppCompatActivity {
                 TimePicker timePicker = timePickDialog.findViewById(R.id.dialog_time_set_timePicker);
 
                 timePicker.setIs24HourView(true);
+                Button dialog_time_set_okBtn = timePickDialog.findViewById(R.id.dialog_time_set_okBtn);
+                Button dialog_time_set_cancleBtn = timePickDialog.findViewById(R.id.dialog_time_set_cancleBtn);
+                dialog_time_set_cancleBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        timePickDialog.dismiss();
+                    }
+                });
+                dialog_time_set_okBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
                 timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
                     @Override
                     public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-                        Button dialog_time_set_okBtn = timePickDialog.findViewById(R.id.dialog_time_set_okBtn);
                         dialog_time_set_okBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -93,13 +106,7 @@ public class addSchedule extends AppCompatActivity {
                                 // 시간이 변경될 때 호출되는 코드
                             }
                         });
-                        Button dialog_time_set_cancleBtn = timePickDialog.findViewById(R.id.dialog_time_set_cancleBtn);
-                        dialog_time_set_cancleBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                timePickDialog.dismiss();
-                            }
-                        });
+
 
                     }
                 });
