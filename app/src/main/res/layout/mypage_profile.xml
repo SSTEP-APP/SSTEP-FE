@@ -10,18 +10,25 @@
     tools:context=".mypage.MyPage_Profile">
     <!-- top_프로필 수정-->
     <FrameLayout
+        android:id="@+id/mypage_profile_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
-            android:id="@+id/mypage_profile_toptv"
+            android:id="@+id/mypage_profile_topText"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/top"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="프로필 수정"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -58,8 +65,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/yroundrec_w"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
             android:layout_marginLeft="20dp"
@@ -71,7 +78,8 @@
                 android:layout_height="wrap_content"
                 android:text="이름"
                 android:textSize="15sp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
             <EditText
                 android:id="@+id/mypage_profile_nameEt"
                 android:layout_width="match_parent"
@@ -98,7 +106,8 @@
                 android:text="전화번호"
                 android:textSize="15sp"
                 android:textColor="@color/black"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="25dp"
+                android:textStyle="bold"/>
             <EditText
                 android:id="@+id/mypage_profile_phoneEt"
                 android:layout_width="match_parent"
@@ -125,7 +134,8 @@
                 android:text="이메일"
                 android:textSize="15sp"
                 android:textColor="@color/black"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="25dp"
+                android:textStyle="bold"/>
             <EditText
                 android:id="@+id/mypage_profile_emailEt"
                 android:layout_width="match_parent"
@@ -153,16 +163,22 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <Button
-        android:id="@+id/mypage_pwd_bottomBtn"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/yroundrec_bottombtnon"
-        android:text="수정완료"
-        android:textColor="@color/white"
-        android:textSize="17sp"
-        android:gravity="center"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/mypage_profile_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnon"
+            android:text="수정완료"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
 </LinearLayout>

@@ -237,7 +237,6 @@
         <activity android:name=".mypage.MyPage_Profile" />
         <activity android:name=".mypage.MyPage_Alarm" />
         <activity android:name=".mypage.MyPage_Ask" />
-        <activity android:name=".mypage.MyPage_Message" />
         <activity android:name=".mypage.MyPage_Pwd" />
         <activity android:name=".mypage.MyPage_Change" />
 

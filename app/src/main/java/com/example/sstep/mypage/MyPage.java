@@ -16,7 +16,7 @@ import com.example.sstep.R;
 
 public class MyPage extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout alarmHL1, pwdHL2, changeHL3, messageHL4, askHL5, logoutHL6, dropHL7;
+    LinearLayout alarmHL1, pwdHL2, changeHL3, askHL4, logoutHL5, dropHL6;
     Button profileBtn;
     Dialog logoutdl, dropdl;
     @Override
@@ -27,10 +27,9 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
         alarmHL1 = findViewById(R.id.mypage_alarmHL1); alarmHL1.setOnClickListener(this);
         pwdHL2 = findViewById(R.id.mypage_pwdHL2); pwdHL2.setOnClickListener(this);
         changeHL3 = findViewById(R.id.mypage_changeHL3); changeHL3.setOnClickListener(this);
-        messageHL4 = findViewById(R.id.mypage_messageHL4); messageHL4.setOnClickListener(this);
-        askHL5 = findViewById(R.id.mypage_askHL5); askHL5.setOnClickListener(this);
-        logoutHL6 = findViewById(R.id.mypage_logoutHL6); logoutHL6.setOnClickListener(this);
-        dropHL7 = findViewById(R.id.mypage_dropHL7); dropHL7.setOnClickListener(this);
+        askHL4 = findViewById(R.id.mypage_askHL4); askHL4.setOnClickListener(this);
+        logoutHL5 = findViewById(R.id.mypage_logoutHL5); logoutHL5.setOnClickListener(this);
+        dropHL6 = findViewById(R.id.mypage_dropHL6); dropHL6.setOnClickListener(this);
         profileBtn = findViewById(R.id.mypage_profileBtn); profileBtn.setOnClickListener(this);
 
         logoutdl = new Dialog(MyPage.this); // Dialog 초기화
@@ -39,7 +38,7 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
 
         dropdl = new Dialog(MyPage.this); // Dialog 초기화
         dropdl.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
-        dropdl.setContentView(R.layout.mypage_outdl); // xml 레이아웃 파일과 연결
+        dropdl.setContentView(R.layout.mypage_dropdl); // xml 레이아웃 파일과 연결
 
     }
 
@@ -67,20 +66,15 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.mypage_messageHL4: // 문자 수신 설정
-                intent = new Intent(getApplicationContext(), MyPage_Message.class);
-                startActivity(intent);
-                finish();
-                break;
-            case R.id.mypage_askHL5: // 문의하기
+            case R.id.mypage_askHL4: // 문의하기
                 intent = new Intent(getApplicationContext(), MyPage_Ask.class);
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.mypage_logoutHL6: // 로그아웃
+            case R.id.mypage_logoutHL5: // 로그아웃
                 showlogoutDl();
                 break;
-            case R.id.mypage_dropHL7: // 탈퇴하기
+            case R.id.mypage_dropHL6: // 탈퇴하기
                 showdropDl();
                 break;
             default:
@@ -93,17 +87,17 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
         logoutdl.show();
         // 다이얼로그의 배경을 투명으로 만든다.
         logoutdl.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        Button logoutdl_canclebtn1,logoutdl_okbtn2;
-        logoutdl_canclebtn1 = logoutdl.findViewById(R.id.mypage_logoutdl_canclebtn1); logoutdl_okbtn2 = logoutdl.findViewById(R.id.mypage_logoutdl_okbtn2);
+        Button logoutdl_cancleBtn,logoutdl_logoutBtn;
+        logoutdl_cancleBtn = logoutdl.findViewById(R.id.mypage_logoutdl_cancleBtn); logoutdl_logoutBtn = logoutdl.findViewById(R.id.mypage_logoutdl_logoutBtn);
         // '로그아웃 dialog' _ 취소 버튼 클릭 시
-        logoutdl_canclebtn1.setOnClickListener(new View.OnClickListener() {
+        logoutdl_cancleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 logoutdl.dismiss();
             }
         });
         // '로그아웃 dialog' _ 로그아웃 버튼 클릭 시
-        logoutdl_okbtn2.setOnClickListener(new View.OnClickListener() {
+        logoutdl_logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 logoutdl.dismiss();
@@ -115,18 +109,18 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
     public void showdropDl() {
         dropdl.show();
         dropdl.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        Button outdl_canclebtn1, outdl_okbtn2;
-        outdl_canclebtn1 = dropdl.findViewById(R.id.mypage_outdl_canclebtn1); outdl_okbtn2 = dropdl.findViewById(R.id.mypage_outdl_okbtn2);
+        Button dropdl_cancleBtn, dropdl_dropBtn;
+        dropdl_cancleBtn = dropdl.findViewById(R.id.mypage_dropdl_cancleBtn); dropdl_dropBtn = dropdl.findViewById(R.id.mypage_dropdl_dropBtn);
 
         // '탈퇴하기 dialog' _ 취소 버튼 클릭 시
-        outdl_canclebtn1.setOnClickListener(new View.OnClickListener() {
+        dropdl_cancleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dropdl.dismiss();
             }
         });
         // '탈퇴하기 dialog' _ 탈퇴하기 버튼 클릭 시
-        outdl_okbtn2.setOnClickListener(new View.OnClickListener() {
+        dropdl_dropBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dropdl.dismiss();

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mypage_outdl_L1"
+    android:id="@+id/mypage_dropdl_L1"
     android:layout_width="wrap_content"
     android:layout_height="200dp"
     android:orientation="vertical"
@@ -11,7 +11,7 @@
 
     <!-- 내용 textview-->
     <TextView
-        android:id="@+id/mypage_outdl_tv1"
+        android:id="@+id/mypage_dropdl_tv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal|center_vertical"
@@ -27,14 +27,14 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
     <LinearLayout
-        android:id="@+id/staffInvite_deletedl2_HL1"
+        android:id="@+id/mypage_dropdl_HL1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="bottom">
         <!-- 취소 버튼 -->
         <Button
-            android:id="@+id/mypage_outdl_canclebtn1"
+            android:id="@+id/mypage_dropdl_cancleBtn"
             android:layout_width="180dp"
             android:layout_height="53dp"
             android:layout_gravity="bottom"
@@ -45,7 +45,7 @@
             android:textSize="17sp" />
         <!-- 승인 버튼 -->
         <Button
-            android:id="@+id/mypage_outdl_okbtn2"
+            android:id="@+id/mypage_dropdl_dropBtn"
             android:layout_width="180dp"
             android:layout_height="53dp"
             android:layout_gravity="bottom|right"
