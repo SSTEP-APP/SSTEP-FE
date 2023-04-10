@@ -16,7 +16,7 @@ import com.example.sstep.R;
 
 public class MyPage extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout alarmHL1, pwdHL2, changeHL3, askHL4, logoutHL5, dropHL6;
+    LinearLayout alarmHL1, pwdHL2, askHL3, logoutHL4, dropHL5;
     Button profileBtn;
     Dialog logoutdl, dropdl;
     @Override
@@ -26,10 +26,9 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
 
         alarmHL1 = findViewById(R.id.mypage_alarmHL1); alarmHL1.setOnClickListener(this);
         pwdHL2 = findViewById(R.id.mypage_pwdHL2); pwdHL2.setOnClickListener(this);
-        changeHL3 = findViewById(R.id.mypage_changeHL3); changeHL3.setOnClickListener(this);
-        askHL4 = findViewById(R.id.mypage_askHL4); askHL4.setOnClickListener(this);
-        logoutHL5 = findViewById(R.id.mypage_logoutHL5); logoutHL5.setOnClickListener(this);
-        dropHL6 = findViewById(R.id.mypage_dropHL6); dropHL6.setOnClickListener(this);
+        askHL3 = findViewById(R.id.mypage_askHL3); askHL3.setOnClickListener(this);
+        logoutHL4 = findViewById(R.id.mypage_logoutHL4); logoutHL4.setOnClickListener(this);
+        dropHL5 = findViewById(R.id.mypage_dropHL5); dropHL5.setOnClickListener(this);
         profileBtn = findViewById(R.id.mypage_profileBtn); profileBtn.setOnClickListener(this);
 
         logoutdl = new Dialog(MyPage.this); // Dialog 초기화
@@ -61,20 +60,15 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.mypage_changeHL3: // 사업주-직원 전환
-                intent = new Intent(getApplicationContext(), MyPage_Change.class);
-                startActivity(intent);
-                finish();
-                break;
-            case R.id.mypage_askHL4: // 문의하기
+            case R.id.mypage_askHL3: // 문의하기
                 intent = new Intent(getApplicationContext(), MyPage_Ask.class);
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.mypage_logoutHL5: // 로그아웃
+            case R.id.mypage_logoutHL4: // 로그아웃
                 showlogoutDl();
                 break;
-            case R.id.mypage_dropHL6: // 탈퇴하기
+            case R.id.mypage_dropHL5: // 탈퇴하기
                 showdropDl();
                 break;
             default:

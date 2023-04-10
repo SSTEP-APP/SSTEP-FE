@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class StaffInvite3 extends AppCompatActivity {
 
     ImageButton staffInvite3_backib;
-    TextView staffInvite3_nobtn1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,14 +24,6 @@ public class StaffInvite3 extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), StaffInvite.class);
                 startActivity(intent);
                 finish();
-            }
-        });
-
-        // '거절' dialog
-        staffInvite3_nobtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
             }
         });
     }

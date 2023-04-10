@@ -26,7 +26,7 @@ import com.example.sstep.R;
 public class MyPage_Pwd extends AppCompatActivity implements View.OnClickListener{
 
     LinearLayout layoutL;
-    ImageButton backib; Button bottomoffbtn;
+    ImageButton backib; Button completeBtn;
     EditText currentPwdEt, newPwdEt, newcheckPwdEt; String currentPwd, newPwd, newcheckPwd;
     CheckBox newPwdCb, newcheckPwdCb;
     TextView currentPwdtv, newPwdTv, newcheckPwdTv;
@@ -37,7 +37,7 @@ public class MyPage_Pwd extends AppCompatActivity implements View.OnClickListene
 
         layoutL = findViewById(R.id.mypage_pwd_layoutL);
         backib = findViewById(R.id.mypage_pwd_backib);
-        bottomoffbtn = findViewById(R.id.mypage_pwd_bottomoffbtn);
+        completeBtn = findViewById(R.id.mypage_pwd_completeBtn);
         currentPwdEt = findViewById(R.id.mypage_pwd_currentPwdEt);
         newPwdEt = findViewById(R.id.mypage_pwd_newPwdEt);
         newcheckPwdEt = findViewById(R.id.mypage_pwd_newcheckPwdEt);
@@ -108,8 +108,8 @@ public class MyPage_Pwd extends AppCompatActivity implements View.OnClickListene
                 newcheckPwdTv.setText("비밀번호가 일치합니다.");
                 newcheckPwdTv.setTextColor(Color.parseColor("#2375F2"));
                 newcheckPwdEt.setBackgroundResource(R.drawable.yedittext_w_sb);
-                bottomoffbtn.setEnabled(true);
-                bottomoffbtn.setBackgroundResource(R.drawable.yroundrec_bottombtnon);
+                completeBtn.setEnabled(true);
+                completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnon);
             }else if(currentPwd.length()>=0 && newPwd.length()>0 && newcheckPwd.length()>0 && newPwd.equals(newcheckPwd)){
                 newcheckPwdTv.setVisibility(View.VISIBLE);
                 newcheckPwdTv.setTypeface(typeface); newcheckPwdTv.setTextSize(11);
@@ -119,20 +119,20 @@ public class MyPage_Pwd extends AppCompatActivity implements View.OnClickListene
             }else if(newcheckPwd.equals("")){
                 newcheckPwdTv.setVisibility(View.INVISIBLE);
                 newcheckPwdEt.setBackgroundResource(R.drawable.yedittext_w_sg);
-                bottomoffbtn.setEnabled(true);
-                bottomoffbtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
+                completeBtn.setEnabled(true);
+                completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
             }else if(!newPwd.equals(newcheckPwd)){
                 newcheckPwdTv.setVisibility(View.VISIBLE);
                 newcheckPwdTv.setTypeface(typeface); newcheckPwdTv.setTextSize(11);
                 newcheckPwdTv.setText("* 비밀번호가 일치하지 않습니다.");
                 newcheckPwdTv.setTextColor(Color.parseColor("#DF1515"));
                 newcheckPwdEt.setBackgroundResource(R.drawable.yedittext_w_sr);
-                bottomoffbtn.setEnabled(true);
-                bottomoffbtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
+                completeBtn.setEnabled(true);
+                completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
             }else{
                 newcheckPwdTv.setVisibility(View.INVISIBLE);
-                bottomoffbtn.setEnabled(true);
-                bottomoffbtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
+                completeBtn.setEnabled(true);
+                completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
             }
         }
         @Override

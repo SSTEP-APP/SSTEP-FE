@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="직원 정보 입력"
+            android:text="사업장 월별 현황"
             android:textColor="@color/topText"
             android:textSize="17sp"
             android:textStyle="bold"/>
@@ -202,7 +202,7 @@
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/monthstate_viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="560dp"
+                android:layout_height="620dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="15dp"/>
         </LinearLayout> <!-- 스크롤 _L -->

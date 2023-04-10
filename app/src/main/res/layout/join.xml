@@ -179,7 +179,7 @@
                         android:padding="15dp"
                         android:textColorHint="@color/editTextHint"
                         android:textSize="13sp"
-                        android:maxLength="11"
+                        android:maxLength="13"
                         android:textCursorDrawable="@drawable/yet_cursor" />
                 </LinearLayout>
 
@@ -219,14 +219,15 @@
                             android:textSize="13sp"
                             android:textCursorDrawable="@drawable/yet_cursor"
                             android:typeface="normal"/>
+
                         <CheckBox
                             android:id="@+id/join_passEyeCb"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical|right"
                             android:layout_marginRight="15dp"
-                            android:checked="false"
-                            android:button="@drawable/ychbox_eyeonoff"/>
+                            android:button="@drawable/ychbox_eyeonoff"
+                            android:checked="false" />
                     </FrameLayout>
 
                 </LinearLayout>

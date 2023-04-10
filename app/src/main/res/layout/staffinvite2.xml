@@ -108,7 +108,7 @@
             android:layout_marginTop="10dp">
 
             <EditText
-                android:id="@+id/staffInvite2_numberet2"
+                android:id="@+id/staffInvite2_numberEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/yedittext_w_sg"

@@ -10,21 +10,21 @@
     tools:context=".mypage.MyPage">
     <!-- top_마이페이지-->
     <FrameLayout
-        android:id="@+id/mypage_F1"
+        android:id="@+id/mypage_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/mypage_toptv"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/white"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="마이페이지"
-            android:textColor="@color/likeblack"
-            android:textSize="17sp" />
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
         <TextView
-            android:id="@+id/mypage_line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@drawable/yunderline_text"
@@ -188,41 +188,9 @@
                         android:layout_marginRight="10dp"/>
                 </LinearLayout> <!-- 비밀번호 변경 HL-->
 
-                <!-- 사업주 - 직원 전환 HL-->
-                <LinearLayout
-                    android:id="@+id/mypage_changeHL3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="25dp"
-                    android:paddingBottom="25dp"
-                    android:clickable="true">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="사업주 - 직원 전환"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:drawableLeft="@drawable/yicon_leftright"
-                        android:drawablePadding="10dp"
-                        android:gravity="center_vertical"/>
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/yicon_go"
-                        android:backgroundTint="@color/blue"
-                        android:layout_gravity="center_vertical|right"
-                        android:layout_marginRight="10dp"/>
-                </LinearLayout> <!-- 사업주 - 직원 전환 HL-->
-
                 <!-- 문의하기 HL-->
                 <LinearLayout
-                    android:id="@+id/mypage_askHL4"
+                    android:id="@+id/mypage_askHL3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -254,7 +222,7 @@
 
                 <!-- 로그아웃 HL-->
                 <LinearLayout
-                    android:id="@+id/mypage_logoutHL5"
+                    android:id="@+id/mypage_logoutHL4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -285,7 +253,7 @@
 
                 <!-- 회원탈퇴 HL-->
                 <LinearLayout
-                    android:id="@+id/mypage_dropHL6"
+                    android:id="@+id/mypage_dropHL5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"

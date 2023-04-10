@@ -48,8 +48,8 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         completeBtn.setOnClickListener(this);
 
         scroll=findViewById(R.id.join_scroll);
-        passEyeCb=findViewById(R.id.join_passEyeCb);
-        checkPassEyeCb=findViewById(R.id.join_checkPassEyeCb);
+        passEyeCb=findViewById(R.id.join_passEyeCb); passEyeCb.setOnCheckedChangeListener(this);
+        checkPassEyeCb=findViewById(R.id.join_checkPassEyeCb); checkPassEyeCb.setOnCheckedChangeListener(this);
         idEt=findViewById(R.id.join_idEt);
         nameEt=findViewById(R.id.join_nameEt);
         phonumEt=findViewById(R.id.join_phonumEt);
