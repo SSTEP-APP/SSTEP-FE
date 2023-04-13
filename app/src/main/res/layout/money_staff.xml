@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F1F1F1">
+    android:background="@color/background">
 
     <!-- top_직원 급여 정보 -->
     <FrameLayout
@@ -186,8 +186,8 @@
                     android:layout_weight="1" />
                 <ImageButton
                     android:id="@+id/money_staff_reib"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:background="@drawable/yicon_refresh"
                     android:layout_marginRight="5dp"
                     android:layout_gravity="center_vertical"/>
@@ -216,12 +216,12 @@
                 android:paddingRight="10dp">
                 <!-- 고용주 지출액 _HL -->
                 <LinearLayout
-                    android:id="@+id/money_staff_HL3"
+                    android:id="@+id/money_staff_ceoupdownHL1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:clickable="true">
                     <TextView
-                        android:id="@+id/money_staff_tv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="고용주 지출액"
@@ -243,25 +243,13 @@
                         android:layout_marginRight="10dp"
                         android:layout_gravity="center_vertical"/>
                     <!-- up&down 버튼 숨김 _F -->
-                    <FrameLayout
-                        android:id="@+id/money_staff_ceohidF1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:id="@+id/money_staff_ceoupiv"
-                            android:layout_width="23dp"
-                            android:layout_height="23dp"
-                            android:layout_gravity="center_vertical"
-                            android:background="@drawable/yicon_up"
-                            android:visibility="visible"/>
-                        <ImageView
-                            android:id="@+id/money_staff_ceodowniv"
-                            android:layout_width="23dp"
-                            android:layout_height="23dp"
-                            android:layout_gravity="center_vertical"
-                            android:background="@drawable/yicon_down"
-                            android:visibility="gone"/>
-                    </FrameLayout> <!-- up&down 버튼 숨김 _F -->
+                    <ImageView
+                        android:id="@+id/money_staff_ceoupiv"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/yicon_up"
+                        android:visibility="visible"/>
                 </LinearLayout> <!-- 고용주 지출액 _HL -->
                 <!-- 고용주 지출액 내리기 _L -->
                 <LinearLayout
@@ -272,7 +260,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="30dp"
-                    android:visibility="gone">
+                    android:visibility="visible">
                     <!-- 급여지급액 _HL -->
                     <LinearLayout
                         android:id="@+id/money_staff_HL4"
@@ -394,14 +382,14 @@
                 android:paddingBottom="20dp">
                 <!-- 근로자 수령액(시급) _HL -->
                 <LinearLayout
-                    android:id="@+id/money_staff_HL8"
+                    android:id="@+id/money_staff_workupdownHL1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginRight="10dp">
+                    android:layout_marginRight="10dp"
+                    android:clickable="true">
                     <TextView
-                        android:id="@+id/money_staff_tv6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="근로자 수령액(시급)"
@@ -423,44 +411,32 @@
                         android:layout_marginRight="10dp"
                         android:layout_gravity="center_vertical"/>
                     <!-- up&down 버튼 숨김 _F -->
-                    <FrameLayout
-                        android:id="@+id/money_staff_staffhidF1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:id="@+id/money_staff_staffupiv1"
-                            android:layout_width="23dp"
-                            android:layout_height="23dp"
-                            android:layout_gravity="center_vertical"
-                            android:background="@drawable/yicon_up"
-                            android:visibility="visible"/>
-                        <ImageView
-                            android:id="@+id/money_staff_staffdowniv1"
-                            android:layout_width="23dp"
-                            android:layout_height="23dp"
-                            android:layout_gravity="center_vertical"
-                            android:background="@drawable/yicon_down"
-                            android:visibility="gone"/>
-                    </FrameLayout> <!-- up&down 버튼 숨김 _F -->
+                    <ImageView
+                        android:id="@+id/money_staff_workupiv1"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/yicon_up"
+                        android:visibility="visible"/>
                 </LinearLayout> <!-- 근로자 수령액(시급) _HL -->
                 <!-- 근로자 수령액(시급) 내리기 _L -->
                 <LinearLayout
-                    android:id="@+id/money_staff_staffhidL1"
+                    android:id="@+id/money_staff_workhidL1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginTop="20dp"
-                    android:visibility="gone">
+                    android:visibility="visible">
                     <!-- 공제전 금액 _HL -->
                     <LinearLayout
-                        android:id="@+id/money_staff_HL9"
+                        android:id="@+id/money_staff_workupdownHL2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginRight="10dp">
+                        android:layout_marginRight="10dp"
+                        android:clickable="true">
                         <TextView
-                            android:id="@+id/money_staff_tv7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="공제전 금액"
@@ -480,30 +456,17 @@
                             android:textColor="#595959"
                             android:layout_gravity="center_vertical"/>
                         <!-- up&down 버튼 숨김 _F -->
-                        <FrameLayout
-                            android:id="@+id/money_staff_staffhidF2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp">
-                            <ImageView
-                                android:id="@+id/money_staff_staffupiv2"
-                                android:layout_width="23dp"
-                                android:layout_height="23dp"
-                                android:layout_gravity="center_vertical"
-                                android:background="@drawable/yicon_up"
-                                android:visibility="visible"/>
-                            <ImageView
-                                android:id="@+id/money_staff_staffdowniv2"
-                                android:layout_width="23dp"
-                                android:layout_height="23dp"
-                                android:layout_gravity="center_vertical"
-                                android:background="@drawable/yicon_down"
-                                android:visibility="gone"/>
-                        </FrameLayout> <!-- up&down 버튼 숨김 _F -->
+                        <ImageView
+                            android:id="@+id/money_staff_workupiv2"
+                            android:layout_width="23dp"
+                            android:layout_height="23dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/yicon_up"
+                            android:visibility="visible"/>
                     </LinearLayout> <!-- 급여지급액 _HL -->
                     <!-- 공제전 금액 내리기 _L -->
                     <LinearLayout
-                        android:id="@+id/money_staff_staffhidL2"
+                        android:id="@+id/money_staff_workhidL2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -513,7 +476,7 @@
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:layout_marginTop="10dp"
-                        android:visibility="gone">
+                        android:visibility="visible">
                         <!-- 기본급 _HL -->
                         <LinearLayout
                             android:id="@+id/money_staff_HL10"
@@ -656,13 +619,14 @@
                     </LinearLayout> <!-- 공제전 금액 내리기 _L -->
                     <!-- 4대보험 근로자부담금 _HL -->
                     <LinearLayout
-                        android:id="@+id/money_staff_HL15"
+                        android:id="@+id/money_staff_workupdownHL3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:layout_marginTop="18dp"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginRight="10dp">
+                        android:layout_marginRight="10dp"
+                        android:clickable="true">
                         <TextView
                             android:id="@+id/money_staff_tv13"
                             android:layout_width="wrap_content"
@@ -684,30 +648,17 @@
                             android:textColor="#595959"
                             android:layout_gravity="center_vertical"/>
                         <!-- up&down 버튼 숨김 _F -->
-                        <FrameLayout
-                            android:id="@+id/money_staff_staffhidF3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp">
-                            <ImageView
-                                android:id="@+id/money_staff_staffupiv3"
-                                android:layout_width="23dp"
-                                android:layout_height="23dp"
-                                android:layout_gravity="center_vertical"
-                                android:background="@drawable/yicon_up"
-                                android:visibility="visible"/>
-                            <ImageView
-                                android:id="@+id/money_staff_staffdowniv3"
-                                android:layout_width="23dp"
-                                android:layout_height="23dp"
-                                android:layout_gravity="center_vertical"
-                                android:background="@drawable/yicon_down"
-                                android:visibility="gone"/>
-                        </FrameLayout> <!-- up&down 버튼 숨김 _F -->
+                        <ImageView
+                            android:id="@+id/money_staff_workupiv3"
+                            android:layout_width="23dp"
+                            android:layout_height="23dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/yicon_up"
+                            android:visibility="visible"/>
                     </LinearLayout> <!-- 4대보험 근로자부담금 _HL -->
                     <!-- 4대보험 근로자부담금 내리기 _L -->
                     <LinearLayout
-                        android:id="@+id/money_staff_staffhidL3"
+                        android:id="@+id/money_staff_workhidL3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -717,7 +668,7 @@
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:layout_marginTop="10dp"
-                        android:visibility="gone">
+                        android:visibility="visible">
                         <!-- 국민연금 _HL -->
                         <LinearLayout
                             android:id="@+id/money_staff_HL16"
@@ -832,15 +783,15 @@
                     </LinearLayout> <!-- 4대보험 근로자부담금 내리기 _L -->
                     <!-- 원천세 _HL -->
                     <LinearLayout
-                        android:id="@+id/money_staff_HL20"
+                        android:id="@+id/money_staff_workupdownHL4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="10dp"
-                        android:layout_marginTop="18dp">
+                        android:layout_marginTop="18dp"
+                        android:clickable="true">
                         <TextView
-                            android:id="@+id/money_staff_tv18"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="원천세"
@@ -860,30 +811,17 @@
                             android:textColor="#595959"
                             android:layout_gravity="center_vertical"/>
                         <!-- up&down 버튼 숨김 _F -->
-                        <FrameLayout
-                            android:id="@+id/money_staff_staffhidF4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp">
-                            <ImageView
-                                android:id="@+id/money_staff_staffupiv4"
-                                android:layout_width="23dp"
-                                android:layout_height="23dp"
-                                android:layout_gravity="center_vertical"
-                                android:background="@drawable/yicon_up"
-                                android:visibility="visible"/>
-                            <ImageView
-                                android:id="@+id/money_staff_staffdowniv4"
-                                android:layout_width="23dp"
-                                android:layout_height="23dp"
-                                android:layout_gravity="center_vertical"
-                                android:background="@drawable/yicon_down"
-                                android:visibility="gone"/>
-                        </FrameLayout> <!-- up&down 버튼 숨김 _F -->
+                        <ImageView
+                            android:id="@+id/money_staff_workupiv4"
+                            android:layout_width="23dp"
+                            android:layout_height="23dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/yicon_up"
+                            android:visibility="visible"/>
                     </LinearLayout> <!-- 원천세 _HL -->
                     <!-- 원천세 내리기 _L -->
                     <LinearLayout
-                        android:id="@+id/money_staff_staffhidL4"
+                        android:id="@+id/money_staff_workhidL4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -893,7 +831,7 @@
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:layout_marginTop="10dp"
-                        android:visibility="gone">
+                        android:visibility="visible">
                         <!-- 소득세 _HL -->
                         <LinearLayout
                             android:id="@+id/money_staff_HL21"

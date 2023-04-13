@@ -33,7 +33,7 @@
             android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_backspace1_img" />
+            app:srcCompat="@drawable/yicon_back" />
 
 
     </FrameLayout>
@@ -1290,8 +1290,6 @@
             android:layout_marginBottom="30dp"
             android:background="@android:color/transparent"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_plus_img" />
+            app:srcCompat="@drawable/yicon_plus" />
     </LinearLayout>
-
-
 </FrameLayout>

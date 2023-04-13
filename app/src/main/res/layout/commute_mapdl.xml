@@ -28,7 +28,7 @@
         android:id="@+id/commute_mapdl_bottomonbtn"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="@drawable/yroundrec_bottombtnon"
+        android:background="@color/onbutton"
         android:text="닫기"
         android:textColor="@color/white"
         android:textSize="17sp"

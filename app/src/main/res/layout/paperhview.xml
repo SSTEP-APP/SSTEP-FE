@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:id="@+id/paperview_L1">
 
     <!-- top_보건증 상세 -->

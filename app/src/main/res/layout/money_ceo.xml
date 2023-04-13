@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F1F1F1">
+    android:background="@color/background">
 
     <!-- top_사업장 급여 정보 -->
     <FrameLayout
@@ -104,8 +104,8 @@
                         android:layout_weight="1" />
                     <ImageButton
                         android:id="@+id/money_ceo_reib"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:background="@drawable/yicon_refresh"
                         android:layout_marginRight="5dp"/>
                     <ImageButton

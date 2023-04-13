@@ -9,15 +9,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class StaffInvite extends AppCompatActivity {
 
-    Button staffInvite1_bottomonbtn;
+    Button completeBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.staffinvite1);
-        staffInvite1_bottomonbtn = findViewById(R.id.staffInvite1_bottomonbtn);
+        completeBtn = findViewById(R.id.staffInvite1_completeBtn);
 
         // 맨 아래 '직원초대' 클릭 시
-        staffInvite1_bottomonbtn.setOnClickListener(new View.OnClickListener() {
+        completeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),StaffInvite2.class);

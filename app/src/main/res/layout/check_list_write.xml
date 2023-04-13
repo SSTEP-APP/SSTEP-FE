@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context=".checklist.CheckList_write">
 
@@ -528,7 +528,21 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="12dp" />
-
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_horizontal|top"
+                                app:srcCompat="@drawable/yicon_stafffemale" />
+                            <!--에러로 인해 임시적으로 jpg파일 사용-->
+                            <ImageButton
+                                android:id="@+id/imageButton"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="right|top"
+                                android:background="@android:color/transparent"
+                                android:scaleType="centerInside"
+                                app:srcCompat="@drawable/j_x_btn_img" />
 
                     </LinearLayout>
                 </LinearLayout>

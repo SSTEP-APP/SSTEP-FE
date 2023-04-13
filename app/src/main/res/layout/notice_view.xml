@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F1F1F1">
+    android:background="@color/background">
 
     <!-- top_공지사항-->
     <FrameLayout
@@ -17,10 +17,10 @@
             android:id="@+id/notice_view_toptv"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:background="@color/white"
             android:gravity="center_horizontal|center_vertical"
             android:text="공지사항"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="17sp"/>
 
         <!-- 뒤로가기 아이콘 -->
@@ -46,6 +46,45 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="50dp">
+            <!-- 직원 프로필 -->
+            <FrameLayout
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <!-- 사람이미지 -->
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    app:srcCompat="@drawable/yicon_stafffemale"
+                    android:layout_gravity="center_vertical"/>
+
+                <!-- 이름_text-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="20dp"
+                    android:text="김유경"
+                    android:textColor="@color/likeblack"
+                    android:textSize="15sp" />
+                <!-- 이름_text-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="20dp"
+                    android:text="[스태프]"
+                    android:textColor="@color/likeblack"
+                    android:textSize="14sp" />
+
+            </FrameLayout>
+
             <!-- 제목 _L -->
             <LinearLayout
                 android:id="@+id/notice_view_L1"
@@ -70,10 +109,66 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2023.02.27(월) 10:34"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textColor="#A1A1A1"
                     android:layout_marginTop="20dp"/>
             </LinearLayout> <!-- 제목 _L -->
+
+            <!-- 내용, 댓글 _L -->
+            <LinearLayout
+                android:id="@+id/notice_view_L4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:background="@drawable/yroundrec_w">
+                <TextView
+                    android:id="@+id/notice_view_contenttv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="여기에 내용이 있습니다.\ndkdk\n여기 내용 또 있습니다.\n또"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="5dp"/>
+                <!-- 사진 첨부 사진 _HL -->
+                <LinearLayout
+                    android:id="@+id/notice_view_HL6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:padding="20dp"
+                    android:background="@drawable/yroundrec_g">
+                    <ImageView
+                        android:id="@+id/notice_view_iv1"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/yroundrec_w_sg"
+                        android:layout_marginRight="15dp"/>
+                    <ImageView
+                        android:id="@+id/notice_view_iv2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/yroundrec_w_sg"
+                        android:layout_marginRight="15dp"/>
+                    <ImageView
+                        android:id="@+id/notice_view_iv3"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/yroundrec_w_sg"
+                        android:layout_marginRight="15dp"/>
+                    <ImageView
+                        android:id="@+id/notice_view_iv4"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/yroundrec_w_sg"
+                        android:layout_marginRight="15dp"/>
+                </LinearLayout> <!-- 사진 첨부 사진 _HL -->
+
+            </LinearLayout> <!-- 내용, 댓글 _L -->
             <!-- 공지 종료일  _HL -->
             <LinearLayout
                 android:id="@+id/notice_view_HL1"
@@ -236,158 +331,106 @@
                         android:layout_marginRight="5dp"/>
                 </LinearLayout> <!-- 읽음,안읽음  _L -->
             </LinearLayout> <!-- 전체 수신자 _L -->
-            <!-- 내용, 댓글 _L -->
+            <!-- 댓글 개수 _HL -->
             <LinearLayout
-                android:id="@+id/notice_view_L4"
+                android:id="@+id/notice_view_HL7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <TextView
+                    android:id="@+id/notice_view_tv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="댓글"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="10dp"/>
+                <TextView
+                    android:id="@+id/notice_view_numtv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/lightblue"/>
+            </LinearLayout> <!-- 댓글 개수 _HL -->
+            <!-- 댓글 리스트 _L -->
+            <LinearLayout
+                android:id="@+id/notice_view_L5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:padding="20dp"
-                android:background="@drawable/yroundrec_w">
+                android:layout_marginTop="15dp"
+                android:background="@color/white">
                 <TextView
-                    android:id="@+id/notice_view_contenttv1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="여기에 내용이 있습니다.\ndkdk\n여기 내용 또 있습니다.\n또"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:lineSpacingExtra="5dp"/>
-                <!-- 사진 첨부 사진 _HL -->
+                    android:id="@+id/notice_view_line3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/yunderline_text"
+                    android:minHeight="1dp" />
+                <!-- 댓글 _HL -->
                 <LinearLayout
-                    android:id="@+id/notice_view_HL6"
+                    android:id="@+id/notice_view_HL8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="20dp"
-                    android:padding="20dp"
-                    android:background="@drawable/yroundrec_g">
+                    android:paddingTop="15dp"
+                    android:paddingBottom="10dp">
                     <ImageView
-                        android:id="@+id/notice_view_iv1"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/yroundrec_w_sg"
-                        android:layout_marginRight="15dp"/>
-                    <ImageView
-                        android:id="@+id/notice_view_iv2"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/yroundrec_w_sg"
-                        android:layout_marginRight="15dp"/>
-                    <ImageView
-                        android:id="@+id/notice_view_iv3"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/yroundrec_w_sg"
-                        android:layout_marginRight="15dp"/>
-                    <ImageView
-                        android:id="@+id/notice_view_iv4"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/yroundrec_w_sg"
-                        android:layout_marginRight="15dp"/>
-                </LinearLayout> <!-- 사진 첨부 사진 _HL -->
-                <!-- 댓글 개수 _HL -->
-                <LinearLayout
-                    android:id="@+id/notice_view_HL7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="5dp">
+                        android:id="@+id/notice_view_staffiv5"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/yicon_stafffemale"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="20dp"/>
+                    <!-- 댓글 내용 _L -->
+                    <LinearLayout
+                        android:id="@+id/notice_view_L6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/notice_view_listnametv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="작성자 이름"
+                            android:textColor="@color/likeblack"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/notice_view_listdatetv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2023.02.28(화) 22:21"
+                            android:textColor="#A1A1A1"
+                            android:textSize="13sp"
+                            android:layout_marginTop="3dp"/>
+                        <TextView
+                            android:id="@+id/notice_view_listcontv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="내용 작성"
+                            android:textColor="@color/likeblack"
+                            android:lineSpacingExtra="5dp"
+                            android:layout_marginTop="8dp"/>
+                    </LinearLayout> <!-- 댓글 내용 _L -->
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
-                    <TextView
-                        android:id="@+id/notice_view_tv5"
+                    <ImageView
+                        android:id="@+id/notice_view_listmoreiv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="댓글"
-                        android:textColor="@color/black"
-                        android:layout_marginRight="10dp"/>
-                    <TextView
-                        android:id="@+id/notice_view_numtv2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/lightblue"/>
-                </LinearLayout> <!-- 댓글 개수 _HL -->
-                <!-- 댓글 리스트 _L -->
-                <LinearLayout
-                    android:id="@+id/notice_view_L5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="15dp">
-                    <TextView
-                        android:id="@+id/notice_view_line3"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@drawable/yunderline_text"
-                        android:minHeight="1dp" />
-                    <!-- 댓글 _HL -->
-                    <LinearLayout
-                        android:id="@+id/notice_view_HL8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="10dp">
-                        <ImageView
-                            android:id="@+id/notice_view_staffiv5"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:background="@drawable/yicon_stafffemale"
-                            android:layout_marginRight="15dp"/>
-                        <!-- 댓글 내용 _L -->
-                        <LinearLayout
-                            android:id="@+id/notice_view_L6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/notice_view_listnametv1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="작성자 이름"
-                                android:textColor="@color/likeblack"
-                                android:textStyle="bold"/>
-                            <TextView
-                                android:id="@+id/notice_view_listdatetv2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2023.02.28(화) 22:21"
-                                android:textColor="#A1A1A1"
-                                android:textSize="13sp"
-                                android:layout_marginTop="3dp"/>
-                            <TextView
-                                android:id="@+id/notice_view_listcontv3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="내용 작성"
-                                android:textColor="@color/likeblack"
-                                android:lineSpacingExtra="5dp"
-                                android:layout_marginTop="8dp"/>
-                        </LinearLayout> <!-- 댓글 내용 _L -->
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-                        <ImageView
-                            android:id="@+id/notice_view_listmoreiv1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/yicon_more"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginTop="5dp"/>
-                    </LinearLayout> <!-- 댓글 _HL -->
-                </LinearLayout> <!-- 댓글 리스트 _L -->
-            </LinearLayout> <!-- 내용, 댓글 _L -->
+                        android:background="@drawable/yicon_more"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"/>
+                </LinearLayout> <!-- 댓글 _HL -->
+            </LinearLayout> <!-- 댓글 리스트 _L -->
         </LinearLayout> <!-- 스크롤 _L -->
     </ScrollView>
 
@@ -434,9 +477,9 @@
                 android:layout_weight="1" />
             <Button
                 android:id="@+id/notice_input_bottombtn1"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/yicon_bluecheck"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/yicon_send"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="15dp"
                 android:layout_gravity="center_vertical"/>

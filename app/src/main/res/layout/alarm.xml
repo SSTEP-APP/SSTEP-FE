@@ -5,24 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     tools:context=".alarm.Alarm">
 
     <!-- top_알림-->
     <FrameLayout
-        android:id="@+id/alarm_topF1"
+        android:id="@+id/alarm_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
-            android:id="@+id/alarm_toptv"
+            android:id="@+id/alarm_topText"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="알림"
-            android:textColor="@color/white"
-            android:textSize="17sp"/>
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -41,12 +47,13 @@
         android:background="@color/white"
         app:tabSelectedTextColor="@color/blue"
         app:tabIndicatorColor="@color/blue"
-        app:tabTextAppearance="@style/tab_text">
+        app:tabTextAppearance="@style/tab_text"
+        android:layout_marginTop="15dp">
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/alarm_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="15dp" />
 </LinearLayout>

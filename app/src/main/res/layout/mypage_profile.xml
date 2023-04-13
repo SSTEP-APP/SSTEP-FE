@@ -5,24 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:id="@+id/mypage_profile_L1"
     tools:context=".mypage.MyPage_Profile">
     <!-- top_프로필 수정-->
     <FrameLayout
-        android:id="@+id/mypage_profile_F1"
+        android:id="@+id/mypage_profile_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
-            android:id="@+id/mypage_profile_toptv"
+            android:id="@+id/mypage_profile_topText"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="프로필 수정"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -35,144 +41,120 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/mypage_profile_F2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/mypage_profile_L2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#EAEAEA"
-            android:paddingTop="30dp"
-            android:paddingBottom="35dp">
-            <!-- 사람이미지 -->
-            <ImageView
-                android:id="@+id/mypage_profile_pimage1"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/yicon_stafffemale"
-                android:layout_gravity="center_horizontal"/>
 
-            <!-- 프로필 변경 버튼 _HL -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/yroundrec_myp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/mypage_profile_profileIv"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/yicon_stafffemale"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"/>
+
+            <ImageButton
+                android:id="@+id/mypage_profile_cameraIb"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/yicon_camera"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/yicon_mypcamera"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minHeight="1dp"
-                    android:text="프로필 사진 변경"
-                    android:textSize="10sp"
-                    android:padding="0dp"
-                    android:layout_gravity="center_vertical"/>
-            </LinearLayout> <!-- 프로필 변경 버튼 _HL -->
-
-
-        </LinearLayout>
+                android:layout_marginTop="85dp"
+                android:layout_marginLeft="30dp"/>
         <LinearLayout
-            android:id="@+id/mypage_profile_L3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/yroundrec_w"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="150dp">
+            android:layout_marginTop="140dp">
             <!-- 이름 -->
             <TextView
-                android:id="@+id/mypage_profile_tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이름"
                 android:textSize="15sp"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
             <EditText
-                android:id="@+id/mypage_profile_et1"
+                android:id="@+id/mypage_profile_nameEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/yroundrec_g"
+                android:background="@drawable/yedittext_w_sg"
                 android:textColor="@color/black"
                 android:textColorHint="#C6C6C8"
                 android:hint="이름"
+                android:text="김유경"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:textCursorDrawable="@drawable/yet_cursor"
+                android:fontFamily="@font/nanumsquareneo_brg"
                 android:inputType="textPersonName"/>
             <!-- 전화번호 -->
             <TextView
-                android:id="@+id/mypage_profile_tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="전화번호"
                 android:textSize="15sp"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="25dp"
+                android:textStyle="bold"/>
             <EditText
-                android:id="@+id/mypage_profile_et2"
+                android:id="@+id/mypage_profile_phoneEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/yroundrec_g"
+                android:background="@drawable/yedittext_w_sg"
                 android:textColor="@color/black"
                 android:textColorHint="#C6C6C8"
                 android:hint="전화번호"
+                android:text="010-1234-5678"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:textCursorDrawable="@drawable/yet_cursor"
-                android:inputType="number"/>
+                android:inputType="phone"
+                android:fontFamily="@font/nanumsquareneo_brg"/>
             <!-- 이메일 -->
             <TextView
-                android:id="@+id/mypage_profile_tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이메일"
                 android:textSize="15sp"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="25dp"
+                android:textStyle="bold"/>
             <EditText
-                android:id="@+id/mypage_profile_et3"
+                android:id="@+id/mypage_profile_emailEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/yroundrec_g"
+                android:background="@drawable/yedittext_w_sg"
                 android:textColor="@color/black"
                 android:textColorHint="#C6C6C8"
                 android:hint="이메일"
+                android:text="email@naver.com"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:textCursorDrawable="@drawable/yet_cursor"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:fontFamily="@font/nanumsquareneo_brg"/>
         </LinearLayout>
     </FrameLayout>
 
@@ -180,30 +162,23 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_weight="1" />
-    <!-- 맨 아래 버튼 변경 F -->
-    <FrameLayout
-        android:id="@+id/mypage_pwd_changebtnF3"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
         <Button
-            android:id="@+id/mypage_pwd_bottomoffbtn"
+            android:id="@+id/mypage_profile_completeBtn"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:background="@drawable/yroundrec_bottombtnoff"
-            android:text="수정완료"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            android:gravity="center"
-            android:visibility="visible"/>
-        <Button
-            android:id="@+id/mypage_pwd_bottomonbtn"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
             android:background="@drawable/yroundrec_bottombtnon"
             android:text="수정완료"
-            android:textColor="@color/white"
             android:textSize="17sp"
-            android:gravity="center"
-            android:visibility="gone"/>
-    </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
 </LinearLayout>
