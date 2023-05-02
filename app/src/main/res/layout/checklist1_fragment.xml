@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context=".checklist.checkList1Fragment">
 
@@ -21,7 +21,7 @@
             android:layout_height="300dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/j_tung_img" />
+            app:srcCompat="@drawable/yimage_teng" />
 
         <TextView
             android:id="@+id/fragment_checkList1_nodataText"

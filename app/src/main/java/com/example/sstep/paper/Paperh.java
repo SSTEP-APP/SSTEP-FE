@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
 
-public class Paperh extends AppCompatActivity {
+public class Paperh extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton backib;
     @Override
@@ -18,14 +18,18 @@ public class Paperh extends AppCompatActivity {
         setContentView(R.layout.paperh);
         backib = findViewById(R.id.paperh_backib);
 
-        // '뒤로가기' 선택 시
-        backib.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.paperh_backib: // '뒤로가기'
                 Intent intent = new Intent(getApplicationContext(), Paper.class);
                 startActivity(intent);
                 finish();
-            }
-        });
+                break;
+            default:
+                break;
+        }
     }
 }

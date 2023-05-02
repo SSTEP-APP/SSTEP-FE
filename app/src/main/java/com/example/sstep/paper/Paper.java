@@ -9,23 +9,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
 
-public class Paper extends AppCompatActivity {
+public class Paper extends AppCompatActivity implements View.OnClickListener{
 
-    FrameLayout paper_wF2, paper_hF3;
+    FrameLayout paper_workpF, paper_healthpF;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paper);
-        paper_wF2 = findViewById(R.id.paper_wF2); paper_hF3 = findViewById(R.id.paper_hF3);
+        paper_workpF = findViewById(R.id.paper_workpF); paper_healthpF = findViewById(R.id.paper_healthpF);
 
-        // '보건증_F' 선택 시
-        paper_hF3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.paper_healthpF: // '보건증_F' 선택 시
                 Intent intent = new Intent(getApplicationContext(), Paperh.class);
                 startActivity(intent);
                 finish();
-            }
-        });
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context=".date.Date_plus">
 
@@ -31,7 +31,7 @@
             android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_backspace1_img" />
+            app:srcCompat="@drawable/yicon_back" />
 
     </FrameLayout>
 
@@ -122,10 +122,10 @@
 
                             <ImageView
                                 android:id="@+id/datePlus_staffImg"
-                                android:layout_width="62dp"
-                                android:layout_height="63dp"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
                                 android:layout_gravity="center_horizontal|top"
-                                app:srcCompat="@drawable/j_femail_img2" />
+                                app:srcCompat="@drawable/yicon_stafffemale" />
 
                             <ImageButton
                                 android:id="@+id/datePlus_staffCancelBtn"

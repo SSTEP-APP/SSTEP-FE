@@ -12,13 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 public class StaffInvite2 extends AppCompatActivity {
 
     ImageButton backib;
-    EditText nameet1, numberet2;
+    EditText nameEt, numberEt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.staffinvite2);
         backib = findViewById(R.id.staffInvite2_backib);
-        nameet1 = findViewById(R.id.staffInvite2_nameet1); numberet2 = findViewById(R.id.staffInvite2_numberet2);
+        nameEt = findViewById(R.id.staffInvite2_nameEt); numberEt = findViewById(R.id.staffInvite2_numberEt);
 
         // '뒤로가기' 선택 시
         backib.setOnClickListener(new View.OnClickListener() {
@@ -31,6 +31,6 @@ public class StaffInvite2 extends AppCompatActivity {
         });
 
         // 전화번호 입력시 자동 '-' 입력
-        numberet2.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+        numberEt.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
     }
 }

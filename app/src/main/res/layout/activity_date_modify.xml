@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context=".date.Date_modify">
 
@@ -31,7 +31,7 @@
             android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/j_backspace1_img" />
+            app:srcCompat="@drawable/yicon_back" />
 
     </FrameLayout>
 
@@ -74,9 +74,9 @@
 
                             <ImageView
                                 android:id="@+id/dateModify_userIconImg"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/j_femail_img2" />
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:srcCompat="@drawable/yicon_stafffemale" />
                         </LinearLayout>
 
                         <LinearLayout

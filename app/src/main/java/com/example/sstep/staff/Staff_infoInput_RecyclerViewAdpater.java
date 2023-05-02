@@ -26,7 +26,7 @@ public class Staff_infoInput_RecyclerViewAdpater extends RecyclerView.Adapter<St
 
             workScheduleDay = (TextView) itemView.findViewById(R.id.staff_info_RI_workScheduleDay);
             workScheduleTime = (TextView) itemView.findViewById(R.id.staff_info_RI_workScheduleTime);
-            //workScheduleOurs = (TextView) itemView.findViewById(R.id.staff_info_RI_workScheduleOurs);
+            workScheduleOurs = (TextView) itemView.findViewById(R.id.staff_info_RI_workScheduleOurs);
         }
     }
 
@@ -54,7 +54,7 @@ public class Staff_infoInput_RecyclerViewAdpater extends RecyclerView.Adapter<St
 
         holder.workScheduleDay.setText(item.getStaff_infoInput_days());   // 요일 받기
         holder.workScheduleTime.setText(item.getStaff_infoInput_time()); // 시간 표시
-        //holder.workScheduleOurs.setText(item.getStaff_infoInput_cancelImg()); //취소 이미지 고정
+        holder.workScheduleOurs.setText(item.getStaff_infoInput_cancelImg()); //취소 이미지 고정
     }
 
     @Override

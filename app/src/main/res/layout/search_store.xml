@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context=".Search_Store">
 
@@ -12,17 +12,23 @@
     <FrameLayout
         android:id="@+id/searchStore_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/searchStore_topText"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="사업장 검색"
-            android:textColor="@color/white"
-            android:textSize="17sp"/>
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -34,6 +40,7 @@
             android:background="@drawable/yicon_back" />
     </FrameLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,28 +49,37 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp">
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
 
             <EditText
                 android:id="@+id/searchStore_searchEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#737373"
+                android:background="@drawable/yroundrec_g"
                 android:ems="17"
                 android:hint="  예) 판교역로 235, 분당 주공, 삼평동 681"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:textColorHint="#8C8C8C"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center_vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/nanumsquareneo_brg"/>
 
             <ImageButton
                 android:id="@+id/searchStore_searchbtn"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="30dp"
                 android:background="@android:color/transparent"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/j_search_icon" />
@@ -72,7 +88,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="37dp"
             android:orientation="vertical">
 
@@ -81,9 +97,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="tip"
-                android:textColor="#000000"
-                android:textSize="19sp"
-                android:textStyle="bold" />
+                android:textColor="@color/blue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/nanumsquareneo_ehv"/>
 
             <TextView
                 android:id="@+id/searchStore_text2"
@@ -91,14 +108,15 @@
                 android:layout_height="wrap_content"
                 android:text="\n아래와 같은 조합으로 검색을 하시면 더욱 정확한 \n결과가  검색됩니다.\n\n도로명 + 건물번호 "
                 android:textColor="#000000"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"/>
 
             <TextView
                 android:id="@+id/searchStore_text3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="예) 판교역로 235, 제주 첨단로 242 \n"
-                android:textColor="#20A7F2"
+                android:textColor="@color/lightblue"
                 android:textSize="11sp" />
 
             <TextView
@@ -113,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="예) 삼평동 681, 제주 양평동 2181 \n"
-                android:textColor="#20A7F2"
+                android:textColor="@color/lightblue"
                 android:textSize="11sp" />
 
             <TextView
@@ -128,7 +146,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="예) 분당 주공, 연수동 주공 3차 \n"
-                android:textColor="#20A7F2"
+                android:textColor="@color/lightblue"
                 android:textSize="11sp" />
 
             <TextView
@@ -143,7 +161,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="예) 분당우체국사서함 1-100"
-                android:textColor="#20A7F2"
+                android:textColor="@color/lightblue"
                 android:textSize="11sp" />
 
         </LinearLayout>

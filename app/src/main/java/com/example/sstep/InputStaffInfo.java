@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -12,169 +13,161 @@ import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class InputStaffInfo extends AppCompatActivity {
+public class InputStaffInfo extends AppCompatActivity implements View.OnClickListener,
+        CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener{
 
-    RadioGroup pi_payrg1, pi_lawrg2;
-    RadioButton pi_hourrb1, pi_dayrb2, pi_monthrb3, pi_lawrb4, pi_lawrb5, pi_lawrb6;
-    LinearLayout pi_hidL3, pi_hidL5, pi_hidL6;
-    LinearLayout ci_hidL2,pi_hidL2,yi_hidL2;
-    LinearLayout ci_hidHL3;
-    LinearLayout pi_hidL8;
-    LinearLayout pi_hidL9, pi_hidL10, ci_updownHL1, pi_updownHL1, yi_updownHL1;
-    CheckBox ci_outdatechbox1, pi_pluspaych1,pi_minuspaych2, pi_notermch4;
-    ImageView ci_upicon1,ci_downicon1, pi_upicon2,pi_downicon2, yi_upicon3,yi_downicon3;
-    Button pi_setbtn1, pi_setbtn2;
+    ImageButton backib;
+    LinearLayout ci_updownHL,pi_updownHL,yi_updownHL, ci_updownhidL,pi_updownhidL,yi_updownhidL,
+            pi_rbhidL1, pi_rbhidL2, pi_rbhidL3, pi_tgcbhidL, pi_lawrbcbhidL;
+    ImageView ci_upiconIv,pi_upiconIv,yi_upiconIv;
+    CheckBox pi_hourCb1,pi_hourCb2,pi_hourCb3, pi_trainingCb;
+    RadioGroup pi_payRg, pi_lawRg;
+    RadioButton pi_payhourRb,pi_paydayRb,pi_paymonthRb, pi_lawRb1,pi_lawRb2,pi_lawRb3;
+    Button pi_setBtn1, pi_setBtn2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inputstaffinfo);
-        ci_hidL2 = findViewById(R.id.isi_ci_hidL2); pi_hidL2 = findViewById(R.id.isi_pi_hidL2); yi_hidL2 = findViewById(R.id.isi_yi_hidL2);
-        ci_outdatechbox1 = findViewById(R.id.isi_ci_outdatechbox1);
-        ci_upicon1 = findViewById(R.id.isi_ci_upicon1); ci_downicon1 = findViewById(R.id.isi_ci_downicon1);
-        pi_upicon2 = findViewById(R.id.isi_pi_upicon2); pi_downicon2 = findViewById(R.id.isi_pi_downicon2);
-        yi_upicon3 = findViewById(R.id.isi_yi_upicon3); yi_downicon3 = findViewById(R.id.isi_yi_downicon3);
-        ci_updownHL1 = findViewById(R.id.isi_ci_updownHL1); pi_updownHL1 = findViewById(R.id.isi_pi_updownHL1); yi_updownHL1 = findViewById(R.id.isi_yi_updownHL1);
-        ci_hidHL3 = findViewById(R.id.isi_ci_hidHL3);
-        pi_payrg1 = findViewById(R.id.isi_pi_payrg1); pi_hourrb1 = findViewById(R.id.isi_pi_hourrb1); pi_dayrb2 = findViewById(R.id.isi_pi_dayrb2); pi_monthrb3 = findViewById(R.id.isi_pi_monthrb3);
-        pi_hidL3 = findViewById(R.id.isi_pi_hidL3); pi_hidL5 = findViewById(R.id.isi_pi_hidL5); pi_hidL6 = findViewById(R.id.isi_pi_hidL6);
-        pi_pluspaych1 = findViewById(R.id.isi_pi_pluspaych1);
-        pi_minuspaych2 = findViewById(R.id.isi_pi_minuspaych2);
-        pi_setbtn1 = findViewById(R.id.isi_pi_setbtn1);
-        pi_setbtn2 = findViewById(R.id.isi_pi_setbtn2);
-        pi_notermch4 = findViewById(R.id.isi_pi_notermch4);
-        pi_hidL8 = findViewById(R.id.isi_pi_hidL8); pi_hidL9 = findViewById(R.id.isi_pi_hidL9); pi_hidL10 = findViewById(R.id.isi_pi_hidL10);
-        pi_lawrg2 = findViewById(R.id.isi_pi_lawrg2); pi_lawrb4 = findViewById(R.id.isi_pi_lawrb4); pi_lawrb5 = findViewById(R.id.isi_pi_lawrb5); pi_lawrb6 = findViewById(R.id.isi_pi_lawrb6);
 
-        // 출퇴근정보_up&down 아이콘 변경
-        ci_updownHL1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (ci_upicon1.getVisibility() == View.VISIBLE){
-                    ci_upicon1.setVisibility(View.INVISIBLE);
-                    ci_downicon1.setVisibility(View.VISIBLE);
-                    ci_hidL2.setVisibility(View.VISIBLE);
-                } else {
-                    ci_upicon1.setVisibility(View.VISIBLE);
-                    ci_downicon1.setVisibility(View.INVISIBLE);
-                    ci_hidL2.setVisibility(View.GONE);
-                }
-            }
-        });
-        // 급여정보_up&down 아이콘 변경
-        pi_updownHL1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (pi_upicon2.getVisibility() == View.VISIBLE){
-                    pi_upicon2.setVisibility(View.INVISIBLE);
-                    pi_downicon2.setVisibility(View.VISIBLE);
-                    pi_hidL2.setVisibility(View.VISIBLE);
-                } else {
-                    pi_upicon2.setVisibility(View.VISIBLE);
-                    pi_downicon2.setVisibility(View.INVISIBLE);
-                    pi_hidL2.setVisibility(View.GONE);
-                }
-            }
-        });
-        // 연차_up&down 아이콘 변경
-        yi_updownHL1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (yi_upicon3.getVisibility() == View.VISIBLE){
-                    yi_upicon3.setVisibility(View.INVISIBLE);
-                    yi_downicon3.setVisibility(View.VISIBLE);
-                    yi_hidL2.setVisibility(View.VISIBLE);
-                } else {
-                    yi_upicon3.setVisibility(View.VISIBLE);
-                    yi_downicon3.setVisibility(View.INVISIBLE);
-                    yi_hidL2.setVisibility(View.GONE);
-                }
-            }
-        });
+        backib = findViewById(R.id.isi_backib); backib.setOnClickListener(this);
+        ci_updownHL = findViewById(R.id.isi_ci_updownHL); ci_updownHL.setOnClickListener(this);
+        pi_updownHL = findViewById(R.id.isi_pi_updownHL); pi_updownHL.setOnClickListener(this);
+        yi_updownHL = findViewById(R.id.isi_yi_updownHL); yi_updownHL.setOnClickListener(this);
+        ci_updownhidL = findViewById(R.id.isi_ci_updownhidL);
+        pi_updownhidL = findViewById(R.id.isi_pi_updownhidL);
+        yi_updownhidL = findViewById(R.id.isi_yi_updownhidL);
+        ci_upiconIv = findViewById(R.id.isi_ci_upiconIv);
+        pi_upiconIv = findViewById(R.id.isi_pi_upiconIv);
+        yi_upiconIv = findViewById(R.id.isi_yi_upiconIv);
+        pi_payRg = findViewById(R.id.isi_pi_payRg); pi_payRg.setOnCheckedChangeListener(this);
+        pi_payhourRb = findViewById(R.id.isi_pi_payhourRb);
+        pi_paydayRb = findViewById(R.id.isi_pi_paydayRb);
+        pi_paymonthRb = findViewById(R.id.isi_pi_paymonthRb);
+        pi_rbhidL1 = findViewById(R.id.isi_pi_rbhidL1);
+        pi_rbhidL2 = findViewById(R.id.isi_pi_rbhidL2);
+        pi_rbhidL3 = findViewById(R.id.isi_pi_rbhidL3);
+        pi_hourCb1 = findViewById(R.id.isi_pi_hourCb1); pi_hourCb1.setOnCheckedChangeListener(this);
+        pi_hourCb2 = findViewById(R.id.isi_pi_hourCb2); pi_hourCb2.setOnCheckedChangeListener(this);
+        pi_hourCb3 = findViewById(R.id.isi_pi_hourCb3); pi_hourCb3.setOnCheckedChangeListener(this);
+        pi_setBtn1 = findViewById(R.id.isi_pi_setBtn1);
+        pi_setBtn2 = findViewById(R.id.isi_pi_setBtn2);
+        pi_trainingCb = findViewById(R.id.isi_pi_trainingCb); pi_trainingCb.setOnCheckedChangeListener(this);
+        pi_tgcbhidL = findViewById(R.id.isi_pi_tgcbhidL);
+        pi_lawRg = findViewById(R.id.isi_pi_lawRg); pi_lawRg.setOnCheckedChangeListener(this);
+        pi_lawRb1 = findViewById(R.id.isi_pi_lawRb1); pi_lawRb1.setOnCheckedChangeListener(this);
+        pi_lawRb2 = findViewById(R.id.isi_pi_lawRb2); pi_lawRb2.setOnCheckedChangeListener(this);
+        pi_lawRb3 = findViewById(R.id.isi_pi_lawRb3); pi_lawRb3.setOnCheckedChangeListener(this);
+        pi_lawrbcbhidL = findViewById(R.id.isi_pi_lawrbcbhidL);
+    }
 
-        // 퇴사일 미정 checkbox
-        ci_outdatechbox1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (ci_outdatechbox1.isChecked() == true) {
-                    ci_hidHL3.setVisibility(View.GONE);
-                } else {
-                    ci_hidHL3.setVisibility(View.VISIBLE);
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.isi_backib: // 뒤로가기
+                break;
+            case R.id.isi_ci_updownHL: // 출퇴근정보
+                if (ci_updownhidL.getVisibility() == View.GONE) {
+                    ci_updownhidL.setVisibility(View.VISIBLE);
+                    ci_upiconIv.setBackgroundResource(R.drawable.yicon_down);
+                }else{
+                    ci_updownhidL.setVisibility(View.GONE);
+                    ci_upiconIv.setBackgroundResource(R.drawable.yicon_up);
                 }
-            }
-        });
-        
-        // 시급/일급/월급
-        pi_payrg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-                if (pi_hourrb1.isChecked() == true) {
-                    pi_hidL3.setVisibility(View.VISIBLE);
-                    pi_hidL5.setVisibility(View.GONE);
-                    pi_hidL6.setVisibility(View.GONE);
-                } else if (pi_dayrb2.isChecked() == true ) {
-                    pi_hidL3.setVisibility(View.GONE);
-                    pi_hidL5.setVisibility(View.VISIBLE);
-                    pi_hidL6.setVisibility(View.GONE);
-                } else {
-                    pi_hidL3.setVisibility(View.GONE);
-                    pi_hidL5.setVisibility(View.GONE);
-                    pi_hidL6.setVisibility(View.VISIBLE);
+                break;
+            case R.id.isi_pi_updownHL: // 급여정보
+                if (pi_updownhidL.getVisibility() == View.GONE) {
+                    pi_updownhidL.setVisibility(View.VISIBLE);
+                    pi_upiconIv.setBackgroundResource(R.drawable.yicon_down);
+                }else{
+                    pi_updownhidL.setVisibility(View.GONE);
+                    pi_upiconIv.setBackgroundResource(R.drawable.yicon_up);
                 }
-            }
-        });
+                break;
+            case R.id.isi_yi_updownHL: // (선택)연차
+                if (yi_updownhidL.getVisibility() == View.GONE) {
+                    yi_updownhidL.setVisibility(View.VISIBLE);
+                    yi_upiconIv.setBackgroundResource(R.drawable.yicon_down);
+                }else{
+                    yi_updownhidL.setVisibility(View.GONE);
+                    yi_upiconIv.setBackgroundResource(R.drawable.yicon_up);
+                }
+                break;
+            default:
+                break;
+        }
+    }
 
-        // +주휴수당 설정 버튼
-        pi_pluspaych1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (pi_pluspaych1.isChecked() == true) {// 체크박스가 체크가 되어있으면,
-                    pi_setbtn1.setVisibility(View.VISIBLE);
-                } else {
-                    pi_setbtn1.setVisibility(View.INVISIBLE);
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        switch (buttonView.getId()){
+            case R.id.isi_pi_hourCb1: // (+)주휴수당 자동 가산
+                if (isChecked){
+                    pi_setBtn1.setVisibility(View.VISIBLE);
+                }else{
+                    pi_setBtn1.setVisibility(View.GONE);
                 }
-            }
-        });
-        // -휴게시간 설정 버튼
-        pi_minuspaych2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (pi_minuspaych2.isChecked() == true) {// 체크박스가 체크가 되어있으면,
-                    pi_setbtn2.setVisibility(View.VISIBLE);
-                } else {
-                    pi_setbtn2.setVisibility(View.INVISIBLE);
+                break;
+            case R.id.isi_pi_hourCb2: // (-)휴게시간 자동 차감
+                if (isChecked){
+                    pi_setBtn2.setVisibility(View.VISIBLE);
+                }else{
+                    pi_setBtn2.setVisibility(View.GONE);
                 }
-            }
-        });
+                break;
+            case R.id.isi_pi_trainingCb: // 수습기간 없음
+                if (isChecked){
+                    pi_tgcbhidL.setVisibility(View.VISIBLE);
+                }else{
+                    pi_tgcbhidL.setVisibility(View.GONE);
+                }
+                break;
+            default:
+                break;
+        }
 
-        // 수습기간 없음
-        pi_notermch4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (pi_notermch4.isChecked() == true) {
-                    pi_hidL8.setVisibility(View.GONE);
-                } else {
-                    pi_hidL8.setVisibility(View.VISIBLE);
-                }
-            }
-        });
+    }
 
-        // 4대보험,프리랜서,적용안함
-        pi_lawrg2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-                if (pi_lawrb4.isChecked() == true) {
-                    pi_hidL9.setVisibility(View.GONE);
-                    pi_hidL10.setVisibility(View.VISIBLE);
-                } else if (pi_lawrb5.isChecked() == true ) {
-                    pi_hidL9.setVisibility(View.VISIBLE);
-                    pi_hidL10.setVisibility(View.GONE);
-                } else {
-                    pi_hidL9.setVisibility(View.VISIBLE);
-                    pi_hidL10.setVisibility(View.GONE);
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (group.getId()){
+            case R.id.isi_pi_payRg: // '시급,일급,월급' Rg
+                switch (checkedId){
+                    case R.id.isi_pi_payhourRb: // 시급
+                        pi_rbhidL1.setVisibility(View.VISIBLE);
+                        pi_rbhidL2.setVisibility(View.GONE);
+                        pi_rbhidL3.setVisibility(View.GONE);
+                        break;
+                    case R.id.isi_pi_paydayRb: // 일급
+                        pi_rbhidL1.setVisibility(View.GONE);
+                        pi_rbhidL2.setVisibility(View.VISIBLE);
+                        pi_rbhidL3.setVisibility(View.GONE);
+                        break;
+                    case R.id.isi_pi_paymonthRb: // 월급
+                        pi_rbhidL1.setVisibility(View.GONE);
+                        pi_rbhidL2.setVisibility(View.GONE);
+                        pi_rbhidL3.setVisibility(View.VISIBLE);
+                        break;
+                    default:
+                        break;
                 }
-            }
-        });
+                break;
+            case R.id.isi_pi_lawRg: // '4대보험,프리랜서,적용안함' Rg
+                switch (checkedId){
+                    case R.id.isi_pi_lawRb1: // 4대보험
+                        pi_lawrbcbhidL.setVisibility(View.VISIBLE);
+                        break;
+                    case R.id.isi_pi_lawRb2: // 프리랜서
+                    case R.id.isi_pi_lawRb3: // 적용안함
+                        pi_lawrbcbhidL.setVisibility(View.GONE);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
     }
 }

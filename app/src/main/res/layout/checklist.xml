@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context=".checklist.CheckList">
 
@@ -90,20 +90,18 @@
 
                     <ImageButton
                         android:id="@+id/checkList_preDayBtn"
-                        android:layout_width="23dp"
-                        android:layout_height="23dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         android:layout_gravity="left|center_vertical"
                         android:background="@drawable/yicon_left" />
 
                     <ImageButton
                         android:id="@+id/checkList_refreshBtn"
-                        android:layout_width="23dp"
-                        android:layout_height="23dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="6dp"
-                        android:scaleType="centerCrop"
-                        android:background="@android:color/transparent"
-                        app:srcCompat="@drawable/yicon_refresh" />
+                        android:background="@drawable/yicon_refresh" />
 
                     <View
                         android:id="@+id/checkList_view1"
@@ -145,20 +143,18 @@
 
                     <ImageButton
                         android:id="@+id/checkList_calendarBtn"
-                        android:layout_width="23dp"
-                        android:layout_height="23dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         android:layout_marginRight="6dp"
-                        android:background="@android:color/transparent"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/j_calendar_icon" />
+                        android:scaleType="centerInside"
+                        android:background="@drawable/j_calendar_icon" />
 
                     <ImageButton
                         android:id="@+id/checkList_nextDayBtn"
-                        android:layout_width="23dp"
-                        android:layout_height="23dp"
-                        android:background="@android:color/transparent"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/yicon_right" />
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_right"
+                        android:scaleType="centerInside" />
                 </LinearLayout>
 
             </LinearLayout>

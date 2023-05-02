@@ -4,25 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".JoinActivity">
+    android:id="@+id/join_layoutF"
+    tools:context=".joinlogin.JoinActivity">
 
     <!-- top_회원가입-->
     <FrameLayout
         android:id="@+id/join_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/join_topText"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="회원가입"
-            android:textColor="@color/white"
-            android:textSize="17sp"/>
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/join_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -35,8 +43,9 @@
     </FrameLayout>
 
     <ScrollView
+        android:id="@+id/join_scroll"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:scrollbars="none">
 
@@ -44,16 +53,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="50dp">
+            android:paddingBottom="100dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="18dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:background="@drawable/j_layout_background"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="40dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
 
 
                 <LinearLayout
@@ -69,144 +83,75 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="ID"
-                        android:textColor="#424242" />
+                        android:textColor="@color/likeblack"
+                        android:textStyle="bold"/>
 
-                    <EditText
-                        android:id="@+id/join_idEt"
+
+
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:backgroundTint="#B9B9B9"
-                        android:ems="10"
-                        android:hint="아이디"
-                        android:inputType="textPersonName"
-                        android:textColor="#000000"
-                        android:textColorHint="#DCDCDC"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="31dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/join_checkPassText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="비밀번호 확인"
-                        android:textColor="#424242" />
-
-                    <EditText
-                        android:id="@+id/join_checkPassEt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:backgroundTint="#B9B9B9"
-                        android:ems="10"
-                        android:hint="새 비밀번호 확인"
-                        android:inputType="textPersonName"
-                        android:textColor="#000000"
-                        android:textColorHint="#DCDCDC"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="31dp"
-                    android:layout_marginRight="15dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/join_passText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="비밀번호"
-                        android:textColor="#424242" />
-
-                    <EditText
-                        android:id="@+id/join_passEt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:backgroundTint="#B9B9B9"
-                        android:ems="10"
-                        android:hint="영문, 숫자, 특수문자 조합 6자 이상"
-                        android:inputType="textPersonName"
-                        android:textColor="#000000"
-                        android:textColorHint="#DCDCDC"
-                        android:textSize="13sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="31dp"
-                    android:layout_marginRight="15dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/join_userTypeText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="가입자 유형"
-                        android:textColor="#424242" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <View
-                            android:id="@+id/join_view1"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-
-                        <RadioGroup
-                            android:id="@+id/join_userTypeRG"
-                            android:layout_width="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <EditText
+                            android:id="@+id/join_idEt"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/join_ownerRadio"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="사업주"
-                                android:textColor="#000000"
-                                android:button="@drawable/yradiobtn_red"
-                                android:paddingLeft="15dp"/>
-
-                            <RadioButton
-                                android:id="@+id/join_staffRadio"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="45dp"
-                                android:layout_weight="1"
-                                android:text="직원"
-                                android:button="@drawable/yradiobtn_red"
-                                android:paddingLeft="15dp"/>
-                        </RadioGroup>
-
-                        <View
-                            android:id="@+id/join_view2"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-
-                    </LinearLayout>
-
+                            android:background="@drawable/yedittext_w_sg"
+                            android:ems="10"
+                            android:fontFamily="@font/nanumsquareneo_brg"
+                            android:hint="아이디"
+                            android:inputType="text"
+                            android:padding="15dp"
+                            android:textColorHint="@color/editTextHint"
+                            android:textSize="13sp"
+                            android:textCursorDrawable="@drawable/yet_cursor"/>
+                        <Button
+                            android:id="@+id/join_certBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="26dp"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/yroundrec_w_sblue"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:text="중복확인"
+                            android:textSize="13sp"
+                            android:textColor="@color/blue"
+                            android:layout_gravity="right|center_vertical"/>
+                    </FrameLayout>
                 </LinearLayout>
+                <!-- 이름 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="31dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/join_nameText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="이름"
+                        android:textColor="@color/likeblack"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/join_nameEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/yedittext_w_sg"
+                        android:ems="10"
+                        android:fontFamily="@font/nanumsquareneo_brg"
+                        android:hint="이름"
+                        android:inputType="textPersonName"
+                        android:padding="15dp"
+                        android:textColorHint="@color/editTextHint"
+                        android:textSize="13sp"
+                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                </LinearLayout>
+                <!-- 전화번호 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -220,61 +165,155 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="전화번호"
-                        android:textColor="#424242" />
+                        android:textColor="@color/likeblack"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/join_phonumEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:backgroundTint="#B9B9B9"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/yedittext_w_sg"
                         android:ems="10"
-                        android:hint="01012345678"
-                        android:inputType="textPersonName"
-                        android:textColor="#000000"
-                        android:textColorHint="#DCDCDC"
-                        android:textSize="13sp" />
+                        android:fontFamily="@font/nanumsquareneo_brg"
+                        android:hint="010-0000-0000"
+                        android:inputType="phone"
+                        android:padding="15dp"
+                        android:textColorHint="@color/editTextHint"
+                        android:textSize="13sp"
+                        android:maxLength="13"
+                        android:textCursorDrawable="@drawable/yet_cursor" />
                 </LinearLayout>
 
+
+                <!-- 비밀번호 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="31dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginBottom="20dp"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/join_nameText"
+                        android:id="@+id/join_passText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="이름"
-                        android:textColor="#424242" />
+                        android:text="비밀번호"
+                        android:textColor="@color/likeblack"
+                        android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/join_nameEt"
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:backgroundTint="#B9B9B9"
-                        android:ems="10"
-                        android:hint="이름"
-                        android:inputType="textPersonName"
-                        android:textColor="#000000"
-                        android:textColorHint="#DCDCDC"
-                        android:textSize="13sp" />
+                        android:layout_marginTop="10dp">
+                        <EditText
+                            android:id="@+id/join_passEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/yedittext_w_sg"
+                            android:ems="10"
+                            android:fontFamily="@font/nanumsquareneo_brg"
+                            android:hint="영문, 숫자, 특수문자 조합 6자 이상"
+                            android:inputType="textPassword"
+                            android:padding="15dp"
+                            android:textColorHint="@color/editTextHint"
+                            android:textSize="13sp"
+                            android:textCursorDrawable="@drawable/yet_cursor"
+                            android:typeface="normal"/>
+
+                        <CheckBox
+                            android:id="@+id/join_passEyeCb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_marginRight="15dp"
+                            android:button="@drawable/ychbox_eyeonoff"
+                            android:checked="false" />
+                    </FrameLayout>
+
                 </LinearLayout>
 
+                <!-- 비밀번호 확인 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="31dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/join_checkPassText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="비밀번호 확인"
+                        android:textColor="@color/likeblack"
+                        android:textStyle="bold" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <EditText
+                            android:id="@+id/join_checkPassEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/yedittext_w_sg"
+                            android:ems="10"
+                            android:fontFamily="@font/nanumsquareneo_brg"
+                            android:hint="비밀번호 확인"
+                            android:inputType="textPassword"
+                            android:padding="15dp"
+                            android:textColorHint="@color/editTextHint"
+                            android:textSize="13sp"
+                            android:textCursorDrawable="@drawable/yet_cursor"
+                            android:typeface="normal"/>
+                        <CheckBox
+                            android:id="@+id/join_checkPassEyeCb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_marginRight="15dp"
+                            android:checked="false"
+                            android:button="@drawable/ychbox_eyeonoff"/>
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/join_checkText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="* 비밀번호가 일치하지 않습니다."
+                        android:textColor="@color/red"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:visibility="invisible"
+                        android:typeface="normal"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/join_completeBtn"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="@drawable/j_layout_button_quad"
-        android:text="일정추가 완료"
-        android:textColor="#FFFFFF" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/join_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:text="회원가입"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
+
+
 </LinearLayout>

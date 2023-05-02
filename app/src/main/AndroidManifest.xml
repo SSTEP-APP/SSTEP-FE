@@ -46,7 +46,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".joinlogin.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

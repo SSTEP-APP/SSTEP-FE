@@ -5,24 +5,30 @@
     android:id="@+id/monthstate_L1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!-- top_직원정보입력-->
     <FrameLayout
-        android:id="@+id/monthstate_F1"
+        android:id="@+id/monthstate_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/monthstate_toptv"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="사업장 현황"
-            android:textColor="@color/white"
-            android:textSize="17sp"/>
+            android:text="사업장 월별 현황"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -32,280 +38,173 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
-
-        <!-- 홈 아이콘 -->
-        <ImageView
-            android:id="@+id/monthstate_homeiv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/yicon_home" />
     </FrameLayout>
 
-    <!-- 월별현황 text -->
-    <LinearLayout
-        android:id="@+id/monthstate_L2"
+    <ScrollView
+        android:id="@+id/monthstate_scoll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white">
-
-        <TextView
-            android:id="@+id/monthstate_tv1"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:nestedScrollingEnabled="true">
+        <!-- 스크롤 _L -->
+        <LinearLayout
+            android:id="@+id/monthstate_scollL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="월별현황"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-        <ImageView
-            android:id="@+id/monthstate_iv1"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@drawable/yroundrec_b"/>
-    </LinearLayout> <!-- 월별현황 text -->
-
-    <FrameLayout
-        android:id="@+id/monthstate_F2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ScrollView
-            android:id="@+id/monthstate_scoll"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_weight="1"
-            android:scrollbars="none"
-            android:nestedScrollingEnabled="true">
-            <!-- 스크롤 _L -->
+            android:paddingBottom="70dp">
+
+            <!-- 날짜 전체 HL -->
             <LinearLayout
-                android:id="@+id/monthstate_scollL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:paddingBottom="70dp">
-                <!-- 날짜 전체 HL -->
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+                <ImageButton
+                    android:id="@+id/monthstate_leftBtn"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/yicon_left"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="40dp"
+                    android:backgroundTint="@color/grey_737373"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
                 <LinearLayout
-                    android:id="@+id/monthstate_HL1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/monthstate_dateTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2023년 1월"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <ImageButton
+                    android:id="@+id/monthstate_rightBtn"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/yicon_right"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="40dp"
+                    android:backgroundTint="@color/grey_737373"/>
+            </LinearLayout> <!-- 날짜 전체 HL -->
+
+            <!-- 사업장 횟수 전체 L -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사업장 이름"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/line" />
+
+                <!-- 지각,결근,휴가 횟수 HL -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:background="@drawable/yroundrec_w"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:paddingLeft="30dp"
-                    android:paddingRight="30dp"
-                    android:gravity="center_vertical">
-                    <ImageButton
-                        android:id="@+id/monthstate_leftbtn1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/yicon_left"
-                        android:layout_gravity="left|center_vertical"/>
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp">
+                    <!-- 지각 L -->
                     <LinearLayout
-                        android:id="@+id/monthstate_L3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="65dp"
+                        android:layout_height="50dp"
                         android:orientation="vertical"
-                        android:layout_gravity="center">
+                        android:background="@drawable/yroundrec_w_sg">
+                        <!-- 지각 -->
                         <TextView
-                            android:id="@+id/monthstate_tv2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="2023년 1월"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"
-                            android:layout_gravity="center_horizontal" />
-                        <TextView
-                            android:id="@+id/monthstate_tv3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="(1월 1일 ~ 1월 31일)"
-                            android:textSize="10sp"
+                            android:text="지각"
+                            android:textSize="13sp"
                             android:textColor="#737373"
-                            android:layout_gravity="center_horizontal" />
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="7dp" />
                         <TextView
-                            android:id="@+id/monthstate_tv4"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/monthstate_lateTv"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="어제까지 출퇴근 현황입니다"
-                            android:textSize="10sp"
-                            android:textColor="#737373"
-                            android:layout_gravity="center_horizontal"/>
-                    </LinearLayout>
+                            android:text="0회"
+                            android:textSize="14sp"
+                            android:textColor="@color/likeblack"
+                            android:fontFamily="@font/nanumsquareneo_deb"
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="5dp" />
+                    </LinearLayout> <!-- 지각 L -->
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
-                    <ImageButton
-                        android:id="@+id/monthstate_rightbtn2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/yicon_right"
-                        android:layout_gravity="right|center_vertical"/>
-                </LinearLayout> <!-- 날짜 전체 HL -->
-
-                <!-- 사업장 횟수 전체 L -->
-                <LinearLayout
-                    android:id="@+id/monthstate_HL2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/yroundrec_w"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:id="@+id/monthstate_tv5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="사업장 이름"
-                        android:textSize="15sp"
-                        android:textColor="#737373"/>
-                    <TextView
-                        android:id="@+id/monthstate_line1"
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        android:background="@drawable/yunderline_text"
-                        android:minHeight="1dp" />
-
-                    <!-- 지각,결근,휴가 횟수 HL -->
+                    <!-- 결근 L -->
                     <LinearLayout
-                        android:id="@+id/monthstate_HL3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="20dp">
-                        <!-- 지각 L -->
-                        <LinearLayout
-                            android:id="@+id/monthstate_L4"
-                            android:layout_width="65dp"
-                            android:layout_height="50dp"
-                            android:orientation="vertical"
-                            android:background="@drawable/yroundrec_w_sg"
-                            android:layout_marginLeft="20dp">
-                            <!-- 지각 -->
-                            <TextView
-                                android:id="@+id/monthstate_tv6"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="지각"
-                                android:textSize="12sp"
-                                android:textColor="#737373"
-                                android:gravity="center_horizontal"
-                                android:layout_marginTop="7dp" />
-                            <TextView
-                                android:id="@+id/monthstate_latetv1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="0회"
-                                android:textSize="12sp"
-                                android:textColor="@color/likeblack"
-                                android:fontFamily="@font/nanumsquareneo_deb"
-                                android:gravity="center_horizontal"
-                                android:layout_marginTop="5dp" />
-                        </LinearLayout> <!-- 지각 L -->
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-                        <!-- 결근 L -->
-                        <LinearLayout
-                            android:id="@+id/monthstate_L5"
-                            android:layout_width="65dp"
-                            android:layout_height="50dp"
-                            android:orientation="vertical"
-                            android:background="@drawable/yroundrec_w_sg"
-                            android:layout_gravity="center_horizontal">
-                            <!-- 결근 -->
-                            <TextView
-                                android:id="@+id/monthstate_tv7"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="결근"
-                                android:textSize="12sp"
-                                android:textColor="#737373"
-                                android:gravity="center_horizontal"
-                                android:layout_marginTop="7dp" />
-                            <TextView
-                                android:id="@+id/monthstate_absentv2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="0회"
-                                android:textSize="12sp"
-                                android:textColor="@color/likeblack"
-                                android:fontFamily="@font/nanumsquareneo_deb"
-                                android:gravity="center_horizontal"
-                                android:layout_marginTop="5dp" />
-                        </LinearLayout> <!-- 결근 L -->
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-                        <!-- 휴가 L -->
-                        <LinearLayout
-                            android:id="@+id/monthstate_L6"
-                            android:layout_width="65dp"
-                            android:layout_height="50dp"
-                            android:orientation="vertical"
-                            android:background="@drawable/yroundrec_w_sg"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginRight="20dp">
-                            <!-- 휴가 -->
-                            <TextView
-                                android:id="@+id/monthstate_tv8"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="휴가"
-                                android:textSize="12sp"
-                                android:textColor="#737373"
-                                android:gravity="center_horizontal"
-                                android:layout_marginTop="7dp" />
-                            <TextView
-                                android:id="@+id/monthstate_breaktv3"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="0회"
-                                android:textSize="12sp"
-                                android:textColor="@color/likeblack"
-                                android:fontFamily="@font/nanumsquareneo_deb"
-                                android:gravity="center_horizontal"
-                                android:layout_marginTop="5dp" />
-                        </LinearLayout> <!-- 휴가 L -->
-                    </LinearLayout> <!-- 지각,결근,휴가 횟수 HL -->
-                </LinearLayout> <!-- 사업장 횟수 전체 L -->
+                        android:layout_width="65dp"
+                        android:layout_height="50dp"
+                        android:orientation="vertical"
+                        android:background="@drawable/yroundrec_w_sg"
+                        android:layout_gravity="center_horizontal">
+                        <!-- 결근 -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="결근"
+                            android:textSize="13sp"
+                            android:textColor="#737373"
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="7dp" />
+                        <TextView
+                            android:id="@+id/monthstate_absentTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="0회"
+                            android:textSize="14sp"
+                            android:textColor="@color/likeblack"
+                            android:fontFamily="@font/nanumsquareneo_deb"
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="5dp" />
+                    </LinearLayout> <!-- 결근 L -->
+                </LinearLayout> <!-- 지각,결근,휴가 횟수 HL -->
+            </LinearLayout> <!-- 사업장 횟수 전체 L -->
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/monthstate_viewpager"
-                    android:layout_width="match_parent"
-                    android:layout_height="560dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"/>
-            </LinearLayout> <!-- 스크롤 _L -->
-        </ScrollView>
-        <!-- 맨위로 버튼 -->
-        <ImageButton
-            android:id="@+id/monthstate_upbtn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/yicon_upblack"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="30dp"
-            android:layout_marginRight="30dp"/>
-    </FrameLayout>
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/monthstate_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="620dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"/>
+        </LinearLayout> <!-- 스크롤 _L -->
+    </ScrollView>
 </LinearLayout>

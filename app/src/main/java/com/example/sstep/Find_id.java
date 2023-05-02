@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
 import com.example.sstep.checklist.CheckList;
+import com.example.sstep.joinlogin.Login;
 
 public class Find_id extends AppCompatActivity implements View.OnClickListener {
 

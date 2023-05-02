@@ -76,13 +76,13 @@ public class monthstate1Fragment extends Fragment {
         setUpData();
 
         // list dialog 띄우기
-        LinearLayout monthstate1_fragment_L1 = v.findViewById(R.id.monthstate1_fragment_L1);
+        LinearLayout lateL = v.findViewById(R.id.monthstate1_fragment_lateL);
         monstateDl = new Dialog(v.getContext()); // Dialog 초기화
         monstateDl.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         monstateDl.setContentView(R.layout.monthstate_listdl); // xml 레이아웃 파일과 연결
         // 다이얼로그의 배경을 투명으로 만든다.
         monstateDl.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        monthstate1_fragment_L1.setOnClickListener(new View.OnClickListener() {
+        lateL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { monstateDl(); }
         });

@@ -29,7 +29,6 @@ public class RegisterStore extends AppCompatActivity {
         addressEt = findViewById(R.id.regiStore_addressEt);
         detailEt = findViewById(R.id.regiStore_detailEt);
         addressBtn = findViewById(R.id.regiStore_addressbtn);
-        choiceBtn = findViewById(R.id.regiStore_choicebtn);
         paydayBtn = findViewById(R.id.regiStore_paydaybtn);
         completeBtn = findViewById(R.id.regiStore_completeBtn);
         scaleRadioGroup = findViewById(R.id.regiStore_scaleRadioGroup);

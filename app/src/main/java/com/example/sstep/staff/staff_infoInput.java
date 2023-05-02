@@ -19,6 +19,7 @@ import com.example.sstep.checklist.CheckList_write_recyclerViewItem;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -26,7 +27,8 @@ import java.util.List;
 public class staff_infoInput extends AppCompatActivity {
     Button addBtn, chanBtn, delBtn, schedule_addBtn;
     ImageButton preMonthBtn, nextMonthBtn;
-    TextView yearMonthText, termText; //오늘 날짜 표시 텍스트뷰
+    TextView yearMonthText, termText, staff_info_local_text12; //오늘 날짜 표시 텍스트뷰
+
     SimpleDateFormat ymFormat = new SimpleDateFormat("yyyy년 MM월");
     SimpleDateFormat mdFormat = new SimpleDateFormat("MM월 dd일");
 
@@ -58,6 +60,8 @@ public class staff_infoInput extends AppCompatActivity {
         yearMonthText =findViewById(R.id.staff_info_yearMonthText);
         termText = findViewById(R.id.staff_info_termText);
         schedule_addBtn = findViewById(R.id.staff_info_schedule_addBtn);
+        staff_info_local_text12 = findViewById(R.id.staff_info_local_text12);
+
         LinearLayout noworkScheduleLayout = findViewById(R.id.staff_info_noworkScheduleLayout);
         LinearLayout workCheckLayout = findViewById(R.id.staff_info_workCheckLayout);
 
@@ -101,30 +105,22 @@ public class staff_infoInput extends AppCompatActivity {
                 finish();
             }
         });
-        //Intent intent = getIntent();
-        //String[] data = intent.getStringArrayExtra("list");
-        //data[0] = "test1";
-        int a=3;
+
+
         try {
+            Intent intent = getIntent();
+            ArrayList<String> listData = intent.getStringArrayListExtra("LIST_DATA");
 
 
-            if (a > 0) {
+            if (listData != null && listData.size() > 0) {
                 noworkScheduleLayout.setVisibility(View.GONE);
                 workCheckLayout.setVisibility(View.VISIBLE);
-                String b = "03:00";
-                String c = "05:00";
-                String[] strArray1 = b.split(":");
-                String[] strArray2 = c.split(":");
-                int hoursDiff = Integer.parseInt(strArray2[0]) - Integer.parseInt(strArray1[0]);
-                int minutesDiff = Integer.parseInt(strArray2[1]) - Integer.parseInt(strArray1[1]);
-                String h = b+" ~ "+c;
-                String j ="요일";
-                String g = "("+Integer.toString(hoursDiff) +"h "+ Integer.toString(minutesDiff)+"m"+")";
+
                 //리사이클 뷰
                 firstInit();
-                // 임의로 5개 입력
-                for (int i = 0; i < a; i++) {
-                    addItem(j, h, g);
+                for (int i = 0; i < listData.size(); i++) {
+                    String[] dataList = listData.get(i).split(",");
+                    addItem(dataList[0],dataList[1],dataList[2]);
                 }
 
                 mRecyclerViewAdapter = new Staff_infoInput_RecyclerViewAdpater(mList);
@@ -134,11 +130,13 @@ public class staff_infoInput extends AppCompatActivity {
             } else {
                 noworkScheduleLayout.setVisibility(View.VISIBLE);
                 workCheckLayout.setVisibility(View.GONE);
+                Toast.makeText(this, "데이터가 없습니다.", Toast.LENGTH_SHORT).show();
             }
         }catch (Exception e){
             Toast.makeText(staff_infoInput.this,
                     e.toString(), Toast.LENGTH_SHORT).show();
         }
+
 
 
 
@@ -152,19 +150,26 @@ public class staff_infoInput extends AppCompatActivity {
             }
         });
         //일정 수정
-        chanBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), modifySchedule.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        //chanBtn.setOnClickListener(new View.OnClickListener() {
+         //   @Override
+        //    public void onClick(View view) {
+        //        Intent intent = new Intent(getApplicationContext(), modifySchedule.class);
+        //        startActivity(intent);
+        //        finish();
+        //    }
+        //});
         //삭제 버튼
         delBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                firstInit();
+                mRecyclerViewAdapter = new Staff_infoInput_RecyclerViewAdpater(mList);
+                mRecyclerView.setAdapter(mRecyclerViewAdapter);
+                mRecyclerView.setLayoutManager(new LinearLayoutManager(staff_infoInput.this));
+                mRecyclerView.setLayoutManager(new LinearLayoutManager(staff_infoInput.this, RecyclerView.VERTICAL, false));
 
+                noworkScheduleLayout.setVisibility(View.VISIBLE);
+                workCheckLayout.setVisibility(View.GONE);
             }
         });
 

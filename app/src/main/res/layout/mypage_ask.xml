@@ -5,24 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F1F1F1"
+    android:background="@color/background"
     android:id="@+id/mypage_ask_L1"
     tools:context=".mypage.MyPage_Ask">
     <!-- top_문의하기-->
     <FrameLayout
-        android:id="@+id/mypage_ask_F1"
+        android:id="@+id/mypage_ask_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
-            android:id="@+id/mypage_ask_toptv"
+            android:id="@+id/mypage_ask_topText"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="문의하기"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -48,7 +54,8 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp">
+        android:paddingBottom="20dp"
+        android:clickable="true">
         <ImageView
             android:id="@+id/mypage_ask_iv1"
             android:layout_width="wrap_content"
@@ -79,7 +86,8 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp">
+        android:paddingBottom="20dp"
+        android:clickable="true">
         <ImageView
             android:id="@+id/mypage_ask_iv2"
             android:layout_width="wrap_content"
