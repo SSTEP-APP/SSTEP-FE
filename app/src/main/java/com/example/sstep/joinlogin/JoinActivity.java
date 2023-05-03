@@ -1,8 +1,11 @@
 package com.example.sstep.joinlogin;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.telephony.PhoneNumberFormattingTextWatcher;
@@ -11,6 +14,7 @@ import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -27,6 +31,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
+import com.example.sstep.mypage.MyPage;
 
 public class JoinActivity extends AppCompatActivity implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener {
@@ -36,11 +41,16 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton back_Btn; Button completeBtn;
     CheckBox passEyeCb, checkPassEyeCb;
     TextView checkText;
-
+    Boolean completeBtn_state=Boolean.FALSE;
+    Intent intent;
+    Dialog showComplete_dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join);
+        showComplete_dialog = new Dialog(JoinActivity.this); // Dialog 초기화
+        showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
+        showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
 
         back_Btn=findViewById(R.id.join_back_Btn);
         back_Btn.setOnClickListener(this);
@@ -101,6 +111,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 checkPassEt.setBackgroundResource(R.drawable.yedittext_w_sb);
                 completeBtn.setEnabled(true);
                 completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnon);
+                completeBtn_state = Boolean.TRUE;
             }else if(pass.length()>0 && checkPass.length()>0 && pass.equals(checkPass)){
                 checkText.setVisibility(View.VISIBLE);
                 checkText.setTypeface(typeface); checkText.setTextSize(11);
@@ -112,6 +123,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 checkPassEt.setBackgroundResource(R.drawable.yedittext_w_sg);
                 completeBtn.setEnabled(true);
                 completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
+                completeBtn_state = Boolean.FALSE;
             }else if(!pass.equals(checkPass)){
                 checkText.setVisibility(View.VISIBLE);
                 checkText.setTypeface(typeface); checkText.setTextSize(11);
@@ -120,10 +132,12 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 checkPassEt.setBackgroundResource(R.drawable.yedittext_w_sr);
                 completeBtn.setEnabled(true);
                 completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
+                completeBtn_state = Boolean.FALSE;
             }else{
                 checkText.setVisibility(View.INVISIBLE);
                 completeBtn.setEnabled(true);
                 completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
+                completeBtn_state = Boolean.FALSE;
             }
         }
         @Override
@@ -135,9 +149,14 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.join_back_Btn: // 뒤로가기
+                intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
                 break;
             case R.id.join_completeBtn: // 완료버튼
-                Toast.makeText(getApplicationContext(),pass+checkPass+"클릭됨",Toast.LENGTH_SHORT).show();
+                if(completeBtn_state == Boolean.TRUE){
+                    showCompleteDl();
+                }
                 break;
             default:
                 break;
@@ -171,4 +190,24 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
+    public void showCompleteDl(){
+        showComplete_dialog.show();
+        // 다이얼로그의 배경을 투명으로 만든다.
+        showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        TextView join_okdl_commentTv; Button join_okdl_okBtn;
+        join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
+        join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
+        join_okdl_commentTv.setText("회원가입이 완료되었습니다.\n 로그인해 주세요.");
+        // '회원가입 dialog' _ 확인 버튼 클릭 시
+        join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.sstep.joinlogin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
+import com.example.sstep.mypage.MyPage_Profile;
 
 public class Find_password extends AppCompatActivity implements View.OnClickListener {
 
@@ -152,8 +154,12 @@ public class Find_password extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch(v.getId()){
             case R.id.findPass_backBtn: // 뒤로가기
+                intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
                 break;
             case R.id.findPass_certbtn: // 인증확인
                 break;

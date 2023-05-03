@@ -17,17 +17,23 @@
         <FrameLayout
             android:id="@+id/checkList_top"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/top">
 
             <TextView
                 android:id="@+id/checkList_topText"
                 android:layout_width="match_parent"
-                android:layout_height="74dp"
-                android:background="@color/lightblue"
+                android:layout_height="60dp"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="해야할 일"
-                android:textColor="@color/white"
-                android:textSize="17sp"/>
+                android:textColor="@color/topText"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/yunderline_text"
+                android:layout_gravity="bottom"/>
 
             <!-- 뒤로가기 아이콘 -->
             <ImageButton
@@ -53,19 +59,19 @@
 
                 <Spinner
                     android:id="@+id/checkList_selectCategory"
-                    android:layout_width="80dp"
-                    android:layout_height="23dp"
-                    android:background="@drawable/yroundrec_w"
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/yroundrec_w_cate"
                     android:foregroundGravity="center"
                     android:gravity="center" />
 
                 <ImageView
                     android:id="@+id/checkList_categoryImg"
-                    android:layout_width="13dp"
-                    android:layout_height="13dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical|right"
-                    android:layout_marginRight="7dp"
-                    app:srcCompat="@drawable/yicon_linedown" />
+                    android:layout_marginRight="14dp"
+                    app:srcCompat="@drawable/yicon_catedown" />
             </FrameLayout>
 
             <LinearLayout
@@ -106,7 +112,7 @@
                     <View
                         android:id="@+id/checkList_view1"
                         android:layout_width="0dp"
-                        android:layout_height="0dp"
+                        android:layout_height="3dp"
                         android:layout_weight="1" />
 
                     <LinearLayout
@@ -143,15 +149,15 @@
 
                     <ImageButton
                         android:id="@+id/checkList_calendarBtn"
-                        android:layout_width="25dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="25dp"
                         android:layout_marginRight="6dp"
-                        android:scaleType="centerInside"
-                        android:background="@drawable/j_calendar_icon" />
+                        android:background="@drawable/j_calendar_icon"
+                        android:scaleType="centerInside" />
 
                     <ImageButton
                         android:id="@+id/checkList_nextDayBtn"
-                        android:layout_width="20dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yicon_right"
                         android:scaleType="centerInside" />

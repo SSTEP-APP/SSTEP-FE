@@ -10,19 +10,25 @@
 
     <!-- top_보건증 수정 -->
     <FrameLayout
-        android:id="@+id/paperhmodify_F1"
+        android:id="@+id/paperhmodify_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/paperhmodify_toptv"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="보건증 수정"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -32,15 +38,6 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
-
-        <!-- 홈 아이콘 -->
-        <ImageView
-            android:id="@+id/paperhmodify_homeiv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/yicon_home" />
     </FrameLayout>
 
     <ScrollView
@@ -53,21 +50,20 @@
             android:id="@+id/paperhmodify_L3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="15dp">
+            android:orientation="vertical">
 
             <!-- 보건증 촬용 Frame -->
-            <FrameLayout
-                android:id="@+id/paperhmodify_F2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="362dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/yroundrec_w"
-                android:paddingTop="25dp"
-                android:paddingBottom="25dp">
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
 
                 <LinearLayout
                     android:id="@+id/paperhmodify_L4"
@@ -82,19 +78,16 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="15dp"
                         android:text="보건증 촬영"
-                        android:textColor="#737373"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb"/>
 
-                    <TextView
-                        android:id="@+id/paperhmodify_linetv3"
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_gravity="bottom"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/yunderline_text"
-                        android:minHeight="1dp" />
+                        android:layout_height="0.8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@color/line" />
                     <!-- 사진촬영 F -->
                     <FrameLayout
                         android:id="@+id/paperhmodify_F3"
@@ -121,56 +114,62 @@
                             android:background="@drawable/yicon_closeg" />
                     </FrameLayout> <!-- 사진촬영 F -->
                 </LinearLayout>
-            </FrameLayout> <!-- 보건증 촬용 Frame -->
+            </LinearLayout> <!-- 보건증 촬용 Frame -->
 
             <!-- 보건증 정보입력 Frame -->
             <LinearLayout
-                android:id="@+id/paperhmodify_F4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/yroundrec_w"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
                 android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
                 android:paddingLeft="15dp"
-                android:paddingTop="25dp"
-                android:paddingRight="15dp"
-                android:paddingBottom="25dp">
+                android:paddingRight="15dp">
                 <!-- 성명_text -->
                 <TextView
-                    android:id="@+id/paperhmodify_tv4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="성명"
-                    android:textColor="#737373"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb" />
 
                 <EditText
-                    android:id="@+id/paperhmodify_nameet1"
+                    android:id="@+id/paperhmodify_nameEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:ems="10"
+                    android:fontFamily="@font/nanumsquareneo_brg"
                     android:hint="성명"
-                    android:text="김유경"
+                    android:inputType="text"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
                     android:textSize="13sp"
-                    android:textCursorDrawable="@drawable/yet_cursor"/>
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="10dp"/>
 
                 <LinearLayout
-                    android:id="@+id/paperhmodify_HL1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:gravity="center_vertical">
 
                     <TextView
-                        android:id="@+id/paperhmodify_tv5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="검진일"
-                        android:textColor="#737373"
-                        android:textSize="15sp" />
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb"/>
 
                     <View
                         android:layout_width="0dp"
@@ -178,18 +177,20 @@
                         android:layout_weight="1" />
                     <!-- 검진일 버튼 -->
                     <Button
-                        android:id="@+id/paperhmodify_datebtn2"
+                        android:id="@+id/paperhmodify_dateBtn"
                         android:layout_width="wrap_content"
-                        android:layout_height="25dp"
-                        android:layout_gravity="right"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
                         android:layout_marginRight="15dp"
+                        android:layout_gravity="right"
                         android:background="@drawable/yroundrec_w_sblue"
-                        android:cursorVisible="false"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
                         android:text="2023년 1월 25일"
                         android:textColor="@color/blue"
-                        android:textSize="12sp" />
+                        android:textSize="13sp"
+                        android:paddingRight="13dp"
+                        android:paddingLeft="13dp"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="7dp"/>
                 </LinearLayout>
 
                 <TextView
@@ -197,17 +198,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="만료일"
-                    android:textColor="#737373"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb" />
 
-                <EditText
-                    android:id="@+id/paperhmodify_nameet2"
+                <TextView
+                    android:id="@+id/paperhmodify_enddateTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="만료일"
-                    android:text="2024년 1월 25일"
+                    android:background="@drawable/yunderline_darktext"
+                    android:inputType="text"
+                    android:text="2024년 02월 09일"
+                    android:textColor="@color/black"
                     android:textSize="13sp"
-                    android:textCursorDrawable="@drawable/yet_cursor"/>
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="10dp"/>
             </LinearLayout> <!-- 보건증 정보입력 Frame -->
 
             <TextView
@@ -215,6 +223,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
                 android:gravity="center_horizontal"
                 android:text="보건증 삭제하기"
                 android:textColor="@color/red"
@@ -225,36 +234,21 @@
 
     <!-- 맨 아래 '입력완료' 버튼 -->
     <LinearLayout
-        android:id="@+id/paperhmodify_L2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:background="#FFFFFF"
         android:orientation="vertical">
-        <!-- 맨 아래 버튼 변경 F -->
-        <FrameLayout
-            android:id="@+id/paperhmodify_changebtnF3"
+        <Button
+            android:id="@+id/paperhmodify_completeBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/paperhmodify_bottomoffbtn"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:background="@drawable/yroundrec_bottombtnoff"
-                android:text="수정 완료"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:gravity="center"
-                android:visibility="visible"/>
-            <Button
-                android:id="@+id/paperhmodify_bottomonbtn"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:background="@drawable/yroundrec_bottombtnon"
-                android:text="수정 완료"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:gravity="center"
-                android:visibility="gone"/>
-        </FrameLayout> <!-- 맨 아래 버튼 변경 F -->
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnon"
+            android:text="수정완료"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
     </LinearLayout>
 </LinearLayout>

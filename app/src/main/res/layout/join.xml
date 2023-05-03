@@ -102,7 +102,8 @@
                             android:padding="15dp"
                             android:textColorHint="@color/editTextHint"
                             android:textSize="13sp"
-                            android:textCursorDrawable="@drawable/yet_cursor"/>
+                            android:textCursorDrawable="@drawable/yet_cursor"
+                            android:maxLength="15"/>
                         <Button
                             android:id="@+id/join_certBtn"
                             android:layout_width="wrap_content"
@@ -147,7 +148,8 @@
                         android:padding="15dp"
                         android:textColorHint="@color/editTextHint"
                         android:textSize="13sp"
-                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                        android:textCursorDrawable="@drawable/yet_cursor"
+                        android:maxLength="10"/>
                 </LinearLayout>
                 <!-- 전화번호 -->
                 <LinearLayout
@@ -218,7 +220,8 @@
                             android:textColorHint="@color/editTextHint"
                             android:textSize="13sp"
                             android:textCursorDrawable="@drawable/yet_cursor"
-                            android:typeface="normal"/>
+                            android:typeface="normal"
+                            android:maxLength="15"/>
 
                         <CheckBox
                             android:id="@+id/join_passEyeCb"
@@ -266,7 +269,8 @@
                             android:textColorHint="@color/editTextHint"
                             android:textSize="13sp"
                             android:textCursorDrawable="@drawable/yet_cursor"
-                            android:typeface="normal"/>
+                            android:typeface="normal"
+                            android:maxLength="15"/>
                         <CheckBox
                             android:id="@+id/join_checkPassEyeCb"
                             android:layout_width="wrap_content"

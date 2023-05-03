@@ -24,7 +24,7 @@ public class Paper extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.paper_healthpF: // '보건증_F' 선택 시
-                Intent intent = new Intent(getApplicationContext(), Paperh.class);
+                Intent intent = new Intent(getApplicationContext(), PaperH.class);
                 startActivity(intent);
                 finish();
                 break;

@@ -9,19 +9,25 @@
 
     <!-- top_공지사항-->
     <FrameLayout
-        android:id="@+id/notice_F1"
+        android:id="@+id/notice_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/notice_toptv"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/top"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="공지사항"
-            android:textColor="@color/black"
-            android:textSize="17sp"/>
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -41,24 +47,22 @@
         <!-- 텅 _L -->
         <LinearLayout
             android:id="@+id/notice_tengL2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="120dp"
             android:layout_gravity="center_horizontal"
             android:visibility="gone">
             <ImageView
-                android:id="@+id/notice_tengiv1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/yimage_teng"
+                android:background="@drawable/yimage_tengplus"
                 android:layout_gravity="center"/>
             <TextView
-                android:id="@+id/notice_tv1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="공지사항이 없습니다."
-                android:textColor="#A9A9A9"
+                android:textColor="#737373"
                 android:textSize="16sp"
                 android:gravity="center_horizontal"
                 android:layout_marginTop="30dp"/>

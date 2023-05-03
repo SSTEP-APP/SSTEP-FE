@@ -17,11 +17,12 @@
 
         <ImageView
             android:id="@+id/fragment_checkList2_nodataImg"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/yimage_teng" />
+            android:layout_marginTop="80dp"
+            app:srcCompat="@drawable/yimage_tengplus"
+            android:layout_marginLeft="5dp" />
 
         <TextView
             android:id="@+id/fragment_checkList2_nodataText"
@@ -29,8 +30,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="해야할 일을 등록해 주세요."
-            android:textColor="#A9A9A9"
-            android:textSize="15sp" />
+            android:textColor="#737373"
+            android:textSize="15sp"
+            android:layout_marginTop="15dp" />
 
     </LinearLayout>
 

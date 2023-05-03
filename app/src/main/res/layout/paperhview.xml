@@ -10,19 +10,25 @@
 
     <!-- top_보건증 상세 -->
     <FrameLayout
-        android:id="@+id/paperview_F1"
+        android:id="@+id/paperview_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/paperview_toptv"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="보건증 상세"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -32,15 +38,6 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
-
-        <!-- 홈 아이콘 -->
-        <ImageView
-            android:id="@+id/paperview_homeiv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/yicon_home" />
     </FrameLayout>
 
     <!-- 보건증 상세, 버튼 포함 L-->
@@ -57,21 +54,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/yroundrec_w"
             android:orientation="vertical"
             android:paddingTop="20dp"
-            android:paddingBottom="20dp">
+            android:paddingBottom="40dp">
             <!-- 회차 text -->
             <TextView
                 android:id="@+id/paperview_tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="최신 보건증"
-                android:textColor="#737373"
-                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"/>
 
@@ -176,11 +173,11 @@
                 android:id="@+id/paperview_inputdatetv4"
                 android:layout_width="215dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="20dp"
                 android:text="입력일자 : 2023.02.09"
                 android:textColor="@color/black"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:layout_gravity="right"
                 android:gravity="right"/>
         </LinearLayout> <!-- 보건증 상세 L -->
@@ -191,14 +188,14 @@
             android:orientation="horizontal"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="50dp">
             <Button
                 android:id="@+id/paperview_modibtn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/yroundrec2_b"
+                android:background="@drawable/yroundrec2_w_sb"
                 android:text="수정하기"
-                android:textColor="@color/white"
+                android:textColor="@color/blue"
                 android:layout_gravity="left"/>
             <View
                 android:layout_width="0dp"
@@ -208,9 +205,9 @@
                 android:id="@+id/paperview_rebtn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/yroundrec2_w_sb"
+                android:background="@drawable/yroundrec2_b"
                 android:text="갱신하기"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_gravity="right"/>
         </LinearLayout>
     </LinearLayout> <!-- 보건증 상세, 버튼 포함 L -->

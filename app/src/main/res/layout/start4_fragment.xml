@@ -40,11 +40,11 @@
     <Button
         android:id="@+id/strat4_startBtn"
         android:layout_width="250dp"
-        android:layout_height="57dp"
+        android:layout_height="50dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="106dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/j_button_shape"
         android:text="시작하기"
-        android:textColor="#0D71F3" />
+        android:textColor="#0D71F3"/>
 
 </FrameLayout>

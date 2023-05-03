@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".modifyStore">
+    tools:context=".store.modifyStore">
 
     <!-- top_사업장 수정-->
     <FrameLayout

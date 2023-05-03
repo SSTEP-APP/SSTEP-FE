@@ -1,14 +1,16 @@
-package com.example.sstep;
+package com.example.sstep.store;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RegisterStore extends AppCompatActivity {
+import com.example.sstep.R;
+
+public class modifyStore extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register_store);
+        setContentView(R.layout.modify_store);
     }
 }
