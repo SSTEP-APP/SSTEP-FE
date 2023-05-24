@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".checklist.CheckList_write">
+    tools:context=".todo.checklist.CheckList_write">
 
     <!-- top_해야할 일 입력-->
     <FrameLayout

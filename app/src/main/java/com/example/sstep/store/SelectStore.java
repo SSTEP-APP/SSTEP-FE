@@ -8,7 +8,6 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
-import com.example.sstep.joinlogin.Login;
 
 public class SelectStore extends AppCompatActivity implements View.OnClickListener {
 

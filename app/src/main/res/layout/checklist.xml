@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".checklist.CheckList">
+    tools:context=".todo.checklist.CheckList">
 
     <LinearLayout
         android:layout_width="match_parent"

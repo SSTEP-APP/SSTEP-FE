@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".joinlogin.Find_id">
+    tools:context=".user.login.Find_id">
 
     <!-- top_아이디 찾기-->
     <FrameLayout

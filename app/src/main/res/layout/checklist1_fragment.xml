@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".checklist.checkList1Fragment">
+    tools:context=".todo.checklist.checkList1Fragment">
 
     <LinearLayout
         android:id="@+id/fragment_checkList1_nodataLayout"

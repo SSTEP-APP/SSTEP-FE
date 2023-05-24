@@ -206,7 +206,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                         -->
-                    <com.example.sstep.paper.CustomDrawingView
+                    <com.example.sstep.document.contract.CustomDrawingView
                         android:id="@+id/customDrawingView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>

@@ -33,7 +33,7 @@
 
         <!-- start -->
         <activity
-            android:name=".start.Start"
+            android:name=".user.start.Start"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,24 +41,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".start.Start1" android:exported="false" />
-        <activity android:name=".start.Start2" android:exported="false" />
-        <activity android:name=".start.Start3" android:exported="false" />
-        <activity android:name=".start.Start4" android:exported="false" />
+        <activity android:name=".user.start.Start1" android:exported="false" />
+        <activity android:name=".user.start.Start2" android:exported="false" />
+        <activity android:name=".user.start.Start3" android:exported="false" />
+        <activity android:name=".user.start.Start4" android:exported="false" />
 
         <!-- joinlogin -->
-        <activity android:name=".joinlogin.Login" android:exported="false"/>
-        <activity android:name=".joinlogin.JoinActivity" android:exported="false"/>
-        <activity android:name=".joinlogin.Find_id" android:exported="false"/>
-        <activity android:name=".joinlogin.Find_password" android:exported="false"/>
+        <activity android:name=".user.login.Login" android:exported="false"/>
+        <activity android:name=".user.join.JoinActivity" android:exported="false"/>
+        <activity android:name=".user.login.Find_id" android:exported="false"/>
+        <activity android:name=".user.login.Find_password" android:exported="false"/>
 
         <activity
-            android:name=".staff.addSchedule"
+            android:name=".user.staff.addSchedule"
             android:exported="false">
         </activity>
 
         <activity
-            android:name=".staff.staff_infoInput"
+            android:name=".user.staff.staff_infoInput"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -71,7 +71,7 @@
 
         <!-- checklist -->
         <activity
-            android:name=".checklist.CheckList"
+            android:name=".todo.checklist.CheckList"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -80,17 +80,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".checklist.Checklist_complete_detail"
+            android:name=".todo.checklist.Checklist_complete_detail"
             android:exported="false"></activity>
         <activity
-            android:name=".checklist.Checklist_detail"
+            android:name=".todo.checklist.Checklist_detail"
             android:exported="false"></activity>
         <activity
-            android:name=".checklist.CheckList_write"
+            android:name=".todo.checklist.CheckList_write"
             android:exported="false" />
         <!-- notice -->
         <activity
-            android:name=".notice.Notice"
+            android:name=".todo.notice.Notice"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -99,7 +99,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".notice.Notice_view"
+            android:name=".todo.notice.Notice_view"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -107,10 +107,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".notice.Notice_input" />
+        <activity android:name=".todo.notice.Notice_input" />
 
         <activity
-            android:name=".monthstate.MonthState"
+            android:name=".performance.MonthState"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -194,7 +194,7 @@
         </activity>
         <!-- mypage -->
         <activity
-            android:name=".mypage.MyPage"
+            android:name=".user.mypage.MyPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -202,14 +202,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mypage.MyPage_Profile" android:exported="false" />
-        <activity android:name=".mypage.MyPage_Alarm" android:exported="false"/>
-        <activity android:name=".mypage.MyPage_Ask" android:exported="false"/>
-        <activity android:name=".mypage.MyPage_Pwd" android:exported="false"/>
+        <activity android:name=".user.mypage.MyPage_Profile" android:exported="false" />
+        <activity android:name=".user.mypage.MyPage_Alarm" android:exported="false"/>
+        <activity android:name=".user.mypage.MyPage_Ask" android:exported="false"/>
+        <activity android:name=".user.mypage.MyPage_Pwd" android:exported="false"/>
 
         <!-- paper -->
         <activity
-            android:name=".paper.Paper"
+            android:name=".document.certificate.Paper"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -218,7 +218,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".paper.PaperH"
+            android:name=".document.certificate.PaperH"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -227,7 +227,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".paper.PaperHinput"
+            android:name=".document.certificate.PaperHinput"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -236,7 +236,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".paper.PaperHmodi"
+            android:name=".document.certificate.PaperHmodi"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -245,7 +245,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".paper.PaperHview"
+            android:name=".document.certificate.PaperHview"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -254,7 +254,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".paper.PaperW"
+            android:name=".document.contract.PaperW"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -263,7 +263,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".paper.PaperWinput"
+            android:name=".document.contract.PaperWinput"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -272,7 +272,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".paper.PaperWceoview"
+            android:name=".document.contract.PaperWceoview"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
