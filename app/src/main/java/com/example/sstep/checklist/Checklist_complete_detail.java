@@ -19,7 +19,7 @@ import com.example.sstep.R;
 
 public class Checklist_complete_detail extends AppCompatActivity {
 
-    TextView title, staffName;
+    TextView title, content;
     ImageButton menuBtn;
     ImageView picture, backBtn;
     EditText comment;
@@ -31,7 +31,7 @@ public class Checklist_complete_detail extends AppCompatActivity {
         setContentView(R.layout.checklist_complete_detail);
         title = findViewById(R.id.checkComDetail_checkListNameText);
         menuBtn = findViewById(R.id.checkComDetail_menuBtn);
-        staffName = findViewById(R.id.checkComDetail_checkListStaffNameText);
+        content = findViewById(R.id.checkComDetail_checkListContentText);
         picture = findViewById(R.id.checkComDetail_picture);
         comment = findViewById(R.id.checkComDetail_commentET);
         backBtn = findViewById(R.id.checkComDetail_backBtn);
@@ -66,8 +66,8 @@ public class Checklist_complete_detail extends AppCompatActivity {
         //제목
         title.setText("마감시 에어컨 끄기");// db에서 받은 제목 표시
 
-        //해당 스태프 이름 표시
-        staffName.setText("000");
+        //해당 내용 표시
+        content.setText("000");
 
         //사진 적용
         //picture.setImageResource();

@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/checklist_write_staffImg"
-        android:layout_width="62dp"
-        android:layout_height="63dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="center_horizontal|top"
         app:srcCompat="@drawable/j_femail_img2" />
     <!--에러로 인해 임시적으로 jpg파일 사용-->

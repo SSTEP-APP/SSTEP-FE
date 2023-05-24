@@ -1,74 +1,83 @@
 package com.example.sstep.start;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.sstep.R;
+import com.example.sstep.alarm.AlarmFragmentAdapter;
+import com.example.sstep.alarm.alarm1Fragment;
+import com.example.sstep.alarm.alarm2Fragment;
+import com.example.sstep.alarm.alarm3Fragment;
+import com.example.sstep.joinlogin.Login;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Start extends AppCompatActivity {
 
-    ViewPager pager;
+
+    private static final String TAG = "Start";
+    ViewPager viewPager;
+    TabLayout tabLayout;
+    StartFragmentAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start);
 
-        //pager = findViewById(R.id.start_pagers);
-        pager.setOffscreenPageLimit(4); // 페이지 개수
+        tabLayout = findViewById(R.id.start_tablayout);
+        viewPager = findViewById(R.id.start_viewpager);
+        adapter = new StartFragmentAdapter(getSupportFragmentManager(),1);
 
-        MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
+        // AlarmFragmentAdapter 에 컬렉션 담기
+        adapter.addFragment(new Start1());
+        adapter.addFragment(new Start2());
+        adapter.addFragment(new Start3());
+        adapter.addFragment(new Start4());
 
-        // 프래그먼트를 어댑터의 아이템으로 추가
-        Start1 fragment1 = new Start1();
-        adapter.addItem(fragment1);
+        // ViewPager Fragment 연결
+        viewPager.setAdapter(adapter);
 
-        Start2 fragment2 = new Start2();
-        adapter.addItem(fragment2);
+        // ViewPager TabLayout 연결
+        tabLayout.setupWithViewPager(viewPager);
 
-        Start3 fragment3 = new Start3();
-        adapter.addItem(fragment3);
-
-        Start4 fragment4 = new Start4();
-        adapter.addItem(fragment4);
-
-        // 어댑터 객체를 페이저쪽에 등록해야 화면에 보임
-        pager.setAdapter(adapter);
-
-    }
+        tabLayout.getTabAt(0);
+        tabLayout.getTabAt(1);
+        tabLayout.getTabAt(2);
+        tabLayout.getTabAt(3);
 
 
-    // Adapter : 프래그먼트를 관리하는 기능을 함
-    class MyPagerAdapter extends FragmentStatePagerAdapter {
-        ArrayList<Fragment> items = new ArrayList<Fragment>();
+        ViewGroup tabs = (ViewGroup) tabLayout.getChildAt(0);
 
-        public MyPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        public void addItem(Fragment item) {
-            items.add(item);
-        }
-
-        @NonNull
-        @Override
-        public Fragment getItem(int position) {
-            return items.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return items.size();
+        for (int i = 0; i < tabs.getChildCount(); i++) {
+            View tab = tabs.getChildAt(i);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tab.getLayoutParams();
+            layoutParams.weight = 0;
+            layoutParams.setMarginEnd(15);
+            layoutParams.setMarginStart(15);
+            layoutParams.width = 13;
+            tab.setLayoutParams(layoutParams);
+            tabLayout.requestLayout();
         }
     }
+
 }

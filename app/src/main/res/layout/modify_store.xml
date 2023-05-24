@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".modifyStore">
+    tools:context=".store.modifyStore">
 
     <!-- top_사업장 수정-->
     <FrameLayout
@@ -56,9 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/j_layout_background"
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:paddingTop="30dp"
                 android:paddingBottom="30dp"
@@ -103,9 +101,9 @@
                         android:background="@drawable/yedittext_w_sg"
                         android:ems="10"
                         android:fontFamily="@font/nanumsquareneo_brg"
-                        android:text="스텦"
+                        android:hint="ex)  스텦"
                         android:inputType="text"
-                        android:textColor="@color/black"
+                        android:textColor="@color/likeblack"
                         android:textColorHint="@color/editTextHint"
                         android:textSize="13sp"
                         android:textCursorDrawable="@drawable/yet_cursor"
@@ -113,7 +111,8 @@
                         android:paddingRight="20dp"
                         android:paddingTop="15dp"
                         android:paddingBottom="15dp"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="10dp"
+                        android:text="스텦"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -141,7 +140,7 @@
                         <View
                             android:id="@+id/modistore_view2"
                             android:layout_width="wrap_content"
-                            android:layout_height="0dp"
+                            android:layout_height="2dp"
                             android:layout_weight="1" />
 
                         <Button
@@ -165,9 +164,9 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/yedittext_w_sg"
                         android:ems="10"
-                        android:text="시흥시 산기대학로"
+                        android:hint="시흥시 산기대학로"
                         android:inputType="text"
-                        android:textColor="@color/black"
+                        android:textColor="@color/likeblack"
                         android:textColorHint="@color/editTextHint"
                         android:textSize="13sp"
                         android:textCursorDrawable="@drawable/yet_cursor"
@@ -175,7 +174,8 @@
                         android:paddingRight="20dp"
                         android:paddingTop="15dp"
                         android:paddingBottom="15dp"
-                        android:fontFamily="@font/nanumsquareneo_brg"/>
+                        android:fontFamily="@font/nanumsquareneo_brg"
+                        android:text="시흥시 산기대학로"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -197,9 +197,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:text="1층 102호"
+                        android:hint="1층 102호"
                         android:inputType="text"
-                        android:textColor="@color/black"
+                        android:textColor="@color/likeblack"
                         android:textColorHint="@color/editTextHint"
                         android:textSize="13sp"
                         android:background="@drawable/yedittext_w_sg"
@@ -209,7 +209,8 @@
                         android:paddingTop="15dp"
                         android:paddingBottom="15dp"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/nanumsquareneo_brg"/>
+                        android:fontFamily="@font/nanumsquareneo_brg"
+                        android:text="1층 102호"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -219,9 +220,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/j_layout_background"
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:paddingTop="30dp"
                 android:paddingBottom="30dp"
@@ -308,6 +307,7 @@
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/likeblack"/>
                     <RadioGroup
+                        android:id="@+id/modistore_planRadioGroup"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
@@ -317,6 +317,7 @@
 
 
                         <RadioButton
+                            android:id="@+id/modistore_free"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="무료"
@@ -330,12 +331,13 @@
                             android:layout_weight="1" />
 
                         <RadioButton
+                            android:id="@+id/modistore_pay"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="유료"
                             android:button="@drawable/yradiobtn_red"
                             android:paddingLeft="10dp"
-                            android:clickable="false"/>
+                            android:clickable="true"/>
                     </RadioGroup>
 
 

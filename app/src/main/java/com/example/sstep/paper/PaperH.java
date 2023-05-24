@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
 
-public class Paperh extends AppCompatActivity implements View.OnClickListener {
+public class PaperH extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton backib;
     @Override

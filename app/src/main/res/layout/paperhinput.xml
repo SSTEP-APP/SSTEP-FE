@@ -56,7 +56,7 @@
             android:paddingBottom="15dp">
 
             <!-- 보건증 촬용 Frame -->
-            <FrameLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -80,44 +80,48 @@
                         android:text="보건증 촬영"
                         android:textColor="@color/black"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/nanumsquareneo_deb"/>
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
+                        android:layout_height="0.8dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
                         android:background="@color/line" />
                     <!-- 사진촬영 F -->
-                    <FrameLayout
-                        android:id="@+id/paperhinput_cameraF"
+                    <ImageButton
+                        android:id="@+id/paperhinput_cameraIb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@drawable/yroundrec_w_offb"
+                        android:background="@drawable/yicon_reccamera"
                         android:layout_gravity="center_horizontal"
-                        android:clickable="true">
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:visibility="visible"/>
+                    <FrameLayout
+                        android:id="@+id/paperhinput_photoF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
                         <ImageView
-                            android:id="@+id/paperhinput_cameraIv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/yicon_camerablueoff"
+                            android:id="@+id/paperhinput_photoviewIv"
+                            android:layout_width="330dp"
+                            android:layout_height="250dp"
+                            android:background="@drawable/yroundrec_w_sg"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="30dp"
-                            android:layout_marginBottom="23dp"/>
-                        <TextView
-                            android:id="@+id/paperhinput_cameraTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="사진촬영"
-                            android:textSize="11sp"
-                            android:textColor="#C2D9FC"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="15dp"/>
-                    </FrameLayout> <!-- 사진촬영 F -->
+                            android:scaleType="fitXY"
+                            android:layout_marginTop="10dp"/>
+                        <ImageButton
+                            android:id="@+id/paperhinput_deletePhotoBtn"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/yicon_closeg" />
+                    </FrameLayout>
                 </LinearLayout>
-            </FrameLayout> <!-- 보건증 촬용 Frame -->
+            </LinearLayout> <!-- 보건증 촬용 Frame -->
 
             <!-- 보건증 정보입력 Frame -->
             <LinearLayout
@@ -138,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:text="성명"
                     android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nanumsquareneo_deb"/>
 
                 <EditText
                     android:id="@+id/paperhinput_nameEt"
@@ -157,7 +161,8 @@
                     android:paddingRight="20dp"
                     android:paddingTop="15dp"
                     android:paddingBottom="15dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:maxLength="10"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -170,7 +175,7 @@
                         android:layout_height="wrap_content"
                         android:text="검진일"
                         android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/nanumsquareneo_deb"/>
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -184,7 +189,7 @@
                         android:layout_marginRight="15dp"
                         android:layout_gravity="right"
                         android:background="@drawable/yroundrec_w_sblue"
-                        android:text="2023년 1월 25일"
+                        android:text="검진일 설정"
                         android:textColor="@color/blue"
                         android:textSize="13sp"
                         android:paddingRight="13dp"
@@ -197,7 +202,7 @@
                     android:layout_height="wrap_content"
                     android:text="만료일"
                     android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nanumsquareneo_deb"/>
 
                 <TextView
                     android:id="@+id/paperhinput_enddateTv"
@@ -205,8 +210,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/yunderline_darktext"
                     android:inputType="text"
-                    android:text="2024년 02월 09일"
-                    android:textColor="@color/likeblack"
+                    android:text="만료일"
+                    android:textColor="@color/black"
                     android:textSize="13sp"
                     android:paddingLeft="15dp"
                     android:paddingRight="20dp"

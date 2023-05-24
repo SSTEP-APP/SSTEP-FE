@@ -88,7 +88,8 @@
                     android:fontFamily="@font/nanumsquareneo_brg"
                     android:textSize="13sp"
                     android:padding="15dp"
-                    android:textCursorDrawable="@drawable/yet_cursor"/>
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:maxLength="10"/>
             </LinearLayout>
 
             <LinearLayout
@@ -122,7 +123,8 @@
                         android:fontFamily="@font/nanumsquareneo_brg"
                         android:textSize="13sp"
                         android:padding="15dp"
-                        android:textCursorDrawable="@drawable/yet_cursor"/>
+                        android:textCursorDrawable="@drawable/yet_cursor"
+                        android:maxLength="13"/>
 
                     <Button
                         android:id="@+id/findId_certbtn"

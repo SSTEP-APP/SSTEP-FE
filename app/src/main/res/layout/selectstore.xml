@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".SelectStore">
+    tools:context=".store.SelectStore">
 
     <!-- top_직원 초대현황-->
     <FrameLayout
