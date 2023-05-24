@@ -39,4 +39,6 @@
 
     <!-- 밝은 글씨 line -->
     <color name="lightText">#A4A4A4</color>
+    <color name="datePickerBack">#2084E0</color>
+
 </resources>

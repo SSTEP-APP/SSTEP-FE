@@ -96,15 +96,15 @@
 
                     <ImageButton
                         android:id="@+id/checkList_preDayBtn"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="left|center_vertical"
                         android:background="@drawable/yicon_left" />
 
                     <ImageButton
                         android:id="@+id/checkList_refreshBtn"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="6dp"
                         android:background="@drawable/yicon_refresh" />
@@ -149,16 +149,17 @@
 
                     <ImageButton
                         android:id="@+id/checkList_calendarBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginRight="6dp"
-                        android:background="@drawable/j_calendar_icon"
-                        android:scaleType="centerInside" />
+                        android:background="@drawable/yicon_circlecalendar"
+                        android:scaleType="centerInside"
+                        android:backgroundTint="#737373"/>
 
                     <ImageButton
                         android:id="@+id/checkList_nextDayBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:background="@drawable/yicon_right"
                         android:scaleType="centerInside" />
                 </LinearLayout>
@@ -197,10 +198,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
-        android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerInside"
-        app:srcCompat="@drawable/yicon_plus" />
+        android:layout_marginRight="20dp"
+        android:background="@drawable/yicon_plus" />
 
 </FrameLayout>

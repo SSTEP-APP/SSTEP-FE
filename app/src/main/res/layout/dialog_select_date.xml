@@ -15,14 +15,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/dialog_selectDate_mainText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="날짜 선택"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
         <CalendarView
             android:id="@+id/dialog_selectDate_calendarView"
             android:layout_width="match_parent"

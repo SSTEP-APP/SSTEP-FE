@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_okdown_F1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="vertical"
+    android:background="@drawable/ydialog_okdown">
+
+    <TextView
+        android:id="@+id/dialog_okdown_commentTv"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:lineSpacingExtra="8dp"
+        android:paddingTop="25dp"
+        android:text="text"
+        android:textColor="@color/likeblack"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/dialog_okdown_okBtn"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:gravity="center"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+
+</LinearLayout>

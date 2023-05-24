@@ -58,9 +58,10 @@ public class CheckList_write extends AppCompatActivity {
         repeatRG = findViewById(R.id.checkList_write_repeatRG);
         repeatTimeSpinner = findViewById(R.id.checkList_write_repeatTimespinner);
 
-//리사이클 뷰
+        //리사이클 뷰
         firstInit();
-//      임의로 5개 입력
+        // 임의로 5개 입력
+        //db에서 값 받아서 넣기
         for (int i = 0; i < 5; i++) {
             addItem("iconName", "cancelBtn", "staff_name");
         }
@@ -82,7 +83,7 @@ public class CheckList_write extends AppCompatActivity {
         });
 
         //입력사항 받기
-        title.getText();
+        //title.getText();
 
         //마감예정 시간 체크박스
         endTimeCB.setOnClickListener(new View.OnClickListener() {
@@ -172,6 +173,7 @@ public class CheckList_write extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.checkList_write_staffList_recycleView);
         mList = new ArrayList<>();
     }
+
     public void addItem(String imgName, String mainText, String subText){
         CheckList_write_recyclerViewItem item = new CheckList_write_recyclerViewItem();
 

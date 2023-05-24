@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <!-- 카메라 권한 -->
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.DIAL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -37,9 +41,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".start.Start1" android:exported="false" />
+        <activity android:name=".start.Start2" android:exported="false" />
+        <activity android:name=".start.Start3" android:exported="false" />
+        <activity android:name=".start.Start4" android:exported="false" />
+
         <!-- joinlogin -->
+        <activity android:name=".joinlogin.Login" android:exported="false"/>
+        <activity android:name=".joinlogin.JoinActivity" android:exported="false"/>
+        <activity android:name=".joinlogin.Find_id" android:exported="false"/>
+        <activity android:name=".joinlogin.Find_password" android:exported="false"/>
+
         <activity
-            android:name=".joinlogin.Login"
+            android:name=".staff.addSchedule"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".staff.staff_infoInput"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,33 +66,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".joinlogin.JoinActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".joinlogin.Find_id"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".joinlogin.Find_password"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- checklist -->
+        <!-- checklist -->
         <activity
             android:name=".checklist.CheckList"
             android:exported="true">
@@ -91,7 +87,8 @@
             android:exported="false"></activity>
         <activity
             android:name=".checklist.CheckList_write"
-            android:exported="false" /> <!-- notice -->
+            android:exported="false" />
+        <!-- notice -->
         <activity
             android:name=".notice.Notice"
             android:exported="true">
@@ -110,7 +107,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".notice.Notice_input" /> <!-- start -->
+        <activity android:name=".notice.Notice_input" />
 
         <activity
             android:name=".monthstate.MonthState"
@@ -120,7 +117,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- money -->
+        </activity>
+
+        <!-- money -->
         <activity
             android:name=".money.Money_Ceo"
             android:exported="true">
@@ -139,15 +138,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".store.RegisterStore"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <!-- store -->
         <activity
             android:name=".store.modifyStore"
             android:exported="true">
@@ -168,7 +160,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- staffInvite -->
+        </activity>
+        <activity android:name=".store.RegisterStore" />
+
+        <!-- staffInvite -->
         <activity
             android:name=".StaffInvite"
             android:exported="true">
@@ -197,9 +192,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".addSchedule"
-            android:exported="false" /> <!-- mypage -->
+        <!-- mypage -->
         <activity
             android:name=".mypage.MyPage"
             android:exported="true">
@@ -209,10 +202,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mypage.MyPage_Profile" />
-        <activity android:name=".mypage.MyPage_Alarm" />
-        <activity android:name=".mypage.MyPage_Ask" />
-        <activity android:name=".mypage.MyPage_Pwd" /> <!-- paper -->
+        <activity android:name=".mypage.MyPage_Profile" android:exported="false" />
+        <activity android:name=".mypage.MyPage_Alarm" android:exported="false"/>
+        <activity android:name=".mypage.MyPage_Ask" android:exported="false"/>
+        <activity android:name=".mypage.MyPage_Pwd" android:exported="false"/>
+
+        <!-- paper -->
         <activity
             android:name=".paper.Paper"
             android:exported="true">
@@ -286,16 +281,6 @@
             </intent-filter>
         </activity>
 
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

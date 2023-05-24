@@ -1,5 +1,6 @@
 package com.example.sstep.checklist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,8 +21,9 @@ public class Checklist_complete_detail extends AppCompatActivity {
 
     TextView title, content;
     ImageButton menuBtn;
-    ImageView picture;
+    ImageView picture, backBtn;
     EditText comment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class Checklist_complete_detail extends AppCompatActivity {
         content = findViewById(R.id.checkComDetail_checkListContentText);
         picture = findViewById(R.id.checkComDetail_picture);
         comment = findViewById(R.id.checkComDetail_commentET);
+        backBtn = findViewById(R.id.checkComDetail_backBtn);
 
         //메뉴 버튼
         menuBtn.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +54,15 @@ public class Checklist_complete_detail extends AppCompatActivity {
                 popupMenu.show();
             }
         });
-
+        //뒤로가기 버튼
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CheckList.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         //제목
         title.setText("마감시 에어컨 끄기");// db에서 받은 제목 표시
 

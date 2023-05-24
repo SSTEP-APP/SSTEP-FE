@@ -305,6 +305,7 @@
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/likeblack"/>
                     <RadioGroup
+                        android:id="@+id/regiStore_planRadioGroup"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
@@ -314,6 +315,7 @@
 
 
                         <RadioButton
+                            android:id="@+id/regiStore_free"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="무료"
@@ -327,12 +329,13 @@
                             android:layout_weight="1" />
 
                         <RadioButton
+                            android:id="@+id/regiStore_pay"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="유료"
                             android:button="@drawable/yradiobtn_red"
                             android:paddingLeft="10dp"
-                            android:clickable="false"/>
+                            android:clickable="true"/>
                     </RadioGroup>
 
 

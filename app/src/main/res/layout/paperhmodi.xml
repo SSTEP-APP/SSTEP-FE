@@ -106,7 +106,7 @@
                             android:layout_gravity="center_horizontal"/>
 
                         <ImageButton
-                            android:id="@+id/paperview_closebtn1"
+                            android:id="@+id/paperview_deletePhotoBtn"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="right"

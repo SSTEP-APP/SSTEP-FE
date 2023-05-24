@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:textSize="13sp"
     android:textColor="@color/black"
     android:paddingLeft="20dp"
     android:layout_gravity="center_vertical"
-    android:gravity="center_vertical"
-    android:id="@+id/paperwinput_spinner_text"/>
+    android:gravity="center_vertical"/>

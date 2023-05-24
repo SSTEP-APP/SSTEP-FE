@@ -1,14 +1,16 @@
-package com.example.sstep;
+package com.example.sstep.staff;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class staff_infoInput extends AppCompatActivity {
+import com.example.sstep.R;
+
+public class modifySchedule extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.staff_info_input);
+        setContentView(R.layout.modify_schedule);
     }
 }

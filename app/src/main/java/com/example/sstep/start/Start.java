@@ -34,7 +34,7 @@ import java.util.List;
 public class Start extends AppCompatActivity {
 
 
-    private static final String TAG = "Strat";
+    private static final String TAG = "Start";
     ViewPager viewPager;
     TabLayout tabLayout;
     StartFragmentAdapter adapter;

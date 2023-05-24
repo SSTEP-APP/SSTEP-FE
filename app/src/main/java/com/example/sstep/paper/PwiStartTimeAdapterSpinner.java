@@ -33,11 +33,11 @@ public class PwiStartTimeAdapterSpinner extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         //처음에 클릭전에 보여지는 레이아웃
         if(convertView==null){
-            convertView = Inflater.inflate(R.layout.paperwinput_spinner_text, parent, false);
+            convertView = Inflater.inflate(R.layout.paperwinput_spinner_view, parent, false);
         }
         if(Data!=null){
             String text = Data.get(position);
-            ((TextView) convertView.findViewById(R.id.paperwinput_spinner_text)).setText(text);
+            ((TextView) convertView.findViewById(R.id.paperwinput_spinner_view_text)).setText(text);
         }
         return convertView;
     }
@@ -49,7 +49,7 @@ public class PwiStartTimeAdapterSpinner extends BaseAdapter {
             convertView = Inflater.inflate(R.layout.paperwinput_spinner_view, parent, false);
         }
         String text = Data.get(position);
-        ((TextView) convertView.findViewById(R.id.paperwinput_spinner_text)).setText(text);
+        ((TextView) convertView.findViewById(R.id.paperwinput_spinner_view_text)).setText(text);
 
         return convertView;
     }

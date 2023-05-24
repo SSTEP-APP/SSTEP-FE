@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/j_layout_round"
     android:orientation="vertical">
 
@@ -10,19 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="30dp"
+        android:paddingBottom="20dp">
 
         <TextView
             android:id="@+id/dia_checkPhoto_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="#FFFFFF"
             android:text="사진추가"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <View
@@ -37,8 +38,10 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#FFFFFF"
             android:text="갤러리"
-            android:textColor="#0D69F3"
-            android:textSize="15sp" />
+            android:textColor="@color/blue"
+            android:textSize="15sp"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"/>
 
         <View
             android:id="@+id/dia_checkPhoto_line2"
@@ -52,8 +55,10 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#FFFFFF"
             android:text="카메라"
-            android:textColor="#0D69F3"
-            android:textSize="15sp" />
+            android:textColor="@color/blue"
+            android:textSize="15sp"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"/>
 
         <View
             android:id="@+id/dia_checkPhoto_line3"
@@ -67,7 +72,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#FFFFFF"
             android:text="취소"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:paddingTop="25dp"
+            android:paddingBottom="20dp"/>
 
     </LinearLayout>
 
