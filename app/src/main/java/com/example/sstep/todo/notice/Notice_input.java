@@ -1,14 +1,18 @@
 package com.example.sstep.todo.notice;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -21,8 +25,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
+import com.example.sstep.document.certificate.Paper;
+import com.example.sstep.document.contract.PaperWinput;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -42,6 +49,8 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
     private ImageView[] pictureIv = new ImageView[4]; // 이미지뷰 배열
     private int currentImageView = 0; // 현재 채워진 이미지뷰 개수
     private int numPictures = 0;
+    Dialog showComplete_dialog;
+    BaseDialog_OkCenter baseDialog_okCenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +75,12 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
         pictureIv[2]=findViewById(R.id.notice_input_pictureIv3);
         pictureIv[3]=findViewById(R.id.notice_input_pictureIv4);
         pictureHL=findViewById(R.id.notice_input_pictureHL);
+
+        baseDialog_okCenter = new BaseDialog_OkCenter(Notice_input.this, R.layout.join_okdl);
+
+        showComplete_dialog = new Dialog(Notice_input.this);
+        showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
+        showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
 
         // '제목' 글자 수 제한
         titleEt.addTextChangedListener(new TextWatcher() {
@@ -148,13 +163,32 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
                 showCalendarDialog();
                 break;
             case R.id.notice_input_completeBtn: // 등록하기
+                showCompleteDl();
                 break;
             default:
                 break;
         }
     }
 
-
+    // '보건증 완료'버튼 클릭 시
+    public void showCompleteDl(){
+        showComplete_dialog.show();
+        // 다이얼로그의 배경을 투명으로 만든다.
+        showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        TextView join_okdl_commentTv; Button join_okdl_okBtn;
+        join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
+        join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
+        join_okdl_commentTv.setText("공지사항 작성 완료하였습니다.");
+        // '공지사항 dialog' _ 확인 버튼 클릭 시
+        join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Notice.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

@@ -262,14 +262,15 @@
                         android:id="@+id/paperwinput_workTerms_updownIv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/yicon_down"/>
+                        android:background="@drawable/yicon_up"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/paperwinput_workTerms_hidL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="visible">
 
                     <View
                         android:layout_width="wrap_content"
@@ -301,7 +302,7 @@
                             android:paddingTop="15dp"
                             android:paddingRight="20dp"
                             android:paddingBottom="15dp"
-                            android:text="2023-04-03"
+                            android:text="근무개시일"
                             android:textColor="@color/likeblack"
                             android:textSize="13sp" />
 
@@ -524,10 +525,12 @@
                         android:textSize="11sp" />
 
                     <LinearLayout
+                        android:id="@+id/paperwinput_workTerms_breakhidL"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="visible">
 
                         <FrameLayout
                             android:layout_width="match_parent"
@@ -802,14 +805,15 @@
                         android:id="@+id/paperwinput_wage_updownIv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/yicon_down"/>
+                        android:background="@drawable/yicon_up"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/paperwinput_wage_hidL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
                     <View
                         android:layout_width="wrap_content"
                         android:layout_height="0.8dp"
@@ -1102,7 +1106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/likeblack"
-                        android:text="2023-04-03"
+                        android:text="작성일"
                         android:textSize="13sp"
                         android:paddingLeft="15dp"
                         android:paddingRight="20dp"
