@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- top_공지사항-->
+    <FrameLayout
+        android:id="@+id/notice_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/notice_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="공지사항"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/notice_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <!-- 텅/공지사항 _숨김F -->
+    <FrameLayout
+        android:id="@+id/notice_hidF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- 텅 _L -->
+        <LinearLayout
+            android:id="@+id/notice_tengL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="120dp"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/yimage_tengplus"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="공지사항이 없습니다."
+                android:textColor="#737373"
+                android:textSize="16sp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="30dp"/>
+        </LinearLayout> <!-- 텅 _L -->
+
+        <!-- 목록 개수 _HL -->
+        <LinearLayout
+            android:id="@+id/notice_listCountHL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="right">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yicon_list"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/notice_listCountNumTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="8dp"/>
+        </LinearLayout>
+        <ScrollView
+            android:id="@+id/notice_scoll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbars="none"
+            android:visibility="visible"
+            android:layout_marginTop="40dp">
+
+            <!-- 스크롤 L -->
+            <LinearLayout
+                android:id="@+id/notice_scollL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="20dp"
+                android:paddingTop="10dp">
+                <!-- 공지사항 _L -->
+                <LinearLayout
+                    android:id="@+id/notice_listL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/yroundrec_w"
+                    android:orientation="vertical"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="25dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="20dp">
+
+                    <TextView
+                        android:id="@+id/notice_titleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="공지제목"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/nanumsquareneo_deb"/>
+
+                    <TextView
+                        android:id="@+id/notice_ntitletv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="내용입니다."
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="15dp"/>
+                    <!-- 공지사항 내용 _HL -->
+                    <LinearLayout
+                        android:id="@+id/notice_nHL2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/notice_nnametv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="작성자"
+                            android:textColor="#737373"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="  |  "
+                            android:textColor="#737373"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/notice_ndatetv4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="2023.02.24(금) 14:30"
+                            android:textColor="#737373"
+                            android:textSize="13sp" />
+                    </LinearLayout> <!-- 공지사항 내용 _HL -->
+                </LinearLayout> <!-- 공지사항 _L -->
+
+            </LinearLayout> <!-- 스크롤 L -->
+
+        </ScrollView>
+
+        <!-- 추가 버튼 -->
+        <ImageButton
+            android:id="@+id/notice_plusbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/yicon_plus" />
+    </FrameLayout> <!-- 텅/공지사항 _숨김F -->
+</LinearLayout>

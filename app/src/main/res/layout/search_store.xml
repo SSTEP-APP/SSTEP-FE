@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".store.Search_Store">
+
+    <!-- top_사업장 검색-->
+    <FrameLayout
+        android:id="@+id/searchStore_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/searchStore_topText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="사업장 검색"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/searchStore_back_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="15dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <EditText
+                android:id="@+id/searchStore_searchEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yroundrec_g"
+                android:ems="17"
+                android:hint="  예) 판교역로 235, 분당 주공, 삼평동 681"
+                android:inputType="text"
+                android:textColorHint="#8C8C8C"
+                android:textSize="15sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center_vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/nanumsquareneo_brg"/>
+
+            <ImageButton
+                android:id="@+id/searchStore_searchbtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="30dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/j_search_icon" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="37dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/searchStore_text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="tip"
+                android:textColor="@color/blue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/nanumsquareneo_ehv"/>
+
+            <TextView
+                android:id="@+id/searchStore_text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\n아래와 같은 조합으로 검색을 하시면 더욱 정확한 \n결과가  검색됩니다.\n\n도로명 + 건물번호 "
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/searchStore_text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="예) 판교역로 235, 제주 첨단로 242 \n"
+                android:textColor="@color/lightblue"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/searchStore_text4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="지역명(동/리) + 번지"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/searchStore_text5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="예) 삼평동 681, 제주 양평동 2181 \n"
+                android:textColor="@color/lightblue"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/searchStore_text6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="지역명(동/리) + 건물명(아파트명)"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/searchStore_text7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="예) 분당 주공, 연수동 주공 3차 \n"
+                android:textColor="@color/lightblue"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/searchStore_text8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="사서함명 + 번호"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/searchStore_text9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="예) 분당우체국사서함 1-100"
+                android:textColor="@color/lightblue"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

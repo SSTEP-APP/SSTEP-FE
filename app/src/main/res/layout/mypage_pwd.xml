@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:id="@+id/mypage_pwd_layoutL"
+    tools:context=".mypage.MyPage_Pwd">
+    <!-- top_비밀번호 변경-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/mypage_pwd_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/top"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="비밀번호 변경"
+            android:textColor="@color/likeblack"
+            android:textSize="17sp" />
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/mypage_pwd_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <!-- 선택들 L-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/yroundrec_w"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp">
+        <!-- 현재 비밀번호 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="현재 비밀번호"
+            android:textSize="15sp"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/mypage_pwd_currentPwdEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yedittext_w_sg"
+            android:textCursorDrawable="@drawable/yet_cursor"
+            android:fontFamily="@font/nanumsquareneo_brg"
+            android:textColor="@color/black"
+            android:textColorHint="#C6C6C8"
+            android:hint="현재 비밀번호"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"/>
+        <TextView
+            android:id="@+id/mypage_pwd_currentPwdtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호가 맞습니다."
+            android:textSize="11sp"
+            android:textColor="@color/lightblue"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/mypage_pwd_line1"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@drawable/yunderline_text"
+            android:minHeight="1dp"
+            android:layout_marginTop="15dp"/>
+        
+        <!-- 새 비밀번호 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="새 비밀번호"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <EditText
+                android:id="@+id/mypage_pwd_newPwdEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yedittext_w_sg"
+                android:textCursorDrawable="@drawable/yet_cursor"
+                android:fontFamily="@font/nanumsquareneo_brg"
+                android:textColor="@color/black"
+                android:textColorHint="#C6C6C8"
+                android:hint="새 비밀번호"
+                android:textSize="15sp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:inputType="textPassword"/>
+            <CheckBox
+                android:id="@+id/mypage_pwd_newPwdCb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="15dp"
+                android:checked="false"
+                android:button="@drawable/ychbox_eyeonoff"/>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/mypage_pwd_newPwdTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* 영문,숫자,특수문자 조합하여 6자 이상 입력해 주세요."
+            android:textSize="11sp"
+            android:textColor="@color/red"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+            <EditText
+                android:id="@+id/mypage_pwd_newcheckPwdEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yedittext_w_sg"
+                android:textCursorDrawable="@drawable/yet_cursor"
+                android:fontFamily="@font/nanumsquareneo_brg"
+                android:textColor="@color/black"
+                android:textColorHint="#C6C6C8"
+                android:hint="새 비밀번호 재입력"
+                android:textSize="15sp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:inputType="textPassword"/>
+            <CheckBox
+                android:id="@+id/mypage_pwd_newcheckPwdCb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="15dp"
+                android:checked="false"
+                android:button="@drawable/ychbox_eyeonoff"/>
+        </FrameLayout>
+        <TextView
+            android:id="@+id/mypage_pwd_newcheckPwdTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호가 일치하지 않습니다."
+            android:textSize="11sp"
+            android:textColor="@color/red"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:visibility="invisible"/>
+
+    </LinearLayout> <!-- 선택들 L-->
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/mypage_pwd_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:text="비밀번호 변경"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/j_layout_background"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialog_cal_mainText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="급여날 선택"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <RadioGroup
+            android:id="@+id/dialog_cal_calendarRG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dialog_cal_infoText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="0.73"
+                    android:text="* 30일, 31일 ‘말일’로 선택해주세요."
+                    android:textColor="#000000" />
+
+                <RadioGroup
+                    android:id="@+id/dialog_cal_calendarRG0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/dialog_cal_undefined"
+                        android:layout_width="69dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="3.5"
+                        android:background="@drawable/j_dialog_calendar_radiobtn"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="미정" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/dialog_cal_calendarRG1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_1btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="1" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_2btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="2" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_3btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="3" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_4btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="4" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_5btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="5" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/dialog_cal_calendarRG2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_6btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="6" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_7btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="7" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_8btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="8" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_9btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="9" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_10btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="10" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/dialog_cal_calendarRG3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_11btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="11" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_12btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="12" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_13btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="13" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_14btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="14" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_15btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="15" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/dialog_cal_calendarRG4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_16btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="16" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_17btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="17" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_18btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="18" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_19btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="19" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_20btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="20" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/dialog_cal_calendarRG5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_21btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="21" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_22btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="22" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_23btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="23" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_24btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="24" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_25btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="25" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/dialog_cal_calendarRG6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_26btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="26" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_27btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="27" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_28btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="28" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_29btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="29" />
+
+                        <RadioButton
+                            android:id="@+id/dialog_cal_lastBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/j_dialog_calendar_radiobtn"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="말일" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+            </LinearLayout>
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/dialog_cal_line1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="30dp"
+        android:background="#737373" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialog_cal_cancleBtn"
+            android:layout_width="125dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:background="@drawable/j_button_left_round"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center"
+            android:text="닫기"
+            android:textColor="#0D69F3"
+            android:textSize="16dp" />
+
+        <View
+            android:id="@+id/dialog_cal_line2"
+            android:layout_width="0.5dp"
+            android:layout_height="58dp" />
+
+        <Button
+            android:id="@+id/dialog_cal_okBtn"
+            android:layout_width="125dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:background="@drawable/j_button_right_round"
+            android:backgroundTint="#0D69F3"
+            android:gravity="center"
+            android:text="확인"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

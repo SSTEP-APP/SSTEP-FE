@@ -6,5 +6,39 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="likeblack">#292929</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue">#0D69F3</color>
+    <color name="lightblue">#2375F2</color>
+    <color name="pielight">#DDDDDD</color>
+    <color name="piedark">#AAAAAA</color>
+    <color name="dialogred">#D15D60</color>
+    <color name="lightred">#F16F75</color>
+    <color name="red">#DF1515</color>
+    <color name="currentColor">#000000</color>
+    <color name="grey_737373">#737373</color>
+    <color name="yedittext_sg">#C4C4C4</color>
+    <color name="ypaperwinput_cboff">#DCDCDC</color>
+
+    <color name="editTextHint">#828282</color>
+
+    <!-- 전체 배경 -->
+    <color name="background">#F6F6F6</color>
+
+    <!-- 맨 위에 top_배경,text -->
+    <color name="top">#FFFFFFFF</color>
+    <color name="topText">#FF000000</color>
+
+    <!-- 맨 아래 버튼 off/on -->
+    <color name="offbutton">#DCECF9</color>
+    <color name="onbutton">#0D69F3</color>
+    <color name="bottombackground">#FFFFFFFF</color>
+
+    <!-- 구분선 line -->
+    <color name="line">#D9D9D9</color>
+
+    <!-- 밝은 글씨 line -->
+    <color name="lightText">#A4A4A4</color>
+    <color name="datePickerBack">#2084E0</color>
+
 </resources>

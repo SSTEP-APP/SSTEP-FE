@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- top_직원 급여 정보 -->
+    <FrameLayout
+        android:id="@+id/money_staff_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/money_staff_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/lightblue"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="사업장 급여 정보"
+            android:textColor="@color/white"
+            android:textSize="17sp"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/money_staff_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/money_staff_scoll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+        <!-- 스크롤 _L -->
+        <LinearLayout
+            android:id="@+id/money_staff_scollL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- 직원 프로필 _HL -->
+            <LinearLayout
+                android:id="@+id/money_staff_siHL1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+                <ImageView
+                    android:id="@+id/money_staff_siiv1"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:background="@drawable/yicon_stafffemale"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="15dp"/>
+                <!-- 직원 정보 _L -->
+                <LinearLayout
+                    android:id="@+id/money_staff_L1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- 이름, 직급 _HL -->
+                    <LinearLayout
+                        android:id="@+id/money_staff_HL1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/money_staff_sitv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="김유경"
+                            android:textSize="16sp"
+                            android:textColor="#595959"
+                            android:layout_marginRight="10dp"/>
+                        <TextView
+                            android:id="@+id/money_staff_sitv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="[매니저]"
+                            android:textSize="12sp"
+                            android:textColor="#595959"/>
+                    </LinearLayout> <!-- 이름, 직급 _HL -->
+
+                    <TextView
+                        android:id="@+id/money_staff_sitv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시급 10,000원"
+                        android:textSize="11sp"
+                        android:textColor="#595959"
+                        android:layout_marginTop="8dp"/>
+                    <TextView
+                        android:id="@+id/money_staff_sitv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="근무기간 (0개월)"
+                        android:textSize="11sp"
+                        android:textColor="#595959"
+                        android:layout_marginTop="3dp"/>
+                    <TextView
+                        android:id="@+id/money_staff_sitv5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2023.01.26 ~ 계속"
+                        android:textSize="11sp"
+                        android:textColor="#595959"
+                        android:layout_marginTop="3dp" />
+                    <TextView
+                        android:id="@+id/money_staff_sitv6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="수습기간 ~2023.02.26까지 (80%적용)"
+                        android:textSize="11sp"
+                        android:textColor="#595959"
+                        android:layout_marginTop="3dp" />
+                </LinearLayout> <!-- 직원 정보 _L -->
+            </LinearLayout> <!-- 직원 프로필 _HL -->
+            
+            <!-- 날짜 선택 _HL -->
+            <LinearLayout
+                android:id="@+id/money_staff_HL2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+                <ImageButton
+                    android:id="@+id/money_staff_leftib"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/yicon_left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <!-- 날짜 text _L -->
+                <LinearLayout
+                    android:id="@+id/money_staff_L2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/money_staff_datetv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2023년 2월"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="#595959"/>
+                    <TextView
+                        android:id="@+id/money_staff_termtv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(2월 14일 ~ 3월 13일)"
+                        android:textSize="11sp"
+                        android:textColor="#595959"
+                        android:layout_marginTop="3dp"/>
+                </LinearLayout> <!-- 날짜 text _L -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <ImageButton
+                    android:id="@+id/money_staff_reib"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/yicon_refresh"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity="center_vertical"/>
+                <ImageButton
+                    android:id="@+id/money_staff_rightib"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/yicon_right"
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout> <!-- 날짜 선택 _HL -->
+
+            <!-- 고용주 지출액 _L -->
+            <LinearLayout
+                android:id="@+id/money_staff_L3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="10dp">
+                <!-- 고용주 지출액 _HL -->
+                <LinearLayout
+                    android:id="@+id/money_staff_ceoupdownHL1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="고용주 지출액"
+                        android:textColor="#595959"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:id="@+id/money_staff_ceototaltv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="182,330 원"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center_vertical"/>
+                    <!-- up&down 버튼 숨김 _F -->
+                    <ImageView
+                        android:id="@+id/money_staff_ceoupiv"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/yicon_up"
+                        android:visibility="visible"/>
+                </LinearLayout> <!-- 고용주 지출액 _HL -->
+                <!-- 고용주 지출액 내리기 _L -->
+                <LinearLayout
+                    android:id="@+id/money_staff_ceohidL1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="30dp"
+                    android:visibility="visible">
+                    <!-- 급여지급액 _HL -->
+                    <LinearLayout
+                        android:id="@+id/money_staff_HL4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/money_staff_tv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="급여지급액"
+                            android:textSize="13sp"
+                            android:textColor="#595959"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/money_staff_ceowtv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="176,330 원"
+                            android:textSize="13sp"
+                            android:textColor="#595959"/>
+                    </LinearLayout> <!-- 급여지급액 _HL -->
+                    <!-- 4대보험 고용주부담금 _HL -->
+                    <LinearLayout
+                        android:id="@+id/money_staff_HL5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginBottom="18dp">
+                        <TextView
+                            android:id="@+id/money_staff_tv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4대보험 고용주부담금"
+                            android:textSize="13sp"
+                            android:textColor="#595959"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/money_staff_ceowtv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(+) 0 원"
+                            android:textSize="13sp"
+                            android:textColor="#595959"/>
+                    </LinearLayout> <!-- 4대보험 고용주부담금 _HL -->
+                    <!-- 4대보험 근로자부담금 _HL -->
+                    <LinearLayout
+                        android:id="@+id/money_staff_HL6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="18dp">
+                        <TextView
+                            android:id="@+id/money_staff_tv4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4대보험 근로자부담금"
+                            android:textSize="13sp"
+                            android:textColor="#595959"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/money_staff_ceowtv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(+) 0 원"
+                            android:textSize="13sp"
+                            android:textColor="#595959"/>
+                    </LinearLayout> <!-- 4대보험 근로자부담금 _HL -->
+                    <!-- 원천세 _HL -->
+                    <LinearLayout
+                        android:id="@+id/money_staff_HL7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/money_staff_tv5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="원천세"
+                            android:textSize="13sp"
+                            android:textColor="#595959"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/money_staff_ceowtv4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(+) 6,000 원"
+                            android:textSize="13sp"
+                            android:textColor="#595959"/>
+                    </LinearLayout> <!-- 원천세 _HL -->
+                </LinearLayout> <!-- 고용주 지출액 내리기 _L -->
+            </LinearLayout> <!-- 고용주 지출액 _L -->
+
+            <!-- 근로자 수령액(시급) _L -->
+            <LinearLayout
+                android:id="@+id/money_staff_L4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="70dp"
+                android:background="@drawable/yroundrec_w"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp">
+                <!-- 근로자 수령액(시급) _HL -->
+                <LinearLayout
+                    android:id="@+id/money_staff_workupdownHL1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="근로자 수령액(시급)"
+                        android:textColor="#595959"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:id="@+id/money_staff_stafftotaltv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="176,330 원"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center_vertical"/>
+                    <!-- up&down 버튼 숨김 _F -->
+                    <ImageView
+                        android:id="@+id/money_staff_workupiv1"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/yicon_up"
+                        android:visibility="visible"/>
+                </LinearLayout> <!-- 근로자 수령액(시급) _HL -->
+                <!-- 근로자 수령액(시급) 내리기 _L -->
+                <LinearLayout
+                    android:id="@+id/money_staff_workhidL1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:visibility="visible">
+                    <!-- 공제전 금액 _HL -->
+                    <LinearLayout
+                        android:id="@+id/money_staff_workupdownHL2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="10dp"
+                        android:clickable="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="공제전 금액"
+                            android:textSize="13sp"
+                            android:textColor="#595959"
+                            android:layout_gravity="center_vertical"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/money_staff_staffwtv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="176,330 원"
+                            android:textSize="13sp"
+                            android:textColor="#595959"
+                            android:layout_gravity="center_vertical"/>
+                        <!-- up&down 버튼 숨김 _F -->
+                        <ImageView
+                            android:id="@+id/money_staff_workupiv2"
+                            android:layout_width="23dp"
+                            android:layout_height="23dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/yicon_up"
+                            android:visibility="visible"/>
+                    </LinearLayout> <!-- 급여지급액 _HL -->
+                    <!-- 공제전 금액 내리기 _L -->
+                    <LinearLayout
+                        android:id="@+id/money_staff_workhidL2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#f1f1f1"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="41dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:visibility="visible">
+                        <!-- 기본급 _HL -->
+                        <LinearLayout
+                            android:id="@+id/money_staff_HL10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/money_staff_tv8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="기본급"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/money_staff_stwtv1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="251,330 원"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                        </LinearLayout> <!-- 기본급 _HL -->
+                        <!-- 주휴수당 _HL -->
+                        <LinearLayout
+                            android:id="@+id/money_staff_HL11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp">
+                            <TextView
+                                android:id="@+id/money_staff_tv9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="주휴수당"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/money_staff_stwtv2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="(+)0 원"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                        </LinearLayout> <!-- 주휴수당 _HL -->
+                        <!-- 야간/초과/휴일 수당 _HL -->
+                        <LinearLayout
+                            android:id="@+id/money_staff_HL12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/money_staff_tv10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="야간/초과/휴일 수당"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/money_staff_stwtv3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="(+)0 원"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                        </LinearLayout> <!-- 야간/초과/휴일 수당_HL -->
+                        <!-- 지각/조퇴 차감 _HL -->
+                        <LinearLayout
+                            android:id="@+id/money_staff_HL13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp">
+                            <TextView
+                                android:id="@+id/money_staff_tv11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="지각/조퇴 차감"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/money_staff_stwtv4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="(-)9,000 원"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                        </LinearLayout> <!-- 지각/조퇴 차감 _HL -->
+                        <!-- 결근/휴무 차감 _HL -->
+                        <LinearLayout
+                            android:id="@+id/money_staff_HL14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/money_staff_tv12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="결근/휴무 차감"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/money_staff_stwtv5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="(-)60,000 원"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                        </LinearLayout> <!-- 결근/휴무 차감 _HL -->
+                    </LinearLayout> <!-- 공제전 금액 내리기 _L -->
+                    <!-- 4대보험 근로자부담금 _HL -->
+                    <LinearLayout
+                        android:id="@+id/money_staff_workupdownHL3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="10dp"
+                        android:clickable="true">
+                        <TextView
+                            android:id="@+id/money_staff_tv13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4대보험 근로자부담금"
+                            android:textSize="13sp"
+                            android:textColor="#595959"
+                            android:layout_gravity="center_vertical"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/money_staff_staffwtv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(-) 0 원"
+                            android:textSize="13sp"
+                            android:textColor="#595959"
+                            android:layout_gravity="center_vertical"/>
+                        <!-- up&down 버튼 숨김 _F -->
+                        <ImageView
+                            android:id="@+id/money_staff_workupiv3"
+                            android:layout_width="23dp"
+                            android:layout_height="23dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/yicon_up"
+                            android:visibility="visible"/>
+                    </LinearLayout> <!-- 4대보험 근로자부담금 _HL -->
+                    <!-- 4대보험 근로자부담금 내리기 _L -->
+                    <LinearLayout
+                        android:id="@+id/money_staff_workhidL3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#f1f1f1"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="41dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:visibility="visible">
+                        <!-- 국민연금 _HL -->
+                        <LinearLayout
+                            android:id="@+id/money_staff_HL16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/money_staff_tv14"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="국민연금"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/money_staff_stwtv6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="(-)0 원"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                        </LinearLayout> <!-- 국민연금 _HL -->
+                        <!-- 건강보험 _HL -->
+                        <LinearLayout
+                            android:id="@+id/money_staff_HL17"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp">
+                            <TextView
+                                android:id="@+id/money_staff_tv15"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="건강보험"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/money_staff_stwtv7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="(-)0 원"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                        </LinearLayout> <!-- 주휴수당 _HL -->
+                        <!-- 장기요양 _HL -->
+                        <LinearLayout
+                            android:id="@+id/money_staff_HL18"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/money_staff_tv16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="장기요양"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/money_staff_stwtv8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="(-)0 원"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                        </LinearLayout> <!-- 장기요양_HL -->
+                        <!-- 고용보험 _HL -->
+                        <LinearLayout
+                            android:id="@+id/money_staff_HL19"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+                            <TextView
+                                android:id="@+id/money_staff_tv17"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="고용보험"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/money_staff_stwtv9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="(-)9,000 원"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                        </LinearLayout> <!-- 고용보험 _HL -->
+                    </LinearLayout> <!-- 4대보험 근로자부담금 내리기 _L -->
+                    <!-- 원천세 _HL -->
+                    <LinearLayout
+                        android:id="@+id/money_staff_workupdownHL4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="18dp"
+                        android:clickable="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="원천세"
+                            android:textSize="13sp"
+                            android:textColor="#595959"
+                            android:layout_gravity="center_vertical"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/money_staff_staffwtv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(+) 6,000 원"
+                            android:textSize="13sp"
+                            android:textColor="#595959"
+                            android:layout_gravity="center_vertical"/>
+                        <!-- up&down 버튼 숨김 _F -->
+                        <ImageView
+                            android:id="@+id/money_staff_workupiv4"
+                            android:layout_width="23dp"
+                            android:layout_height="23dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/yicon_up"
+                            android:visibility="visible"/>
+                    </LinearLayout> <!-- 원천세 _HL -->
+                    <!-- 원천세 내리기 _L -->
+                    <LinearLayout
+                        android:id="@+id/money_staff_workhidL4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#f1f1f1"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="41dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:visibility="visible">
+                        <!-- 소득세 _HL -->
+                        <LinearLayout
+                            android:id="@+id/money_staff_HL21"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/money_staff_tv19"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="소득세"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/money_staff_stwtv10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="(-)5,460 원"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                        </LinearLayout> <!-- 소득세 _HL -->
+                        <!-- 지방소득세 _HL -->
+                        <LinearLayout
+                            android:id="@+id/money_staff_HL22"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp">
+                            <TextView
+                                android:id="@+id/money_staff_tv20"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="지방소득세"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                            <TextView
+                                android:id="@+id/money_staff_stwtv11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="(-)540 원"
+                                android:textSize="13sp"
+                                android:textColor="#595959"
+                                android:layout_gravity="center_vertical"/>
+                        </LinearLayout> <!-- 지방소득세 _HL -->
+                    </LinearLayout> <!-- 4대보험 근로자부담금 내리기 _L -->
+                </LinearLayout> <!-- 근로자 수령액(시급) 내리기 _L -->
+            </LinearLayout> <!-- 근로자 수령액(시급) _L -->
+        </LinearLayout> <!-- 스크롤 _L -->
+    </ScrollView>
+</LinearLayout>
