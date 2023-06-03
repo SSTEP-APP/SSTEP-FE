@@ -50,7 +50,7 @@
         <activity android:name=".user.start.Start4" android:exported="false" />
 
         <!-- joinlogin -->
-        <activity android:name=".user.login.Login" android:exported="false"/>
+        <activity android:name=".user.login.Login" android:exported="false" />
         <activity android:name=".user.join.JoinActivity" android:exported="false"/>
         <activity android:name=".user.login.Find_id" android:exported="false"/>
         <activity android:name=".user.login.Find_password" android:exported="false"/>
