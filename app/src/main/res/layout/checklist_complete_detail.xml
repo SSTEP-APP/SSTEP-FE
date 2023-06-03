@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".checklist.Checklist_complete_detail">
+    tools:context=".todo.checklist.Checklist_complete_detail">
 
     <!-- top_완료된 항목-->
     <FrameLayout

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".start.Start">
+    tools:context=".user.start.Start">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/start_viewpager"

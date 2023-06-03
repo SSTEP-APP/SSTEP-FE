@@ -176,7 +176,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="2023.02.24(금) 14:30"
+                            android:text="2023.05.31(수) 14:30"
                             android:textColor="#737373"
                             android:textSize="13sp" />
                     </LinearLayout> <!-- 공지사항 내용 _HL -->

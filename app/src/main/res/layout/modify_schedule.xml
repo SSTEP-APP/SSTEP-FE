@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".staff.modifySchedule">
+    tools:context=".user.staff.modifySchedule">
 
     <!-- top_일정 추가-->
     <FrameLayout

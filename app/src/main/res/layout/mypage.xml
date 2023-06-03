@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/background"
     android:id="@+id/mypage_L1"
-    tools:context=".mypage.MyPage">
+    tools:context=".user.mypage.MyPage">
     <!-- top_마이페이지-->
     <FrameLayout
         android:id="@+id/mypage_top"
