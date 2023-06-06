@@ -5,11 +5,14 @@ import static android.app.PendingIntent.getActivity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -24,19 +27,25 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.user.login.Login;
+
+import java.util.Random;
 
 public class JoinActivity extends AppCompatActivity implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener {
 
     ScrollView scroll;
     EditText idEt, nameEt, phonumEt, passEt, checkPassEt; String id, name, phonum, pass, checkPass;
-    ImageButton back_Btn; Button completeBtn, certBtn;
+    ImageButton back_Btn; Button completeBtn, idcertBtn, phonecertBtn;
     CheckBox passEyeCb, checkPassEyeCb;
     TextView checkText;
     Boolean completeBtn_state=Boolean.FALSE;
@@ -44,6 +53,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
     Dialog showComplete_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
     String testId;
+    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +69,10 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         back_Btn.setOnClickListener(this);
         completeBtn=findViewById(R.id.join_completeBtn);
         completeBtn.setOnClickListener(this);
-        certBtn=findViewById(R.id.join_certBtn);
-        certBtn.setOnClickListener(this);
+        idcertBtn=findViewById(R.id.join_idcertBtn);
+        idcertBtn.setOnClickListener(this);
+        phonecertBtn=findViewById(R.id.join_phonecertBtn);
+        phonecertBtn.setOnClickListener(this);
 
         scroll=findViewById(R.id.join_scroll);
         passEyeCb=findViewById(R.id.join_passEyeCb); passEyeCb.setOnCheckedChangeListener(this);
@@ -77,6 +89,12 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         phonumEt.addTextChangedListener(textWatcher);
         passEt.addTextChangedListener(textWatcher);
         checkPassEt.addTextChangedListener(textWatcher);
+
+        // SMS 보내기 권한 확인
+        if (ContextCompat.checkSelfPermission(JoinActivity.this, android.Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            // 권한 요청
+            ActivityCompat.requestPermissions(JoinActivity.this, new String[]{android.Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);
+        }
 
         // 전화번호 입력시 자동 '-' 입력
         phonumEt.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
@@ -165,13 +183,58 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                     showCompleteDl();
                 }
                 break;
-            case R.id.join_certBtn: // 중복확인 버튼
+            case R.id.join_idcertBtn: // id 중복확인 버튼
                 onCertDl();
+                break;
+            case R.id.join_phonecertBtn: // phone 중복확인 버튼
+                sendSMS();
                 break;
             default:
                 break;
         }
     }
+
+    // 휴대폰 인증 처리 메서드
+    private void sendSMS() {
+        // 휴대폰 인증 처리 코드 작성
+
+        // 휴대폰 인증번호 발송
+        String phoneNumber = phonumEt.getText().toString().trim().replace("-","");
+//        String phone = phoneNumber.replace("-","");
+//        String phoneNumber = "010-3452-5290";
+        if (!phoneNumber.isEmpty()) {
+            // 권한 체크
+            if (ContextCompat.checkSelfPermission(JoinActivity.this, android.Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+                // 인증번호 생성 및 발송
+                String verificationCode = generateVerificationCode();
+                sendVerificationCode(phoneNumber, "인증번호는 "+verificationCode+" 입니다.");
+            } else {
+                // 권한 요청
+                ActivityCompat.requestPermissions(JoinActivity.this, new String[]{android.Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);
+            }
+        } else {
+            Toast.makeText(JoinActivity.this, "휴대폰 번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // 인증번호 생성 메서드
+    private String generateVerificationCode() {
+        Random random = new Random();
+        int verificationCode = random.nextInt(900000) + 100000;
+        return String.valueOf(verificationCode);
+    }
+
+    // 인증번호 발송 메서드
+    private void sendVerificationCode(String phoneNumber, String verificationCode) {
+        try {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNumber, null, verificationCode, null, null);
+        } catch (Exception e) {
+            Toast.makeText(JoinActivity.this, "인증번호 발송에 실패했습니다." + verificationCode, Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
 
     // EditText 밖에 터치 시 키보드 내리기
     void hideKeyboard() {
@@ -244,5 +307,4 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
-
 }

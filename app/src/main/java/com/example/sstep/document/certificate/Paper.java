@@ -4,27 +4,44 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
+import com.example.sstep.document.contract.PaperW;
+import com.example.sstep.document.contract.PaperWinput;
+import com.example.sstep.user.login.Login;
 
 public class Paper extends AppCompatActivity implements View.OnClickListener{
 
-    FrameLayout paper_workpF, paper_healthpF;
+    FrameLayout workpF, healthpF;
+    ImageButton backib;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paper);
-        paper_workpF = findViewById(R.id.paper_workpF); paper_healthpF = findViewById(R.id.paper_healthpF);
-
+        workpF = findViewById(R.id.paper_workpF); workpF.setOnClickListener(this);
+        healthpF = findViewById(R.id.paper_healthpF); healthpF.setOnClickListener(this);
+        backib = findViewById(R.id.paper_backib); backib.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch (v.getId()){
+            case R.id.paper_backib: // '뒤로가기' 선택 시
+                intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+                break;
             case R.id.paper_healthpF: // '보건증_F' 선택 시
-                Intent intent = new Intent(getApplicationContext(), PaperH.class);
+                intent = new Intent(getApplicationContext(), PaperHinput.class);
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.paper_workpF: // '근로계약서_F' 선택 시
+                intent = new Intent(getApplicationContext(), PaperWinput.class);
                 startActivity(intent);
                 finish();
                 break;

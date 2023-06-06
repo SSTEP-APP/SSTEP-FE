@@ -1,4 +1,4 @@
-package com.example.sstep.document;
+package com.example.sstep.document.contract;
 
 import android.content.Context;
 import android.view.LayoutInflater;

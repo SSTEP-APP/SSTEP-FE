@@ -10,6 +10,9 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.DIAL_PHONE" />
 
+    <!-- SMS 권한 -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -47,7 +50,7 @@
         <activity android:name=".user.start.Start4" android:exported="false" />
 
         <!-- joinlogin -->
-        <activity android:name=".user.login.Login" android:exported="false"/>
+        <activity android:name=".user.login.Login" android:exported="false" />
         <activity android:name=".user.join.JoinActivity" android:exported="false"/>
         <activity android:name=".user.login.Find_id" android:exported="false"/>
         <activity android:name=".user.login.Find_password" android:exported="false"/>

@@ -1,4 +1,4 @@
-package com.example.sstep.document;
+package com.example.sstep.document.contract;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -76,7 +76,11 @@ public class PwiEndTimeAdapterSpinner extends BaseAdapter {
         }
         if(Data!=null){
             String text = Data.get(position);
-            ((TextView) convertView.findViewById(R.id.paperwinput_spinner_view_text)).setText(text);
+            if(text.equals("종료시간")) {
+                ((TextView) convertView.findViewById(R.id.paperwinput_spinner_view_text)).setHint(text);
+            }else{
+                ((TextView) convertView.findViewById(R.id.paperwinput_spinner_view_text)).setText(text);
+            }
         }
         return convertView;
     }

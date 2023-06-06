@@ -12,13 +12,13 @@
         android:id="@+id/logIn_mainText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="33dp"
         android:layout_marginTop="117dp"
         android:background="@drawable/yicon_sstep"
         android:lineSpacingExtra="15dp"
         android:textColor="#616161"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +50,7 @@
             android:fontFamily="@font/nanumsquareneo_brg"
             android:padding="15dp"
             android:ems="10"
-            android:hint=" 비밀번호 (영문,숫자 조합 6자 이상)"
+            android:hint=" 비밀번호"
             android:inputType="textPassword"
             android:textColorHint="@color/editTextHint"
             android:textSize="15sp" />
@@ -113,15 +113,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
 
         <Button
             android:id="@+id/logIn_sighIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="회원가입"
             android:textColor="#616161"
@@ -138,7 +136,6 @@
             android:id="@+id/logIn_searchId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="아이디 찾기"
             android:textColor="#616161"
@@ -155,7 +152,6 @@
             android:id="@+id/logIn_searchPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="비밀번호 찾기"
             android:textColor="#616161"

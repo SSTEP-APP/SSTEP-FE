@@ -19,6 +19,7 @@ public class CustomDrawingView extends View {
     private int canvasColor = Color.WHITE;
 
     private ScrollView parentScrollView;
+    private boolean isCeoSign = false;
 
     public CustomDrawingView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -42,6 +43,23 @@ public class CustomDrawingView extends View {
     public void clearCanvas() {
         drawCanvas.drawColor(canvasColor);
         invalidate();
+        isCeoSign = false;
+    }
+
+    // 그림 변경 리스너 인터페이스 정의
+    public interface OnDrawingChangeListener {
+        void onDrawingChanged(boolean hasDrawing);
+    }
+
+    private OnDrawingChangeListener drawingChangeListener;
+
+    // 그림 변경 리스너 설정 메서드
+    public void setOnDrawingChangeListener(OnDrawingChangeListener listener) {
+        drawingChangeListener = listener;
+    }
+
+    public boolean isCeoSign() {
+        return isCeoSign;
     }
 
 
@@ -57,6 +75,11 @@ public class CustomDrawingView extends View {
         super.onDraw(canvas);
         canvas.drawBitmap(canvasBitmap, 0, 0, null);
         canvas.drawPath(drawingPath, drawingPaint);
+
+        // 그림 변경 리스너 호출
+        if (drawingChangeListener != null) {
+            drawingChangeListener.onDrawingChanged(isCeoSign);
+        }
     }
 
     @Override
@@ -80,6 +103,7 @@ public class CustomDrawingView extends View {
                 }
                 drawCanvas.drawPath(drawingPath, drawingPaint);
                 drawingPath.reset();
+                isCeoSign=true;
                 break;
             default:
                 return false;
