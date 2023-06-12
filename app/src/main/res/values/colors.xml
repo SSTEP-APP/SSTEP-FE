@@ -20,6 +20,7 @@
     <color name="yedittext_sg">#C4C4C4</color>
     <color name="ypaperwinput_cboff">#DCDCDC</color>
 
+    <color name="yradiobtn_tabletext">#d6d6d6</color>
     <color name="editTextHint">#828282</color>
 
     <!-- 전체 배경 -->

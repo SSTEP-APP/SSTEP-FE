@@ -200,8 +200,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
 
         // 휴대폰 인증번호 발송
         String phoneNumber = phonumEt.getText().toString().trim().replace("-","");
-//        String phone = phoneNumber.replace("-","");
-//        String phoneNumber = "010-3452-5290";
         if (!phoneNumber.isEmpty()) {
             // 권한 체크
             if (ContextCompat.checkSelfPermission(JoinActivity.this, android.Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {

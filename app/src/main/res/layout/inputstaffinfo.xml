@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".InputStaffInfo">
+    tools:context=".user.staff.InputStaffInfo">
 
     <!-- top_직원정보입력-->
     <FrameLayout
@@ -209,7 +209,7 @@
                                 android:cursorVisible="false"
                                 android:paddingLeft="15dp"
                                 android:paddingRight="15dp"
-                                android:text="2023년 1월 25일"
+                                android:text="입사일 설정"
                                 android:textColor="@color/blue"
                                 android:textSize="13sp"
                                 android:visibility="visible" />
@@ -245,7 +245,7 @@
                                 android:cursorVisible="false"
                                 android:paddingLeft="15dp"
                                 android:paddingRight="15dp"
-                                android:text="2023년 1월 25일"
+                                android:text="급여지급일 설정"
                                 android:textColor="@color/blue"
                                 android:textSize="13sp"
                                 android:visibility="visible" />
@@ -728,7 +728,7 @@
                             android:paddingLeft="20dp"
                             android:paddingTop="15dp"
                             android:paddingBottom="15dp"
-                            android:visibility="visible">
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -751,14 +751,15 @@
                                     android:id="@+id/isi_pi_tgsetBtn1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:minWidth="0dp"
                                     android:minHeight="0dp"
                                     android:layout_marginRight="15dp"
-                                    android:background="@drawable/yroundrec_w_sblue"
-                                    android:text="2023년 1월 26일"
-                                    android:textColor="@color/blue"
+                                    android:background="@drawable/yroundrec_b"
+                                    android:text="설정"
+                                    android:textColor="@color/white"
                                     android:textSize="13sp"
-                                    android:paddingRight="10dp"
-                                    android:paddingLeft="10dp"
+                                    android:paddingRight="15dp"
+                                    android:paddingLeft="15dp"
                                     android:paddingTop="7dp"
                                     android:paddingBottom="7dp" />
                             </LinearLayout>
@@ -786,14 +787,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
-                                    android:background="@drawable/yroundrec_w_sblue"
                                     android:minWidth="0dp"
                                     android:minHeight="0dp"
-                                    android:text="100%"
-                                    android:textColor="@color/blue"
+                                    android:background="@drawable/yroundrec_b"
+                                    android:text="설정"
+                                    android:textColor="@color/white"
                                     android:textSize="13sp"
-                                    android:paddingRight="10dp"
-                                    android:paddingLeft="10dp"
+                                    android:paddingRight="15dp"
+                                    android:paddingLeft="15dp"
                                     android:paddingTop="7dp"
                                     android:paddingBottom="7dp" />
                             </LinearLayout>
@@ -878,7 +879,7 @@
                                 android:paddingLeft="20dp"
                                 android:paddingTop="15dp"
                                 android:paddingBottom="15dp"
-                                android:visibility="visible">
+                                android:visibility="gone">
 
                                 <CheckBox
                                     android:id="@+id/isi_pi_insCb1"
@@ -1212,7 +1213,7 @@
                                 android:layout_marginRight="20dp"
                                 android:paddingTop="2dp"
                                 android:paddingBottom="2dp"
-                                android:text="2023년 1월"
+                                android:text="2023년"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
 
