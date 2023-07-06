@@ -8,7 +8,6 @@ import com.example.sstep.user.member.MemberModel;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
