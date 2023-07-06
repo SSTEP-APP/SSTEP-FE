@@ -306,5 +306,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 baseDialog_okCenter.dismiss();
             }
         });
+
+
     }
 }

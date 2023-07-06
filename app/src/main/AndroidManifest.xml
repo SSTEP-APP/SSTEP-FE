@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <!-- 카메라 권한 -->
+    <!-- 인터넷 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 카메라 권한 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.DIAL_PHONE" />
-
-    <!-- SMS 권한 -->
+    <uses-permission android:name="android.permission.DIAL_PHONE" /> <!-- SMS 권한 -->
     <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
@@ -21,8 +18,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.SSTEP"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".user.login.Login_test"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!-- 카메라 추가 -->
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -32,9 +38,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
-        </provider>
-
-        <!-- start -->
+        </provider> <!-- start -->
         <activity
             android:name=".user.start.Start"
             android:exported="true">
@@ -44,22 +48,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".user.start.Start1" android:exported="false" />
-        <activity android:name=".user.start.Start2" android:exported="false" />
-        <activity android:name=".user.start.Start3" android:exported="false" />
-        <activity android:name=".user.start.Start4" android:exported="false" />
-
-        <!-- joinlogin -->
-        <activity android:name=".user.login.Login" android:exported="false" />
-        <activity android:name=".user.join.JoinActivity" android:exported="false"/>
-        <activity android:name=".user.login.Find_id" android:exported="false"/>
-        <activity android:name=".user.login.Find_password" android:exported="false"/>
-
+        <activity
+            android:name=".user.start.Start1"
+            android:exported="false" />
+        <activity
+            android:name=".user.start.Start2"
+            android:exported="false" />
+        <activity
+            android:name=".user.start.Start3"
+            android:exported="false" />
+        <activity
+            android:name=".user.start.Start4"
+            android:exported="false" /> <!-- joinlogin -->
+        <activity
+            android:name=".user.login.Login"
+            android:exported="false" />
+        <activity
+            android:name=".user.join.JoinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.login.Find_id"
+            android:exported="false" />
+        <activity
+            android:name=".user.login.Find_password"
+            android:exported="false" />
         <activity
             android:name=".user.staff.addSchedule"
-            android:exported="false">
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".user.staff.staff_infoInput"
             android:exported="true">
@@ -68,11 +83,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-
-
-        <!-- checklist -->
+        </activity> <!-- checklist -->
         <activity
             android:name=".todo.checklist.CheckList"
             android:exported="true">
@@ -84,14 +95,13 @@
         </activity>
         <activity
             android:name=".todo.checklist.Checklist_complete_detail"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".todo.checklist.Checklist_detail"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".todo.checklist.CheckList_write"
-            android:exported="false" />
-        <!-- notice -->
+            android:exported="false" /> <!-- notice -->
         <activity
             android:name=".todo.notice.Notice"
             android:exported="true">
@@ -111,7 +121,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".todo.notice.Notice_input" />
-
         <activity
             android:name=".performance.MonthState"
             android:exported="true">
@@ -120,9 +129,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- money -->
+        </activity> <!-- money -->
         <activity
             android:name=".money.Money_Ceo"
             android:exported="true">
@@ -140,9 +147,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- store -->
+        </activity> <!-- store -->
         <activity
             android:name=".store.modifyStore"
             android:exported="true">
@@ -164,9 +169,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".store.RegisterStore" />
-
-        <!-- staffInvite -->
+        <activity android:name=".store.RegisterStore" /> <!-- staffInvite -->
         <activity
             android:name=".StaffInvite"
             android:exported="true">
@@ -194,8 +197,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- mypage -->
+        </activity> <!-- mypage -->
         <activity
             android:name=".user.mypage.MyPage"
             android:exported="true">
@@ -205,12 +207,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".user.mypage.MyPage_Profile" android:exported="false" />
-        <activity android:name=".user.mypage.MyPage_Alarm" android:exported="false"/>
-        <activity android:name=".user.mypage.MyPage_Ask" android:exported="false"/>
-        <activity android:name=".user.mypage.MyPage_Pwd" android:exported="false"/>
-
-        <!-- paper -->
+        <activity
+            android:name=".user.mypage.MyPage_Profile"
+            android:exported="false" />
+        <activity
+            android:name=".user.mypage.MyPage_Alarm"
+            android:exported="false" />
+        <activity
+            android:name=".user.mypage.MyPage_Ask"
+            android:exported="false" />
+        <activity
+            android:name=".user.mypage.MyPage_Pwd"
+            android:exported="false" /> <!-- paper -->
         <activity
             android:name=".document.certificate.Paper"
             android:exported="true">
@@ -283,7 +291,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
