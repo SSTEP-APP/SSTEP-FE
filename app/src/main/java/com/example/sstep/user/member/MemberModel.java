@@ -28,4 +28,11 @@ public class MemberModel {
                 "Phone Number: " + phoneNum + "\n" +
                 "Password: " + password;
     }
+    public String getMemberId() {
+        return memberId;
+    }
+    public String getPassword() {
+        return password;
+    }
+
 }

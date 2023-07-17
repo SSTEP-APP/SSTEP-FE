@@ -15,4 +15,10 @@ public class MemberRequestDto {
     private String phoneNum;
     private String memberId;
     private String password;
+    public MemberRequestDto(String memberId, String name, String password, String phoneNum) {
+        this.memberId = memberId;
+        this.name = name;
+        this.password = password;
+        this.phoneNum = phoneNum;
+    }
 }

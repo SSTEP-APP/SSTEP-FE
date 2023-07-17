@@ -27,7 +27,7 @@ public class Login_test extends AppCompatActivity {
         try {
 
 
-            // 2. 네트워크 요청 구현
+            //네트워크 요청 구현
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
                     .addConverterFactory(GsonConverterFactory.create())
@@ -42,7 +42,7 @@ public class Login_test extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         MemberModel data = response.body();
                         // 3. 데이터 표시
-                        tv.setText(data.toString()); // 데이터를 TextView에 표시하는 예시입니다.
+                        tv.setText(data.toString()); // 데이터를 TextView에 표시하는 예시
                     } else {
                         // 오류 처리
                         int statusCode = response.code();
