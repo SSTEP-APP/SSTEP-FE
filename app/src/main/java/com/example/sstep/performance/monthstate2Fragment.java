@@ -42,8 +42,8 @@ public class monthstate2Fragment extends Fragment {
 
     public void setData() {
         datavalue = new ArrayList<>();
-        datavalue.add(new PieEntry(30, "결근률"));
-        datavalue.add(new PieEntry(70, "전체"));
+        datavalue.add(new PieEntry(0, "결근률"));
+        datavalue.add(new PieEntry(100, "전체"));
 
         pieDataSet = new PieDataSet(datavalue, "결근률");
         pieDataSet.setColors(colorArray);

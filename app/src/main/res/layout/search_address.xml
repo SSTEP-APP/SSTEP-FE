@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".store.Search_Store">
+    tools:context=".store.Search_Address">
 
     <!-- top_사업장 검색-->
     <FrameLayout
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="사업장 검색"
+            android:text="주소ㄴ 검색"
             android:textColor="@color/topText"
             android:textSize="17sp"
             android:textStyle="bold"/>
@@ -76,7 +76,7 @@
 
             <ImageButton
                 android:id="@+id/searchStore_searchbtn"
-                android:layout_width="30dp"
+                android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_gravity="right|center_vertical"
                 android:layout_marginRight="30dp"

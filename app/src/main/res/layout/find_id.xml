@@ -141,9 +141,11 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:id="@+id/findId_certF"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone">
                     <EditText
                         android:id="@+id/findId_certNumEt"
                         android:layout_width="match_parent"

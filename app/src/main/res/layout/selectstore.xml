@@ -32,12 +32,12 @@
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
-            android:id="@+id/selectstore_backIb"
+            android:id="@+id/selectstore_searchIbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/yicon_back" />
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/j_search_icon" />
     </FrameLayout>
 
     <!-- 사업장 등록하기 버튼 -->
@@ -138,7 +138,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp">
+                        android:layout_marginRight="20dp"
+                        android:clickable="true">
                         <TextView
                             android:id="@+id/selectstore_storenameTv"
                             android:layout_width="wrap_content"
@@ -185,13 +186,14 @@
                                 android:layout_marginLeft="10dp"
                                 android:textColor="@color/likeblack"/>
                         </LinearLayout>
+
                         <ImageView
                             android:id="@+id/selectstore_goIv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/yicon_goblue"
                             android:layout_gravity="center_vertical|right"
-                            android:layout_marginRight="20dp" />
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/yicon_goblue" />
                     </FrameLayout> <!-- 목록 _F -->
                 </LinearLayout><!-- 목록 list _L -->
             </FrameLayout> <!-- 텅/목록 list _숨김F -->

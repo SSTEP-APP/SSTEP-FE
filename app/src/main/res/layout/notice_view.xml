@@ -80,7 +80,7 @@
                             android:id="@+id/notice_view_nameTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="사장님"
+                            android:text="김유경"
                             android:textStyle="bold"
                             android:textColor="@color/likeblack"/>
                         <TextView
@@ -97,7 +97,7 @@
                         android:id="@+id/notice_view_dateTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="작성일 : 2023.02.28(화) 22:21"
+                        android:text="작성일 : 2023.07.19(수) 12:21"
                         android:layout_marginTop="10dp"
                         android:textSize="13sp"/>
                 </LinearLayout>
@@ -126,7 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/yedittext_w_sg"
-                    android:text="입력된 제목"
+                    android:text="[출근] 명찰 착용"
                     android:textColor="@color/likeblack"
                     android:textSize="13sp"
                     android:paddingLeft="15dp"
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:minHeight="80dp"
                     android:background="@drawable/yedittext_w_sg"
-                    android:text="입력된 내용"
+                    android:text="유니폼 명찰 착용해 주세요."
                     android:textColor="@color/likeblack"
                     android:textSize="13sp"
                     android:paddingLeft="15dp"

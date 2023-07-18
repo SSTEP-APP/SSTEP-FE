@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f1f1f1"
+    tools:context=".home.Home_staff">
+
+    <!-- top -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <!-- 메뉴 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp">
+            <ImageButton
+                android:id="@+id/homestaff_menuIBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yicon_homemenu"
+                android:layout_gravity="center_vertical|left"
+                android:layout_marginLeft="20dp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yicon_sstep"
+                android:layout_gravity="center_horizontal"/>
+        </FrameLayout>
+
+        <!-- 사업장 이름 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="15dp">
+            <TextView
+                android:id="@+id/homestaff_storeNameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사업장 이름"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/homeceo_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/homeceo_scrollL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- 사업장선택/마이페이지/멤버초대 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:paddingBottom="30dp">
+                <!-- 사업장선택/마이페이지 버튼 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="15dp">
+                    <Button
+                        android:id="@+id/homestaff_selectStoreBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_roundrec_homebtn"
+                        android:minHeight="0dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="55dp"
+                        android:paddingRight="55dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:text="사업장 선택"
+                        android:layout_marginRight="5dp"/>
+
+                    <Button
+                        android:id="@+id/homestaff_mypageBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_roundrec_homebtn"
+                        android:minHeight="0dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="55dp"
+                        android:paddingRight="55dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:text="마이페이지"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
+
+                <!-- 출퇴근 버튼 -->
+                <Button
+                    android:id="@+id/homestaff_commuteBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/yroundrec_w"
+                    android:backgroundTint="#3B84F3"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="출근하기"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+            </LinearLayout>
+
+            <!-- 해야할 일 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:paddingBottom="40dp"
+                android:layout_marginTop="15dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="해야할 일"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:layout_marginLeft="20dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="15dp"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="전체보기"
+                        android:textColor="@color/grey_737373"
+                        android:drawableRight="@drawable/yicon_go"
+                        android:drawableTint="@color/grey_737373"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:drawablePadding="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yimage_tengplus"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="새로운 할 일을 등록해보세요."
+                        android:layout_marginTop="20dp"/>
+                </LinearLayout>
+            </LinearLayout> <!-- 해야할 일 -->
+
+            <!-- 일정 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:paddingBottom="40dp"
+                android:layout_marginTop="15dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="일정"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:layout_marginLeft="20dp"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="전체보기"
+                        android:textColor="@color/grey_737373"
+                        android:drawableRight="@drawable/yicon_go"
+                        android:drawableTint="@color/grey_737373"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:drawablePadding="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/yicon_nocalendar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="일정이 없습니다."
+                        android:layout_marginTop="20dp"/>
+
+                    <Button
+                        android:layout_width="130dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/yroundrec_w"
+                        android:backgroundTint="#DFEEFF"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="일정 추가"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp"
+                        android:layout_marginTop="30dp"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+            </LinearLayout> <!-- 일정 -->
+
+            <!-- 공지사항 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:paddingBottom="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="30dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:layout_marginLeft="20dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="15dp"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="전체보기"
+                        android:textColor="@color/grey_737373"
+                        android:drawableRight="@drawable/yicon_go"
+                        android:drawableTint="@color/grey_737373"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:drawablePadding="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yimage_tengplus"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="새로운 공지을 등록해보세요."
+                        android:layout_marginTop="20dp"/>
+                </LinearLayout>
+            </LinearLayout> <!-- 해야할 일 -->
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

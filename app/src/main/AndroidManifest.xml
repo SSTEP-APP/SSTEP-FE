@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-    <!-- 인터넷 권한 -->
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- 카메라 권한 -->
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="CoarseFineLocation">
+    <!-- 카메라 권한 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.DIAL_PHONE" /> <!-- SMS 권한 -->
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- 위치 권한 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -26,19 +35,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <!-- 카메라 추가 -->
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.sstep"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
-        </provider> <!-- start -->
+        <!-- 시작화면 start -->
         <activity
             android:name=".user.start.Start"
             android:exported="true">
@@ -59,7 +56,9 @@
             android:exported="false" />
         <activity
             android:name=".user.start.Start4"
-            android:exported="false" /> <!-- joinlogin -->
+            android:exported="false" />
+
+        <!-- 로그인/회원가입 joinlogin -->
         <activity
             android:name=".user.login.Login"
             android:exported="false" />
@@ -72,18 +71,137 @@
         <activity
             android:name=".user.login.Find_password"
             android:exported="false" />
+
+        <!-- 사업장 선택 -->
         <activity
-            android:name=".user.staff.addSchedule"
-            android:exported="false"></activity>
-        <activity
-            android:name=".user.staff.staff_infoInput"
+            android:name=".store.SelectStore"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- checklist -->
+        </activity>
+
+        <!-- 사업장 등록 -->
+        <activity android:name=".store.RegisterStore" />
+        <activity
+            android:name=".store.Search_Address"
+            android:exported="false" />
+        <!-- 사업장 수정 -->
+        <activity
+            android:name=".store.modifyStore"
+            android:exported="false" />
+
+        <!-- 홈 화면 -->
+        <activity
+            android:name=".home.Home_Ceo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".home.Home_staff"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".home.Home_menu"
+            android:exported="false"/>
+
+        <!-- 직원정보입력 -->
+        <activity
+            android:name=".user.staff.InputStaffInfo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".user.staff.staff_infoInput"
+            android:exported="false"/>
+        <activity
+            android:name=".user.staff.addSchedule"
+            android:exported="false" />
+        <activity
+            android:name=".user.staff.modifySchedule"
+            android:exported="false" />
+
+        <!-- 사업장 월별 현황 -->
+        <activity
+            android:name=".performance.MonthState"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 알림 -->
+        <activity
+            android:name=".alarm.Alarm"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 문서 관리 -->
+        <activity
+            android:name=".document.certificate.Paper"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 문서 관리 _ 근로계약서 -->
+        <activity
+            android:name=".document.contract.PaperW"
+            android:exported="false" />
+        <activity
+            android:name=".document.contract.PaperWphoto"
+            android:exported="false"/>
+        <activity
+            android:name=".document.contract.PaperWlist"
+            android:exported="false"/>
+        <activity
+            android:name=".document.contract.PaperWinput"
+            android:exported="false"/>
+        <activity
+            android:name=".document.contract.PaperWceoview"
+            android:exported="false"/>
+
+        <!-- 문서 관리 _ 보건증 -->
+        <activity
+            android:name=".document.certificate.PaperH"
+            android:exported="false" />
+        <activity
+            android:name=".document.certificate.PaperHinput"
+            android:exported="false" />
+        <activity
+            android:name=".document.certificate.PaperHmodi"
+            android:exported="false" />
+        <activity
+            android:name=".document.certificate.PaperHview"
+            android:exported="false" />
+
+
+        <!-- 체크리스트 -->
         <activity
             android:name=".todo.checklist.CheckList"
             android:exported="true">
@@ -101,7 +219,10 @@
             android:exported="false" />
         <activity
             android:name=".todo.checklist.CheckList_write"
-            android:exported="false" /> <!-- notice -->
+            android:exported="false" />
+
+
+        <!-- 공지사항 -->
         <activity
             android:name=".todo.notice.Notice"
             android:exported="true">
@@ -121,83 +242,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".todo.notice.Notice_input" />
-        <activity
-            android:name=".performance.MonthState"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- money -->
-        <activity
-            android:name=".money.Money_Ceo"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".money.Money_Staff"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- store -->
-        <activity
-            android:name=".store.modifyStore"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".store.Search_Store"
-            android:exported="false" />
-        <activity
-            android:name=".store.SelectStore"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".store.RegisterStore" /> <!-- staffInvite -->
-        <activity
-            android:name=".StaffInvite"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".StaffInvite2" />
-        <activity
-            android:name=".StaffInvite3"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".InputStaffInfo"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- mypage -->
+        <!-- 마이페이지 -->
         <activity
             android:name=".user.mypage.MyPage"
             android:exported="true">
@@ -218,9 +265,24 @@
             android:exported="false" />
         <activity
             android:name=".user.mypage.MyPage_Pwd"
-            android:exported="false" /> <!-- paper -->
+            android:exported="false" />
+
+
+        <!-- 카메라 추가 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.sstep"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+
+        <!-- money -->
         <activity
-            android:name=".document.certificate.Paper"
+            android:name=".money.Money_Ceo"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -229,7 +291,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".document.certificate.PaperH"
+            android:name=".money.Money_Staff"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -237,8 +299,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
+
+
+        <!-- staffInvite -->
         <activity
-            android:name=".document.certificate.PaperHinput"
+            android:name=".StaffInvite"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -246,44 +314,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".StaffInvite2" />
         <activity
-            android:name=".document.certificate.PaperHmodi"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".document.certificate.PaperHview"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".document.contract.PaperW"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".document.contract.PaperWinput"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".document.contract.PaperWceoview"
+            android:name=".StaffInvite3"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_cancelok"
+    android:layout_width="wrap_content"
+    android:layout_height="276dp"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/ydialog_yesnored">
+
+
+    <!-- 내용 textview-->
+    <TextView
+        android:id="@+id/dialog_cancelokContentTv"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="text"
+        android:textColor="@color/likeblack" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <LinearLayout
+        android:id="@+id/dialog_cancelokHL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+        <!-- 취소 버튼 -->
+        <Button
+            android:id="@+id/dialog_cancelok_cancelBtn"
+            android:layout_width="180dp"
+            android:layout_height="75dp"
+            android:layout_gravity="bottom"
+            android:background="@null"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="취소"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <!-- 거절 버튼 -->
+        <Button
+            android:id="@+id/dialog_cancelok_okBtn"
+            android:layout_width="180dp"
+            android:layout_height="75dp"
+            android:layout_gravity="bottom|right"
+            android:background="@null"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="거절"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </LinearLayout>
+</LinearLayout>
