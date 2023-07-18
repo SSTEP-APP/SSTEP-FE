@@ -3,6 +3,7 @@ package com.example.sstep.user.start;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.View;
@@ -24,6 +25,9 @@ public class Start extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start);
+
+        // 카메라 권한 요청
+        ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 1);
 
         tabLayout = findViewById(R.id.start_tablayout);
         viewPager = findViewById(R.id.start_viewpager);

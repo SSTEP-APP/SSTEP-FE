@@ -17,6 +17,7 @@ import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -39,6 +40,7 @@ public class Find_id extends AppCompatActivity implements View.OnClickListener {
     Dialog showComplete_dialog;
     Intent intent;
     Boolean completeBtn_state=Boolean.FALSE;
+    FrameLayout certF;
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +61,7 @@ public class Find_id extends AppCompatActivity implements View.OnClickListener {
         layoutL=findViewById(R.id.findId_layoutL);
         nameEt=findViewById(R.id.findId_nameEt);
         phonumEt=findViewById(R.id.findId_phonumEt);
-
+        certF=findViewById(R.id.findId_certF);
         nameEt.addTextChangedListener(textWatcher);
         phonumEt.addTextChangedListener(textWatcher);
 
@@ -154,14 +156,13 @@ public class Find_id extends AppCompatActivity implements View.OnClickListener {
 
         // 휴대폰 인증번호 발송
         String phoneNumber = phonumEt.getText().toString().trim().replace("-","");
-//        String phone = phoneNumber.replace("-","");
-//        String phoneNumber = "010-3452-5290";
         if (!phoneNumber.isEmpty()) {
             // 권한 체크
             if (ContextCompat.checkSelfPermission(Find_id.this, android.Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                 // 인증번호 생성 및 발송
                 String verificationCode = generateVerificationCode();
                 sendVerificationCode(phoneNumber, "인증번호는 "+verificationCode+" 입니다.");
+                certF.setVisibility(View.VISIBLE);
             } else {
                 // 권한 요청
                 ActivityCompat.requestPermissions(Find_id.this, new String[]{android.Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);

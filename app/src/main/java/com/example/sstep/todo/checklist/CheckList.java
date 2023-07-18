@@ -1,18 +1,26 @@
 package com.example.sstep.todo.checklist;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
+import com.example.sstep.document.certificate.PaperHinput;
+import com.example.sstep.home.Home_Ceo;
+import com.example.sstep.user.staff.InputStaffInfo;
 import com.google.android.material.tabs.TabLayout;
 
 import java.text.SimpleDateFormat;
@@ -23,11 +31,12 @@ import java.util.List;
 
 public class CheckList extends AppCompatActivity {
 
+    Intent intent;
     private static final String TAG = "CheckList";
     private TabLayout tabs_layout;
     private ViewPager viewpager;
     private CheckListFragmentAdapter adapter;
-    ImageButton preDay, refreshBtn, calendarBtn, nextDay, plusBtn;
+    ImageButton backBtn, preDay, refreshBtn, calendarBtn, nextDay, plusBtn;
     static int changeDate = 0;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
 
@@ -42,10 +51,12 @@ public class CheckList extends AppCompatActivity {
     private List<String> list = new ArrayList<>();
 
     TextView todayText, weekDay; //오늘 날짜 표시 텍스트뷰, 요일 텍스트뷰
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.checklist);
+
         preDay = findViewById(R.id.checkList_preDayBtn);
         refreshBtn = findViewById(R.id.checkList_refreshBtn);
         calendarBtn = findViewById(R.id.checkList_calendarBtn);
@@ -56,6 +67,17 @@ public class CheckList extends AppCompatActivity {
         weekDay = findViewById(R.id.checkList_weekofdayText);
         spinner = findViewById(R.id.checkList_selectCategory);
         plusBtn = findViewById(R.id.checkList_plusBtn);
+        backBtn = findViewById(R.id.checkList_backBtn);
+
+        // 뒤로가기
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(getApplicationContext(), Home_Ceo.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         adapter = new CheckListFragmentAdapter(getSupportFragmentManager(),1);
 
@@ -171,6 +193,13 @@ public class CheckList extends AppCompatActivity {
                 finish();
             }
         });
+
+        calendarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showCalendarDialog(calendarBtn);
+            }
+        });
     }
 
 
@@ -213,4 +242,40 @@ public class CheckList extends AppCompatActivity {
 
 
 
+    // 달력 다이얼로그 띄우기
+    public void showCalendarDialog(final ImageButton imageButton) {
+        CalendarDialog calendarDialog = new CalendarDialog(CheckList.this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        // 사용자가 날짜를 선택하면 호출되는 콜백 메서드
+                        // 여기에 선택한 날짜 처리 코드를 작성합니다.
+                        String dateString = year + "년 " + (month + 1) + "월 " + dayOfMonth + "일";
+
+                        try {
+                            String dayOfWeek = getDateDay(year, month, dayOfMonth);
+                            weekDay.setText(dayOfWeek);
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+
+                        todayText.setText(dateString);
+                    }
+                });
+        // 다이얼로그 띄우기
+        calendarDialog.show();
+
+    }
+
+    // 선택한 날짜의 요일 가져오기
+    public String getDateDay(int year, int month, int dayOfMonth) throws Exception {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, dayOfMonth);
+
+        String[] weekDays = {"일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"};
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        String dayOfWeekString = weekDays[dayOfWeek - 1];
+
+        return dayOfWeekString;
+    }
 }

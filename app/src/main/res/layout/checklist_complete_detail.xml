@@ -157,14 +157,31 @@
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
-                <ImageView
-                    android:id="@+id/checkComDetail_picture"
+                <!-- 사진촬영 F -->
+                <ImageButton
+                    android:id="@+id/checkComDetail_pictureIb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/yicon_reccamera"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="25dp"
-                    android:background="@drawable/yicon_reccamera" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="visible"
+                    android:clickable="false"/>
+                <FrameLayout
+                    android:id="@+id/checkComDetail_photoF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+                    <ImageView
+                        android:id="@+id/checkComDetail_photoviewIv"
+                        android:layout_width="330dp"
+                        android:layout_height="250dp"
+                        android:background="@drawable/yroundrec_w_sg"
+                        android:layout_gravity="center_horizontal"
+                        android:scaleType="fitXY"
+                        android:layout_marginTop="10dp"/>
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -214,13 +231,14 @@
                         android:text="댓글"
                         android:textColor="@color/black"
                         android:textSize="14sp"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
-                        android:textColor="@color/blue"
                         android:fontFamily="@font/nanumsquareneo_deb"
-                        android:textSize="14sp"/>
+                        android:text="1"
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"

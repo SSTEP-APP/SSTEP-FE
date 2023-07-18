@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -19,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.document.contract.EditTextValidator;
-import com.example.sstep.user.join.JoinActivity;
 import com.example.sstep.user.login.Login;
 
 public class RegisterStore extends AppCompatActivity {
@@ -62,7 +60,7 @@ public class RegisterStore extends AppCompatActivity {
         addressBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Search_Store.class);
+                Intent intent = new Intent(getApplicationContext(), Search_Address.class);
                 startActivity(intent);
                 finish();
             }
@@ -103,7 +101,7 @@ public class RegisterStore extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), SelectStore.class);
                 startActivity(intent);
                 finish();
             }

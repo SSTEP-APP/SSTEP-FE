@@ -116,7 +116,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="#C6C6C8"
                 android:hint="전화번호"
-                android:text="010-1234-5678"
+                android:text="010-3505-7445"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"

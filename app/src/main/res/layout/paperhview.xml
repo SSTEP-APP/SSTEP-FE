@@ -121,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="68dp"
-                    android:text="2023.02.09"
+                    android:text="2023.07.19"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     android:gravity="center_horizontal"/>
@@ -144,7 +144,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="119dp"
-                    android:text="2024.02.09"
+                    android:text="2024.07.19"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     android:gravity="center_horizontal"/>
@@ -175,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="20dp"
-                android:text="입력일자 : 2023.02.09"
+                android:text="입력일자 : 2023.07.19"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:layout_gravity="right"
@@ -190,7 +190,7 @@
             android:layout_marginRight="40dp"
             android:layout_marginTop="50dp">
             <Button
-                android:id="@+id/paperview_modibtn1"
+                android:id="@+id/paperview_modiBtn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/yroundrec2_w_sb"
@@ -201,14 +201,15 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
+
             <Button
-                android:id="@+id/paperview_rebtn2"
+                android:id="@+id/paperview_reBtn2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
                 android:background="@drawable/yroundrec2_b"
                 android:text="갱신하기"
-                android:textColor="@color/white"
-                android:layout_gravity="right"/>
+                android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout> <!-- 보건증 상세, 버튼 포함 L -->
 </LinearLayout>

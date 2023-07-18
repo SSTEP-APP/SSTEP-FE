@@ -36,12 +36,12 @@ public class CalendarDialog extends DatePickerDialog {
         Calendar selectedDate = Calendar.getInstance();
         selectedDate.set(year, month, dayOfMonth);
 
-        Calendar currentDate = Calendar.getInstance();
-        if (selectedDate.before(currentDate)) {
-            // 선택한 날짜가 오늘 날짜보다 이전인 경우
-            Toast.makeText(mContext, "오늘 날짜 이후로 선택하세요.", Toast.LENGTH_SHORT).show();
-            // 오늘 날짜로 초기화
-            view.updateDate(currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DAY_OF_MONTH));
-        }
+//        Calendar currentDate = Calendar.getInstance();
+//        if (selectedDate.before(currentDate)) {
+//            // 선택한 날짜가 오늘 날짜보다 이전인 경우
+//            Toast.makeText(mContext, "오늘 날짜 이후로 선택하세요.", Toast.LENGTH_SHORT).show();
+//            // 오늘 날짜로 초기화
+//            view.updateDate(currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DAY_OF_MONTH));
+//        }
     }
 }

@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="100dp">
+            android:paddingBottom="70dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -382,6 +382,20 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp">
+                <TextView
+                    android:id="@+id/modistore_closeStoreTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="사업장 폐업하기"
+                    android:textColor="@color/red"
+                    android:gravity="center"
+                    android:clickable="true"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

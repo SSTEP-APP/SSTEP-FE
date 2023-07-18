@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.sstep.R;
 import com.example.sstep.document.contract.PaperW;
 import com.example.sstep.document.contract.PaperWinput;
+import com.example.sstep.document.contract.PaperWlist;
+import com.example.sstep.home.Home_Ceo;
 import com.example.sstep.user.login.Login;
 
 public class Paper extends AppCompatActivity implements View.OnClickListener{
@@ -31,17 +33,17 @@ public class Paper extends AppCompatActivity implements View.OnClickListener{
         Intent intent;
         switch (v.getId()){
             case R.id.paper_backib: // '뒤로가기' 선택 시
-                intent = new Intent(getApplicationContext(), Login.class);
+                intent = new Intent(getApplicationContext(), Home_Ceo.class);
                 startActivity(intent);
                 finish();
                 break;
             case R.id.paper_healthpF: // '보건증_F' 선택 시
-                intent = new Intent(getApplicationContext(), PaperHinput.class);
+                intent = new Intent(getApplicationContext(), PaperH.class);
                 startActivity(intent);
                 finish();
                 break;
             case R.id.paper_workpF: // '근로계약서_F' 선택 시
-                intent = new Intent(getApplicationContext(), PaperWinput.class);
+                intent = new Intent(getApplicationContext(), PaperWlist.class);
                 startActivity(intent);
                 finish();
                 break;

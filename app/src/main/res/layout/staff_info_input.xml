@@ -111,7 +111,7 @@
                         android:gravity="left"
                         android:minHeight="1dp"
                         android:padding="3dp"
-                        android:text="010-1234-1234"
+                        android:text="010-3505-7445"
                         android:textColor="@color/blue"
                         android:textSize="10sp" />
 

@@ -93,7 +93,7 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
         Intent intent;
         switch (v.getId()){
             case R.id.paperhinput_backib: // 뒤로가기
-                intent = new Intent(getApplicationContext(), Paper.class);
+                intent = new Intent(getApplicationContext(), PaperH.class);
                 startActivity(intent);
                 finish();
                 break;

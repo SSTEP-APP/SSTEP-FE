@@ -7,7 +7,8 @@
     android:layout_marginLeft="33dp"
     android:layout_marginTop="15dp"
     android:layout_marginBottom="15dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
 
     <TextView
         android:id="@+id/staff_info_RI_workScheduleDay"
@@ -40,11 +41,14 @@
         android:layout_weight="1" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/staff_info_RI_deleteIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="50dp"
-        app:srcCompat="@drawable/j_circle_cancel_img" />
+        app:srcCompat="@drawable/j_circle_cancel_img"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:clickable="true"/>
 
 </LinearLayout>
 

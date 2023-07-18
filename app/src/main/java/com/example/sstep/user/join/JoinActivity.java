@@ -2,6 +2,7 @@ package com.example.sstep.user.join;
 
 import static android.app.PendingIntent.getActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -54,6 +56,8 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
     BaseDialog_OkCenter baseDialog_okCenter;
     String testId;
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 100;
+    FrameLayout certF;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +87,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         passEt=findViewById(R.id.join_passEt);
         checkPassEt=findViewById(R.id.join_checkPassEt);
         checkText=findViewById(R.id.join_checkText);
+        certF=findViewById(R.id.join_certF);
 
         idEt.addTextChangedListener(textWatcher);
         nameEt.addTextChangedListener(textWatcher);
@@ -99,13 +104,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         // 전화번호 입력시 자동 '-' 입력
         phonumEt.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
 
-        scroll.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                hideKeyboard(); // EditText 밖에 터치 시 키보드 내리기
-                return false;
-            }
-        });
     }
 
     // EditText 다 채워지면 아래 버튼 활성화
@@ -188,6 +186,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.join_phonecertBtn: // phone 중복확인 버튼
                 sendSMS();
+                certF.setVisibility(View.VISIBLE);
                 break;
             default:
                 break;
@@ -200,8 +199,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
 
         // 휴대폰 인증번호 발송
         String phoneNumber = phonumEt.getText().toString().trim().replace("-","");
-//        String phone = phoneNumber.replace("-","");
-//        String phoneNumber = "010-3452-5290";
         if (!phoneNumber.isEmpty()) {
             // 권한 체크
             if (ContextCompat.checkSelfPermission(JoinActivity.this, android.Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
@@ -235,13 +232,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
-    // EditText 밖에 터치 시 키보드 내리기
-    void hideKeyboard() {
-        InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-
-    }
 
 
     @Override
