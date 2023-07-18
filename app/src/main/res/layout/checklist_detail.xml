@@ -12,17 +12,23 @@
     <FrameLayout
         android:id="@+id/checkList_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/checkList_topText"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@color/lightblue"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="마감 시 에어컨 끄기"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:text="해야할 일 등록"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
         <!-- 뒤로가기 아이콘 -->
         <ImageButton
@@ -33,221 +39,228 @@
             android:layout_marginLeft="20dp"
             android:background="@drawable/yicon_back" />
     </FrameLayout>
-
     <ScrollView
+        android:id="@+id/checkDetail_scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="none">
         <LinearLayout
+            android:id="@+id/checkDetail_scrollL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+            <!-- 제목 _L -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/j_layout_background"
-                android:orientation="vertical">
-
-
-                <LinearLayout
+                android:background="@color/white">
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="15dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/checkDetail_localendTimeText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="27dp"
-                        android:layout_marginTop="18dp"
-                        android:text="마감 예정시간"
-                        android:textColor="#636363"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:id="@+id/checkDetail_view1"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-
-                    <TextView
-                        android:id="@+id/checkDetail_endTimeText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="18dp"
-                        android:layout_marginRight="16dp"
-                        android:text="2023년 2월 10일 13:00까지"
-                        android:textColor="#636363"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <View
-                    android:id="@+id/checkDetail_line1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.75dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="#C6C6C6" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginRight="50dp"
-                    android:layout_marginBottom="15dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/checkDetail_localStaffName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="담당직원"
-                        android:textColor="#636363"
-                        android:textSize="13sp" />
-
-                    <View
-                        android:id="@+id/checkDetail_view2"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-
-                    <TextView
-                        android:id="@+id/checkDetail_staffNameText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="000"
-                        android:textColor="#636363"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginRight="50dp"
-                    android:layout_marginBottom="15dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/checkDetail_localCheckTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="확인시간"
-                        android:textColor="#636363"
-                        android:textSize="13sp" />
-
-                    <View
-                        android:id="@+id/checkDetail_view3"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-
-                    <TextView
-                        android:id="@+id/checkDetail_checkTimeText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="확인 전"
-                        android:textColor="#636363"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/j_layout_background"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/checkDetail_addImageview"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="18dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/yicon_camerablack" />
-
-                <Button
-                    android:id="@+id/checkDetail_addImageBtn"
-                    android:layout_width="216dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="25dp"
-                    android:background="@android:color/transparent"
-                    android:text="등록하기"
-                    android:textColor="#000000"
-                    android:textSize="11sp" />
-            </LinearLayout>
+                    android:text="할 일 제목"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"/>
+                <TextView
+                    android:id="@+id/checkDetail_titleTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:textColor="@color/black"
+                    android:text="제목"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="10dp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/j_layout_background"
-                android:orientation="vertical">
+                <!-- 내용 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="할 일 내용"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="40dp"/>
 
                 <TextView
-                    android:id="@+id/checkDetail_memoText"
+                    android:id="@+id/checkDetail_contentTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="17dp"
-                    android:layout_marginTop="16dp"
+                    android:minHeight="80dp"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:text="할 일 내용입니다."
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="top"
+                    android:lineSpacingExtra="5dp"/>
+
+                <!-- 마감 예정 시간ㅔ -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="마감 예정 시간"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="40dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp">
+                    <TextView
+                        android:id="@+id/checkDetail_endDateTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/likeblack"
+                        android:text="마감 예정 시간"
+                        android:textSize="13sp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:layout_weight="1"
+                    android:background="#737373"/>
+            </LinearLayout>
+
+            <!-- 보건증 촬용 Frame -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- 할일촬영_text -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="할 일 사진촬영"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/nanumsquareneo_deb"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@color/line" />
+                    <!-- 사진촬영 F -->
+                    <ImageButton
+                        android:id="@+id/checkDetail_addImageBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_reccamera"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:visibility="visible"/>
+                    <FrameLayout
+                        android:id="@+id/checkDetail_photoF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+                        <ImageView
+                            android:id="@+id/checkDetail_photoviewIv"
+                            android:layout_width="330dp"
+                            android:layout_height="250dp"
+                            android:background="@drawable/yroundrec_w_sg"
+                            android:layout_gravity="center_horizontal"
+                            android:scaleType="fitXY"
+                            android:layout_marginTop="10dp"/>
+                        <ImageButton
+                            android:id="@+id/checkDetail_deletePhotoBtn"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/yicon_closeg" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- 내용 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="메모"
-                    android:textColor="#969696"
-                    android:textSize="17sp" />
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="40dp"/>
 
                 <EditText
                     android:id="@+id/checkDetail_memoEt"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="19dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="19dp"
-                    android:layout_marginBottom="30dp"
-                    android:background="@drawable/j_button_stroke737373"
-                    android:ems="10"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="메모 내용을 입력해 주세요."
+                    android:inputType="text|textMultiLine"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"
                     android:gravity="top"
-                    android:hint="내용을 입력하세요."
-                    android:inputType="textMultiLine"
-                    android:padding="10dp"
-                    android:textColorHint="#9A9A9A"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-        </LinearLayout>
+                    android:lineSpacingExtra="5dp"/>
+            </LinearLayout> <!-- 보건증 촬용 Frame -->
+        </LinearLayout> <!-- 스크롤 _L -->
     </ScrollView>
 
-    <View
-        android:id="@+id/checkDetail_view4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <Button
-        android:id="@+id/checkDetail_completeBtn"
+    <!-- 맨 아래 버튼 변경 F -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="@drawable/j_layout_button_quad"
-        android:text="수정완료"
-        android:textColor="#FFFFFF" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/checkDetail_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:text="등록하기"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
 
 </LinearLayout>

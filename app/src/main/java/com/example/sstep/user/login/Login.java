@@ -150,7 +150,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showComplete_dialog.dismiss();
+                Intent intent = new Intent(getApplicationContext(), SelectStore.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

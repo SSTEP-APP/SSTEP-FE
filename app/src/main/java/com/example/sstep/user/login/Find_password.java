@@ -2,10 +2,12 @@ package com.example.sstep.user.login;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -16,14 +18,19 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.sstep.R;
+
+import java.util.Random;
 
 public class Find_password extends AppCompatActivity implements View.OnClickListener {
 
@@ -32,6 +39,8 @@ public class Find_password extends AppCompatActivity implements View.OnClickList
     CheckBox passEyeCb, checkPassEyeCb;
     TextView checkText;
     ImageButton back_Btn; Button certbtn, completeBtn;
+    FrameLayout certF;
+    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +62,7 @@ public class Find_password extends AppCompatActivity implements View.OnClickList
         passEyeCb=findViewById(R.id.findPass_passEyeCb);
         checkPassEyeCb=findViewById(R.id.findPass_checkPassEyeCb);
         checkText=findViewById(R.id.findPass_checkText);
+        certF=findViewById(R.id.findPass_certF);
 
         nameEt.addTextChangedListener(textWatcher);
         phonumEt.addTextChangedListener(textWatcher);
@@ -160,6 +170,7 @@ public class Find_password extends AppCompatActivity implements View.OnClickList
                 finish();
                 break;
             case R.id.findPass_certbtn: // 인증확인
+                sendSMS();
                 break;
             case R.id.findPass_completeBtn: // 완료버튼
                 Toast.makeText(getApplicationContext(),pass+checkPass+"클릭됨",Toast.LENGTH_SHORT).show();
@@ -173,5 +184,45 @@ public class Find_password extends AppCompatActivity implements View.OnClickList
     void hideKeyboard() {
         InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
         inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+    // 휴대폰 인증 처리 메서드
+    private void sendSMS() {
+        // 휴대폰 인증 처리 코드 작성
+
+        // 휴대폰 인증번호 발송
+        String phoneNumber = phonumEt.getText().toString().trim().replace("-","");
+        if (!phoneNumber.isEmpty()) {
+            // 권한 체크
+            if (ContextCompat.checkSelfPermission(Find_password.this, android.Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+                // 인증번호 생성 및 발송
+                String verificationCode = generateVerificationCode();
+                sendVerificationCode(phoneNumber, "인증번호는 "+verificationCode+" 입니다.");
+                certF.setVisibility(View.VISIBLE);
+            } else {
+                // 권한 요청
+                ActivityCompat.requestPermissions(Find_password.this, new String[]{android.Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);
+            }
+        } else {
+            Toast.makeText(Find_password.this, "휴대폰 번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // 인증번호 생성 메서드
+    private String generateVerificationCode() {
+        Random random = new Random();
+        int verificationCode = random.nextInt(900000) + 100000;
+        return String.valueOf(verificationCode);
+    }
+
+    // 인증번호 발송 메서드
+    private void sendVerificationCode(String phoneNumber, String verificationCode) {
+        try {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNumber, null, verificationCode, null, null);
+        } catch (Exception e) {
+            Toast.makeText(Find_password.this, "인증번호 발송에 실패했습니다." + verificationCode, Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
     }
 }

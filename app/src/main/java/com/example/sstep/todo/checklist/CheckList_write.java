@@ -1,8 +1,14 @@
 package com.example.sstep.todo.checklist;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,12 +17,15 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
+import com.example.sstep.document.certificate.PaperHinput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +41,16 @@ public class CheckList_write extends AppCompatActivity {
     ImageButton backBtn;
     EditText title, content;
     CheckBox endTimeCB , pictureCB, staffCB;
-    Button addEndTimeBtn, addStaffBtn;
-    LinearLayout staffList_layout, repeatTimeLayout, repeatPeriodLayout;
+    Button addEndTimeBtn, addStaffBtn, completeBtn;
+    LinearLayout staffList_layout, repeatLayout;
     RadioGroup repeatRG;
     Spinner repeatTimeSpinner, repeatStartSpinner, repeatEndSpinner;
     private CheckList_write_Spinner spinnerAdapter;
     private List<String> list = new ArrayList<>();
+    boolean completeBtnState;
+    Dialog showComplete_dialog;
+    BaseDialog_OkCenter baseDialog_okCenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +64,16 @@ public class CheckList_write extends AppCompatActivity {
         addEndTimeBtn = findViewById(R.id.checkList_write_addEndTimeBtn);
         addStaffBtn = findViewById(R.id.checkList_write_selectStaffBtn);
         staffList_layout = findViewById(R.id.checkList_write_staffList_layout);
-        repeatTimeLayout = findViewById(R.id.checkList_write_repeatTimeLayout);
-        repeatPeriodLayout = findViewById(R.id.checkList_write_repeatPeriodLayout);
+        repeatLayout = findViewById(R.id.checkList_write_repeatLayout);
         repeatRG = findViewById(R.id.checkList_write_repeatRG);
         repeatTimeSpinner = findViewById(R.id.checkList_write_repeatTimespinner);
+        completeBtn=findViewById(R.id.checkList_write_completeBtn);
+
+        baseDialog_okCenter = new BaseDialog_OkCenter(CheckList_write.this, R.layout.join_okdl);
+
+        showComplete_dialog = new Dialog(CheckList_write.this);
+        showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
+        showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
 
         //리사이클 뷰
         firstInit();
@@ -77,6 +96,30 @@ public class CheckList_write extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), CheckList.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        title.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkInputValidity();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        completeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showCompleteDl();
             }
         });
 
@@ -120,12 +163,10 @@ public class CheckList_write extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i){
                     case R.id.checkList_write_norepeatRB:
-                        repeatTimeLayout.setVisibility(View.GONE);
-                        repeatPeriodLayout.setVisibility(View.GONE);
+                        repeatLayout.setVisibility(View.GONE);
                         break;
                     case R.id.checkList_write_repeatRB:
-                        repeatTimeLayout.setVisibility(View.VISIBLE);
-                        repeatPeriodLayout.setVisibility(View.VISIBLE);
+                        repeatLayout.setVisibility(View.VISIBLE);
                         break;
                 }
             }
@@ -134,7 +175,7 @@ public class CheckList_write extends AppCompatActivity {
         //반복주기 스피너
         //스피너 값 설정
 
-        String[] repeatTerm = {"매일마다", "2일에 1번", "1주일에 1번"};
+        String[] repeatTerm = {"매일", "2일에 1번", "1주일에 1번"};
         for (int i = 0; i < repeatTerm.length; i++) {
             list.add(repeatTerm[i]);
         }
@@ -180,5 +221,38 @@ public class CheckList_write extends AppCompatActivity {
         item.setChecklist_write_staffName(subText);
 
         mList.add(item);
+    }
+
+    private void checkInputValidity() {
+        // 버튼 활성화&비활성화
+        boolean isTitle = !title.getText().toString().trim().isEmpty(); // true
+
+        completeBtnState = isTitle;
+        if (completeBtnState==true){
+            completeBtn.setEnabled(true);
+            completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnon);
+        }else{
+            completeBtn.setEnabled(false);
+            completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
+        }
+    }
+
+    public void showCompleteDl(){
+        showComplete_dialog.show();
+        // 다이얼로그의 배경을 투명으로 만든다.
+        showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        TextView join_okdl_commentTv; Button join_okdl_okBtn;
+        join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
+        join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
+        join_okdl_commentTv.setText("해야할 일을 추가하였습니다.");
+        // '로그인 dialog' _ 확인 버튼 클릭 시
+        join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CheckList.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

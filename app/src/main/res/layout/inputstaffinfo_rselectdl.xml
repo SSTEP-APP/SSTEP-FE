@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/inputStaffInfo_rselectdl_L1"
-    android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:id="@+id/inputStaffInfo_rselectdl"
+    android:layout_width="380dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/white">
 
@@ -26,27 +26,27 @@
         android:background="@color/white">
         <!-- 내용 textview-->
         <RadioGroup
-            android:id="@+id/inputStaffInfo_rselectdl_rg1"
+            android:id="@+id/inputStaffInfo_rselectdl_Rg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="15dp"
             android:paddingBottom="10dp">
             <RadioButton
-                android:id="@+id/inputStaffInfo_rselectdl_autorb1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:button="@drawable/yradiobtn_red"
-                android:checked="false"
-                android:text="(자동) 근로기준법 기준"
-                android:textSize="15sp"
-                android:paddingLeft="10dp"/>
-            <RadioButton
-                android:id="@+id/inputStaffInfo_rselectdl_manualrb2"
+                android:id="@+id/inputStaffInfo_rselectdl_autoRb1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:button="@drawable/yradiobtn_red"
                 android:checked="true"
+                android:text="(자동) 근로기준법 기준"
+                android:textSize="15sp"
+                android:paddingLeft="10dp"/>
+            <RadioButton
+                android:id="@+id/inputStaffInfo_rselectdl_manualRb2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/yradiobtn_red"
+                android:checked="false"
                 android:text="(수동) 월 근무시간 입력"
                 android:textSize="15sp"
                 android:layout_marginTop="20dp"
@@ -61,7 +61,7 @@
             android:layout_gravity="bottom"
             android:visibility="invisible">
             <EditText
-                android:id="@+id/inputStaffInfo_rselectdl_manualet1"
+                android:id="@+id/inputStaffInfo_rselectdl_manualEt"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -82,16 +82,15 @@
                 android:textColor="@color/blue" />
         </LinearLayout>
     </LinearLayout>
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
     <!-- 확인 버튼 -->
     <Button
-        android:id="@+id/inputStaffInfo_rselectdl_okbtn1"
+        android:id="@+id/inputStaffInfo_rselectdl_okBtn"
         android:layout_width="match_parent"
-        android:layout_height="78dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layout_marginTop="30dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:background="@color/blue"
         android:gravity="center_horizontal|center_vertical"
         android:text="확인"

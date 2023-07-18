@@ -1,14 +1,21 @@
 package com.example.sstep.todo.checklist;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,28 +23,46 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
+import com.example.sstep.store.SelectStore;
+import com.example.sstep.user.login.Login;
+
+import java.io.IOException;
 
 public class Checklist_detail extends AppCompatActivity {
-    TextView endTimeText, staffName, checkTime;
+    TextView endTimeText, titleTv, contentTv;
     EditText memoEt;
-    Button addImageBtn;
-    ImageButton backBtn;
+    ImageButton backBtn, addImageBtn, deletePhotoBtn;
     private final int GET_GALLERY_IMAGE = 200;
-    ImageView addImageview;
+    ImageView photoviewIv;
     private String selectType="";
+    FrameLayout photoF;
+    boolean completeBtnState;
+    Button completeBtn;
+    Dialog showComplete_dialog;
+    BaseDialog_OkCenter baseDialog_okCenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.checklist_detail);
-        endTimeText = findViewById(R.id.checkDetail_endTimeText);
-        staffName = findViewById(R.id.checkDetail_staffNameText);
-        checkTime = findViewById(R.id.checkDetail_checkTimeText);
+        endTimeText = findViewById(R.id.checkDetail_endDateTv);
+        titleTv = findViewById(R.id.checkDetail_titleTv);
+        contentTv = findViewById(R.id.checkDetail_contentTv);
         memoEt = findViewById(R.id.checkDetail_memoEt);
         addImageBtn = findViewById(R.id.checkDetail_addImageBtn);
-        addImageview = findViewById(R.id.checkDetail_addImageview);
+        photoviewIv = findViewById(R.id.checkDetail_photoviewIv);
         backBtn = findViewById(R.id.checkList_backBtn);
+        photoF = findViewById(R.id.checkDetail_photoF);
+        deletePhotoBtn = findViewById(R.id.checkDetail_deletePhotoBtn);
+        completeBtn = findViewById(R.id.checkDetail_completeBtn);
+
+        baseDialog_okCenter = new BaseDialog_OkCenter(Checklist_detail.this, R.layout.join_okdl);
+
+        showComplete_dialog = new Dialog(Checklist_detail.this);
+        showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
+        showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
 
 
         //뒤로가기 버튼
@@ -50,15 +75,50 @@ public class Checklist_detail extends AppCompatActivity {
             }
         });
 
+        // 사진 삭제 버튼
+        deletePhotoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                photoviewIv.setImageBitmap(null);
+                photoF.setVisibility(View.GONE);
+                addImageBtn.setVisibility(View.VISIBLE);
+                checkInputValidity();
+            }
+        });
+
+        // 완료 버튼
+        completeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showCompleteDl();
+            }
+        });
+
+        memoEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkInputValidity();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         //마감예정시간 텍스트
         endTimeText.setText("2023년 2월 10일 13:00까지"); //db연동시 수정
 
         //담당직원 텍스트
-        staffName.setText("000"); //db연동시 수정
+        titleTv.setText("000"); //db연동시 수정
 
         //확인시간 텍스트
-        checkTime.setText("확인전"); //db연동시 수정
+        contentTv.setText("확인전"); //db연동시 수정
 
         //dialog
         try {
@@ -112,8 +172,13 @@ public class Checklist_detail extends AppCompatActivity {
         if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             Uri selectedImageUri = data.getData();
-            addImageview.setImageURI(selectedImageUri);
-
+            photoviewIv.setImageURI(selectedImageUri);
+            try {
+                Bitmap selectedImage = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);
+                onPhotoSelected(selectedImage);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         //사진 찍어서 이미지뷰에 업로드
         if (requestCode == 0 && resultCode == RESULT_OK) {
@@ -124,7 +189,49 @@ public class Checklist_detail extends AppCompatActivity {
             Bitmap imageBitmap = (Bitmap) extras.get("data");
 
             // 이미지뷰에 Bitmap으로 이미지를 입력
-            addImageview.setImageBitmap(imageBitmap);
+            photoviewIv.setImageBitmap(imageBitmap);
+            onPhotoSelected(imageBitmap);
         }
+    }
+
+    public void onPhotoSelected(Bitmap bitmap) {
+        photoviewIv.setImageBitmap(bitmap);
+        photoviewIv.setClipToOutline(true);
+        photoF.setVisibility(View.VISIBLE);
+        addImageBtn.setVisibility(View.GONE);
+        checkInputValidity();
+    }
+
+    private void checkInputValidity() {
+        // 버튼 활성화&비활성화
+        boolean isPhotoviewIv = photoF.getVisibility() == View.VISIBLE; // true
+
+        completeBtnState = isPhotoviewIv;
+        if (completeBtnState==true){
+            completeBtn.setEnabled(true);
+            completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnon);
+        }else{
+            completeBtn.setEnabled(false);
+            completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
+        }
+    }
+
+    public void showCompleteDl(){
+        showComplete_dialog.show();
+        // 다이얼로그의 배경을 투명으로 만든다.
+        showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        TextView join_okdl_commentTv; Button join_okdl_okBtn;
+        join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
+        join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
+        join_okdl_commentTv.setText("해야할 일을 완료하였습니다.");
+        // '로그인 dialog' _ 확인 버튼 클릭 시
+        join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CheckList.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

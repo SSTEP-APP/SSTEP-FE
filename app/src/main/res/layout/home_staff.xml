@@ -116,6 +116,7 @@
 
                 <!-- 출퇴근 버튼 -->
                 <Button
+                    android:id="@+id/homestaff_commuteBtn"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/yroundrec_w"

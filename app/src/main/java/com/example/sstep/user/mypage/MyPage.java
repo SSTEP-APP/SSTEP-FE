@@ -8,17 +8,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
+import com.example.sstep.home.Home_Ceo;
+import com.example.sstep.user.login.Login;
 
 public class MyPage extends AppCompatActivity implements View.OnClickListener {
 
     LinearLayout alarmHL1, pwdHL2, askHL3, logoutHL4, dropHL5;
     Button profileBtn;
+    ImageButton backib;
     Dialog logoutdl, dropdl;
+    Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +36,7 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
         logoutHL4 = findViewById(R.id.mypage_logoutHL4); logoutHL4.setOnClickListener(this);
         dropHL5 = findViewById(R.id.mypage_dropHL5); dropHL5.setOnClickListener(this);
         profileBtn = findViewById(R.id.mypage_profileBtn); profileBtn.setOnClickListener(this);
+        backib = findViewById(R.id.mypage_backib); backib.setOnClickListener(this);
 
         logoutdl = new Dialog(MyPage.this); // Dialog 초기화
         logoutdl.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
@@ -45,6 +52,11 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()){
+            case R.id.mypage_backib: // 뒤로 가기
+                intent = new Intent(getApplicationContext(), Home_Ceo.class);
+                startActivity(intent);
+                finish();
+                break;
             case R.id.mypage_profileBtn: // 프로필 수정
                 intent = new Intent(getApplicationContext(), MyPage_Profile.class);
                 startActivity(intent);
@@ -94,7 +106,9 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
         logoutdl_logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                logoutdl.dismiss();
+                intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -117,7 +131,9 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
         dropdl_dropBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dropdl.dismiss();
+                intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

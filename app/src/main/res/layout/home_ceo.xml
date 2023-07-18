@@ -32,6 +32,14 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/yicon_sstep"
                 android:layout_gravity="center_horizontal"/>
+            <ImageButton
+                android:id="@+id/homeceo_alarmIBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yicon_bell"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="25dp"
+                android:padding="15dp"/>
         </FrameLayout>
 
         <!-- 사업장 이름 -->
@@ -189,6 +197,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
                     <Button
+                        android:id="@+id/homeceo_checklistBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="전체보기"
@@ -340,6 +349,7 @@
                     android:drawableRight="@drawable/yicon_go"
                     android:clickable="true"/>
                 <TextView
+                    android:id="@+id/homeceo_monthstateTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="사업장 현황"

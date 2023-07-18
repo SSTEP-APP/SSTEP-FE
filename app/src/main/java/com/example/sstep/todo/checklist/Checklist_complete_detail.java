@@ -1,25 +1,35 @@
 package com.example.sstep.todo.checklist;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
+import com.example.sstep.document.PhotoDialog;
+import com.example.sstep.document.certificate.PaperHinput;
+
+import java.io.IOException;
 
 public class Checklist_complete_detail extends AppCompatActivity {
 
     TextView title, content;
-    ImageButton menuBtn;
-    ImageView picture, backBtn;
+    ImageButton menuBtn, pictureIb;
+    ImageView backBtn, photoviewIv;
     EditText comment;
+    FrameLayout photoF;
 
 
     @Override
@@ -29,9 +39,11 @@ public class Checklist_complete_detail extends AppCompatActivity {
         title = findViewById(R.id.checkComDetail_checkListNameText);
         menuBtn = findViewById(R.id.checkComDetail_menuBtn);
         content = findViewById(R.id.checkComDetail_checkListContentText);
-        picture = findViewById(R.id.checkComDetail_picture);
+        pictureIb = findViewById(R.id.checkComDetail_pictureIb);
         comment = findViewById(R.id.checkComDetail_commentET);
         backBtn = findViewById(R.id.checkComDetail_backBtn);
+        photoviewIv = findViewById(R.id.checkComDetail_photoviewIv);
+        photoF = findViewById(R.id.checkComDetail_photoF);
 
         //메뉴 버튼
         menuBtn.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +72,7 @@ public class Checklist_complete_detail extends AppCompatActivity {
                 finish();
             }
         });
+
         //제목
         title.setText("마감시 에어컨 끄기");// db에서 받은 제목 표시
 
@@ -71,8 +84,6 @@ public class Checklist_complete_detail extends AppCompatActivity {
 
         //댓글 작성 작성자, 내용 받기
         comment.getText();
-
-
     }
 
 }

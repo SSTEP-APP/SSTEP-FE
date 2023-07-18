@@ -6,11 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
 
-public class Search_Store extends AppCompatActivity {
+public class Search_Address extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search_store);
+        setContentView(R.layout.search_address);
     }
 }

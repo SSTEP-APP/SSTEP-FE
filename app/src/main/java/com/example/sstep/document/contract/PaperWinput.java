@@ -156,15 +156,6 @@ public class PaperWinput extends AppCompatActivity implements CompoundButton.OnC
         // 전화번호 입력시 자동 '-' 입력
         storePhoneEt.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
 
-        // 키보드 내리기
-        scrollView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                hideKeyboard(); // EditText 밖에 터치 시 키보드 내리기
-                return false;
-            }
-        });
-
         // 소정근로시간_ 시작시간, 종료시간_ spinner
         startTimeSpDatas = getResources().getStringArray(R.array.paperw_workHour_startTime);
         endTimeSpDatas = getResources().getStringArray(R.array.paperw_workHour_endTime);
@@ -450,18 +441,12 @@ public class PaperWinput extends AppCompatActivity implements CompoundButton.OnC
         }
     }
 
-    void hideKeyboard() {
-        InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-
-    }
-
     @Override
     public void onClick(View v) {
         Intent intent;
         switch(v.getId()){
             case R.id.paperwinput_backib: // 뒤로가기
-                intent = new Intent(getApplicationContext(), Paper.class);
+                intent = new Intent(getApplicationContext(), PaperW.class);
                 startActivity(intent);
                 finish();
                 break;
