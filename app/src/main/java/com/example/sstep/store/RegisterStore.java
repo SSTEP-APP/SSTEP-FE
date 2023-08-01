@@ -23,7 +23,7 @@ import com.example.sstep.user.login.Login;
 public class RegisterStore extends AppCompatActivity {
     ImageButton backBtn;
     EditText nameEt, addressEt, detailEt;
-    Button addressBtn, paydayBtn, completeBtn;
+    Button addressBtn, completeBtn;
     RadioGroup scaleRadioGroup, planRadioGroup;
     RadioButton under5, over5, pay, free;
     Boolean ispaydayBtn=false;
@@ -38,7 +38,6 @@ public class RegisterStore extends AppCompatActivity {
         addressEt = findViewById(R.id.regiStore_addressEt);
         detailEt = findViewById(R.id.regiStore_detailEt);
         addressBtn = findViewById(R.id.regiStore_addressbtn);
-        paydayBtn = findViewById(R.id.regiStore_paydaybtn);
         completeBtn = findViewById(R.id.regiStore_completeBtn);
         scaleRadioGroup = findViewById(R.id.regiStore_scaleRadioGroup);
         planRadioGroup = findViewById(R.id.regiStore_planRadioGroup);
@@ -80,20 +79,6 @@ public class RegisterStore extends AppCompatActivity {
                         free.setEnabled(false); //버튼 비활성화
                         break;
                 }
-            }
-        });
-        paydayBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                RegisterStore_calendarDialog checkList_photo_dialog = new RegisterStore_calendarDialog
-                        (RegisterStore.this, new RegisterStore_calendarDialog.RegisterStore_calendarDialogListener() {
-                            public void clickBtn(String data) {
-                                paydayBtn.setText(data);
-                                ispaydayBtn = true;
-                                checkCompleteBtnState();
-                            }
-                        });
-                checkList_photo_dialog.show();
             }
         });
 
@@ -156,7 +141,7 @@ public class RegisterStore extends AppCompatActivity {
         boolean isaddressEt = !addressEt.getText().toString().trim().isEmpty();
         boolean isdetailEt = !detailEt.getText().toString().trim().isEmpty();
 
-        if(isnameEt && isaddressEt && isdetailEt && ispaydayBtn){
+        if(isnameEt && isaddressEt && isdetailEt){
             completeBtn.setEnabled(true);
             completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnon);
         }else{

@@ -11,6 +11,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:apiKey="AIzaSyBfGGbhoQpcitlIe-KBbvOsRwLtvmk6Y_E" />
+
+        <!-- 버튼 (현재 위치로 이동하는 버튼) -->
+        <ImageButton
+            android:id="@+id/currentLocationBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:background="@drawable/yicon_mapmarker"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/nocurrentLocationBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:background="@drawable/yicon_nomapmarker"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"/>
 
         <!-- 현재 위치로 버튼 -->
         <ImageButton

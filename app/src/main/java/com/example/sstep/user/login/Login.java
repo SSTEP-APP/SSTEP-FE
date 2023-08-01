@@ -81,21 +81,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.logIn_kakaoBtn:
-                intent = new Intent(getApplicationContext(), Notice.class);
-                startActivity(intent);
-                finish();
-                break;
-            case R.id.logIn_naverBtn:
-                intent = new Intent(getApplicationContext(), Paper.class);
-                startActivity(intent);
-                finish();
-                break;
-            case R.id.logIn_googleBtn:
-                intent = new Intent(getApplicationContext(), SelectStore.class);
-                startActivity(intent);
-                finish();
-                break;
             default:
                 break;
         }

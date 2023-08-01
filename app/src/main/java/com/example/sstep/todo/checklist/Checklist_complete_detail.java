@@ -26,7 +26,7 @@ import java.io.IOException;
 public class Checklist_complete_detail extends AppCompatActivity {
 
     TextView title, content;
-    ImageButton menuBtn, pictureIb;
+    ImageButton menuBtn, pictureIb, commentIBtn;
     ImageView backBtn, photoviewIv;
     EditText comment;
     FrameLayout photoF;
@@ -44,6 +44,7 @@ public class Checklist_complete_detail extends AppCompatActivity {
         backBtn = findViewById(R.id.checkComDetail_backBtn);
         photoviewIv = findViewById(R.id.checkComDetail_photoviewIv);
         photoF = findViewById(R.id.checkComDetail_photoF);
+        commentIBtn = findViewById(R.id.checkComDetail_commentIBtn);
 
         //메뉴 버튼
         menuBtn.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +71,13 @@ public class Checklist_complete_detail extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), CheckList.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        commentIBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 

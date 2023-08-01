@@ -42,7 +42,7 @@ public class CheckList2_RecyclerViewAdpater extends RecyclerView.Adapter<CheckLi
         // 각 위치에 문자열 세팅
         int itemposition = position;
         holder.wordText.setText(list.get(itemposition).word);
-        holder.checkImg.setImageResource(R.drawable.j_rightbtn_img);
+        holder.checkImg.setImageResource(R.drawable.yicon_recchecked_blue);
         //Log.e("StudyApp", "onBindViewHolder" + itemposition);
         //클릭 이벤트
         holder.layout.setOnClickListener(new View.OnClickListener() {

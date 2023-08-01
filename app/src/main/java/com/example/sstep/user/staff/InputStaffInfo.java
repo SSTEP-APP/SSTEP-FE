@@ -24,6 +24,8 @@ import androidx.core.content.ContextCompat;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
 import com.example.sstep.document.certificate.Paper;
+import com.example.sstep.store.RegisterStore;
+import com.example.sstep.store.RegisterStore_calendarDialog;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -136,7 +138,7 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
                 showCalendarDialog(ci_indateBtn);
                 break;
             case R.id.isi_ci_wageBtn: // 급여지급일
-                showCalendarDialog(ci_wageBtn);
+                showWageDialog();
                 break;
             case R.id.isi_completeBtn: // 완료 버튼
                 Intent intent = new Intent(getApplicationContext(), staff_infoInput.class);
@@ -170,6 +172,18 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
             default:
                 break;
         }
+    }
+
+    // 급여지급일 다이얼로그
+    public void showWageDialog() {
+        RegisterStore_calendarDialog checkList_photo_dialog = new RegisterStore_calendarDialog
+                (InputStaffInfo.this, new RegisterStore_calendarDialog.RegisterStore_calendarDialogListener() {
+                    public void clickBtn(String data) {
+                        ci_wageBtn.setText(data);
+                        checkInputValidity();
+                    }
+                });
+        checkList_photo_dialog.show();
     }
 
     // 달력 다이얼로그 띄우기
@@ -210,8 +224,8 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
 
     private void checkInputValidity() {
         // 버튼 활성화&비활성화
-        boolean isIndateBtn = ci_indateBtn.getText() != "일사일 설정"; // true
-        boolean isWageBtn = ci_wageBtn.getText() != "급여지급일 설정"; // true
+        boolean isIndateBtn = ci_indateBtn.getText() != "설정"; // true
+        boolean isWageBtn = ci_wageBtn.getText() != "설정"; // true
         boolean isPi_rbdayEt = !pi_rbdayEt.getText().toString().trim().isEmpty(); // true
 
         completeBtnState = isIndateBtn && isWageBtn && isPi_rbdayEt;

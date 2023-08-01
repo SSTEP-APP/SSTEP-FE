@@ -92,7 +92,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12dp"
-                        android:text="일사일"
+                        android:text="입사일"
                         android:textColor="#000000"
                         android:textSize="15sp" />
                     <View

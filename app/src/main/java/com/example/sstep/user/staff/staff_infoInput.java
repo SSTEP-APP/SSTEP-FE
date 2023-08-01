@@ -147,7 +147,7 @@ public class staff_infoInput extends AppCompatActivity {
             } else {
                 noworkScheduleLayout.setVisibility(View.VISIBLE);
                 workCheckLayout.setVisibility(View.GONE);
-                Toast.makeText(this, "데이터가 없습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "일정이 없습니다.", Toast.LENGTH_SHORT).show();
             }
         }catch (Exception e){
             Toast.makeText(staff_infoInput.this,

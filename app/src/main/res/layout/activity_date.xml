@@ -9,33 +9,36 @@
     android:orientation="vertical"
     tools:context=".date.Date">
 
+    <!-- top_해야할 일-->
     <FrameLayout
         android:id="@+id/date_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/date_topText"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="#E60D69F3"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="일정관리"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
+        <!-- 뒤로가기 아이콘 -->
         <ImageButton
             android:id="@+id/date_backBtn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/yicon_back" />
-
-
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
     </FrameLayout>
 
     <ScrollView
@@ -368,7 +371,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:text="1월 26일 목요일"
-                            android:textColor="#656565" />
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -401,14 +404,14 @@
                                     android:orientation="horizontal">
 
                                     <LinearLayout
-                                        android:layout_width="63dp"
-                                        android:layout_height="63dp"
+                                        android:layout_width="60dp"
+                                        android:layout_height="60dp"
                                         android:orientation="vertical">
 
                                         <ImageView
                                             android:id="@+id/date_userIconImg1"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
+                                            android:layout_width="60dp"
+                                            android:layout_height="60dp"
                                             app:srcCompat="@drawable/j_femail_img2" />
                                     </LinearLayout>
 
@@ -582,46 +585,43 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:layout_marginBottom="10dp"
-                                android:orientation="horizontal">
-
+                                android:orientation="horizontal"
+                                android:gravity="right">
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
                                 <Button
                                     android:id="@+id/date_changeBtn1"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:minWidth="0dp"
+                                    android:minHeight="0dp"
+                                    android:paddingTop="9dp"
+                                    android:paddingBottom="9dp"
+                                    android:paddingLeft="12dp"
+                                    android:paddingRight="12dp"
                                     android:background="@drawable/j_button_stroke737373"
                                     android:text="일정 수정"
-                                    android:textColor="#8E8E8E" />
-
+                                    android:textColor="#8E8E8E"
+                                    android:textSize="13sp"/>
                                 <View
-                                    android:id="@+id/date_view5"
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1" />
-
+                                    android:layout_width="10dp"
+                                    android:layout_height="0dp" />
                                 <Button
                                     android:id="@+id/date_deleteBtn1"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:minWidth="0dp"
+                                    android:minHeight="0dp"
+                                    android:paddingTop="9dp"
+                                    android:paddingBottom="9dp"
+                                    android:paddingLeft="25dp"
+                                    android:paddingRight="25dp"
                                     android:background="@drawable/j_button_stroke737373"
                                     android:text="삭제"
-                                    android:textColor="#8E8E8E" />
-
-                                <View
-                                    android:id="@+id/date_view6"
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1" />
-
-                                <Button
-                                    android:id="@+id/date_settingBtn1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="@drawable/j_button_stroke737373"
-                                    android:text="기타 설정"
-                                    android:textColor="#8E8E8E" />
+                                    android:textColor="#8E8E8E"
+                                    android:textSize="13sp"/>
 
                             </LinearLayout>
 
@@ -676,7 +676,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="1월 27일 금요일"
-                        android:textColor="#656565" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -982,7 +982,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="1월 28일 토요일"
-                        android:textColor="#656565" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 

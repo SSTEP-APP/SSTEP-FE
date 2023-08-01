@@ -30,6 +30,8 @@ import androidx.core.content.ContextCompat;
 import com.example.sstep.R;
 import com.example.sstep.user.join.JoinActivity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Find_id extends AppCompatActivity implements View.OnClickListener {
@@ -42,6 +44,8 @@ public class Find_id extends AppCompatActivity implements View.OnClickListener {
     Boolean completeBtn_state=Boolean.FALSE;
     FrameLayout certF;
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 100;
+    // 생성된 인증번호를 저장할 리스트 선언
+    private List<String> generatedCodes = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -160,7 +164,7 @@ public class Find_id extends AppCompatActivity implements View.OnClickListener {
             // 권한 체크
             if (ContextCompat.checkSelfPermission(Find_id.this, android.Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                 // 인증번호 생성 및 발송
-                String verificationCode = generateVerificationCode();
+                String verificationCode = generateUniqueVerificationCode();
                 sendVerificationCode(phoneNumber, "인증번호는 "+verificationCode+" 입니다.");
                 certF.setVisibility(View.VISIBLE);
             } else {
@@ -170,6 +174,18 @@ public class Find_id extends AppCompatActivity implements View.OnClickListener {
         } else {
             Toast.makeText(Find_id.this, "휴대폰 번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    // 인증번호 생성 메서드 (중복 방지)
+    private String generateUniqueVerificationCode() {
+        String verificationCode = generateVerificationCode();
+        // Check if the code already exists in the list
+        while (generatedCodes.contains(verificationCode)) {
+            verificationCode = generateVerificationCode();
+        }
+        // Add the newly generated code to the list
+        generatedCodes.add(verificationCode);
+        return verificationCode;
     }
 
     // 인증번호 생성 메서드

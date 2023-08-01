@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -42,7 +43,7 @@ public class CheckList1_RecyclerViewAdpater extends RecyclerView.Adapter<CheckLi
         // 각 위치에 문자열 세팅
         int itemposition = position;
         holder.wordText.setText(list.get(itemposition).word);
-        holder.checkImg.setImageResource(R.drawable.j_check_img);
+        holder.checkImg.setImageResource(R.drawable.yicon_recuncheck);
         //Log.e("StudyApp", "onBindViewHolder" + itemposition);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override

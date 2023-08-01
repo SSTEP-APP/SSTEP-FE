@@ -40,6 +40,8 @@ import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.user.login.Login;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class JoinActivity extends AppCompatActivity implements View.OnClickListener,
@@ -57,6 +59,10 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
     String testId;
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 100;
     FrameLayout certF;
+
+    // 생성된 인증번호를 저장할 리스트 선언
+    private List<String> generatedCodes = new ArrayList<>();
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,7 +192,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.join_phonecertBtn: // phone 중복확인 버튼
                 sendSMS();
-                certF.setVisibility(View.VISIBLE);
+
                 break;
             default:
                 break;
@@ -203,8 +209,9 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
             // 권한 체크
             if (ContextCompat.checkSelfPermission(JoinActivity.this, android.Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                 // 인증번호 생성 및 발송
-                String verificationCode = generateVerificationCode();
+                String verificationCode = generateUniqueVerificationCode();
                 sendVerificationCode(phoneNumber, "인증번호는 "+verificationCode+" 입니다.");
+                certF.setVisibility(View.VISIBLE);
             } else {
                 // 권한 요청
                 ActivityCompat.requestPermissions(JoinActivity.this, new String[]{android.Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);
@@ -212,6 +219,18 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             Toast.makeText(JoinActivity.this, "휴대폰 번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    // 인증번호 생성 메서드 (중복 방지)
+    private String generateUniqueVerificationCode() {
+        String verificationCode = generateVerificationCode();
+        // Check if the code already exists in the list
+        while (generatedCodes.contains(verificationCode)) {
+            verificationCode = generateVerificationCode();
+        }
+        // Add the newly generated code to the list
+        generatedCodes.add(verificationCode);
+        return verificationCode;
     }
 
     // 인증번호 생성 메서드

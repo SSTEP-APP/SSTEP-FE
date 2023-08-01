@@ -18,7 +18,7 @@
             android:id="@+id/dialog_cal_mainText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="급여날 선택"
+            android:text="급여지급일 선택"
             android:textColor="@color/blue"
             android:textSize="20sp"
             android:fontFamily="@font/nanumsquareneo_deb"

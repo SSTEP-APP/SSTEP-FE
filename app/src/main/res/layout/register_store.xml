@@ -341,43 +341,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="25dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/regiStore_paydayText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="급여날"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:id="@+id/regiStore_view8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-
-                    <Button
-                        android:id="@+id/regiStore_paydaybtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:minHeight="0dp"
-                        android:background="@drawable/j_button_shape"
-                        android:text="급여날 설정"
-                        android:textColor="@color/blue"
-                        android:textSize="13sp"
-                        android:paddingRight="15dp"
-                        android:paddingLeft="15dp"
-                        android:paddingTop="7dp"
-                        android:paddingBottom="7dp"/>
-
-                </LinearLayout>
-
             </LinearLayout>
 
         </LinearLayout>
