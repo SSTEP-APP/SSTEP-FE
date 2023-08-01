@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/background"
     android:id="@+id/mypage_ask_L1"
-    tools:context=".user.mypage.MyPage_Ask">
+    tools:context="drawable.user.mypage.MyPage_Ask">
     <!-- top_문의하기-->
     <FrameLayout
         android:id="@+id/mypage_ask_top"

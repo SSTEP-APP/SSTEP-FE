@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import com.example.sstep.R;
 import com.example.sstep.alarm.Alarm;
-import com.example.sstep.document.contract.PaperWlist;
 import com.example.sstep.performance.MonthState;
+import com.example.sstep.staffinvite.StaffInvite;
 import com.example.sstep.store.SelectStore;
 import com.example.sstep.todo.checklist.CheckList;
 import com.example.sstep.user.login.Find_password;
@@ -23,7 +23,7 @@ import com.example.sstep.user.mypage.MyPage;
 public class Home_Ceo extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton menuIBtn, alarmIBtn;
-    Button selectStoreBtn, mypageBtn, checklistBtn;;
+    Button selectStoreBtn, mypageBtn, checklistBtn, staffInviteBtn;;
     TextView monthstateTv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
         mypageBtn=findViewById(R.id.homeceo_mypageBtn); mypageBtn.setOnClickListener(this);
         monthstateTv=findViewById(R.id.homeceo_monthstateTv); monthstateTv.setOnClickListener(this);
         checklistBtn=findViewById(R.id.homeceo_checklistBtn); checklistBtn.setOnClickListener(this);
+        staffInviteBtn=findViewById(R.id.homeceo_staffInviteBtn); staffInviteBtn.setOnClickListener(this);
     }
 
     @Override
@@ -72,6 +73,11 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
                 break;
             case R.id.homeceo_monthstateTv: // 사업장 월별 현황
                 intent = new Intent(getApplicationContext(), MonthState.class);
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.homeceo_staffInviteBtn: // 멤버 초대
+                intent = new Intent(getApplicationContext(), StaffInvite.class);
                 startActivity(intent);
                 finish();
                 break;

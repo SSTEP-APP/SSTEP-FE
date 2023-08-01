@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/searchstore_dl_F1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/joinokdl">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="사업장 코드"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"/>
+    <EditText
+        android:id="@+id/searchstore_dl_numEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:fontFamily="@font/nanumsquareneo_brg"
+        android:gravity="center_horizontal"
+        android:hint="6자리 코드를 입력해주세요."
+        android:inputType="number"
+        android:textCursorDrawable="@drawable/yet_cursor"
+        android:textSize="14sp"
+        android:layout_marginTop="50dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/black"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/searchstore_dl_okBtn"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:gravity="center"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:layout_marginTop="45dp"/>
+
+
+</LinearLayout>

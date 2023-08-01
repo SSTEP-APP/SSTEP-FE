@@ -233,6 +233,7 @@
                         android:textSize="14sp"/>
 
                     <TextView
+                        android:id="@+id/checkComDetail_commentCountTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumsquareneo_deb"
@@ -262,6 +263,7 @@
                         android:orientation="vertical"
                         android:layout_marginLeft="20dp">
                         <TextView
+                            android:id="@+id/checkComDetail_commentNameTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="작성자 이름"
@@ -269,6 +271,7 @@
                             android:fontFamily="@font/nanumsquareneo_deb"
                             android:textSize="15sp"/>
                         <TextView
+                            android:id="@+id/checkComDetail_commentDateTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2023.02.28(화) 22:21"
@@ -276,6 +279,7 @@
                             android:textSize="13sp"
                             android:layout_marginTop="3dp"/>
                         <TextView
+                            android:id="@+id/checkComDetail_commentRegTv2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="댓글 내용"
@@ -318,12 +322,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:textSize="14sp"/>
+
         <ImageButton
+            android:id="@+id/checkComDetail_commentIBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/yicon_send"
+            android:layout_height="37dp"
             android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="25dp"/>
+            android:layout_marginRight="25dp"
+            android:background="@drawable/yicon_send" />
     </FrameLayout>
 
 </LinearLayout>

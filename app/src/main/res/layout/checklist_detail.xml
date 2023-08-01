@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="해야할 일 등록"
+            android:text="해야할 일 완료"
             android:textColor="@color/topText"
             android:textSize="17sp"
             android:textStyle="bold"/>

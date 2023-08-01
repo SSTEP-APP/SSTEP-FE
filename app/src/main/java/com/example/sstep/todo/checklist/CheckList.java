@@ -6,19 +6,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
-import com.example.sstep.document.certificate.PaperHinput;
 import com.example.sstep.home.Home_Ceo;
 import com.example.sstep.user.staff.InputStaffInfo;
 import com.google.android.material.tabs.TabLayout;

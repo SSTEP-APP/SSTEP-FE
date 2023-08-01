@@ -24,6 +24,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical">
             <TextView
+                android:id="@+id/homemenu_storeNameTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="스텦"
@@ -45,6 +46,7 @@
                 android:layout_marginRight="5dp"/>
         </LinearLayout>
         <TextView
+            android:id="@+id/homemenu_nameTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="김유경"
@@ -83,6 +85,7 @@
                     android:text="등록 및 초대"
                     android:layout_marginBottom="10dp"/>
                 <TextView
+                    android:id="@+id/homemenu_registerStoreTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="사업장 등록"
@@ -93,6 +96,7 @@
                     android:layout_marginTop="15dp"
                     android:clickable="true"/>
                 <TextView
+                    android:id="@+id/homemenu_staffInviteTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="직원 초대"
@@ -103,6 +107,7 @@
                     android:layout_marginTop="5dp"
                     android:clickable="true"/>
                 <TextView
+                    android:id="@+id/homemenu_staffInvite3Tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="직원합류승인"
@@ -121,6 +126,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="30dp"/>
                 <TextView
+                    android:id="@+id/homemenu_selectStoreTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="사업장 전환"
@@ -131,6 +137,7 @@
                     android:layout_marginTop="15dp"
                     android:clickable="true"/>
                 <TextView
+                    android:id="@+id/homemenu_modifyStoreTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="사업장 정보"
@@ -141,6 +148,7 @@
                     android:layout_marginTop="5dp"
                     android:clickable="true"/>
                 <TextView
+                    android:id="@+id/homemenu_monthStateTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="사업장 현황"
@@ -208,6 +216,17 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
                     android:clickable="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="직원 일정 수정"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
