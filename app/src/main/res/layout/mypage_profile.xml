@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/background"
     android:id="@+id/mypage_profile_L1"
-    tools:context=".user.mypage.MyPage_Profile">
+    tools:context="drawable.user.mypage.MyPage_Profile">
     <!-- top_프로필 수정-->
     <FrameLayout
         android:id="@+id/mypage_profile_top"

@@ -14,7 +14,10 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+<<<<<<< HEAD
+=======
 import android.widget.LinearLayout;
+>>>>>>> 008feb5 (출퇴근관리 7/31)
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
