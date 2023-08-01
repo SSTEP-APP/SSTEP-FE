@@ -22,10 +22,18 @@ import com.example.sstep.document.certificate.Paper;
 import com.example.sstep.store.SelectStore;
 import com.example.sstep.todo.notice.Notice;
 import com.example.sstep.user.join.JoinActivity;
+import com.example.sstep.user.member.MemberApiService;
+import com.example.sstep.user.member.MemberModel;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
-    String testId, testPassword;
+    String checkPassword;
     EditText idEt, passwordEt;
     BaseDialog_Bottom baseDialog_bottom;
     Button completeBtn, sighIn, searchId, searchPass;
@@ -56,6 +64,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         showComplete_dialog = new Dialog(Login.this);
         showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
+
 
     }
 
@@ -88,40 +97,81 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     //로그인 버튼
     public void onCompleteBtn() {
-        //db구축시 서버에서 db받기
-//                    ex)
-//                    String rst = String.valueOf(new Task().execute(et.getText().toString().trim()).get());
-//                    JSONObject json = new JSONObject(rst);
-//                    String id = json.getString("id");
-//                    String password = json.getString("password");
-        testId="ididid";
-        testPassword="00";
 
-        TextView text = baseDialog_bottom.findViewById(R.id.dialog_okdown_commentTv);
-        Button closeBtn = baseDialog_bottom.findViewById(R.id.dialog_okdown_okBtn);
+        try {
 
-        if(testPassword.equals(passwordEt.getText().toString())){
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
 
-            //Intent intent = new Intent(getApplicationContext(), MainFage.class); //메인페이지로
-            //startActivity(intent);
-            // finish();
-            showCompleteDl();
+            MemberApiService apiService = retrofit.create(MemberApiService.class);
+            //적은 id를 기반으로 db에 검색
+            Call<MemberModel> call = apiService.getDataFromServer(idEt.getText().toString().trim());
+            call.enqueue(new Callback<MemberModel>() {
+                @Override
+                public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
+                    if (response.isSuccessful()) {
+                        MemberModel data = response.body();
+                        // 적은 id로 패스워드 데이터 가져오기
+                        checkPassword =data.getPassword(); // id에 id 설정
+                        if(checkPassword.equals(passwordEt.getText().toString())){
 
+                            //Intent intent = new Intent(getApplicationContext(), MainFage.class); //메인페이지로
+                            //startActivity(intent);
+                            // finish();
+                            showCompleteDl();
+                        }
+                        else {
+                            TextView text = baseDialog_bottom.findViewById(R.id.dialog_okdown_commentTv);
+                            Button closeBtn = baseDialog_bottom.findViewById(R.id.dialog_okdown_okBtn);
+                            text.setText("비밀번호가 틀렸습니다.");
+                            baseDialog_bottom.show();
+                            closeBtn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    baseDialog_bottom.dismiss();
+                                }
+                            });
+
+                        }
+                    } else {
+                        // 오류 처리
+                        int statusCode = response.code();
+                        String errorMessage;
+                        /*
+                        if (statusCode == 404) {
+                            errorMessage = "아이디가 없습니다. 회원가입하세요.";
+                        } else if (statusCode == 500) {
+                            errorMessage = "서버 내부 오류가 발생했습니다.";
+                        } else {
+                            errorMessage = "오류가 발생했습니다. 상태 코드: " + statusCode;
+                        }
+                        */
+                        errorMessage = "아이디 또는 비밀번호가 틀렸습니다.";
+                        TextView text = baseDialog_bottom.findViewById(R.id.dialog_okdown_commentTv);
+                        Button closeBtn = baseDialog_bottom.findViewById(R.id.dialog_okdown_okBtn);
+                        baseDialog_bottom.show();
+                        text.setText(errorMessage);
+                        closeBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                baseDialog_bottom.dismiss();
+                            }
+                        });
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MemberModel> call, Throwable t) {
+                    // 실패 처리
+                    String errorMessage = "요청 실패: " + t.getMessage();
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
         }
-        else if(testId.isEmpty()){
-            baseDialog_bottom.show();
-            text.setText("가입된 계정이 없습니다.\n" +"회원가입을 진행해 주세요");
-        }
-        else{
-            baseDialog_bottom.show();
-            text.setText("사용자 정보가 맞지 않습니다.");
-        }
-        closeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                baseDialog_bottom.dismiss();
-            }
-        });
     }
     public void showCompleteDl(){
         showComplete_dialog.show();

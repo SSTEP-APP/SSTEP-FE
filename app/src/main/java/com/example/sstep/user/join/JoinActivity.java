@@ -39,24 +39,36 @@ import androidx.core.content.ContextCompat;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.user.login.Login;
+import com.example.sstep.user.member.MemberApiService;
+import com.example.sstep.user.member.MemberModel;
+import com.example.sstep.user.member.MemberRequestDto;
+import com.example.sstep.user.member.MemberResponseDto;
+import com.example.sstep.user.member.NullOnEmptyConverterFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class JoinActivity extends AppCompatActivity implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener {
 
     ScrollView scroll;
-    EditText idEt, nameEt, phonumEt, passEt, checkPassEt; String id, name, phonum, pass, checkPass;
-    ImageButton back_Btn; Button completeBtn, idcertBtn, phonecertBtn;
+    EditText idEt, nameEt, phonumEt, passEt, checkPassEt, certNumEt; String id, name, phonum, pass, checkPass;
+    ImageButton back_Btn; Button completeBtn, idcertBtn, phonecertBtn, certNumBtn;
     CheckBox passEyeCb, checkPassEyeCb;
     TextView checkText;
     Boolean completeBtn_state=Boolean.FALSE;
     Intent intent;
     Dialog showComplete_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
-    String testId;
+    String testId, certCode;
+    int checkPhoneNum = 0; int checkId = 0;
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 100;
     FrameLayout certF;
 
@@ -83,6 +95,9 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         idcertBtn.setOnClickListener(this);
         phonecertBtn=findViewById(R.id.join_phonecertBtn);
         phonecertBtn.setOnClickListener(this);
+        certNumBtn = findViewById(R.id.join_certNumBtn);
+        certNumBtn.setOnClickListener(this);
+
 
         scroll=findViewById(R.id.join_scroll);
         passEyeCb=findViewById(R.id.join_passEyeCb); passEyeCb.setOnCheckedChangeListener(this);
@@ -93,6 +108,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         passEt=findViewById(R.id.join_passEt);
         checkPassEt=findViewById(R.id.join_checkPassEt);
         checkText=findViewById(R.id.join_checkText);
+        certNumEt = findViewById(R.id.join_certNumEt);
         certF=findViewById(R.id.join_certF);
 
         idEt.addTextChangedListener(textWatcher);
@@ -112,7 +128,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    // EditText 다 채워지면 아래 버튼 활성화
+    // EditText 다 채워지고 인증완료시 아래 버튼 활성화
     private TextWatcher textWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -130,7 +146,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
             checkPass = checkPassEt.getText().toString().trim();
 
             if (id.length()>0 && name.length()>0 && phonum.length()>0 && pass.length()>0 && checkPass.length()>0
-                    && pass.equals(checkPass)){
+                    && pass.equals(checkPass) && checkId==1 && checkPhoneNum == 1){
                 checkText.setVisibility(View.VISIBLE);
                 checkText.setTypeface(typeface); checkText.setTextSize(11);
                 checkText.setText("비밀번호가 일치합니다.");
@@ -174,8 +190,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        // db에서 받은 id
-        testId="111";
+
         switch(v.getId()){
             case R.id.join_back_Btn: // 뒤로가기
                 intent = new Intent(getApplicationContext(), Login.class);
@@ -194,6 +209,10 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 sendSMS();
 
                 break;
+
+            case R.id.join_certNumBtn: // phone 인증완료 버튼
+                checkSMS();
+                break;
             default:
                 break;
         }
@@ -202,7 +221,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
     // 휴대폰 인증 처리 메서드
     private void sendSMS() {
         // 휴대폰 인증 처리 코드 작성
-
         // 휴대폰 인증번호 발송
         String phoneNumber = phonumEt.getText().toString().trim().replace("-","");
         if (!phoneNumber.isEmpty()) {
@@ -212,6 +230,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 String verificationCode = generateUniqueVerificationCode();
                 sendVerificationCode(phoneNumber, "인증번호는 "+verificationCode+" 입니다.");
                 certF.setVisibility(View.VISIBLE);
+                certCode = verificationCode;
             } else {
                 // 권한 요청
                 ActivityCompat.requestPermissions(JoinActivity.this, new String[]{android.Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);
@@ -251,6 +270,27 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    // 휴대폰 인증 완료 메서드
+    private void checkSMS() {
+        String enterCode = certNumEt.getText().toString();
+        if (!enterCode.isEmpty()) {
+            if (enterCode.equals(certCode)) {
+                Toast.makeText(JoinActivity.this, "인증되었습니다.", Toast.LENGTH_SHORT).show();
+                checkPhoneNum = 1;
+                if (id.length()>0 && name.length()>0 && phonum.length()>0 && pass.length()>0 && checkPass.length()>0
+                        && pass.equals(checkPass) && checkId==1 && checkPhoneNum == 1){
+                    completeBtn.setEnabled(true);
+                    completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnon);
+                    completeBtn_state = Boolean.TRUE;
+                }
+            } else {
+                Toast.makeText(JoinActivity.this, "인증번호가 틀렸습니다.", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(JoinActivity.this, "휴대폰 번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
 
     @Override
@@ -281,9 +321,64 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         // 다이얼로그의 배경을 투명으로 만든다.
         showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         TextView join_okdl_commentTv; Button join_okdl_okBtn;
+
         join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
         join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
-        join_okdl_commentTv.setText("회원가입이 완료되었습니다.\n 로그인해 주세요.");
+
+
+        try {
+
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(new NullOnEmptyConverterFactory())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            MemberApiService apiService = retrofit.create(MemberApiService.class);
+// 회원가입에 필요한 데이터를 MemberRequestDto 객체로 생성
+            MemberRequestDto memberRequestDto = new MemberRequestDto(
+                    idEt.getText().toString().trim(),
+                    nameEt.getText().toString().trim(),
+                    passEt.getText().toString().trim(),
+                    phonumEt.getText().toString().trim()
+            );
+
+// 회원가입 요청을 서버에 전송
+            Call<MemberResponseDto> call = apiService.save(memberRequestDto);
+            call.enqueue(new Callback<MemberResponseDto>() {
+                @Override
+                public void onResponse(Call<MemberResponseDto> call, Response<MemberResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        // 회원가입 성공
+                        MemberResponseDto memberResponseDto = response.body();
+                        join_okdl_commentTv.setText("회원가입이 완료되었습니다.\n 로그인해 주세요.");
+                        // 응답을 필요에 따라 처리하세요.
+                    } else {
+                        // 회원가입 실패
+                        int statusCode = response.code();
+                        join_okdl_commentTv.setText("회원가입이 실패했습니다.\n 오류코드: " + statusCode);
+                        // 에러 응답을 처리하세요.
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MemberResponseDto> call, Throwable t) {
+                    // 네트워크 오류나 기타 이유로 회원가입 실패
+                    String errorMessage = t != null ? t.getMessage() : "Unknown error";
+                    if (errorMessage.equals("End of input at line 1 column 1 path $")){
+                        join_okdl_commentTv.setText("회원가입이 완료되었습니다.\n 로그인해 주세요.");
+
+                    }else {
+                        join_okdl_commentTv.setText("회원가입이 실패했습니다!!\n 오류메시지: " + errorMessage);
+                        t.printStackTrace();
+                    }
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
         // '회원가입 dialog' _ 확인 버튼 클릭 시
         join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -301,19 +396,78 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         TextView join_okdl_commentTv; Button join_okdl_okBtn;
         join_okdl_commentTv = baseDialog_okCenter.findViewById(R.id.join_okdl_commentTv);
         join_okdl_okBtn = baseDialog_okCenter.findViewById(R.id.join_okdl_okBtn);
-        if(testId.equals(idEt.getText().toString().trim())){
-            join_okdl_commentTv.setText("중복된 아이디가 있습니다.\n다른 아이디를 입력해 주세요.");
-            idEt.setText("");
-        }else if(idEt.getText().toString().trim().equals("")){
-            join_okdl_commentTv.setText("입력된 아이디가 없습니다.\n아이디를 입력해 주세요.");
-        }else{
-            join_okdl_commentTv.setText("사용 가능한 아이디 입니다.");
+        try {
+
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            MemberApiService apiService = retrofit.create(MemberApiService.class);
+            //적은 id를 기반으로 db에 검색
+            Call<MemberModel> call = apiService.getDataFromServer(idEt.getText().toString().trim());
+            call.enqueue(new Callback<MemberModel>() {
+                @Override
+                public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
+                    if (response.isSuccessful()) {
+                        MemberModel data = response.body();
+                        // 적은 id로 id 데이터 가져오기
+                        testId =data.getMemberId();
+                        if(testId.equals(idEt.getText().toString().trim())){
+                            join_okdl_commentTv.setText("중복된 아이디가 있습니다.\n다른 아이디를 입력해 주세요.");
+                            idEt.setText("");
+                        }else if(idEt.getText().toString().trim().equals("")){
+                            join_okdl_commentTv.setText("입력된 아이디가 없습니다.\n아이디를 입력해 주세요.");
+                        }
+                    } else {
+                        // 오류 처리
+                        int statusCode = response.code();
+                        String errorMessage;
+                        if(idEt.getText().toString().trim().equals("")) {
+                            join_okdl_commentTv.setText("입력된 아이디가 없습니다.\n아이디를 입력해 주세요.");
+                        } else if (statusCode == 404) {
+                            join_okdl_commentTv.setText("사용 가능한 아이디 입니다.");
+                            checkId = 1;
+                            if (id.length()>0 && name.length()>0 && phonum.length()>0 && pass.length()>0 && checkPass.length()>0
+                                    && pass.equals(checkPass) && checkId==1 && checkPhoneNum == 1){
+                                completeBtn.setEnabled(true);
+                                completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnon);
+                                completeBtn_state = Boolean.TRUE;
+                            }
+                        } else if (statusCode == 500) {
+                            join_okdl_commentTv.setText("사용 가능한 아이디 입니다.");
+                            checkId = 1;
+                            if (id.length()>0 && name.length()>0 && phonum.length()>0 && pass.length()>0 && checkPass.length()>0
+                                    && pass.equals(checkPass) && checkId==1 && checkPhoneNum == 1){
+                                completeBtn.setEnabled(true);
+                                completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnon);
+                                completeBtn_state = Boolean.TRUE;
+                            }
+                        } else {
+                            join_okdl_commentTv.setText("오류가 발생했습니다. 상태 코드: " + statusCode);
+                        }
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MemberModel> call, Throwable t) {
+                    // 실패 처리
+                    join_okdl_commentTv.setText("요청 실패: " + t.getMessage());
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
         }
+
         join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 baseDialog_okCenter.dismiss();
             }
         });
+
+
     }
 }
