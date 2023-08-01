@@ -51,7 +51,7 @@
 
         <!-- 시작화면 start -->
         <activity
-            android:name=".user.start.Start"
+            android:name="drawable.user.start.Start"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,30 +60,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".user.start.Start1"
+            android:name="drawable.user.start.Start1"
             android:exported="false" />
         <activity
-            android:name=".user.start.Start2"
+            android:name="drawable.user.start.Start2"
             android:exported="false" />
         <activity
-            android:name=".user.start.Start3"
+            android:name="drawable.user.start.Start3"
             android:exported="false" />
         <activity
-            android:name=".user.start.Start4"
+            android:name="drawable.user.start.Start4"
             android:exported="false" />
 
         <!-- 로그인/회원가입 joinlogin -->
         <activity
-            android:name=".user.login.Login"
+            android:name="drawable.user.login.Login"
             android:exported="false" />
         <activity
-            android:name=".user.join.JoinActivity"
+            android:name="drawable.user.join.JoinActivity"
             android:exported="false" />
         <activity
-            android:name=".user.login.Find_id"
+            android:name="drawable.user.login.Find_id"
             android:exported="false" />
         <activity
-            android:name=".user.login.Find_password"
+            android:name="drawable.user.login.Find_password"
             android:exported="false" />
 
         <!-- 사업장 선택 -->
@@ -135,7 +135,7 @@
             android:name=".home.Home_menu"
             android:exported="false" /> <!-- 직원정보입력 -->
         <activity
-            android:name=".user.staff.InputStaffInfo"
+            android:name="drawable.user.staff.InputStaffInfo"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -144,13 +144,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".user.staff.staff_infoInput"
+            android:name="drawable.user.staff.staff_infoInput"
             android:exported="false" />
         <activity
-            android:name=".user.staff.addSchedule"
+            android:name="drawable.user.staff.addSchedule"
             android:exported="false" />
         <activity
-            android:name=".user.staff.modifySchedule"
+            android:name="drawable.user.staff.modifySchedule"
             android:exported="false" /> <!-- 사업장 월별 현황 -->
         <activity
             android:name=".performance.MonthState"
@@ -244,7 +244,7 @@
         </activity>
         <activity android:name=".todo.notice.Notice_input" /> <!-- 마이페이지 -->
         <activity
-            android:name=".user.mypage.MyPage"
+            android:name="drawable.user.mypage.MyPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -253,16 +253,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".user.mypage.MyPage_Profile"
+            android:name="drawable.user.mypage.MyPage_Profile"
             android:exported="false" />
         <activity
-            android:name=".user.mypage.MyPage_Alarm"
+            android:name="drawable.user.mypage.MyPage_Alarm"
             android:exported="false" />
         <activity
-            android:name=".user.mypage.MyPage_Ask"
+            android:name="drawable.user.mypage.MyPage_Ask"
             android:exported="false" />
         <activity
-            android:name=".user.mypage.MyPage_Pwd"
+            android:name="drawable.user.mypage.MyPage_Pwd"
             android:exported="false" /> <!-- 카메라 추가 -->
         <provider
             android:name="androidx.core.content.FileProvider"

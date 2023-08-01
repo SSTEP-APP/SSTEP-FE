@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.example.sstep.R;
 import com.example.sstep.alarm.Alarm;
-import com.example.sstep.document.contract.PaperWlist;
 import com.example.sstep.performance.MonthState;
 import com.example.sstep.staffinvite.StaffInvite;
 import com.example.sstep.store.SelectStore;
