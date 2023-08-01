@@ -33,6 +33,14 @@ android {
 
 dependencies {
 
+    // retrofit2
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    // Gson 변환기
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Lombok 라이브러리 의존성 추가
+    implementation 'org.projectlombok:lombok:1.18.20'
+
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
