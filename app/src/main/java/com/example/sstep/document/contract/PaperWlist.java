@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
-import com.example.sstep.document.certificate.Paper;
 
 public class PaperWlist extends AppCompatActivity implements View.OnClickListener{
 

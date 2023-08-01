@@ -25,8 +25,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
-import com.example.sstep.store.SelectStore;
-import com.example.sstep.user.login.Login;
 
 import java.io.IOException;
 
@@ -132,7 +130,7 @@ public class Checklist_detail extends AppCompatActivity {
                                     //사진 등록
                                     if (selectType.equals("gallery")) {
                                         Intent intent = new Intent(Intent.ACTION_PICK);
-                                        intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                                        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
                                         startActivityForResult(intent, GET_GALLERY_IMAGE);
                                         selectType="";
                                     } else if (selectType.equals("camera")) {

@@ -1,8 +1,8 @@
 package com.example.sstep.date;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
 

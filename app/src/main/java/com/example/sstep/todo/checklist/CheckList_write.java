@@ -25,7 +25,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
-import com.example.sstep.document.certificate.PaperHinput;
 
 import java.util.ArrayList;
 import java.util.List;

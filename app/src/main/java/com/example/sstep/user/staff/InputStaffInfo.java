@@ -7,8 +7,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -23,8 +21,6 @@ import androidx.core.content.ContextCompat;
 
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
-import com.example.sstep.document.certificate.Paper;
-import com.example.sstep.store.RegisterStore;
 import com.example.sstep.store.RegisterStore_calendarDialog;
 
 import java.text.SimpleDateFormat;

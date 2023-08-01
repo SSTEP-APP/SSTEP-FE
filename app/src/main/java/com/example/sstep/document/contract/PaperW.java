@@ -9,9 +9,6 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
-import com.example.sstep.document.certificate.Paper;
-import com.example.sstep.document.certificate.PaperH;
-import com.example.sstep.user.login.Login;
 
 public class PaperW extends AppCompatActivity implements View.OnClickListener {
 

@@ -2,7 +2,6 @@ package com.example.sstep.document.contract;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -13,7 +12,6 @@ import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -36,8 +34,6 @@ import com.example.sstep.CalendarDialog;
 import com.example.sstep.CustomTextWatcher_Comma;
 import com.example.sstep.R;
 import com.example.sstep.document.certificate.Paper;
-import com.example.sstep.user.join.JoinActivity;
-import com.example.sstep.user.login.Login;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

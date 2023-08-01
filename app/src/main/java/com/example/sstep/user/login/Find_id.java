@@ -28,7 +28,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.sstep.R;
-import com.example.sstep.user.join.JoinActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,7 +111,7 @@ public class Find_id extends AppCompatActivity implements View.OnClickListener {
         Intent intent;
         switch(v.getId()){
             case R.id.findId_BackBtn: // 뒤로가기
-                intent = new Intent(getApplicationContext(), Login.class);
+                intent = new Intent(getApplicationContext(), Login_test.class);
                 startActivity(intent);
                 finish();
                 break;
