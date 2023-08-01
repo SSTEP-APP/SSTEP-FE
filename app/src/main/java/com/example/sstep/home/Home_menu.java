@@ -1,7 +1,5 @@
 package com.example.sstep.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,12 +11,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.sstep.R;
 import com.example.sstep.document.certificate.Paper;
 import com.example.sstep.todo.checklist.CheckList;
 import com.example.sstep.todo.notice.Notice;
 import com.example.sstep.user.login.Login;
-import com.example.sstep.user.mypage.MyPage;
 
 public class Home_menu extends AppCompatActivity implements View.OnClickListener {
 

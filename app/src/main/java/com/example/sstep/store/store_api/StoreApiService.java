@@ -1,7 +1,5 @@
 package com.example.sstep.store.store_api;
 
-import com.example.sstep.user.member.MemberResponseDto;
-
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;

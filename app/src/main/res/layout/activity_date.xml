@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#00FFFFFF"
     android:orientation="vertical"
-    tools:context=".performance.date.Date">
+    tools:context=".date.Date">
 
     <!-- top_해야할 일-->
     <FrameLayout

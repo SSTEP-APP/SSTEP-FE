@@ -1,18 +1,14 @@
 package com.example.sstep.todo.checklist;
 
 
-import static androidx.core.app.ActivityCompat.startActivityForResult;
-
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+
 import com.example.sstep.R;
 
 public class CheckList_photo_dialog extends Dialog {

@@ -211,6 +211,10 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
 =======
 >>>>>>> 008feb5 (출퇴근관리 7/31):app/src/main/java/com/example/sstep/user/join/JoinActivity.java
                 break;
+
+            case R.id.join_certNumBtn: // phone 인증완료 버튼
+                checkSMS();
+                break;
             default:
                 break;
         }
@@ -229,9 +233,13 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 sendVerificationCode(phoneNumber, "인증번호는 "+verificationCode+" 입니다.");
                 certF.setVisibility(View.VISIBLE);
 <<<<<<< HEAD:app/src/main/res/drawable/user/join/JoinActivity.java
+<<<<<<< HEAD:app/src/main/res/drawable/user/join/JoinActivity.java
                 certCode = verificationCode;
 =======
 >>>>>>> 008feb5 (출퇴근관리 7/31):app/src/main/java/com/example/sstep/user/join/JoinActivity.java
+=======
+                certCode = verificationCode;
+>>>>>>> 76835b5a06a845c06517ad3d0669c60a2e4e311c:app/src/main/java/com/example/sstep/user/join/JoinActivity.java
             } else {
                 // 권한 요청
                 ActivityCompat.requestPermissions(JoinActivity.this, new String[]{android.Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);

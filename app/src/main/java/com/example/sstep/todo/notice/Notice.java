@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
 import com.example.sstep.home.Home_Ceo;
-import com.example.sstep.user.login.Login;
 
 public class Notice extends AppCompatActivity implements View.OnClickListener {
 

@@ -22,9 +22,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.document.PhotoDialog;
-import com.example.sstep.document.certificate.Paper;
-import com.example.sstep.document.certificate.PaperH;
-import com.example.sstep.document.certificate.PaperHinput;
 
 import java.io.IOException;
 
