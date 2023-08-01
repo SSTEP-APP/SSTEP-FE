@@ -7,7 +7,7 @@
     android:background="@color/background"
     android:orientation="vertical"
     android:id="@+id/join_layoutF"
-    tools:context=".user.join.JoinActivity">
+    tools:context="drawable.user.join.JoinActivity">
 
     <!-- top_회원가입-->
     <FrameLayout

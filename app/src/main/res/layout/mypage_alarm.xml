@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/background"
     android:id="@+id/mypage_alarm_L1"
-    tools:context=".user.mypage.MyPage_Alarm">
+    tools:context="drawable.user.mypage.MyPage_Alarm">
     <!-- top_알림설정-->
     <FrameLayout
         android:id="@+id/mypage_alarm_top"
