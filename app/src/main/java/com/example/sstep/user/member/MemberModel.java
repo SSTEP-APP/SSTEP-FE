@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class MemberModel {
     @SerializedName("id")
-    private int id;
+    private long id;
 
     @SerializedName("memberId")
     private String memberId;
