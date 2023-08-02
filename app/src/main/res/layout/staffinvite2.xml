@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/staffInvite2_L1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".staffinvite.StaffInvite2">
+
+    <!-- top_직원 초대 -->
+    <FrameLayout
+        android:id="@+id/staffInvite2_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/staffInvite2_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="직원 초대현황"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/staffInvite2_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="90dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="직원 초대하기"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="35dp"
+            android:background="@color/line" />
+        <!-- 이름 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/staffInvite2_nameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yedittext_w_sg"
+            android:textColor="@color/black"
+            android:textColorHint="@color/editTextHint"
+            android:hint="이름"
+            android:inputType="textPersonName"
+            android:fontFamily="@font/nanumsquareneo_brg"
+            android:textSize="13sp"
+            android:textCursorDrawable="@drawable/yet_cursor"
+            android:paddingLeft="15dp"
+            android:paddingRight="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- 전화번호 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="전화번호"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="35dp"/>
+        <!-- 전화번호 입력 _F -->
+        <FrameLayout
+            android:id="@+id/staffInvite2_F3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/staffInvite2_numberEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yedittext_w_sg"
+                android:maxLength="13"
+                android:hint="전화번호"
+                android:inputType="phone"
+                android:textColor="@color/black"
+                android:textColorHint="@color/editTextHint"
+                android:fontFamily="@font/nanumsquareneo_brg"
+                android:textSize="13sp"
+                android:textCursorDrawable="@drawable/yet_cursor"
+                android:paddingLeft="15dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
+
+        </FrameLayout> <!-- 전화번호 입력 _F -->
+
+        <!-- 유형 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="가입자 유형"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="35dp"/>
+        <RadioGroup
+            android:id="@+id/staffInvite2_typeRg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp">
+            <RadioButton
+                android:id="@+id/staffInvite2_typeceoRb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/yradiobtn_red"
+                android:checked="false"
+                android:text="사업주(공동대표일 경우)"
+                android:paddingLeft="15dp"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <RadioButton
+                android:id="@+id/staffInvite2_typestaffRb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/yradiobtn_red"
+                android:checked="true"
+                android:text="직원"
+                android:paddingLeft="15dp"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <!-- 맨 아래 버튼 변경 F -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/staffInvite2_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnon"
+            android:text="직원 초대 완료"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
+</LinearLayout>

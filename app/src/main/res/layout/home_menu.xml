@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context=".home.Home_menu">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/lightblue"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/homemenu_storeNameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스텦"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <ImageButton
+                android:id="@+id/homemenu_closeIb"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/yicon_closex"
+                android:layout_gravity="right"
+                android:clickable="true"
+                android:padding="10dp"
+                android:layout_marginRight="5dp"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/homemenu_nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="김유경"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginTop="45dp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/homemenu_scrollL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- 메뉴 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/yroundrec_w"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="30dp"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="등록 및 초대"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:id="@+id/homemenu_registerStoreTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="사업장 등록"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:clickable="true"/>
+                <TextView
+                    android:id="@+id/homemenu_staffInviteTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="직원 초대"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+                <TextView
+                    android:id="@+id/homemenu_staffInvite3Tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="직원합류승인"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+
+                <!-- 사업장 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사업장"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="30dp"/>
+                <TextView
+                    android:id="@+id/homemenu_selectStoreTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="사업장 전환"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:clickable="true"/>
+                <TextView
+                    android:id="@+id/homemenu_modifyStoreTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="사업장 정보"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+                <TextView
+                    android:id="@+id/homemenu_monthStateTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="사업장 현황"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+
+                <!-- 커뮤니케이션 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="커뮤니케이션"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="30dp"/>
+                <TextView
+                    android:id="@+id/homemenu_checklistTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="해야할 일"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:clickable="true"/>
+                <TextView
+                    android:id="@+id/homemenu_noticeTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="공지사항"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="일정관리"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+
+                <!-- 관리 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="관리"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="30dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="직원 목록"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:clickable="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="직원 일정 수정"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="급여 정보"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="실적"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+                <TextView
+                    android:id="@+id/homemenu_paperTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="문서"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+
+                <!-- 추가 기능 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="추가 기능"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/blue"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="익명 커뮤니티"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"/>
+
+                <TextView
+                    android:id="@+id/homemenu_logoutTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="로그아웃"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:drawableRight="@drawable/yicon_logoutcircle"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="right"
+                    android:drawablePadding="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="5dp"/>
+            </LinearLayout> <!-- 메뉴 -->
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

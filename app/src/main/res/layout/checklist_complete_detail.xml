@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".todo.checklist.Checklist_complete_detail">
+
+    <!-- top_완료된 항목-->
+    <FrameLayout
+        android:id="@+id/checkComDetail_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/checkComDetail_topText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="완료된 항목"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/checkComDetail_backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+        <ImageButton
+            android:id="@+id/checkComDetail_menuBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yicon_moreitem"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="15dp"/>
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_marginTop="15dp"
+                android:paddingTop="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="30dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="할 일 제목"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:id="@+id/checkComDetail_checkListNameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="할 일 제목"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:layout_marginTop="15dp"
+                    android:padding="15dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="할 일 내용"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:textSize="15sp"
+                    android:layout_marginTop="25dp"/>
+                <TextView
+                    android:id="@+id/checkComDetail_checkListContentText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:text="할 일 내용"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:layout_marginTop="15dp"
+                    android:padding="15dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="마감 예정 시간"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:textSize="15sp"
+                    android:layout_marginTop="30dp"/>
+                <TextView
+                    android:id="@+id/checkComDetail_checkListStaffTimeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2023-04-03"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginTop="15dp"
+                    android:padding="15dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#C4C4C4"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingTop="30dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:text="할 일 사진결과"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <!-- 사진촬영 F -->
+                <ImageButton
+                    android:id="@+id/checkComDetail_pictureIb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yicon_reccamera"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="visible"
+                    android:clickable="false"/>
+                <FrameLayout
+                    android:id="@+id/checkComDetail_photoF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+                    <ImageView
+                        android:id="@+id/checkComDetail_photoviewIv"
+                        android:layout_width="330dp"
+                        android:layout_height="250dp"
+                        android:background="@drawable/yroundrec_w_sg"
+                        android:layout_gravity="center_horizontal"
+                        android:scaleType="fitXY"
+                        android:layout_marginTop="10dp"/>
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:text="메모"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/checkComDetail_checkListMemoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:minHeight="80dp"
+                    android:padding="15dp"
+                    android:text="메모"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_marginTop="15dp"
+            android:paddingTop="30dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="30dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:text="댓글"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/checkComDetail_commentCountTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:text="1"
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.7dp"
+                    android:layout_weight="1"
+                    android:background="@color/line"
+                    android:layout_marginTop="20dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/yicon_stafffemale"
+                        android:layout_marginLeft="15dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp">
+                        <TextView
+                            android:id="@+id/checkComDetail_commentNameTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="작성자 이름"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/nanumsquareneo_deb"
+                            android:textSize="15sp"/>
+                        <TextView
+                            android:id="@+id/checkComDetail_commentDateTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2023.02.28(화) 22:21"
+                            android:textColor="@color/likeblack"
+                            android:textSize="13sp"
+                            android:layout_marginTop="3dp"/>
+                        <TextView
+                            android:id="@+id/checkComDetail_commentRegTv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="댓글 내용"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:layout_marginTop="8dp"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageButton
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/yicon_moreitem"
+                        android:layout_marginRight="15dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="top" />
+        <EditText
+            android:id="@+id/checkComDetail_commentET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yroundrec_g"
+            android:hint="댓글을 입력하세요."
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="14sp"/>
+
+        <ImageButton
+            android:id="@+id/checkComDetail_commentIBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/yicon_send" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".performance.date.Date_settingmodify">
+
+    <FrameLayout
+        android:id="@+id/dateSet_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dateSet_top_topText"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="#E60D69F3"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="휴무/휴게시간 설정"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageButton
+            android:id="@+id/dateSet_top_BackBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/yicon_back" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/j_layout_background"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/dateSet_settingBreakDayBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/j_button_top_round"
+                android:drawableLeft="@drawable/j_xcalendar_img"
+                android:drawableRight="@drawable/j_rightbtn_img"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="25dp"
+                android:paddingRight="15dp"
+                android:text="   휴무설정"
+                android:textColor="#4A4A4A"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/dateSet_settingBreakTimeBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/j_button_bottom_round"
+                android:drawableLeft="@drawable/j_timer_img"
+                android:drawableRight="@drawable/j_rightbtn_img"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="25dp"
+                android:paddingRight="15dp"
+                android:text="  휴게시간 설정"
+                android:textColor="#4A4A4A"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

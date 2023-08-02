@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="CoarseFineLocation">
+    <!-- 카메라 권한 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <!-- 인터넷 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 카메라 권한 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.DIAL_PHONE" />
+    <!-- SMS 권한 -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- 위치 권한 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -10,9 +31,309 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.SSTEP"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".community.Community"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 구글 맵 -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBfGGbhoQpcitlIe-KBbvOsRwLtvmk6Y_E" />
+
+
+        <activity
+            android:name=".store.WebViewActivity"
+            android:exported="false" />
+
+        <!-- 시작화면 start -->
+        <activity
+            android:name="drawable.user.start.Start"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="drawable.user.start.Start1"
+            android:exported="false" />
+        <activity
+            android:name="drawable.user.start.Start2"
+            android:exported="false" />
+        <activity
+            android:name="drawable.user.start.Start3"
+            android:exported="false" />
+        <activity
+            android:name="drawable.user.start.Start4"
+            android:exported="false" />
+
+        <!-- 로그인/회원가입 joinlogin -->
+        <activity
+            android:name="drawable.user.login.Login"
+            android:exported="false" />
+        <activity
+            android:name="drawable.user.join.JoinActivity"
+            android:exported="false" />
+        <activity
+            android:name="drawable.user.login.Find_id"
+            android:exported="false" />
+        <activity
+            android:name="drawable.user.login.Find_password"
+            android:exported="false" />
+
+        <!-- 사업장 선택 -->
+        <activity
+            android:name=".store.SelectStore"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 사업장 등록 -->
+        <activity android:name=".store.RegisterStore" />
+        <activity
+            android:name=".store.Search_Address"
+            android:exported="false" />
+
+        <!-- 사업장 수정 -->
+        <activity
+            android:name=".store.modifyStore"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 홈 화면 -->
+        <activity
+            android:name=".home.Home_Ceo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".home.Home_staff"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".home.Home_menu"
+            android:exported="false" />
+
+        <!-- 직원정보입력 -->
+        <activity
+            android:name="drawable.user.staff.InputStaffInfo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="drawable.user.staff.staff_infoInput"
+            android:exported="false" />
+        <activity
+            android:name="drawable.user.staff.addSchedule"
+            android:exported="false" />
+        <activity
+            android:name=".user.staff.modifySchedule"
+            android:exported="false" />
+        <activity
+            android:name=".performance.MonthState"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 알림 -->
+        <activity
+            android:name=".alarm.Alarm"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 문서 관리 -->
+        <activity
+            android:name=".document.certificate.Paper"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 문서 관리 _ 근로계약서 -->
+        <activity
+            android:name=".document.contract.PaperW"
+            android:exported="false" />
+        <activity
+            android:name=".document.contract.PaperWphoto"
+            android:exported="false" />
+        <activity
+            android:name=".document.contract.PaperWlist"
+            android:exported="false" />
+        <activity
+            android:name=".document.contract.PaperWinput"
+            android:exported="false" />
+        <activity
+            android:name=".document.contract.PaperWceoview"
+            android:exported="false" />
+
+        <!-- 문서 관리 _ 보건증 -->
+        <activity
+            android:name=".document.certificate.PaperH"
+            android:exported="false" />
+        <activity
+            android:name=".document.certificate.PaperHinput"
+            android:exported="false" />
+        <activity
+            android:name=".document.certificate.PaperHmodi"
+            android:exported="false" />
+        <activity
+            android:name=".document.certificate.PaperHview"
+            android:exported="false" />
+
+
+        <!-- 체크리스트 -->
+        <activity
+            android:name=".todo.checklist.CheckList"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".todo.checklist.Checklist_complete_detail"
+            android:exported="false" />
+        <activity
+            android:name=".todo.checklist.Checklist_detail"
+            android:exported="false" />
+        <activity
+            android:name=".todo.checklist.CheckList_write"
+            android:exported="false" />
+
+        <!-- 공지사항 -->
+        <activity
+            android:name=".todo.notice.Notice"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".todo.notice.Notice_view"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".todo.notice.Notice_input" />
+
+
+        <!-- 마이페이지 -->
+        <activity
+            android:name="drawable.user.mypage.MyPage"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="drawable.user.mypage.MyPage_Profile"
+            android:exported="false" />
+        <activity
+            android:name="drawable.user.mypage.MyPage_Alarm"
+            android:exported="false" />
+        <activity
+            android:name="drawable.user.mypage.MyPage_Ask"
+            android:exported="false" />
+        <activity
+            android:name=".user.mypage.MyPage_Pwd"
+            android:exported="false" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.sstep"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+
+        <!-- money -->
+        <activity
+            android:name=".money.Money_Ceo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".money.Money_Staff"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 직원 초대 staffInvite -->
+        <activity
+            android:name=".staffinvite.StaffInvite"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".staffinvite.StaffInvite2" />
+
+    <!-- 출퇴근 지도 -->
+        <activity
+            android:name=".commute.Commute_map"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

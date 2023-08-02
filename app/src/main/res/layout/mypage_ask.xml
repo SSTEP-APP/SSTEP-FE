@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:id="@+id/mypage_ask_L1"
+    tools:context="drawable.user.mypage.MyPage_Ask">
+    <!-- top_문의하기-->
+    <FrameLayout
+        android:id="@+id/mypage_ask_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/mypage_ask_topText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="문의하기"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/mypage_ask_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <!-- 카카오톡으로 문의하기 HL-->
+    <LinearLayout
+        android:id="@+id/mypage_ask_kakaoHL1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/yroundrec_w"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:clickable="true">
+        <ImageView
+            android:id="@+id/mypage_ask_iv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yicon_kakao"
+            android:layout_marginRight="15dp" />
+        <TextView
+            android:id="@+id/mypage_ask_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="카카오톡으로 문의하기"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout> <!-- 카카오톡으로 문의하기 HL-->
+
+    <!-- 전화로 문의하기 HL-->
+    <LinearLayout
+        android:id="@+id/mypage_ask_callHL2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/yroundrec_w"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:clickable="true">
+        <ImageView
+            android:id="@+id/mypage_ask_iv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yicon_roundcall"
+            android:layout_marginRight="15dp" />
+        <TextView
+            android:id="@+id/mypage_ask_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전화로 문의하기"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout> <!-- 전화로 문의하기 HL-->
+</LinearLayout>

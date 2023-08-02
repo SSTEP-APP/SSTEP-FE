@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="drawable.user.start.Start4">
+
+    <TextView
+        android:id="@+id/strat4_localText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="105dp"
+        android:gravity="center"
+        android:text="오늘 업무 알림"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/strat4_text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="173dp"
+        android:gravity="center"
+        android:text="출근과 동시에 처리해야 할 업무를 알려드릴게요."
+        android:textColor="#000000"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/strat4_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="214dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginBottom="160dp"
+        android:src="@drawable/j_start4_img" />
+
+    <Button
+        android:id="@+id/strat4_startBtn"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/j_button_shape"
+        android:text="시작하기"
+        android:textColor="#0D71F3"/>
+
+</FrameLayout>
