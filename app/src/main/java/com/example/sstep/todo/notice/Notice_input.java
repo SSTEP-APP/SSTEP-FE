@@ -28,8 +28,6 @@ import androidx.core.app.ActivityCompat;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
-import com.example.sstep.document.certificate.Paper;
-import com.example.sstep.document.contract.PaperWinput;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -153,7 +151,7 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.notice_input_photoIbtn: // 갤러리
                 intent = new Intent(Intent.ACTION_PICK);
-                intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
                 startActivityForResult(intent, REQ_CODE_GALLERY_IMAGE);
                 break;
             case R.id.notice_input_deleteIbtn: // 삭제

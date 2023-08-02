@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/background"
     android:id="@+id/mypage_pwd_layoutL"
-    tools:context="drawable.user.mypage.MyPage_Pwd">
+    tools:context=".user.mypage.MyPage_Pwd">
     <!-- top_비밀번호 변경-->
     <FrameLayout
         android:layout_width="match_parent"

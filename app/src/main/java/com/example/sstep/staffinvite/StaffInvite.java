@@ -2,18 +2,13 @@ package com.example.sstep.staffinvite;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
@@ -21,7 +16,6 @@ import com.example.sstep.home.Home_Ceo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class StaffInvite extends AppCompatActivity implements View.OnClickListener {
 

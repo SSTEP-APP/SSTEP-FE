@@ -23,8 +23,6 @@ import com.example.sstep.store.store_api.NullOnEmptyConverterFactory;
 import com.example.sstep.store.store_api.StoreApiService;
 import com.example.sstep.store.store_api.StoreRequestDto;
 import com.example.sstep.store.store_api.StoreResponseDto;
-import com.example.sstep.user.login.Login;
-import com.example.sstep.user.member.MemberResponseDto;
 
 import retrofit2.Call;
 import retrofit2.Callback;

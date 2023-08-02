@@ -55,7 +55,7 @@
 
         <!-- 시작화면 start -->
         <activity
-            android:name="drawable.user.start.Start"
+            android:name=".user.start.Start"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,30 +64,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="drawable.user.start.Start1"
+            android:name=".user.start.Start1"
             android:exported="false" />
         <activity
-            android:name="drawable.user.start.Start2"
+            android:name=".user.start.Start2"
             android:exported="false" />
         <activity
-            android:name="drawable.user.start.Start3"
+            android:name=".user.start.Start3"
             android:exported="false" />
         <activity
-            android:name="drawable.user.start.Start4"
+            android:name=".user.start.Start4"
             android:exported="false" />
 
         <!-- 로그인/회원가입 joinlogin -->
         <activity
-            android:name="drawable.user.login.Login"
+            android:name=".user.login.Login"
             android:exported="false" />
         <activity
-            android:name="drawable.user.join.JoinActivity"
+            android:name=".user.join.JoinActivity"
             android:exported="false" />
         <activity
-            android:name="drawable.user.login.Find_id"
+            android:name=".user.login.Find_id"
             android:exported="false" />
         <activity
-            android:name="drawable.user.login.Find_password"
+            android:name=".user.login.Find_password"
             android:exported="false" />
 
         <!-- 사업장 선택 -->
@@ -143,7 +143,7 @@
 
         <!-- 직원정보입력 -->
         <activity
-            android:name="drawable.user.staff.InputStaffInfo"
+            android:name=".user.staff.InputStaffInfo"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -152,14 +152,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="drawable.user.staff.staff_infoInput"
+            android:name=".user.staff.staff_infoInput"
             android:exported="false" />
         <activity
-            android:name="drawable.user.staff.addSchedule"
+            android:name=".user.staff.addSchedule"
             android:exported="false" />
         <activity
             android:name=".user.staff.modifySchedule"
             android:exported="false" />
+
+        <!-- 사업장 월별 현황 -->
         <activity
             android:name=".performance.MonthState"
             android:exported="true">
@@ -268,7 +270,7 @@
 
         <!-- 마이페이지 -->
         <activity
-            android:name="drawable.user.mypage.MyPage"
+            android:name=".user.mypage.MyPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -277,17 +279,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="drawable.user.mypage.MyPage_Profile"
+            android:name=".user.mypage.MyPage_Profile"
             android:exported="false" />
         <activity
-            android:name="drawable.user.mypage.MyPage_Alarm"
+            android:name=".user.mypage.MyPage_Alarm"
             android:exported="false" />
         <activity
-            android:name="drawable.user.mypage.MyPage_Ask"
+            android:name=".user.mypage.MyPage_Ask"
             android:exported="false" />
         <activity
             android:name=".user.mypage.MyPage_Pwd"
             android:exported="false" />
+
+
+        <!-- 카메라 추가 -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.sstep"
@@ -331,7 +336,8 @@
         </activity>
         <activity android:name=".staffinvite.StaffInvite2" />
 
-    <!-- 출퇴근 지도 -->
+
+        <!-- 출퇴근 지도 -->
         <activity
             android:name=".commute.Commute_map"
             android:exported="true">

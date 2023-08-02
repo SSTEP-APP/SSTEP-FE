@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.home.Home_Ceo;
-import com.example.sstep.user.login.Login;
 
 public class SelectStore extends AppCompatActivity implements View.OnClickListener {
 

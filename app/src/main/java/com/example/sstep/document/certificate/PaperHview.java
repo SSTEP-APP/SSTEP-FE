@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
 import com.example.sstep.document.contract.PaperWinput;
-import com.example.sstep.document.contract.PaperWlist;
-import com.example.sstep.home.Home_Ceo;
 
 public class PaperHview extends AppCompatActivity implements View.OnClickListener {
 

@@ -1,7 +1,5 @@
 package com.example.sstep.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,13 +9,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.sstep.R;
 import com.example.sstep.alarm.Alarm;
 import com.example.sstep.performance.MonthState;
 import com.example.sstep.staffinvite.StaffInvite;
 import com.example.sstep.store.SelectStore;
 import com.example.sstep.todo.checklist.CheckList;
-import com.example.sstep.user.login.Find_password;
 import com.example.sstep.user.mypage.MyPage;
 
 public class Home_Ceo extends AppCompatActivity implements View.OnClickListener {

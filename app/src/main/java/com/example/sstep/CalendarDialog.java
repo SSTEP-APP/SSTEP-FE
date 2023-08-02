@@ -1,21 +1,8 @@
 package com.example.sstep;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.DatePicker;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.core.content.ContextCompat;
 
 import java.util.Calendar;
 

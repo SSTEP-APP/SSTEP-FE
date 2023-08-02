@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context="drawable.user.staff.staff_infoInput">
+    tools:context=".user.staff.staff_infoInput">
 
     <!-- top_직원 정보 입력 -->
     <FrameLayout
