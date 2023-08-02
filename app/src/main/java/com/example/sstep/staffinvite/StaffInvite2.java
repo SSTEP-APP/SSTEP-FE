@@ -22,8 +22,6 @@ import androidx.core.content.ContextCompat;
 
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
-import com.example.sstep.user.join.JoinActivity;
-import com.example.sstep.user.login.Login;
 
 import java.util.ArrayList;
 import java.util.List;

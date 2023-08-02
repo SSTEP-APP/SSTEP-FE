@@ -1,10 +1,7 @@
 package com.example.sstep.todo.checklist;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -14,14 +11,9 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
-import com.example.sstep.document.PhotoDialog;
-import com.example.sstep.document.certificate.PaperHinput;
-
-import java.io.IOException;
 
 public class Checklist_complete_detail extends AppCompatActivity {
 

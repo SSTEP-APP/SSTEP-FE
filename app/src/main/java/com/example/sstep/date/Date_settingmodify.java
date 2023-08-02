@@ -1,8 +1,8 @@
-package com.example.sstep.performance.date;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.sstep.date;
 
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
 public class Date_settingmodify extends AppCompatActivity {
