@@ -110,7 +110,7 @@ public class RegisterStore_calendarDialog extends Dialog {
                     if(selectedRadioButton != null) {
                         selectedRadioButton.setTextColor(Color.WHITE);
                     }
-                    data = selectedRadioButton.getText().toString() + "일";
+                    data = selectedRadioButton.getText().toString();
 
                     // 이전에 선택된 라디오 버튼의 텍스트 색상을 검정색으로 바꾼다.
                     if(previousSelectedId != -1 && previousSelectedId != selectedId) {

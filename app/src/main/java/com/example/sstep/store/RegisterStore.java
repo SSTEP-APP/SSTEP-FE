@@ -26,6 +26,8 @@ import com.example.sstep.store.store_api.StoreResponseDto;
 import com.example.sstep.user.login.Login;
 import com.example.sstep.user.member.MemberResponseDto;
 
+import java.util.Random;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,6 +43,7 @@ public class RegisterStore extends AppCompatActivity {
     Boolean ispaydayBtn=false;
     BaseDialog_OkCenter baseDialog_okCenter;
     Dialog showComplete_dialog;
+    String payday;
     private static final int SEARCH_ADDRESS_ACTIVITY = 10000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +116,9 @@ public class RegisterStore extends AppCompatActivity {
                 RegisterStore_calendarDialog checkList_photo_dialog = new RegisterStore_calendarDialog
                         (RegisterStore.this, new RegisterStore_calendarDialog.RegisterStore_calendarDialogListener() {
                             public void clickBtn(String data) {
-                                paydayBtn.setText(data);
+                                paydayBtn.setText(data+"일");
+                                //등록할 값 설정
+                                payday=data;
                                 ispaydayBtn = true;
                                 checkCompleteBtnState();
                             }
@@ -160,10 +165,10 @@ public class RegisterStore extends AppCompatActivity {
                             addressEt.getText().toString().trim()+detailEt.getText().toString().trim(),
                             "latitude",
                             "longitude",
-                            true,
-                            true,
-                            "payday",
-                            12345
+                            over5.isChecked(),
+                            pay.isChecked(),
+                            payday,
+                            generateVerificationCode()
                     );
 
 // 회원가입 요청을 서버에 전송
@@ -262,4 +267,27 @@ public class RegisterStore extends AppCompatActivity {
                 break;
         }
     }
+    //코드 중복 방지 필요시 개발
+    private int generateVerificationCode() {
+        Random random = new Random();
+        int checkCodeOk = 0;
+        int verificationCode =0;
+        /*
+        while (true){
+            verificationCode = random.nextInt(900000) + 100000;
+            //코드가 겹치는지 확인
+
+            //코드가 겹칠경우
+            if (verificationCode){
+
+            }else {
+                break;
+            }
+
+        }
+        */
+        return verificationCode;
+    }
+
+
 }
