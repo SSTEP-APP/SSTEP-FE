@@ -23,7 +23,7 @@ public class modifyStore extends AppCompatActivity {
 
     ImageButton back_Btn;
     EditText nameEt, addressEt, detailEt;
-    Button addressBtn, paydayBtn, completeBtn;
+    Button addressBtn, completeBtn;
     RadioGroup scaleRadioGroup, planRadioGroup;
     RadioButton under5, over5, pay, free;
     TextView closeStoreTv;
@@ -38,13 +38,11 @@ public class modifyStore extends AppCompatActivity {
         showComplete_dialog = new Dialog(modifyStore.this);
         showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showComplete_dialog.setContentView(R.layout.mypage_dropdl); // xml 레이아웃 파일과 연결
-
         back_Btn = findViewById(R.id.modistore_back_Btn);
         nameEt = findViewById(R.id.modistore_nameEt);
         addressEt = findViewById(R.id.modistore_addressEt);
         detailEt = findViewById(R.id.modistore_detailEt);
         addressBtn = findViewById(R.id.modistore_addressbtn);
-        paydayBtn = findViewById(R.id.modistore_paydaybtn);
         completeBtn = findViewById(R.id.modistore_completeBtn);
         scaleRadioGroup = findViewById(R.id.modistore_scaleRadioGroup);
         planRadioGroup = findViewById(R.id.modistore_planRadioGroup);
@@ -78,19 +76,6 @@ public class modifyStore extends AppCompatActivity {
                         free.setEnabled(false); //버튼 비활성화
                         break;
                 }
-            }
-        });
-        paydayBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                RegisterStore_calendarDialog checkList_photo_dialog = new RegisterStore_calendarDialog
-                        (modifyStore.this, new RegisterStore_calendarDialog.RegisterStore_calendarDialogListener() {
-                            public void clickBtn(String data) {
-                                paydayBtn.setText(data);
-                            }
-                        });
-                checkList_photo_dialog.show();
-
             }
         });
 

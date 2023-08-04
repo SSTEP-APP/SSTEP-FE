@@ -12,7 +12,7 @@
         android:background="@drawable/yroundrec_dl"
         android:layout_marginTop="50dp">
         <TextView
-            android:id="@+id/commute_indl_tv1"
+            android:id="@+id/commute_indl_nameTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="김유경님,"
@@ -34,7 +34,7 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal" />
         <TextView
-            android:id="@+id/commute_indl_tv3"
+            android:id="@+id/commute_indl_timeTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="현재시간 12:33 입니다."
@@ -44,7 +44,7 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal" />
         <Button
-            android:id="@+id/commute_indl_btn1"
+            android:id="@+id/commute_indl_okBtn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/yroundrec_w_sblue"

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/commute_mapdl_L1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 지도 띄우기 F -->
+    <FrameLayout
+        android:id="@+id/commute_mapdl_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:apiKey="AIzaSyBfGGbhoQpcitlIe-KBbvOsRwLtvmk6Y_E" />
+
+        <!-- 버튼 (현재 위치로 이동하는 버튼) -->
+        <ImageButton
+            android:id="@+id/currentLocationBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:background="@drawable/yicon_mapmarker"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/nocurrentLocationBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:background="@drawable/yicon_nomapmarker"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"/>
+
+        <!-- 현재 위치로 버튼 -->
+        <ImageButton
+            android:id="@+id/commute_mapdl_mapbtn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/yicon_map" />
+    </FrameLayout> <!-- 지도 띄우기 F -->
+
+    <!-- 맨 아래 닫기 버튼 -->
+    <Button
+        android:id="@+id/commute_mapdl_bottomonbtn"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/onbutton"
+        android:text="닫기"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:visibility="visible"/>
+</LinearLayout>

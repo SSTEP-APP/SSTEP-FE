@@ -25,7 +25,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
-import com.example.sstep.store.SelectStore;
 import com.example.sstep.user.login.Login;
 
 import java.io.IOException;

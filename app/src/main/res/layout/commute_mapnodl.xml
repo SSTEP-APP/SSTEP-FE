@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="18dp"
         android:layout_marginLeft="7dp">
         <!-- 이름 text -->
         <TextView
@@ -33,17 +33,7 @@
             android:id="@+id/commute_mapnodl_tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="사업장까지 남은 거리"
-            android:textColor="@color/white"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            android:layout_marginTop="3dp"/>
-        <!-- 남은 거리 계산 -->
-        <TextView
-            android:id="@+id/commute_mapnodl_dttv3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="21.207km"
+            android:text="위치가 아닙니다."
             android:textColor="@color/white"
             android:textSize="11sp"
             android:textStyle="bold"

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".StaffInvite2">
+    tools:context=".staffinvite.StaffInvite2">
 
     <!-- top_직원 초대 -->
     <FrameLayout
@@ -125,22 +125,6 @@
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"/>
 
-            <!-- 문자발송 버튼 -->
-            <Button
-                android:id="@+id/staffInvite2_gomesaBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|center_vertical"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/yroundrec_w_sblue"
-                android:text="문자발송"
-                android:textColor="@color/blue"
-                android:minHeight="0dp"
-                android:textSize="13sp"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="7dp"
-                android:paddingBottom="7dp"/>
         </FrameLayout> <!-- 전화번호 입력 _F -->
 
         <!-- 유형 -->
@@ -199,10 +183,9 @@
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/yroundrec_bottombtnoff"
+            android:background="@drawable/yroundrec_bottombtnon"
             android:text="직원 초대 완료"
             android:textSize="17sp"
-            android:clickable="false"
             android:textColor="@color/white"
             android:layout_margin="15dp"/>
     </LinearLayout>

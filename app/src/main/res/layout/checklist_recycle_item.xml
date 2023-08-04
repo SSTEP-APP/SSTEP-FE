@@ -8,7 +8,8 @@
     android:layout_marginBottom="15dp"
     android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical">
 
     <TextView
         android:id="@+id/checkList_recycle_text"
@@ -29,4 +30,5 @@
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/j_check_img" />
+
 </LinearLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".date.Date_settingBreaktime">
+    tools:context=".performance.date.Date_settingBreaktime">
 
     <FrameLayout
         android:id="@+id/dateSetBreakTime_top"
