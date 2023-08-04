@@ -34,8 +34,6 @@ import com.example.sstep.CalendarDialog;
 import com.example.sstep.CustomTextWatcher_Comma;
 import com.example.sstep.R;
 import com.example.sstep.document.certificate.Paper;
-import com.example.sstep.user.join.JoinActivity;
-import com.example.sstep.user.login.Login;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

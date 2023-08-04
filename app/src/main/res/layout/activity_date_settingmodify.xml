@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".performance.date.Date_settingmodify">
+    tools:context=".date.Date_settingmodify">
 
     <FrameLayout
         android:id="@+id/dateSet_top"

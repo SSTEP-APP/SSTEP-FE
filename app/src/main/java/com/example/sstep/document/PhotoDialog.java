@@ -49,7 +49,7 @@ public class PhotoDialog extends Dialog implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.dia_checkPhoto_gallery: // 갤러리
                 intent = new Intent(Intent.ACTION_PICK);
-                intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
                 activity.startActivityForResult(intent, REQ_CODE_GALLERY_IMAGE);
                 dismiss();
                 break;

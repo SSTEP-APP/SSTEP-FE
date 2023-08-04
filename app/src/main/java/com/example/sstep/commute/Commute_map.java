@@ -23,8 +23,6 @@ import androidx.core.app.ActivityCompat;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.home.Home_staff;
-import com.example.sstep.user.join.JoinActivity;
-import com.example.sstep.user.login.Login;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;

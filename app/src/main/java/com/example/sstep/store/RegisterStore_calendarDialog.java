@@ -10,7 +10,6 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.example.sstep.R;
 
@@ -35,7 +34,7 @@ public class RegisterStore_calendarDialog extends Dialog {
     protected void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //타이틀 바 삭제
-        getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         setContentView(R.layout.dialog_calendar);
 
         rg0 = (RadioGroup)findViewById(R.id.dialog_cal_calendarRG0);
