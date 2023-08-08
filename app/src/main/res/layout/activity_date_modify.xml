@@ -11,28 +11,32 @@
     <FrameLayout
         android:id="@+id/dateModify_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/top">
 
         <TextView
             android:id="@+id/dateModify_topText"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="#E60D69F3"
+            android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="근무일정 수정하기"
-            android:textColor="@color/white"
-            android:textSize="17sp" />
+            android:text="근무일정 수정"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
 
+        <!-- 뒤로가기 아이콘 -->
         <ImageButton
             android:id="@+id/dateModify_BackBtn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/yicon_back" />
-
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
     </FrameLayout>
 
     <ScrollView
@@ -47,11 +51,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/j_button_stroke737373"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="20dp"
+                android:background="@color/white"
+                android:layout_marginTop="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -203,12 +209,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/j_button_stroke737373"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="20dp"
+                android:background="@color/white"
+                android:layout_marginTop="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -223,19 +231,18 @@
                         android:id="@+id/dateModify_write_localChangeTimeText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
                         android:text="변경할 근무일정"
-                        android:textColor="#969696"
-                        android:textSize="15sp" />
+                        android:textSize="17sp"
+                        android:textColor="@color/blue"
+                        android:fontFamily="@font/nanumsquareneo_deb" />
 
                 </LinearLayout>
 
                 <View
-                    android:id="@+id/dateModify_line1"
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
                     android:background="#ACACAC" />
 
                 <LinearLayout
@@ -248,24 +255,21 @@
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:layout_marginBottom="15dp"
-                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/dateModify_localStartTimeText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:text="근무 시작시간"
-                            android:textColor="#99000000" />
+                            android:textColor="#000000"
+                            android:textSize="15sp" />
 
                         <View
-                            android:id="@+id/dateModify_view4"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_weight="1" />
@@ -274,28 +278,30 @@
                             android:id="@+id/dateModify_startTimeText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="07:00" />
+                            android:fontFamily="@font/nanumsquareneo_deb"
+                            android:text="03:00"
+                            android:textColor="@color/blue"
+                            android:textSize="15sp" />
+
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="25dp"
                         android:layout_marginRight="20dp"
-                        android:layout_marginBottom="15dp"
-                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/dateModify_localEndTimeText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:text="근무 종료시간"
-                            android:textColor="#99000000" />
+                            android:textColor="#000000"
+                            android:textSize="15sp" />
 
                         <View
-                            android:id="@+id/dateModify_view5"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_weight="1" />
@@ -304,28 +310,29 @@
                             android:id="@+id/dateModify_endTimeText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="12:00" />
-                    </LinearLayout>
+                            android:fontFamily="@font/nanumsquareneo_deb"
+                            android:text="05:00"
+                            android:textColor="@color/blue"
+                            android:textSize="15sp" />
 
+                    </LinearLayout>
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="25dp"
                         android:layout_marginRight="20dp"
-                        android:layout_marginBottom="15dp"
-                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/dateModify_localWorkTimeText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:text="근무 일자"
-                            android:textColor="#99000000" />
+                            android:textColor="#000000"
+                            android:textSize="15sp" />
 
                         <View
-                            android:id="@+id/dateModify_view6"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_weight="1" />
@@ -334,92 +341,13 @@
                             android:id="@+id/dateModify_change_workTimeText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1월 26일 목요일" />
+                            android:text="1월 26일 목요일"
+                            android:fontFamily="@font/nanumsquareneo_deb"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
                     </LinearLayout>
 
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/j_button_stroke737373"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/dateModify_localWageText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:text="수당 포함여부"
-                        android:textColor="#969696"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="27dp"
-                    android:layout_marginTop="22dp"
-                    android:layout_marginRight="27dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="vertical" >
-
-                    <RadioGroup
-                        android:id="@+id/dateModify_wageRG"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
-
-                        <RadioButton
-                            android:id="@+id/dateModify_basicRB"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="15dp"
-                            android:paddingLeft="15dp"
-                            android:text="기본 적용(1배)"
-                            android:textColor="#B3000000" />
-
-                        <RadioButton
-                            android:id="@+id/dateModify_overRB"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="15dp"
-                            android:paddingLeft="15dp"
-                            android:text="초과근무수당 적용(1.5배)"
-                            android:textColor="#B3000000" />
-
-                        <RadioButton
-                            android:id="@+id/dateModify_nightRB"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="15dp"
-                            android:paddingLeft="15dp"
-                            android:text="야간근무수당 적용(1.5배)"
-                            android:textColor="#B3000000" />
-
-                        <RadioButton
-                            android:id="@+id/dateModify_overNightRB"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="15dp"
-                            android:paddingLeft="15dp"
-                            android:text="초과, 야간근무수당 중복적용(2배)"
-                            android:textColor="#B3000000" />
-                    </RadioGroup>
                 </LinearLayout>
 
             </LinearLayout>
@@ -433,12 +361,25 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <Button
-        android:id="@+id/dateModify_completeBtn"
+
+    <!-- 맨 아래 완료 버튼 -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="@drawable/j_layout_button_quad"
-        android:text="수정완료"
-        android:textColor="#FFFFFF" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/dateModify_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnon"
+            android:text="일정수정 완료"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
 
 </LinearLayout>

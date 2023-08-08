@@ -219,37 +219,6 @@
                     </LinearLayout> <!-- 사진 첨부 사진 _HL -->
                 </LinearLayout> <!-- 사진 첨부 내용 _L -->
 
-                <!-- 공지 종료일 -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="공지 종료일"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/nanumsquareneo_deb"
-                    android:layout_marginTop="40dp"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="15dp">
-                    <TextView
-                        android:id="@+id/notice_view_endDateTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/likeblack"
-                        android:text="공지종료일 없음"
-                        android:textSize="13sp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="20dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"/>
-                </LinearLayout>
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="0.5dp"
-                    android:layout_weight="1"
-                    android:background="#737373"/>
             </LinearLayout>
         </LinearLayout> <!-- 스크롤 _L -->
     </ScrollView>

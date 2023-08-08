@@ -44,7 +44,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         idEt = findViewById(R.id.logIn_idEt);
         passwordEt = findViewById(R.id.logIn_passwordEt);
-        completeBtn = findViewById(R.id.logIn_completeBtn);
 
         baseDialog_bottom = new BaseDialog_Bottom(Login.this, R.layout.dialog_okdown);
 
