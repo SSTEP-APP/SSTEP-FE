@@ -16,6 +16,7 @@ import com.example.sstep.alarm.Alarm;
 import com.example.sstep.performance.MonthState;
 import com.example.sstep.staffinvite.StaffInvite;
 import com.example.sstep.store.SelectStore;
+import com.example.sstep.store.modifyStore;
 import com.example.sstep.todo.checklist.CheckList;
 import com.example.sstep.user.mypage.MyPage;
 
@@ -23,7 +24,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
 
     ImageButton menuIBtn, alarmIBtn;
     Button selectStoreBtn, mypageBtn, checklistBtn, staffInviteBtn;;
-    TextView monthstateTv;
+    TextView monthstateTv, modifyStoreTv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
         alarmIBtn=findViewById(R.id.homeceo_alarmIBtn); alarmIBtn.setOnClickListener(this);
         selectStoreBtn=findViewById(R.id.homeceo_selectStoreBtn); selectStoreBtn.setOnClickListener(this);
         mypageBtn=findViewById(R.id.homeceo_mypageBtn); mypageBtn.setOnClickListener(this);
+        modifyStoreTv=findViewById(R.id.homeceo_modifyStoreTv); modifyStoreTv.setOnClickListener(this);
         monthstateTv=findViewById(R.id.homeceo_monthstateTv); monthstateTv.setOnClickListener(this);
         checklistBtn=findViewById(R.id.homeceo_checklistBtn); checklistBtn.setOnClickListener(this);
         staffInviteBtn=findViewById(R.id.homeceo_staffInviteBtn); staffInviteBtn.setOnClickListener(this);
@@ -55,7 +57,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.homeceo_selectStoreBtn: // 사업장 월별 현황
+            case R.id.homeceo_selectStoreBtn: // 사업장 선택
                 intent = new Intent(getApplicationContext(), SelectStore.class);
                 startActivity(intent);
                 finish();
@@ -67,6 +69,11 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
                 break;
             case R.id.homeceo_checklistBtn: // 해야할 일
                 intent = new Intent(getApplicationContext(), CheckList.class);
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.homeceo_modifyStoreTv: // 사업장 정보
+                intent = new Intent(getApplicationContext(), modifyStore.class);
                 startActivity(intent);
                 finish();
                 break;

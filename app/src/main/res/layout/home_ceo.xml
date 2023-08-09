@@ -400,6 +400,7 @@
                         android:drawablePadding="5dp"/>
                 </LinearLayout>
                 <TextView
+                    android:id="@+id/homeceo_modifyStoreTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="사업장 정보"

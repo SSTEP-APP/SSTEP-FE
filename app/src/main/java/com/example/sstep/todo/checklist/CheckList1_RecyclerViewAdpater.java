@@ -37,6 +37,8 @@ public class CheckList1_RecyclerViewAdpater extends RecyclerView.Adapter<CheckLi
      * Todo 만들어진 ViewHolder에 data 삽입 ListView의 getView와 동일
      *
      * */
+
+    // 데이터를 아이템 뷰에 바인딩
     @Override
     public void onBindViewHolder(Holder holder, int position) {
         // 각 위치에 문자열 세팅
@@ -44,6 +46,8 @@ public class CheckList1_RecyclerViewAdpater extends RecyclerView.Adapter<CheckLi
         holder.wordText.setText(list.get(itemposition).word);
         holder.checkImg.setImageResource(R.drawable.yicon_recuncheck);
         //Log.e("StudyApp", "onBindViewHolder" + itemposition);
+
+        // 아이템 뷰 클릭 시 이벤트 처리
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
