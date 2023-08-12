@@ -17,17 +17,33 @@ public class StoreRequestDto {
     private String longitude;
     private boolean scale;
     private boolean plan;
-    private String payday;
     private long code;
 
-    public StoreRequestDto(String name, String address, String latitude, String longitude, boolean scale, boolean plan, String payday, long code) {
+    public StoreRequestDto(String name, String address, String latitude, String longitude, boolean scale, boolean plan, long code) {
         this.name = name;
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
         this.scale = scale;
         this.plan = plan;
-        this.payday = payday;
         this.code = code;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public long getCode() {
+        return code;
+    }
+
+    public void setCode(long code) {
+        this.code = code;
+    }
+
+
 }

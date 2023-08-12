@@ -24,9 +24,6 @@ public class StoreModel {
     @SerializedName("plan")
     private boolean plan;
 
-    @SerializedName("payday")
-    private String payday;
-
     @SerializedName("code")
     private long code;
 

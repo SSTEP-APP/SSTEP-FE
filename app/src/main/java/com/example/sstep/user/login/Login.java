@@ -83,7 +83,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 finish();
                 break;
             case R.id.logIn_searchPass: //패스워드 찾기
-                intent = new Intent(getApplicationContext(), Find_password.class);
+                intent = new Intent(getApplicationContext(), Login_test.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -184,6 +184,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SelectStore.class);
                 startActivity(intent);
+                intent.putExtra("userId", idEt.getText().toString());
                 finish();
             }
         });

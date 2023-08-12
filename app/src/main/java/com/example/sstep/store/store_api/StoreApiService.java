@@ -1,32 +1,66 @@
 package com.example.sstep.store.store_api;
 
+import com.example.sstep.user.staff_api.StaffModel;
+import com.example.sstep.user.staff_api.StaffRequestDto;
+
+import java.util.List;
+
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface StoreApiService {
 
+    //사업장 등록만 사용 사장까지 등록시 오류로 불가
+    @Headers("Content-Type: application/json")
     @POST("/store/register")
-    Call<StoreResponseDto> saveStore(@Body StoreRequestDto storeRequestDto);
+    Call<Void> registerStore(@Body StoreRegisterReqDto dto);
+
+    /*
+    //직원 목록 조회
+    @GET("/store/{storeId}/staffs")
+    Call<StoreModel> getStaffsByStoreId(@Path("storeId") Long storeId);
+
+    //직원 추가 => 사업장 코드 입력 후 사장이 승인을 받아줬을 경우
+    @POST("/store/{code}/add/staff")
+    Call<Void> addStaffToStore(@Path("code") Long code, @Body StaffRequestDto staffRequestDto);
 
 
+    //합류 여부가 false인 직원 리스트 가져오기
+    @GET("/store/{storeId}/unregister-staffs")
+    Call<List<StaffModel>> getUnRegStaffs(@Path("storeId") Long storeId);
+
+
+     */
 }
 
 
 
 /*~~ 참고
 
-@RequiredArgsConstructor
-@RestController
-@RequestMapping("/store")
-public class StoreController {
-    private final StoreService storeService;
 
-    //사업장 등록
+    //직원 추가 => 사업장 코드 입력 후 사장이 승인을 받아줬을 경우
+    @POST("/store/{code}/add/staff")
+    Call<Void> addStaffToStore(@Path("code") Long code, @Body StaffRequestDto staffRequestDto);
+    public ResponseEntity<Void> addStaffToStore(@PathVariable Long code, @RequestBody StaffRequestDto staffRequestDto) {
+        storeService.addStaffToStore(code, staffRequestDto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+    @POST("/{code}/add/staff")
+    Call<Void> addStaffToStore(@Path("code") Long code, @Body StaffRequestDto staffRequestDto);
+
+
+
+
+    //사업장 등록 => 등록한 사람은 바로 직원으로 추가, 사장으로 취급
     @PostMapping("/register")
-    public ResponseEntity<Void> registerStore(@RequestBody StoreRequestDto storeRequestDto) {
-        storeService.saveStore(storeRequestDto);
-
+    public ResponseEntity<Void> registerStore(@RequestBody StoreRequestDto storeRequestDto, StaffRequestDto staffRequestDto) {
+        storeService.saveStore(storeRequestDto); //사업장 등록 로직
+        storeService.setOwner(storeRequestDto, staffRequestDto);//사업장 등록한 사람을 사장으로 취급하는 로직
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -36,11 +70,36 @@ public class StoreController {
         return storeService.getStaffsByStoreId(storeId);
     }
 
-    //직원 추가 => 초대 방식
-   @PostMapping("/{code}/add/staff")
-    public void addStaffToStore(@PathVariable Long code, @RequestBody StaffRequestDto staffRequestDto) {
+    //직원 추가 => 사업장 코드 입력 후 사장이 승인을 받아줬을 경우
+    @PostMapping("/{code}/add/staff")
+    public ResponseEntity<Void> addStaffToStore(@PathVariable Long code, @RequestBody StaffRequestDto staffRequestDto) {
         storeService.addStaffToStore(code, staffRequestDto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-}
+
+    //합류 여부가 false인 직원 리스트 가져오기
+    @GetMapping("/{storeId}/unregister-staffs")
+    public List<Staff> getUnRegStaffs(@PathVariable Long storeId) {
+        return storeService.getUnRegStaffs(storeId);
+    }
+
+    //해당 날짜에 근무하는 직원 리스트 가져오기
+    @GetMapping("/{storeId}/daywork-staffs")
+    public List<Staff> getDayWorkStaffs(@PathVariable Long storeId, @RequestBody CalendarRequestDto calendarRequestDto) {
+        return storeService.getDayWorkStaffs(storeId, calendarRequestDto);
+    }
+
+    //이의 신청한 직원 리스트 가져오기
+    @GetMapping("/{storeId}/dispute-staffs")
+    public List<Staff> getDisputeStaffs(@PathVariable Long storeId) {
+        return storeService.getDisputeStaffs(storeId);
+    }
+
+    //사업장 내 전체 공지사항 목록 조회
+    @GetMapping("/{storeId}/notices")
+    public List<Notice> getNotices(@PathVariable Long storeId) {
+        return storeService.getNotices(storeId);
+    }
+
 
 */

@@ -8,25 +8,38 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.home.Home_Ceo;
+import com.example.sstep.user.staff.AddSch_RecyclerViewAdpater;
+import com.example.sstep.user.staff.Staff_infoInput_recyclerViewItem;
+import com.example.sstep.user.staff.addSchedule;
+
+import java.util.ArrayList;
 
 public class SelectStore extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton searchIbtn;
     Button storeregBtn;
     FrameLayout onelistF;
-
+    int store_Code;
     Dialog showComplete_dialog, showConfirm_dialog;
     BaseDialog_OkCenter baseDialog_okCenter, baseDialog_okCenter2;
+    private RecyclerView mRecyclerView;
+    private SelectStore_RecyclerViewAdpater mRecyclerViewAdapter;
+    private ArrayList<SelectStore_recyclerViewItem> mList;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +47,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
 
         storeregBtn = findViewById(R.id.selectstore_storeregBtn); storeregBtn.setOnClickListener(this);
         searchIbtn = findViewById(R.id.selectstore_searchIbtn); searchIbtn.setOnClickListener(this);
-        onelistF = findViewById(R.id.selectstore_onelistF); onelistF.setOnClickListener(this);
+        //onelistF = findViewById(R.id.selectstore_onelistF); onelistF.setOnClickListener(this);
 
         baseDialog_okCenter = new BaseDialog_OkCenter(SelectStore.this, R.layout.searchstore_dl);
         baseDialog_okCenter2 = new BaseDialog_OkCenter(SelectStore.this, R.layout.searchstore_dl2);
@@ -46,6 +59,26 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         showConfirm_dialog = new Dialog(SelectStore.this);
         showConfirm_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showConfirm_dialog.setContentView(R.layout.searchstore_dl2); // xml 레이아웃 파일과 연결
+
+        // Intent로 전달받은 ID 값 가져오기
+        String userId = getIntent().getStringExtra("userId");
+
+
+        //리사이클러뷰를 통해 사업장 리스트 가지고 오기
+        firstInit();
+
+        mRecyclerViewAdapter = new SelectStore_RecyclerViewAdpater(mList);
+        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(SelectStore.this, RecyclerView.VERTICAL, false));
+
+        //db에서 리스트로 받기
+        int storeCount = 2;
+
+        String[][] twoDArray = new String[storeCount][3];
+
+        for (int i = 0; i < 2; i++) {
+            addItem("이름","주소", "5"); //db에서 리스트로 받은거 넣기
+        }
     }
 
     @Override
@@ -57,11 +90,14 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                 startActivity(intent);
                 finish();
                 break;
+                /*
             case R.id.selectstore_onelistF: // 리스트
                 intent = new Intent(getApplicationContext(), Home_Ceo.class);
                 startActivity(intent);
                 finish();
                 break;
+
+                 */
             case R.id.selectstore_searchIbtn: // 사업장 검색
                 showSearchStoreDl();
             default:
@@ -80,7 +116,27 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         searchstore_dl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showConfirmDl();
+                try {
+                    store_Code = Integer.parseInt(searchstore_dl_numEt.getText().toString());
+
+                    showConfirmDl();
+                } catch (Exception e) {
+                    // 사용자가 유효하지 않은 값을 입력한 경우 예외 처리
+                    showComplete_dialog.show();
+                    // 다이얼로그의 배경을 투명으로 만든다.
+                    showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    TextView join_okdl_commentTv; Button join_okdl_okBtn;
+                    join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
+                    join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
+                    join_okdl_commentTv.setText("코드가 잘못입력되었습니다.");
+                    join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            finish();
+                        }
+                    });
+                }
+
             }
         });
     }
@@ -105,6 +161,8 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
             }
         });
 
+
+        //ok버튼 클릭시
         searchstore_dl2_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,5 +170,19 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                 showComplete_dialog.dismiss();
             }
         });
+    }
+    public void firstInit(){
+        mRecyclerView = (RecyclerView) findViewById(R.id.selectstore_storeRV); //리사이클뷰 아이디 받기
+        mList = new ArrayList<>();
+    }
+
+    public void addItem(String name, String address, String person){
+        SelectStore_recyclerViewItem item = new SelectStore_recyclerViewItem();
+
+        item.setSelectStoreName(name);
+        item.setSelectStoreAddress(address);
+        item.setSelectStorePerson(person);
+
+        mList.add(item);
     }
 }

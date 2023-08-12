@@ -3,6 +3,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,8 +23,17 @@ import com.example.sstep.R;
 import com.example.sstep.document.contract.EditTextValidator;
 import com.example.sstep.store.store_api.NullOnEmptyConverterFactory;
 import com.example.sstep.store.store_api.StoreApiService;
+import com.example.sstep.store.store_api.StoreRegisterReqDto;
 import com.example.sstep.store.store_api.StoreRequestDto;
-import com.example.sstep.store.store_api.StoreResponseDto;
+import com.example.sstep.user.staff_api.StaffRequestDto;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.sql.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,9 +47,11 @@ public class RegisterStore extends AppCompatActivity {
     Button addressBtn, completeBtn;
     RadioGroup scaleRadioGroup, planRadioGroup;
     RadioButton under5, over5, pay, free;
-    Boolean ispaydayBtn=false;
     BaseDialog_OkCenter baseDialog_okCenter;
     Dialog showComplete_dialog;
+    String payday;
+    double lat;
+    double lon;
     private static final int SEARCH_ADDRESS_ACTIVITY = 10000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +70,10 @@ public class RegisterStore extends AppCompatActivity {
         pay = findViewById(R.id.regiStore_pay);
         free = findViewById(R.id.regiStore_free);
         EditText edit_addr;
-
+        // 현재 날짜 정보를 받아오기
+        Date currentDate = new Date(System.currentTimeMillis());
+        Date sqlDate = getFormattedStartDay(currentDate); // 날짜를 java.sql.Date 형식으로 변환
+        nameEt.setText(sqlDate.toString());
         baseDialog_okCenter = new BaseDialog_OkCenter(RegisterStore.this, R.layout.join_okdl);
 
         showComplete_dialog = new Dialog(RegisterStore.this);
@@ -72,7 +88,6 @@ public class RegisterStore extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.i("주소설정페이지", "주소입력창 클릭");
-
 
                 Log.i("주소설정페이지", "주소입력창 클릭");
                 Intent i = new Intent(getApplicationContext(), WebViewActivity.class);
@@ -104,6 +119,7 @@ public class RegisterStore extends AppCompatActivity {
             }
         });
 
+
         //뒤로가기 버튼
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +140,8 @@ public class RegisterStore extends AppCompatActivity {
                 TextView join_okdl_commentTv; Button join_okdl_okBtn;
                 join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
                 join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
-                join_okdl_commentTv.setText("사업장 등록이 완료되었습니다.");
+                join_okdl_commentTv.setText("로딩중");
+
                 //레트로핏 작동
                 try {
 
@@ -135,49 +152,54 @@ public class RegisterStore extends AppCompatActivity {
                             .addConverterFactory(GsonConverterFactory.create())
                             .build();
 
-                    StoreApiService apiService = retrofit.create(StoreApiService.class);
+                    StoreApiService storeapiService = retrofit.create(StoreApiService.class);
+
                     // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
-                    StoreRequestDto storeRequestDto = new StoreRequestDto(
+                    StoreRegisterReqDto storeRegisterReqDto = new StoreRegisterReqDto(
+                            "testi2",
                             nameEt.getText().toString().trim(),
                             addressEt.getText().toString().trim()+detailEt.getText().toString().trim(),
-                            "latitude",
-                            "longitude",
-                            true,
-                            true,
-                            "payday",
-                            12345
+                            ""+lat,
+                            ""+lon,
+                            over5.isChecked(),
+                            pay.isChecked(),
+                            generateVerificationCode()
                     );
 
-// 회원가입 요청을 서버에 전송
-                    Call<StoreResponseDto> call = apiService.saveStore(storeRequestDto);
-                    call.enqueue(new Callback<StoreResponseDto>() {
+                    Call<Void> call = storeapiService.registerStore(storeRegisterReqDto);
+
+                    call.enqueue(new Callback<Void>() {
                         @Override
-                        public void onResponse(Call<StoreResponseDto> call, Response<StoreResponseDto> response) {
-                            if (response.isSuccessful()) {
-                                // 사업장드록 성공
-                                StoreResponseDto storeResponseDto = response.body();
-                                join_okdl_commentTv.setText("사업장등록이 완료되었습니다.\n 로그인해 주세요.");
-                                // 응답을 필요에 따라 처리하세요.
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            int statusCode = response.code();
+                            if (statusCode == 200 || statusCode == 201) {
+                                if(statusCode == 200 || statusCode == 201){
+                                    join_okdl_commentTv.setText("사업장 등록이 완료되었습니다.");
+                                }else {
+                                    join_okdl_commentTv.setText("사업장 등록이 실패했습니다. 오류코드:"+statusCode);
+                                }
+                                // 성공적인 응답 처리
                             } else {
-                                // 사업장 등록 실패
-                                int statusCode = response.code();
-                                join_okdl_commentTv.setText("사업장등록이 실패했습니다.\n 오류코드: " + statusCode);
+                                // 기타 다른 상태 코드 처리
+                                join_okdl_commentTv.setText("사업장 등록이 실패했습니다! 오류코드:"+statusCode);
                             }
                         }
 
                         @Override
-                        public void onFailure(Call<StoreResponseDto> call, Throwable t) {
+                        public void onFailure(Call<Void> call, Throwable t) {
                             // 네트워크 오류나 기타 이유로 등록 실패
                             String errorMessage = t != null ? t.getMessage() : "Unknown error";
                             if (errorMessage.equals("End of input at line 1 column 1 path $")){
-                                //join_okdl_commentTv.setText("사업장등록이 완료되었습니다.\n 로그인해 주세요.");
+                                join_okdl_commentTv.setText("사업장등록이 완료되었습니다.\n 로그인해 주세요.");
 
-                            }else {
-                                //join_okdl_commentTv.setText("사업장등록이 실패했습니다!!\n 오류메시지: " + errorMessage);
+                            } else {
+                                join_okdl_commentTv.setText("사업장등록이 실패했습니다!!\n 오류메시지: " + errorMessage);
                                 t.printStackTrace();
                             }
                         }
                     });
+
+
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -230,18 +252,62 @@ public class RegisterStore extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
-        Log.i("test", "onActivityResult");
 
         switch (requestCode) {
             case SEARCH_ADDRESS_ACTIVITY:
                 if (resultCode == RESULT_OK) {
-                    String data = intent.getExtras().getString("data");
+                    String data = intent.getStringExtra("data");
                     if (data != null) {
-                        Log.i("test", "data:" + data);
                         addressEt.setText(data);
+                        Geocoder geocoder = new Geocoder(this);
+                        try {
+                            List<Address> list = geocoder.getFromLocationName(data, 1);
+                            if (list != null && list.size() > 0) {
+                                Address address = list.get(0);
+                                lat = address.getLatitude();
+                                lon = address.getLongitude();
+                                // 위도(lat)와 경도(lon)를 사용하여 원하는 작업을 수행하면 됩니다.
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
                 break;
+        }
+    }
+    //코드 중복 방지 필요시 개발
+    private int generateVerificationCode() {
+        Random random = new Random();
+        //int checkCodeOk = 0;
+        int verificationCode = random.nextInt(900000) + 100000;
+        /*
+        while (true){
+            verificationCode = random.nextInt(900000) + 100000;
+            //코드가 겹치는지 확인
+
+            //코드가 겹칠경우
+            if (verificationCode){
+
+            }else {
+                break;
+            }
+
+        }
+        */
+        return verificationCode;
+    }
+
+    //날짜 포맷
+    public Date getFormattedStartDay(Date date) {
+        SimpleDateFormat sdfOutput = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+
+        try {
+            String formattedDate = sdfOutput.format(date);
+            return new Date(sdfOutput.parse(formattedDate).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
