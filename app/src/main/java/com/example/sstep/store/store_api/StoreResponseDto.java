@@ -18,6 +18,5 @@ public class StoreResponseDto {
     private String longitude;
     private boolean scale;
     private boolean plan;
-    private String payday;
     private long code;
 }

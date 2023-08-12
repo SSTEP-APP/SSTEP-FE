@@ -6,8 +6,8 @@ public class MemberModel {
     @SerializedName("id")
     private long id;
 
-    @SerializedName("memberId")
-    private String memberId;
+    @SerializedName("username")
+    private String username;
 
     @SerializedName("name")
     private String name;
@@ -23,13 +23,13 @@ public class MemberModel {
     @Override
     public String toString() {
         return "ID: " + id + "\n" +
-                "Member ID55: " + memberId + "\n" +
+                "Member ID55: " + username + "\n" +
                 "Name: " + name + "\n" +
                 "Phone Number: " + phoneNum + "\n" +
                 "Password: " + password;
     }
     public String getMemberId() {
-        return memberId;
+        return username;
     }
     public String getPassword() {
         return password;

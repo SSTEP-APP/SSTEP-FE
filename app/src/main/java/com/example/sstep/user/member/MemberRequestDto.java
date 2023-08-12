@@ -10,15 +10,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class MemberRequestDto {
-    private long id;
     private String name;
     private String phoneNum;
-    private String memberId;
+    private String username;
     private String password;
-    public MemberRequestDto(String memberId, String name, String password, String phoneNum) {
-        this.memberId = memberId;
+    public MemberRequestDto(String name, String password, String phoneNum, String username) {
         this.name = name;
         this.password = password;
         this.phoneNum = phoneNum;
+        this.username = username;
+
+
     }
 }

@@ -10,7 +10,7 @@ public interface MemberApiService {
 
     @POST("/member/join")
     Call<MemberResponseDto> save(@Body MemberRequestDto memberRequestDto);
-    @GET("member/{memberId}")
-    Call<MemberModel> getDataFromServer(@Path("memberId") String memberId);
+    @GET("member/{username}")
+    Call<MemberModel> getDataFromServer(@Path("username") String memberId);
 
 }
