@@ -4,13 +4,18 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.R;
 import com.github.mikephil.charting.animation.Easing;
@@ -23,6 +28,12 @@ import com.github.mikephil.charting.data.PieEntry;
 import java.util.ArrayList;
 
 public class monthstate2Fragment extends Fragment {
+
+    private MonthState2_RecyclerViewAdpater mRecyclerViewAdapter;
+    private RecyclerView mRecyclerView;
+    private ArrayList<MonthState2_recyclerViewWordItemData> list = new ArrayList<>();
+    private LinearLayout dataLayout;
+    private TextView nodataTv;
 
     PieChart piechart2;
     private ArrayList<PieEntry> datavalue;
@@ -88,9 +99,48 @@ public class monthstate2Fragment extends Fragment {
         absentL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                monstateDl();
+                // RecyclerView를 위한 어댑터 및 데이터 설정
+                ArrayList<MonthState_Dialog_recyclerViewWordItemData> dialogList = MonthState_Dialog_recyclerViewWordItemData.createContactsList(10);
+                MonthState_Dialog_RecyclerViewAdpater dialogAdapter = new MonthState_Dialog_RecyclerViewAdpater(getActivity(), dialogList);
+
+                // 다이얼로그 내부의 RecyclerView 설정
+                RecyclerView dialogRecyclerView = monstateDl.findViewById(R.id.monthstate_listdl_recycleView);
+                dialogRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                dialogRecyclerView.setAdapter(dialogAdapter);
+
+                // 리사이클러뷰 높이 제한 설정
+                ViewGroup.LayoutParams layoutParams = dialogRecyclerView.getLayoutParams();
+                layoutParams.height = (int) getResources().getDimension(R.dimen.max_recyclerview_height); // 이 값을 300dp에 해당하는 값으로 변경해야 합니다.
+                dialogRecyclerView.setLayoutParams(layoutParams);
+
+                // 다이얼로그 보이기
+                monstateDl.show();
             }
         });
+
+        // 리사이클 뷰
+        list = MonthState2_recyclerViewWordItemData.createContactsList(3);// 리스트 갯수
+        mRecyclerView = (RecyclerView) v.findViewById(R.id.monthstate2_fragment_recycleView);
+        nodataTv = (TextView) v.findViewById(R.id.monthstate2_fragment_nodataTv);
+        dataLayout = (LinearLayout)  v.findViewById(R.id.monthstate2_fragment_dataLayout);
+        mRecyclerView.setHasFixedSize(true);
+
+        try {
+            if(list.isEmpty()){
+                nodataTv.setVisibility(View.VISIBLE);
+                dataLayout.setVisibility(View.GONE);
+            }else{
+                nodataTv.setVisibility(View.GONE);
+                dataLayout.setVisibility(View.VISIBLE);
+                mRecyclerViewAdapter = new MonthState2_RecyclerViewAdpater(getActivity(), list);
+                mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                mRecyclerView.setAdapter(mRecyclerViewAdapter);
+            }
+        } catch (Exception e) {
+            Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
+            Log.e("error", e.toString());
+        }
+
         return v;
     }
 }
