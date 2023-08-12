@@ -328,13 +328,15 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
+
             MemberApiService apiService = retrofit.create(MemberApiService.class);
 // 회원가입에 필요한 데이터를 MemberRequestDto 객체로 생성
             MemberRequestDto memberRequestDto = new MemberRequestDto(
-                    idEt.getText().toString().trim(),
                     nameEt.getText().toString().trim(),
                     passEt.getText().toString().trim(),
-                    phonumEt.getText().toString().trim()
+                    phonumEt.getText().toString().trim(),
+                    idEt.getText().toString().trim()
+
             );
 
 // 회원가입 요청을 서버에 전송
@@ -410,6 +412,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                         if(testId.equals(idEt.getText().toString().trim())){
                             join_okdl_commentTv.setText("중복된 아이디가 있습니다.\n다른 아이디를 입력해 주세요.");
                             idEt.setText("");
+
                         }else if(idEt.getText().toString().trim().equals("")){
                             join_okdl_commentTv.setText("입력된 아이디가 없습니다.\n아이디를 입력해 주세요.");
                         }
@@ -437,7 +440,8 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                                 completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnon);
                                 completeBtn_state = Boolean.TRUE;
                             }
-                        } else {
+                        }
+                        else {
                             join_okdl_commentTv.setText("오류가 발생했습니다. 상태 코드: " + statusCode);
                         }
 
@@ -447,7 +451,11 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onFailure(Call<MemberModel> call, Throwable t) {
                     // 실패 처리
-                    join_okdl_commentTv.setText("요청 실패: " + t.getMessage());
+                    String errorMessage = t != null ? t.getMessage() : "Unknown error";
+
+                    join_okdl_commentTv.setText("회원가입이 실패했습니다!!\n 오류메시지: " + errorMessage);
+                    t.printStackTrace();
+
                 }
             });
         }catch (Exception e) {
