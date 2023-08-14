@@ -90,8 +90,8 @@ public class StaffInvite2 extends AppCompatActivity implements View.OnClickListe
 
                     // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
                     StaffRequestDto staffRequestDto = new StaffRequestDto(
-                            "testi2",
-                            154362,
+                            "814",
+                            895800,
                             null,
                             null,
                             0,

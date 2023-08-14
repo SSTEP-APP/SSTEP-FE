@@ -13,19 +13,38 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.home.Home_Ceo;
+import com.example.sstep.store.store_api.StoreApiService;
+import com.example.sstep.store.store_api.StoreResponseDto;
+import com.example.sstep.user.member.MemberApiService;
+import com.example.sstep.user.member.MemberModel;
+import com.example.sstep.user.member.NullOnEmptyConverterFactory;
 import com.example.sstep.user.staff.AddSch_RecyclerViewAdpater;
 import com.example.sstep.user.staff.Staff_infoInput_recyclerViewItem;
 import com.example.sstep.user.staff.addSchedule;
+import com.example.sstep.user.staff_api.StaffRequestDto;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SelectStore extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,8 +56,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
     BaseDialog_OkCenter baseDialog_okCenter, baseDialog_okCenter2;
     private RecyclerView mRecyclerView;
     private SelectStore_RecyclerViewAdpater mRecyclerViewAdapter;
-    private ArrayList<SelectStore_recyclerViewItem> mList;
-
+    private List<SelectStore_recyclerViewItem> mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,14 +89,44 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(SelectStore.this, RecyclerView.VERTICAL, false));
 
-        //db에서 리스트로 받기
-        int storeCount = 2;
+        //메인쓰레드 에러로 백그라운드에서 실행하는 코드, 리사이클러뷰를 이용해서 스토어를 리스트로 보여주는 코드
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                            .addConverterFactory(new NullOnEmptyConverterFactory())
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+                    MemberApiService apiService = retrofit.create(MemberApiService.class);
 
-        String[][] twoDArray = new String[storeCount][3];
+                    Call<List<StoreResponseDto>> call = apiService.getStoresBelongMember(userId);
+                    retrofit2.Response<List<StoreResponseDto>> response = call.execute();
 
-        for (int i = 0; i < 2; i++) {
-            addItem("이름","주소", "5"); //db에서 리스트로 받은거 넣기
-        }
+                    if (response.isSuccessful()) {
+                        final List<StoreResponseDto> stores = response.body();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                updateRecyclerView(stores);
+                            }
+                        });
+                    } else {
+                        System.out.println("API call failed: " + response.code());
+                    }
+                } catch (Exception e) {
+                    final String errorMsg = e.toString();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            handleError(errorMsg);
+                        }
+                    });
+                }
+            }
+        }).start();
+
     }
 
     @Override
@@ -120,6 +168,8 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
             public void onClick(View v) {
                 try {
                     store_Code = Integer.parseInt(searchstore_dl_numEt.getText().toString());
+
+
 
                     showConfirmDl();
                 } catch (Exception e) {
@@ -168,6 +218,55 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         searchstore_dl2_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+
+                    //네트워크 요청 구현
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+
+                    StoreApiService apiService = retrofit.create(StoreApiService.class);
+
+                    // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
+                    StaffRequestDto staffRequestDto = new StaffRequestDto(
+                            "814",
+                            895800,
+                            null,
+                            null,
+                            0,
+                            0,
+                            false,
+                            false,
+                            false
+                    );
+
+                    //적은 id를 기반으로 db에 검색
+                    Call<Void> call = apiService.inputCode(staffRequestDto);
+                    call.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "사업장코드 성공", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "사업장코드 실패", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            // 실패 처리
+                            String errorMessage = t != null ? t.getMessage() : "Unknown error";
+                            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                            t.printStackTrace();
+
+                        }
+                    });
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
                 showConfirm_dialog.dismiss();
                 showComplete_dialog.dismiss();
             }
@@ -186,5 +285,17 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         item.setSelectStorePerson(person);
 
         mList.add(item);
+    }
+    private void updateRecyclerView(List<StoreResponseDto> stores) {
+        mList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
+        for (StoreResponseDto store : stores) {
+            addItem(store.getName(), store.getAddress(), "" + store.getCount());
+        }
+        mRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
+    }
+
+    private void handleError(String errorMsg) {
+        Toast.makeText(this, errorMsg + "!!", Toast.LENGTH_SHORT).show();
+        storeregBtn.setText(errorMsg);
     }
 }
