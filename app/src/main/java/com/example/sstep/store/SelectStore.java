@@ -100,6 +100,8 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                  */
             case R.id.selectstore_searchIbtn: // 사업장 검색
                 showSearchStoreDl();
+
+
             default:
                 break;
         }

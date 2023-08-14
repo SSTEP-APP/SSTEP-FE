@@ -110,6 +110,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/staffInvite1_dataLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -121,9 +122,16 @@
                             android:layout_marginBottom="20dp"
                             android:background="@color/line"
                             tools:ignore="Suspicious0dp" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/staffInvite1_recycleView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="gone"/>
                         <!-- 승인 내용_L -->
                         <LinearLayout
-                            android:id="@+id/staffInvite1_onelistL"
+                            android:id="@+id/staffInvite1_innerLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
@@ -131,10 +139,10 @@
                             android:layout_marginBottom="10dp">
                             <!-- 사람이미지 -->
                             <ImageView
-                                android:id="@+id/staffInvite1_personIv1"
+                                android:id="@+id/staffInvite1_personIv"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                app:srcCompat="@drawable/yicon_stafffemale"
+                                android:background="@drawable/yicon_stafffemale"
                                 android:layout_gravity="center_vertical"/>
 
                             <LinearLayout
@@ -145,7 +153,7 @@
                                 android:layout_gravity="center_vertical">
                                 <!-- 이름 -->
                                 <TextView
-                                    android:id="@+id/staffInvite1_nameTv1"
+                                    android:id="@+id/staffInvite1_nameTv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="이름"
@@ -154,7 +162,7 @@
 
                                 <!-- 아이디 -->
                                 <TextView
-                                    android:id="@+id/staffInvite1_idtv1"
+                                    android:id="@+id/staffInvite1_idTv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
@@ -168,26 +176,32 @@
                                 android:layout_height="0dp"
                                 android:layout_weight="1" />
                             <!-- 승인 버튼 -->
-                            <TextView
+                            <Button
                                 android:id="@+id/staffInvite1_yesBtn"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
                                 android:layout_gravity="center_vertical|right"
                                 android:text="승인"
                                 android:textColor="@color/blue"
                                 android:textSize="13sp"
-                                android:layout_marginRight="20dp"/>
+                                android:layout_marginRight="20dp"
+                                android:clickable="true"/>
 
                             <!-- 거절 버튼 -->
-                            <TextView
+                            <Button
                                 android:id="@+id/staffInvite1_noBtn"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical|right"
+                                android:layout_marginRight="10dp"
+                                android:clickable="true"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
                                 android:text="거절"
                                 android:textColor="#737373"
-                                android:textSize="13sp"
-                                android:layout_marginRight="10dp"/>
+                                android:textSize="13sp" />
                         </LinearLayout> <!-- 승인 내용_L -->
                     </LinearLayout>
 

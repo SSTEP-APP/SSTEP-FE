@@ -8,8 +8,8 @@
         android:required="false" />
     <uses-feature
         android:name="android.hardware.telephony"
-        android:required="false" /> <!-- 인터넷 권한 -->
-
+        android:required="false" />
+    <!-- 인터넷 권한 -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 카메라 권한 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -30,26 +30,9 @@
         android:theme="@style/Theme.SSTEP"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".Community_input"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".Community_view"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        !-- 구글 맵 -->
+        <!-- 구글 맵 -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBfGGbhoQpcitlIe-KBbvOsRwLtvmk6Y_E" />
@@ -58,7 +41,7 @@
             android:name=".store.WebViewActivity"
             android:exported="false" />
 
-        !-- 시작화면 start -->
+        <!-- 시작화면 start -->
         <activity
             android:name=".user.start.Start"
             android:exported="true">
@@ -345,6 +328,24 @@
         </activity>
         <activity
             android:name=".community.Community"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Community_input"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Community_view"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

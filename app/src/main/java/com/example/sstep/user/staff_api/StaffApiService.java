@@ -7,17 +7,99 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface StaffApiService {
-
+/*
     //직원 정보 입력 시 직원 등록 => null로 저장되어있던 직원 정보를 입력된 정보로 update 과정
-    @POST("/{storeId}/{staffId}/update-staff")
+    @POST("/staff/{storeId}/{staffId}/update-staff")
     Call<Void> updateStaff(
-                @Path("storeId") Long storeId,
-                @Path("staffId") Long staffId,
-                @Body StaffRequestDto staffRequestDto
+            @Path("storeId") Long storeId,
+            @Path("staffId") Long staffId,
+            @Body StaffRequestDto staffRequestDto
     );
-    //직원 목록 조회
-    @GET("/store/{storeId}/staffs")
-    Call<StaffModel> getStaffsByStoreId(@Path("storeId") Long storeId);
+
+    //직원별 스케줄 저장
+    @POST("/staff/{staffId}/add-schedule")
+    Call<Void> registerSchedule(
+            @Path("staffId") Long staffId,
+            @Body ScheduleRequestDto scheduleRequestDto
+    );
+
+    //직원별 캘린더(일정) 저장
+    @POST("/staff/{staffId}/add-calendar")
+    Call<Void> registerCalendar(
+            @Path("staffId") Long staffId,
+            @Body CalendarRequestDto calendarRequestDto
+    );
+
+    //직원별 실시간 출근정보 저장
+    @POST("/staff/{staffId}/add-commute")
+    Call<Void> registerCommute(
+            @Path("staffId") Long staffId,
+            @Body CommuteRequestDto commuteRequestDto
+    );
+
+    //직원별 실시간 퇴근정보 저장
+    @POST("/staff/{staffId}/{commuteId}/update-commute")
+    Call<Void> updateCommute(
+            @Path("staffId") Long staffId,
+            @Path("commuteId") Long commuteId,
+            @Body CommuteRequestDto commuteRequestDto
+    );
+
+    //이의 신청 시 메시지 업데이트
+    @POST("/staff/{staffId}/{commuteId}/dispute")
+    Call<Void> disputeCommute(
+            @Path("staffId") Long staffId,
+            @Path("commuteId") Long commuteId,
+            @Body CommuteRequestDto commuteRequestDto
+    );
+
+    //이의 신청 사항 처리 완료시 메시지 삭제
+    @POST("/staff/{staffId}/{commuteId}/update-dispute")
+    Call<Void> updateDisputeCommute(
+            @Path("staffId") Long staffId,
+            @Path("commuteId") Long commuteId,
+            @Body CommuteRequestDto commuteRequestDto
+    );
+
+    //해당 직원의 이의 신청 리스트 가져오기
+    @GET("/staff/{storeId}/{staffId}/dispute-list")
+    Call<List<Commute>> getDisputeList(
+            @Path("storeId") Long storeId,
+            @Path("staffId") Long staffId
+    );
+
+    //공지사항 등록
+    @Multipart
+    @POST("/staff/{staffId}/add-notice")
+    Call<Void> registerNotice(
+            @Path("staffId") Long staffId,
+            @Body NoticeRequestDto noticeRequestDto,
+            @Part List<MultipartBody.Part> files
+    );
+
+    //보건증을 등록한 직원 목록
+    @GET("/staff/{storeId}/reg/health-doc/staffs")
+    Call<List<Staff>> getRegHealthDocStaffs(
+            @Path("storeId") Long storeId
+    );
+
+    //보건증을 미 등록한 직원 목록
+    @GET("/staff/{storeId}/un-reg/health-doc/staffs")
+    Call<List<Staff>> getUnRegHealthDocStaffs(
+            @Path("storeId") Long storeId
+    );
+
+    //근로 계약서 등록한 직원 목록
+    @GET("/staff/{storeId}/reg/work-doc/staffs")
+    Call<List<Staff>> getRegWorkDocStaffs(
+            @Path("storeId") Long storeId
+    );
+
+    //근로 계약서 미 등록한 직원 목록
+    @GET("/staff/{storeId}/un-reg/work-doc/staffs")
+    Call<List<Staff>> getUnRegWorkDocStaffs(
+            @Path("storeId") Long storeId
+    );*/
 
 
 
