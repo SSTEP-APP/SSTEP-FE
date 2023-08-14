@@ -1,7 +1,9 @@
 package com.example.sstep.store.store_api;
 
+import com.example.sstep.user.staff_api.StaffInviteResponseDto;
 import com.example.sstep.user.staff_api.StaffModel;
 import com.example.sstep.user.staff_api.StaffRequestDto;
+import com.example.sstep.user.staff_api.StaffResponseDto;
 
 import java.util.List;
 
@@ -15,26 +17,52 @@ import retrofit2.http.Path;
 
 public interface StoreApiService {
 
-    //사업장 등록만 사용 사장까지 등록시 오류로 불가
-    @Headers("Content-Type: application/json")
+    //사업장 등록 => 등록한 사람은 바로 직원으로 추가, 사장으로 취급
     @POST("/store/register")
     Call<Void> registerStore(@Body StoreRegisterReqDto dto);
 
     /*
     //직원 목록 조회
     @GET("/store/{storeId}/staffs")
-    Call<StoreModel> getStaffsByStoreId(@Path("storeId") Long storeId);
+    Call<List<Staff>> getStaffsByStoreId(@Path("storeId") Long storeId);
+     */
+
+    //직원 조회
+    @GET("/store/{staffId}")
+    Call<StaffResponseDto> getStaffByStaffId(@Path("staffId") Long staffId);
+
+    //직원 초대 => 사업장 코드 전송
+    @POST("/store/invite/staff")
+    Call<Void> inviteStaffToStore(@Body StaffRequestDto dto);
+
+    //직원이 사업장 코드 입력시
+    @POST("/store/input-code/staff")
+    Call<Void> inputCode(@Body StaffRequestDto dto);
 
     //직원 추가 => 사업장 코드 입력 후 사장이 승인을 받아줬을 경우
-    @POST("/store/{code}/add/staff")
-    Call<Void> addStaffToStore(@Path("code") Long code, @Body StaffRequestDto staffRequestDto);
+    @POST("/store/add/staff")
+    Call<Void> addStaffToStore(@Body StaffRequestDto dto);
 
+    //초대 여부가 true 직원 리스트 가져오기
+    @GET("/store/{storeId}/invite-staffs")
+    Call<List<StaffInviteResponseDto>> getInviteStaffs(@Path("storeId") Long storeId);
 
-    //합류 여부가 false인 직원 리스트 가져오기
-    @GET("/store/{storeId}/unregister-staffs")
-    Call<List<StaffModel>> getUnRegStaffs(@Path("storeId") Long storeId);
+    //코드 입력 여부가 true인 직원 리스트 가져오기
+    @GET("/store/{storeId}/input-code/staffs")
+    Call<List<StaffInviteResponseDto>> getInputCodeStaffs(@Path("storeId") Long storeId);
 
+    /*
+    //해당 날짜에 근무하는 직원 리스트 가져오기
+    @GET("/store/{storeId}/day-work-staffs")
+    Call<List<Staff>> getDayWorkStaffs(@Path("storeId") Long storeId, @Body CalendarRequestDto calendarRequestDto);
 
+    //이의 신청한 직원 리스트 가져오기
+    @GET("/store/{storeId}/dispute-staffs")
+    Call<List<Staff>> getDisputeStaffs(@Path("storeId") Long storeId);
+
+    //사업장 내 전체 공지사항 목록 조회
+    @GET("/store/{storeId}/notices")
+    Call<List<Notice>> getNotices(@Path("storeId") Long storeId);
      */
 }
 

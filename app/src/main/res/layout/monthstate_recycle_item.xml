@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/monthstate_recycle_layout"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+    <!-- 상위직원 1위 _HL -->
+    <LinearLayout
+        android:id="@+id/monthstate_recycle_innerlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <ImageView
+            android:id="@+id/monthstate_recycle_personIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/yicon_stafffemale"
+            android:layout_marginLeft="10dp"/>
+        <!-- 이름, 직책 _L -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp">
+            <TextView
+                android:id="@+id/monthstate_recycle_nameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="김유경"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/monthstate_recycle_numTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3회"
+                android:textSize="13sp"
+                android:textColor="#595959"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout> <!-- 이름, 직책 _L -->
+    </LinearLayout> <!-- 상위직원 1위 _HL -->
+
+</LinearLayout>

@@ -80,7 +80,13 @@
             android:exported="false" /> <!-- 사업장 선택 -->
         <activity
             android:name=".store.SelectStore"
-            android:exported="false"></activity> <!-- 사업장 등록 -->
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- 사업장 등록 -->
         <activity android:name=".store.RegisterStore" />
         <activity
             android:name=".store.Search_Address"

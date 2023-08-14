@@ -3,23 +3,38 @@ package com.example.sstep.staffinvite;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
+import com.example.sstep.alarm.Alarm1_RecyclerViewAdpater;
+import com.example.sstep.alarm.Alarm1_recyclerViewWordItemData;
 import com.example.sstep.home.Home_Ceo;
+import com.example.sstep.store.store_api.StoreApiService;
+import com.example.sstep.user.staff_api.StaffRequestDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class StaffInvite extends AppCompatActivity implements View.OnClickListener {
 
-    Button completeBtn;
+    Button completeBtn, yesBtn, noBtn;
     ImageButton backib;
 
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 100;
@@ -29,18 +44,26 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
 
     Dialog showComplete_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.staffinvite1);
+
         completeBtn = findViewById(R.id.staffInvite1_completeBtn); completeBtn.setOnClickListener(this);
         backib = findViewById(R.id.staffInvite1_backib); backib.setOnClickListener(this);
+        yesBtn=findViewById(R.id.staffInvite1_yesBtn); yesBtn.setOnClickListener(this);
+        noBtn=findViewById(R.id.staffInvite1_noBtn); noBtn.setOnClickListener(this);
 
         baseDialog_okCenter = new BaseDialog_OkCenter(StaffInvite.this, R.layout.join_okdl);
 
         showComplete_dialog = new Dialog(StaffInvite.this);
         showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
+
+
 
         // 맨 아래 '직원초대' 클릭 시
         completeBtn.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +90,60 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
                 intent = new Intent(getApplicationContext(),StaffInvite2.class);
                 startActivity(intent);
                 finish();
+                break;
+            case R.id.staffInvite1_yesBtn: // 승인
+                break;
+            case R.id.staffInvite1_noBtn: // 거절
+                try {
+
+                    //네트워크 요청 구현
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+
+                    StoreApiService apiService = retrofit.create(StoreApiService.class);
+
+                    // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
+                    StaffRequestDto staffRequestDto = new StaffRequestDto(
+                            "testi2",
+                            154362,
+                            null,
+                            null,
+                            0,
+                            0,
+                            false,
+                            false,
+                            false
+                    );
+
+                    //적은 id를 기반으로 db에 검색
+                    Call<Void> call = apiService.inviteStaffToStore(staffRequestDto);
+                    call.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful()) {
+                            } else {
+                                Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            // 실패 처리
+                            String errorMessage = t != null ? t.getMessage() : "Unknown error";
+                            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                            t.printStackTrace();
+
+                        }
+                    });
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case R.id.staffInvite1_resendBtn: // 재전송
+                break;
+            case R.id.staffInvite1_deleteBtn: // 삭제
                 break;
             default:
                 break;

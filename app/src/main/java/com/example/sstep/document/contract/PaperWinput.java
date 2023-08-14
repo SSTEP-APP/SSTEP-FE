@@ -54,12 +54,10 @@ public class PaperWinput extends AppCompatActivity implements CompoundButton.OnC
     TextView workTerms_workPlaceLimitTv, workTerms_workContentLimitTv, restdaySelectTv,
             restdayTv1,restdayTv2, workTerms_workstartDateTv,writeDayTv;
     ImageView workTerms_updownIv,wage_updownIv;
-    LinearLayout workTerms_hidL,wage_hidL, workTerms_breakhidL;
+    LinearLayout workTerms_hidL,wage_hidL;
     CheckBox restdayMonCb, restdayTheCb, restdayWedCb, restdayThuCb,restdayFriCb, restdaySatCb,restdaySunCb, privacyCb;
     ImageButton backib, workTerms_workstartDateIb, storeCeoSignRefreshIb, writeDayIb;
     Button completeBtn;
-    RadioGroup breaktimeRg;
-    RadioButton NobreaktimeRb, YesbreaktimeRb;
     public CheckBox[] restdayCheckedList;
     int workdayCount = 0;
     Dialog showComplete_dialog;
@@ -78,10 +76,6 @@ public class PaperWinput extends AppCompatActivity implements CompoundButton.OnC
         storeCeoSignRefreshIb = findViewById(R.id.paperwinput_storeInfo_storeCeoSignRefreshIb);
         customDrawingView=findViewById(R.id.customDrawingView);
 
-        breaktimeRg=findViewById(R.id.paperwinput_workTerms_breaktimeRg);
-        NobreaktimeRb=findViewById(R.id.paperwinput_workTerms_NobreaktimeRb);
-        YesbreaktimeRb=findViewById(R.id.paperwinput_workTerms_YesbreaktimeRb);
-        workTerms_breakhidL=findViewById(R.id.paperwinput_workTerms_breakhidL);
         storeNameEt=findViewById(R.id.paperwinput_storeInfo_storeNameEt);
         storeAddressEt=findViewById(R.id.paperwinput_storeInfo_storeAddressEt);
         storePhoneEt=findViewById(R.id.paperwinput_storeInfo_storePhoneEt);
@@ -129,21 +123,6 @@ public class PaperWinput extends AppCompatActivity implements CompoundButton.OnC
         showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
 
-        breaktimeRg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
-                    case R.id.paperwinput_workTerms_NobreaktimeRb:
-                        workTerms_breakhidL.setVisibility(View.GONE);
-                        break;
-                    case R.id.paperwinput_workTerms_YesbreaktimeRb:
-                        workTerms_breakhidL.setVisibility(View.VISIBLE);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
 
 
         // EditText 천단위 콤마(,)

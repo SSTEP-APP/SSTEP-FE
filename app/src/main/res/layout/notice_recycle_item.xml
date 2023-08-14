@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/notice_recycle_layout">
+
+    <!-- 공지사항 _L -->
+    <LinearLayout
+        android:id="@+id/notice_recycle_innerlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/yroundrec_w"
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingTop="25dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/notice_recycle_titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="공지제목"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/notice_recycle_contentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="내용입니다."
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:layout_marginTop="15dp"/>
+        <!-- 공지사항 내용 _HL -->
+        <LinearLayout
+            android:id="@+id/notice_recycle_HL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/notice_recycle_nameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="작성자"
+                android:textColor="#737373"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="  |  "
+                android:textColor="#737373"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/notice_recycle_dateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="2023.05.31(수) 14:30"
+                android:textColor="#737373"
+                android:textSize="13sp" />
+        </LinearLayout> <!-- 공지사항 내용 _HL -->
+    </LinearLayout> <!-- 공지사항 _L -->
+
+</LinearLayout>
