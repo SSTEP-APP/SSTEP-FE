@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sstep.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<SelectStore_RecyclerViewAdpater.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -28,9 +29,9 @@ public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<Select
         }
     }
 
-    private ArrayList<SelectStore_recyclerViewItem> mList = null;
+    private List<SelectStore_recyclerViewItem> mList = null;
 
-    public SelectStore_RecyclerViewAdpater(ArrayList<SelectStore_recyclerViewItem> mList) {
+    public SelectStore_RecyclerViewAdpater(List<SelectStore_recyclerViewItem> mList) {
         this.mList = mList;
     }
 

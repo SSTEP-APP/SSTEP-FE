@@ -183,8 +183,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SelectStore.class);
-                startActivity(intent);
                 intent.putExtra("userId", idEt.getText().toString());
+                startActivity(intent);
                 finish();
             }
         });

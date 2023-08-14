@@ -8,19 +8,14 @@
         android:required="false" />
     <uses-feature
         android:name="android.hardware.telephony"
-        android:required="false" />
-
-    <!-- 인터넷 권한 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 카메라 권한 -->
+        android:required="false" /> <!-- 인터넷 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 카메라 권한 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.DIAL_PHONE" />
-    <!-- SMS 권한 -->
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <!-- 위치 권한 -->
+    <uses-permission android:name="android.permission.DIAL_PHONE" /> <!-- SMS 권한 -->
+    <uses-permission android:name="android.permission.SEND_SMS" /> <!-- 위치 권한 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -42,19 +37,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 구글 맵 -->
+        </activity> <!-- 구글 맵 -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBfGGbhoQpcitlIe-KBbvOsRwLtvmk6Y_E" />
 
-
         <activity
             android:name=".store.WebViewActivity"
-            android:exported="false" />
-
-        <!-- 시작화면 start -->
+            android:exported="false" /> <!-- 시작화면 start -->
         <activity
             android:name=".user.start.Start"
             android:exported="true">
@@ -75,9 +65,7 @@
             android:exported="false" />
         <activity
             android:name=".user.start.Start4"
-            android:exported="false" />
-
-        <!-- 로그인/회원가입 joinlogin -->
+            android:exported="false" /> <!-- 로그인/회원가입 joinlogin -->
         <activity
             android:name=".user.login.Login"
             android:exported="false" />
@@ -89,26 +77,14 @@
             android:exported="false" />
         <activity
             android:name=".user.login.Find_password"
-            android:exported="false" />
-
-        <!-- 사업장 선택 -->
+            android:exported="false" /> <!-- 사업장 선택 -->
         <activity
             android:name=".store.SelectStore"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <!-- 사업장 등록 -->
+            android:exported="false"></activity> <!-- 사업장 등록 -->
         <activity android:name=".store.RegisterStore" />
         <activity
             android:name=".store.Search_Address"
-            android:exported="false" />
-
-        <!-- 사업장 수정 -->
+            android:exported="false" /> <!-- 사업장 수정 -->
         <activity
             android:name=".store.modifyStore"
             android:exported="true">
@@ -117,9 +93,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 홈 화면 -->
+        </activity> <!-- 홈 화면 -->
         <activity
             android:name=".home.Home_Ceo"
             android:exported="true">
@@ -140,9 +114,7 @@
         </activity>
         <activity
             android:name=".home.Home_menu"
-            android:exported="false" />
-
-        <!-- 직원정보입력 -->
+            android:exported="false" /> <!-- 직원정보입력 -->
         <activity
             android:name=".user.staff.InputStaffInfo"
             android:exported="true">
@@ -160,9 +132,7 @@
             android:exported="false" />
         <activity
             android:name=".user.staff.modifySchedule"
-            android:exported="false" />
-
-        <!-- 사업장 월별 현황 -->
+            android:exported="false" /> <!-- 사업장 월별 현황 -->
         <activity
             android:name=".performance.MonthState"
             android:exported="true">
@@ -171,9 +141,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 알림 -->
+        </activity> <!-- 알림 -->
         <activity
             android:name=".alarm.Alarm"
             android:exported="true">
@@ -182,9 +150,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 문서 관리 -->
+        </activity> <!-- 문서 관리 -->
         <activity
             android:name=".document.certificate.Paper"
             android:exported="true">
@@ -193,9 +159,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 문서 관리 _ 근로계약서 -->
+        </activity> <!-- 문서 관리 _ 근로계약서 -->
         <activity
             android:name=".document.contract.PaperW"
             android:exported="false" />
@@ -210,9 +174,7 @@
             android:exported="false" />
         <activity
             android:name=".document.contract.PaperWceoview"
-            android:exported="false" />
-
-        <!-- 문서 관리 _ 보건증 -->
+            android:exported="false" /> <!-- 문서 관리 _ 보건증 -->
         <activity
             android:name=".document.certificate.PaperH"
             android:exported="false" />
@@ -224,10 +186,7 @@
             android:exported="false" />
         <activity
             android:name=".document.certificate.PaperHview"
-            android:exported="false" />
-
-
-        <!-- 체크리스트 -->
+            android:exported="false" /> <!-- 체크리스트 -->
         <activity
             android:name=".todo.checklist.CheckList"
             android:exported="true">
@@ -245,9 +204,7 @@
             android:exported="false" />
         <activity
             android:name=".todo.checklist.CheckList_write"
-            android:exported="false" />
-
-        <!-- 공지사항 -->
+            android:exported="false" /> <!-- 공지사항 -->
         <activity
             android:name=".todo.notice.Notice"
             android:exported="true">
@@ -266,10 +223,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".todo.notice.Notice_input" />
-
-
-        <!-- 마이페이지 -->
+        <activity android:name=".todo.notice.Notice_input" /> <!-- 마이페이지 -->
         <activity
             android:name=".user.mypage.MyPage"
             android:exported="true">
@@ -290,10 +244,7 @@
             android:exported="false" />
         <activity
             android:name=".user.mypage.MyPage_Pwd"
-            android:exported="false" />
-
-
-        <!-- 카메라 추가 -->
+            android:exported="false" /> <!-- 카메라 추가 -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.sstep"
@@ -302,10 +253,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
-        </provider>
-
-
-        <!-- money -->
+        </provider> <!-- money -->
         <activity
             android:name=".money.Money_Ceo"
             android:exported="true">
@@ -323,9 +271,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 직원 초대 staffInvite -->
+        </activity> <!-- 직원 초대 staffInvite -->
         <activity
             android:name=".staffinvite.StaffInvite"
             android:exported="true">
@@ -335,10 +281,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".staffinvite.StaffInvite2" />
-
-
-        <!-- 출퇴근 지도 -->
+        <activity android:name=".staffinvite.StaffInvite2" /> <!-- 출퇴근 지도 -->
         <activity
             android:name=".commute.Commute_map"
             android:exported="true">
