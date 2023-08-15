@@ -213,8 +213,8 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
             }
         });
 
-
-        //ok버튼 클릭시
+        // 사업장 코드 입력 확인
+        // ok버튼 클릭시
         searchstore_dl2_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -231,7 +231,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                     // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
                     StaffRequestDto staffRequestDto = new StaffRequestDto(
                             "814",
-                            895800,
+                            store_Code,
                             null,
                             null,
                             0,
