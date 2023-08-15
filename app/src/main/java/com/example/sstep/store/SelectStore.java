@@ -53,6 +53,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SelectStore extends AppCompatActivity implements View.OnClickListener {
 
+    String storeName, address;
     ImageButton searchIbtn;
     Button storeregBtn;
     FrameLayout onelistF;
@@ -62,6 +63,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
     private RecyclerView mRecyclerView;
     private SelectStore_RecyclerViewAdpater mRecyclerViewAdapter;
     private List<SelectStore_recyclerViewItem> mList;
+    TextView searchstore_dl2_storeNameTv, searchstore_dl2_addressTv;
     StoreData storeData;
 
     @Override
@@ -146,6 +148,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         switch (v.getId()){
             case R.id.selectstore_storeregBtn: // '사업장등록하기'버튼
                 intent = new Intent(getApplicationContext(), RegisterStore.class);
+
                 startActivity(intent);
                 finish();
                 break;
@@ -215,6 +218,52 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         searchstore_dl2_noBtn = showConfirm_dialog.findViewById(R.id.searchstore_dl2_noBtn);
         searchstore_dl2_okBtn = showConfirm_dialog.findViewById(R.id.searchstore_dl2_okBtn);
 
+        // 다이얼로그에 있는 사업장
+        try {
+
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            StoreApiService apiService = retrofit.create(StoreApiService.class);
+            Long storeCode = Long.valueOf(store_Code);
+            //적은 id를 기반으로 db에 검색
+            Call<StoreResponseDto> call = apiService.getStore(storeCode);
+            call.enqueue(new Callback<StoreResponseDto>() {
+                @Override
+                public void onResponse(Call<StoreResponseDto> call, Response<StoreResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        StoreResponseDto storeResponseData  = response.body();
+                        // 적은 id로 패스워드 데이터 가져오기
+                        Long checkstoreCode =storeResponseData.getCode(); // id에 id 설정
+
+                        // 코드 일치 시 사업장 이름과 주소 값을 가져와서 TextView에 설정
+                        if (checkstoreCode.equals(storeCode)) {
+                            searchstore_dl2_storeNameTv.setText(storeResponseData.getName());
+                            searchstore_dl2_addressTv.setText(storeResponseData.getAddress());
+                        } else {
+                            Toast.makeText(getApplicationContext(), "사업장 코드가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+                        }
+
+                        }
+                        else {
+                        Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<StoreResponseDto> call, Throwable t) {
+                    // 실패 처리
+                    String errorMessage = "요청 실패: " + t.getMessage();
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
         // '사업장 코드 검색 dialog' _ 취소 버튼 클릭 시
         searchstore_dl2_noBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,8 +273,8 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
             }
         });
 
-
-        //ok버튼 클릭시
+        // 사업장 코드 입력 확인
+        // ok버튼 클릭시
         searchstore_dl2_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -242,7 +291,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                     // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
                     StaffRequestDto staffRequestDto = new StaffRequestDto(
                             "814",
-                            895800,
+                            store_Code,
                             null,
                             null,
                             0,
@@ -329,5 +378,4 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
 
         mRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터 갱신
     }
-
 }

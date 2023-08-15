@@ -93,4 +93,17 @@ public class StaffRequestDto {
         this.joinStatus = joinStatus;
         this.submitStatus = submitStatus;
     }
+
+    public StaffRequestDto(String username, long code, long id, Date startDay, String paymentDate, int hourMoney, int wageType, boolean ownerStatus, boolean joinStatus, boolean submitStatus) {
+        this.username = username;
+        this.code = code;
+        this.id = id;
+        this.startDay = startDay;
+        this.paymentDate = paymentDate;
+        this.hourMoney = hourMoney;
+        this.wageType = wageType;
+        this.ownerStatus = ownerStatus;
+        this.joinStatus = joinStatus;
+        this.submitStatus = submitStatus;
+    }
 }
