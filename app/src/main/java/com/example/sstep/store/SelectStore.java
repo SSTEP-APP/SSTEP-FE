@@ -23,9 +23,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.LoginData;
 import com.example.sstep.R;
+import com.example.sstep.StoreData;
 import com.example.sstep.home.Home_Ceo;
 import com.example.sstep.store.store_api.StoreApiService;
 import com.example.sstep.store.store_api.StoreResponseDto;
+import com.example.sstep.todo.checklist.CheckList;
+import com.example.sstep.todo.checklist.CheckList1_RecyclerViewAdpater;
+import com.example.sstep.todo.checklist.Checklist_detail;
 import com.example.sstep.user.member.MemberApiService;
 import com.example.sstep.user.member.MemberModel;
 import com.example.sstep.user.member.NullOnEmptyConverterFactory;
@@ -58,6 +62,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
     private RecyclerView mRecyclerView;
     private SelectStore_RecyclerViewAdpater mRecyclerViewAdapter;
     private List<SelectStore_recyclerViewItem> mList;
+    StoreData storeData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +83,10 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         showConfirm_dialog = new Dialog(SelectStore.this);
         showConfirm_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showConfirm_dialog.setContentView(R.layout.searchstore_dl2); // xml 레이아웃 파일과 연결
+
+        //storeid저장
+        storeData = (StoreData)getApplication();
+
 
         // ID값 가지고 오기
         LoginData loginData = (LoginData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
@@ -137,7 +146,6 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         switch (v.getId()){
             case R.id.selectstore_storeregBtn: // '사업장등록하기'버튼
                 intent = new Intent(getApplicationContext(), RegisterStore.class);
-
                 startActivity(intent);
                 finish();
                 break;
@@ -295,6 +303,19 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
             addItem(store.getName(), store.getAddress(), "" + store.getCount());
         }
         mRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
+
+        mRecyclerViewAdapter.setOnItemClickListener(new SelectStore_RecyclerViewAdpater.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                // 해당 아이템 레이아웃 클릭 시 처리할 코드
+                Intent intent = new Intent(getApplicationContext(), Home_Ceo.class);
+                //storeData.setStoreId(idEt.getText().toString());
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
 
     private void handleError(String errorMsg) {
@@ -308,4 +329,5 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
 
         mRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터 갱신
     }
+
 }

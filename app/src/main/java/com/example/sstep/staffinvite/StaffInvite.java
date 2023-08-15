@@ -94,52 +94,6 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
             case R.id.staffInvite1_yesBtn: // 승인
                 break;
             case R.id.staffInvite1_noBtn: // 거절
-                try {
-
-                    //네트워크 요청 구현
-                    Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .build();
-
-                    StoreApiService apiService = retrofit.create(StoreApiService.class);
-
-                    // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
-                    StaffRequestDto staffRequestDto = new StaffRequestDto(
-                            "testi2",
-                            154362,
-                            null,
-                            null,
-                            0,
-                            0,
-                            false,
-                            false,
-                            false
-                    );
-
-                    //적은 id를 기반으로 db에 검색
-                    Call<Void> call = apiService.inviteStaffToStore(staffRequestDto);
-                    call.enqueue(new Callback<Void>() {
-                        @Override
-                        public void onResponse(Call<Void> call, Response<Void> response) {
-                            if (response.isSuccessful()) {
-                            } else {
-                                Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<Void> call, Throwable t) {
-                            // 실패 처리
-                            String errorMessage = t != null ? t.getMessage() : "Unknown error";
-                            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
-                            t.printStackTrace();
-
-                        }
-                    });
-                }catch (Exception e) {
-                    e.printStackTrace();
-                }
                 break;
             case R.id.staffInvite1_resendBtn: // 재전송
                 break;

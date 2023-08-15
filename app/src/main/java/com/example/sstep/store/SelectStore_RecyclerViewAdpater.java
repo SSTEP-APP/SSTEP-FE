@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<SelectStore_RecyclerViewAdpater.ViewHolder> {
+
+    private OnItemClickListener onItemClickListener;
+    FrameLayout selectStoreLayout; // selectstoreRI_onelistF 뷰를 참조할 변수
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        onItemClickListener = listener;
+    }
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView selectStoreName, selectStoreAddress, selectStorePerson;
         //ImageView
@@ -26,7 +35,23 @@ public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<Select
             selectStoreName = (TextView) itemView.findViewById(R.id.selectstoreRI_storenameTv);
             selectStoreAddress = (TextView) itemView.findViewById(R.id.selectstoreRI_addressTv);
             selectStorePerson = (TextView) itemView.findViewById(R.id.selectstoreRI_personNumTv);
+            selectStoreLayout = itemView.findViewById(R.id.selectstoreRI_onelistF); // 뷰 초기화
+
+            selectStoreLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (onItemClickListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            onItemClickListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
+
+
+
     }
 
     private List<SelectStore_recyclerViewItem> mList = null;
@@ -51,9 +76,21 @@ public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<Select
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SelectStore_recyclerViewItem item = mList.get(position);
 
-        holder.selectStoreName.setText(item.getSelectStoreName());   // 사업장 이름 받기
-        holder.selectStoreAddress.setText(item.getSelectStoreAddress()); // 주소 받기
-        holder.selectStorePerson.setText(item.getSelectStorePerson()); // 사람 몇명인지 받기
+        holder.selectStoreName.setText(item.getSelectStoreName());
+        holder.selectStoreAddress.setText(item.getSelectStoreAddress());
+        holder.selectStorePerson.setText(item.getSelectStorePerson());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (onItemClickListener != null) {
+                    int position = holder.getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        onItemClickListener.onItemClick(position);
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -61,5 +98,7 @@ public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<Select
         return mList.size();
     }
 
-
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
 }
