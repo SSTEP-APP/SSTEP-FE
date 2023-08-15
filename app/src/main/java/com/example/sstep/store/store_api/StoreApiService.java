@@ -31,6 +31,10 @@ public interface StoreApiService {
     @GET("/store/{staffId}")
     Call<StaffResponseDto> getStaffByStaffId(@Path("staffId") Long staffId);
 
+    //사업장 조회
+    @GET("/store/{storeCode}")
+    Call<StoreResponseDto> getStore(@Path("storeCode") Long storeCode);
+
     //직원 초대 => 사업장 코드 전송
     @POST("/store/invite/staff")
     Call<Void> inviteStaffToStore(@Body StaffRequestDto dto);
