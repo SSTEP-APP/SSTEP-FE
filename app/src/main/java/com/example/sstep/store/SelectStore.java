@@ -79,7 +79,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         showConfirm_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showConfirm_dialog.setContentView(R.layout.searchstore_dl2); // xml 레이아웃 파일과 연결
 
-        // Intent로 전달받은 ID 값 가져오기
+        // ID값 가지고 오기
         LoginData loginData = (LoginData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
         String userId = loginData.getUserId(); // 사용자 ID 가져오기
 
