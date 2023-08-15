@@ -98,6 +98,7 @@ public class modifyStore extends AppCompatActivity {
         });
     }
 
+    // '사업장 폐업하기' 다이얼로그
     public void showCompleteDl(){
         showComplete_dialog.show();
         // 다이얼로그의 배경을 투명으로 만든다.

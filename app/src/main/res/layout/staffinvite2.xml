@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="직원 초대현황"
+            android:text="직원 초대"
             android:textColor="@color/topText"
             android:textSize="17sp"
             android:textStyle="bold"/>

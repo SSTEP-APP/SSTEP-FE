@@ -35,9 +35,9 @@ import java.util.ArrayList;
 
 public class Notice_input extends AppCompatActivity implements View.OnClickListener {
 
-    ImageButton backib, cameraIbtn, photoIbtn, deleteIbtn, endDateCalIbtn;
+    ImageButton backib, cameraIbtn, photoIbtn, deleteIbtn;
     EditText titleEt,contentEt;
-    TextView titleLimitTv, contentLimitTv, pictureNumTv, endDateTv;
+    TextView titleLimitTv, contentLimitTv, pictureNumTv;
     Button completeBtn;
     LinearLayout pictureHL;
 
@@ -59,7 +59,6 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
         cameraIbtn=findViewById(R.id.notice_input_cameraIbtn); cameraIbtn.setOnClickListener(this);
         photoIbtn=findViewById(R.id.notice_input_photoIbtn); photoIbtn.setOnClickListener(this);
         deleteIbtn=findViewById(R.id.notice_input_deleteIbtn); deleteIbtn.setOnClickListener(this);
-        endDateCalIbtn=findViewById(R.id.notice_input_endDateCalIbtn); endDateCalIbtn.setOnClickListener(this);
         completeBtn=findViewById(R.id.notice_input_completeBtn); completeBtn.setOnClickListener(this);
 
         titleEt=findViewById(R.id.notice_input_titleEt);
@@ -67,7 +66,6 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
         titleLimitTv=findViewById(R.id.notice_input_titleLimitTv);
         contentLimitTv=findViewById(R.id.notice_input_contentLimitTv);
         pictureNumTv=findViewById(R.id.notice_input_pictureNumTv);
-        endDateTv=findViewById(R.id.notice_input_endDateTv);
         pictureIv[0]=findViewById(R.id.notice_input_pictureIv1);
         pictureIv[1]=findViewById(R.id.notice_input_pictureIv2);
         pictureIv[2]=findViewById(R.id.notice_input_pictureIv3);
@@ -156,9 +154,6 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.notice_input_deleteIbtn: // 삭제
                 onPictureDelete();
-                break;
-            case R.id.notice_input_endDateCalIbtn: // 달력
-                showCalendarDialog();
                 break;
             case R.id.notice_input_completeBtn: // 등록하기
                 showCompleteDl();
@@ -264,23 +259,6 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
     private void updatePictureNumText() {
         String text = numPictures + "/4";
         pictureNumTv.setText(text);
-    }
-
-    // 달력 다이얼로그 띄우기
-    public void showCalendarDialog() {
-        CalendarDialog calendarDialog = new CalendarDialog(Notice_input.this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        // 사용자가 날짜를 선택하면 호출되는 콜백 메서드
-                        // 여기에 선택한 날짜 처리 코드를 작성합니다.
-                        String dateString = year + "년 " + (month + 1) + "월 " + dayOfMonth + "일";
-                        endDateTv.setText(dateString);
-                    }
-                });
-
-        // 다이얼로그 띄우기
-        calendarDialog.show();
     }
 
     // '제목'과 '내용' 이 모두 채워지면 버튼 활성화

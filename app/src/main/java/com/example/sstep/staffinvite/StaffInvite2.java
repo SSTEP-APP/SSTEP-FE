@@ -22,10 +22,21 @@ import androidx.core.content.ContextCompat;
 
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
+import com.example.sstep.store.store_api.StoreApiService;
+import com.example.sstep.store.store_api.StoreRegisterReqDto;
+import com.example.sstep.user.member.MemberApiService;
+import com.example.sstep.user.member.MemberModel;
+import com.example.sstep.user.staff_api.StaffRequestDto;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class StaffInvite2 extends AppCompatActivity implements View.OnClickListener{
 
@@ -66,8 +77,55 @@ public class StaffInvite2 extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.staffInvite2_completeBtn:
-                sendSMS();
+            case R.id.staffInvite2_completeBtn: // 초대 완료 버튼
+                try {
+
+                    //네트워크 요청 구현
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+
+                    StoreApiService apiService = retrofit.create(StoreApiService.class);
+
+                    // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
+                    StaffRequestDto staffRequestDto = new StaffRequestDto(
+                            "814",
+                            895800,
+                            null,
+                            null,
+                            0,
+                            0,
+                            false,
+                            false,
+                            false
+                    );
+
+                    //적은 id를 기반으로 db에 검색
+                    Call<Void> call = apiService.inviteStaffToStore(staffRequestDto);
+                    call.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful()) {
+                                sendSMS();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            // 실패 처리
+                            String errorMessage = t != null ? t.getMessage() : "Unknown error";
+                            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                            t.printStackTrace();
+
+                        }
+                    });
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 break;
             default:
                 break;
@@ -89,6 +147,9 @@ public class StaffInvite2 extends AppCompatActivity implements View.OnClickListe
                 String message = name + " 님이 초대되었습니다. \n 사업장 코드는 " + verificationCode + " 입니다.";
                 sendVerificationCode(phoneNumber, message);
                 showCompleteDl(message); // 다이얼로그 표시
+                int code = Integer.parseInt(verificationCode);
+
+
             } else {
                 // 권한 요청
                 ActivityCompat.requestPermissions(StaffInvite2.this, new String[]{android.Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);

@@ -470,103 +470,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp"
-                        android:fontFamily="@font/nanumsquareneo_deb"
-                        android:text="휴게시간"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-                    <RadioGroup
-                        android:id="@+id/paperwinput_workTerms_breaktimeRg"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginRight="40dp"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/paperwinput_workTerms_NobreaktimeRb"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/yradiobtn_red"
-                            android:checked="true"
-                            android:paddingLeft="10dp"
-                            android:text="휴게시간 없음"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-
-                        <RadioButton
-                            android:id="@+id/paperwinput_workTerms_YesbreaktimeRb"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/yradiobtn_red"
-                            android:checked="true"
-                            android:paddingLeft="10dp"
-                            android:text="휴게시간 있음"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-                    </RadioGroup>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="20dp"
-                        android:lineSpacingExtra="5dp"
-                        android:text="1일 근로 4시간인 경우 최소 30분 이상, 8시간인 경우최소 60분 부여해야 합니다."
-                        android:textColor="#737373"
-                        android:textSize="11sp" />
-
-                    <LinearLayout
-                        android:id="@+id/paperwinput_workTerms_breakhidL"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:orientation="horizontal"
-                        android:visibility="visible">
-
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/paperwinput_workTerms_restTimeEt"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/yedittext_w_sg"
-                                android:fontFamily="@font/nanumsquareneo_brg"
-                                android:hint="숫자만 입력"
-                                android:inputType="number"
-                                android:paddingLeft="15dp"
-                                android:paddingTop="15dp"
-                                android:paddingRight="20dp"
-                                android:paddingBottom="15dp"
-                                android:textColor="@color/likeblack"
-                                android:textColorHint="@color/editTextHint"
-                                android:textCursorDrawable="@drawable/yet_cursor"
-                                android:textSize="13sp"
-                                android:maxLength="3"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical|right"
-                                android:layout_marginRight="20dp"
-                                android:text="분"
-                                android:textColor="@color/black" />
-                        </FrameLayout>
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:fontFamily="@font/nanumsquareneo_deb"
                         android:text="근무일"
@@ -813,7 +716,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="visible">
                     <View
                         android:layout_width="wrap_content"
                         android:layout_height="0.8dp"
@@ -1013,67 +916,6 @@
                             android:textColor="@color/black"
                             android:paddingLeft="10dp"/>
                     </RadioGroup>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="사회보험 적용여부"
-                        android:textSize="15sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/nanumsquareneo_deb"
-                        android:layout_marginTop="30dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="25dp"
-                        android:gravity="center_horizontal"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp">
-                        <CheckBox
-                            android:id="@+id/paperwinput_wage_insEmployCb"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/ychbox_black"
-                            android:checked="true"
-                            android:text="고용보험"
-                            android:paddingLeft="10dp"/>
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-                        <CheckBox
-                            android:id="@+id/paperwinput_wage_insSafeCb"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/ychbox_black"
-                            android:checked="true"
-                            android:text="산재보험"
-                            android:paddingLeft="10dp"/>
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-                        <CheckBox
-                            android:id="@+id/paperwinput_wage_insNationCb"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/ychbox_black"
-                            android:checked="true"
-                            android:text="국민연금"
-                            android:paddingLeft="10dp"/>
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-                        <CheckBox
-                            android:id="@+id/paperwinput_wage_insHealthCb"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/ychbox_black"
-                            android:checked="true"
-                            android:text="건강보험"
-                            android:paddingLeft="10dp"/>
-                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>

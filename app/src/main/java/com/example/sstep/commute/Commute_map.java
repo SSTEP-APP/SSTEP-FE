@@ -54,6 +54,9 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
     Dialog showCommuteIn_dialog, showCommuteOut_dialog;
     BaseDialog_OkCenter baseDialog_okCenter, baseDialog_okCenter2;
 
+    boolean isGoingToWork = true; // 출근/퇴근 상태를 저장하는 변수
+    String inout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,9 +82,20 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
         bottomonbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // inout 값을 읽어와서 해당 메서드 호출
+                inout = getIntent().getStringExtra("inout");
+                if (inout != null && inout.equals("in")) {
+                    isGoingToWork=true;
+                } else if (inout != null && inout.equals("out")) {
+                    isGoingToWork=false;
+                }
+
                 Intent intent = new Intent(getApplicationContext(), Home_staff.class);
+                intent.putExtra("isGoingToWork", isGoingToWork); // 이전 상태를 다시 전달
                 startActivity(intent);
                 finish();
+
+
             }
         });
 
@@ -98,7 +112,7 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                 // inout 값을 읽어와서 해당 메서드 호출
-                String inout = getIntent().getStringExtra("inout");
+                inout = getIntent().getStringExtra("inout");
                 if (inout != null && inout.equals("in")) {
                     showInDl();
                 } else if (inout != null && inout.equals("out")) {
@@ -238,12 +252,12 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
         int minute = Integer.parseInt(new SimpleDateFormat("mm", Locale.getDefault()).format(new Date(currentTimeMillis)));
         String currentTime = hour + " : " + minute;
         commute_indl_timeTv.setText("출근시간 " + currentTime + "입니다.");
-        boolean isGoingToWork = true;
 
         // '회원가입 dialog' _ 확인 버튼 클릭 시
         commute_indl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isGoingToWork = false; // 퇴근 상태로 변경
                 Intent intent = new Intent(getApplicationContext(), Home_staff.class);
                 intent.putExtra("isGoingToWork", isGoingToWork);
                 startActivity(intent);
@@ -268,12 +282,12 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
         int minute = Integer.parseInt(new SimpleDateFormat("mm", Locale.getDefault()).format(new Date(currentTimeMillis)));
         String currentTime = hour + " : " + minute;
         commute_outdl_timeTv.setText("퇴근시간 " + currentTime + "입니다.");
-        boolean isGoingToWork = false;
 
         // '회원가입 dialog' _ 확인 버튼 클릭 시
         commute_outdl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isGoingToWork = true; // 출근 상태로 변경
                 Intent intent = new Intent(getApplicationContext(), Home_staff.class);
                 intent.putExtra("isGoingToWork", isGoingToWork);
                 startActivity(intent);

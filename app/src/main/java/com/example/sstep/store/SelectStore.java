@@ -24,6 +24,7 @@ import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.LoginData;
 import com.example.sstep.R;
 import com.example.sstep.home.Home_Ceo;
+import com.example.sstep.store.store_api.StoreApiService;
 import com.example.sstep.store.store_api.StoreResponseDto;
 import com.example.sstep.user.member.MemberApiService;
 import com.example.sstep.user.member.MemberModel;
@@ -31,6 +32,7 @@ import com.example.sstep.user.member.NullOnEmptyConverterFactory;
 import com.example.sstep.user.staff.AddSch_RecyclerViewAdpater;
 import com.example.sstep.user.staff.Staff_infoInput_recyclerViewItem;
 import com.example.sstep.user.staff.addSchedule;
+import com.example.sstep.user.staff_api.StaffRequestDto;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -40,6 +42,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -147,6 +151,8 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                  */
             case R.id.selectstore_searchIbtn: // 사업장 검색
                 showSearchStoreDl();
+
+
             default:
                 break;
         }
@@ -165,6 +171,8 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
             public void onClick(View v) {
                 try {
                     store_Code = Integer.parseInt(searchstore_dl_numEt.getText().toString());
+
+
 
                     showConfirmDl();
                 } catch (Exception e) {
@@ -213,6 +221,55 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         searchstore_dl2_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+
+                    //네트워크 요청 구현
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+
+                    StoreApiService apiService = retrofit.create(StoreApiService.class);
+
+                    // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
+                    StaffRequestDto staffRequestDto = new StaffRequestDto(
+                            "814",
+                            895800,
+                            null,
+                            null,
+                            0,
+                            0,
+                            false,
+                            false,
+                            false
+                    );
+
+                    //적은 id를 기반으로 db에 검색
+                    Call<Void> call = apiService.inputCode(staffRequestDto);
+                    call.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "사업장코드 성공", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "사업장코드 실패", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            // 실패 처리
+                            String errorMessage = t != null ? t.getMessage() : "Unknown error";
+                            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                            t.printStackTrace();
+
+                        }
+                    });
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
                 showConfirm_dialog.dismiss();
                 showComplete_dialog.dismiss();
             }

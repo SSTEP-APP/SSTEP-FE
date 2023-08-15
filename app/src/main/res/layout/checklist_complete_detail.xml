@@ -326,7 +326,7 @@
         <ImageButton
             android:id="@+id/checkComDetail_commentIBtn"
             android:layout_width="wrap_content"
-            android:layout_height="37dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
             android:layout_marginRight="25dp"
             android:background="@drawable/yicon_send" />
