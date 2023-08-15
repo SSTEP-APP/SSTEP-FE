@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.BaseDialog_Bottom;
 import com.example.sstep.BaseDialog_OkCenter;
+import com.example.sstep.LoginData;
 import com.example.sstep.R;
 import com.example.sstep.store.SelectStore;
 import com.example.sstep.user.join.JoinActivity;
@@ -37,6 +38,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     ImageButton logIn_kakaoBtn, logIn_naverBtn, logIn_googleBtn;
     Dialog showComplete_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
+    LoginData loginData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +62,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         showComplete_dialog = new Dialog(Login.this);
         showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
+
+        //로그인 정보 저장
+        loginData = (LoginData) getApplication();
 
 
     }
@@ -117,6 +122,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             //Intent intent = new Intent(getApplicationContext(), MainFage.class); //메인페이지로
                             //startActivity(intent);
                             // finish();
+                            //로그인 정보 저장
+                            loginData.setUserId(idEt.getText().toString());
                             showCompleteDl();
                         }
                         else {
@@ -182,7 +189,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SelectStore.class);
-                intent.putExtra("userId", idEt.getText().toString());
                 startActivity(intent);
                 finish();
             }
