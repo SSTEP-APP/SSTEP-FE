@@ -88,7 +88,7 @@ public class StaffInvite2 extends AppCompatActivity implements View.OnClickListe
 
                     StoreApiService apiService = retrofit.create(StoreApiService.class);
 
-                    // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
+                    // 사업장등록에 필요한 데이터를 StaffRequestDto 객체로 생성
                     StaffRequestDto staffRequestDto = new StaffRequestDto(
                             "814",
                             895800,

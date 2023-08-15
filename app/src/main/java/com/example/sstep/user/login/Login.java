@@ -100,7 +100,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void onCompleteBtn() {
 
         try {
-
             //네트워크 요청 구현
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
