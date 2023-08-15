@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.BaseDialog_OkCenter;
+import com.example.sstep.LoginData;
 import com.example.sstep.R;
 import com.example.sstep.home.Home_Ceo;
 import com.example.sstep.store.store_api.StoreResponseDto;
@@ -75,7 +76,8 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         showConfirm_dialog.setContentView(R.layout.searchstore_dl2); // xml 레이아웃 파일과 연결
 
         // Intent로 전달받은 ID 값 가져오기
-        String userId = getIntent().getStringExtra("userId");
+        LoginData loginData = (LoginData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        String userId = loginData.getUserId(); // 사용자 ID 가져오기
 
 
         //리사이클러뷰를 통해 사업장 리스트 가지고 오기
@@ -105,7 +107,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                updateRecyclerView(stores);
+                                onResume(stores);
                             }
                         });
                     } else {
@@ -131,6 +133,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         switch (v.getId()){
             case R.id.selectstore_storeregBtn: // '사업장등록하기'버튼
                 intent = new Intent(getApplicationContext(), RegisterStore.class);
+
                 startActivity(intent);
                 finish();
                 break;
@@ -239,6 +242,13 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
 
     private void handleError(String errorMsg) {
         Toast.makeText(this, errorMsg + "!!", Toast.LENGTH_SHORT).show();
-        storeregBtn.setText(errorMsg);
+    }
+    protected void onResume(List<StoreResponseDto> stores) {
+        super.onResume();
+
+        // 이곳에서 리사이클러뷰 데이터를 업데이트하고 어댑터를 갱신합니다.
+        updateRecyclerView(stores); // 원하는 업데이트 로직을 여기에 작성
+
+        mRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터 갱신
     }
 }
