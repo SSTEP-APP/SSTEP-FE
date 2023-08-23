@@ -19,8 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.R;
 import com.example.sstep.alarm.Alarm;
-import com.example.sstep.alarm.Alarm1_RecyclerViewAdpater;
-import com.example.sstep.alarm.Alarm1_recyclerViewWordItemData;
 import com.example.sstep.performance.MonthState;
 import com.example.sstep.staffinvite.StaffInvite;
 import com.example.sstep.store.SelectStore;
@@ -40,7 +38,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
 
     ImageButton menuIBtn, alarmIBtn, staffInviteCloseIBtn;
     Button selectStoreBtn, mypageBtn, checklistBtn, staffInviteBtn;;
-    TextView monthstateTv, modifyStoreTv, checkNumTv;
+    TextView monthstateTv, modifyStoreTv, checkNumTv, storeName;
     FrameLayout staffInviteFLayout;
     LinearLayout staffApprovalL, commutePerL;
 
@@ -61,7 +59,57 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
         checkNumTv=findViewById(R.id.homeceo_checkNumTv);
         staffApprovalL=findViewById(R.id.homeceo_staffApprovalL);
         commutePerL=findViewById(R.id.homeceo_commutePerL);
+        storeName = findViewById(R.id.homeceo_storeNameTv);
 
+        /*
+        // ID값, storeId가지고 오기
+        AppInData loginData = (AppInData) getApplication(); // AppInData 클래스의 인스턴스 가져오기
+        String userId = loginData.getUserId(); // 사용자 ID 가져오기
+
+        StoreData storeData = (StoreData) getApplication(); // StoreData 클래스의 인스턴스 가져오기
+        long storeId = storeData.getStoreId(); //storeId 가져오기
+        long store_Code = storeData.getStoreCode(); //storeCode 가져오기
+
+
+         */
+
+        /*
+        try {
+
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            StoreApiService apiService = retrofit.create(StoreApiService.class);
+            //Long storeCode = Long.valueOf(store_Code);
+            //적은 id를 기반으로 db에 검색
+            Call<StoreResponseDto> call = apiService.getStore(storeCode);
+            call.enqueue(new Callback<StoreResponseDto>() {
+                @Override
+                public void onResponse(Call<StoreResponseDto> call, Response<StoreResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        StoreResponseDto storeResponseData  = response.body();
+                        storeName.setText(storeResponseData.getName()); //이름 가져와서 넣기
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "실패"+response.toString(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<StoreResponseDto> call, Throwable t) {
+                    // 실패 처리
+                    String errorMessage = "요청 실패: " + t.getMessage();
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+         */
 
         // 리사이클 뷰
         check_list = HomeCeoCheck_recyclerViewWordItemData.createContactsList(16);// 리스트 갯수

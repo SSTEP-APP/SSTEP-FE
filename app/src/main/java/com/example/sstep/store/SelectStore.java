@@ -8,36 +8,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.BaseDialog_OkCenter;
-import com.example.sstep.LoginData;
+import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.home.Home_Ceo;
 import com.example.sstep.store.store_api.StoreApiService;
 import com.example.sstep.store.store_api.StoreResponseDto;
 import com.example.sstep.user.member.MemberApiService;
-import com.example.sstep.user.member.MemberModel;
 import com.example.sstep.user.member.NullOnEmptyConverterFactory;
-import com.example.sstep.user.staff.AddSch_RecyclerViewAdpater;
-import com.example.sstep.user.staff.Staff_infoInput_recyclerViewItem;
-import com.example.sstep.user.staff.addSchedule;
+import com.example.sstep.user.staff_api.StaffApiService;
+import com.example.sstep.user.staff_api.StaffInviteResponseDto;
 import com.example.sstep.user.staff_api.StaffRequestDto;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,17 +40,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SelectStore extends AppCompatActivity implements View.OnClickListener {
 
-    String storeName, address;
+    String storeName, address, userId;
     ImageButton searchIbtn;
     Button storeregBtn;
-    FrameLayout onelistF;
-    int store_Code;
+
+    long store_Code, staffId;
     Dialog showComplete_dialog, showConfirm_dialog;
     BaseDialog_OkCenter baseDialog_okCenter, baseDialog_okCenter2;
     private RecyclerView mRecyclerView;
     private SelectStore_RecyclerViewAdpater mRecyclerViewAdapter;
     private List<SelectStore_recyclerViewItem> mList;
     TextView searchstore_dl2_storeNameTv, searchstore_dl2_addressTv;
+    AppInData appInData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +61,6 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
 
         storeregBtn = findViewById(R.id.selectstore_storeregBtn); storeregBtn.setOnClickListener(this);
         searchIbtn = findViewById(R.id.selectstore_searchIbtn); searchIbtn.setOnClickListener(this);
-        //onelistF = findViewById(R.id.selectstore_onelistF); onelistF.setOnClickListener(this);
 
         baseDialog_okCenter = new BaseDialog_OkCenter(SelectStore.this, R.layout.searchstore_dl);
         baseDialog_okCenter2 = new BaseDialog_OkCenter(SelectStore.this, R.layout.searchstore_dl2);
@@ -82,8 +74,10 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         showConfirm_dialog.setContentView(R.layout.searchstore_dl2); // xml 레이아웃 파일과 연결
 
         // ID값 가지고 오기
-        LoginData loginData = (LoginData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
-        String userId = loginData.getUserId(); // 사용자 ID 가져오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        userId = appInData.getUserId(); // 사용자 ID 가져오기
+
+
 
 
         //리사이클러뷰를 통해 사업장 리스트 가지고 오기
@@ -117,7 +111,6 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                             }
                         });
                     } else {
-                        System.out.println("API call failed: " + response.code());
                     }
                 } catch (Exception e) {
                     final String errorMsg = e.toString();
@@ -143,14 +136,6 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                 startActivity(intent);
                 finish();
                 break;
-                /*
-            case R.id.selectstore_onelistF: // 리스트
-                intent = new Intent(getApplicationContext(), Home_Ceo.class);
-                startActivity(intent);
-                finish();
-                break;
-
-                 */
             case R.id.selectstore_searchIbtn: // 사업장 검색
                 showSearchStoreDl();
 
@@ -172,9 +157,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onClick(View v) {
                 try {
-                    store_Code = Integer.parseInt(searchstore_dl_numEt.getText().toString());
-
-
+                    store_Code = Integer.parseInt(searchstore_dl_numEt.getText().toString().trim());
 
                     showConfirmDl();
                 } catch (Exception e) {
@@ -237,8 +220,8 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                             Toast.makeText(getApplicationContext(), "사업장 코드가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                         }
 
-                        }
-                        else {
+                    }
+                    else {
                         Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
 
                     }
@@ -277,41 +260,54 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                             .build();
 
                     StoreApiService apiService = retrofit.create(StoreApiService.class);
+                    StaffApiService apiService1 = retrofit.create(StaffApiService.class);
 
-                    // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
-                    StaffRequestDto staffRequestDto = new StaffRequestDto(
-                            "814",
-                            store_Code,
-                            null,
-                            null,
-                            0,
-                            0,
-                            false,
-                            false,
-                            false
-                    );
-
-                    //적은 id를 기반으로 db에 검색
-                    Call<Void> call = apiService.inputCode(staffRequestDto);
-                    call.enqueue(new Callback<Void>() {
+                    Call<StaffInviteResponseDto> call2 = apiService1.getStaffByUsernameAndStoreCode(userId, store_Code);
+                    call2.enqueue(new Callback<StaffInviteResponseDto>() {
                         @Override
-                        public void onResponse(Call<Void> call, Response<Void> response) {
+                        public void onResponse(Call<StaffInviteResponseDto> call, Response<StaffInviteResponseDto> response) {
                             if (response.isSuccessful()) {
-                                Toast.makeText(getApplicationContext(), "사업장코드 성공", Toast.LENGTH_SHORT).show();
+                                StaffInviteResponseDto staffResponse = response.body();
+                                staffId = staffResponse.getStaffId();
+                                Call<Void> call3 = apiService.inputCode(staffId);
+                                call3.enqueue(new Callback<Void>() {
+                                    @Override
+                                    public void onResponse(Call<Void> call, Response<Void> response) {
+                                        if (response.isSuccessful()) {
+                                            Toast.makeText(getApplicationContext(), "사업장코드 성공", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), "사업장코드 실패"+staffId, Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Void> call, Throwable t) {
+                                        // 실패 처리
+                                        String errorMessage = t != null ? t.getMessage() : "Unknown error";
+                                        Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                                        t.printStackTrace();
+
+                                    }
+                                });
+                                Toast.makeText(getApplicationContext(), "성공"+staffId, Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(getApplicationContext(), "사업장코드 실패", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
                             }
                         }
 
                         @Override
-                        public void onFailure(Call<Void> call, Throwable t) {
-                            // 실패 처리
+                        public void onFailure(Call<StaffInviteResponseDto> call, Throwable t) {
                             String errorMessage = t != null ? t.getMessage() : "Unknown error";
                             Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                             t.printStackTrace();
-
                         }
                     });
+
+
+
+                    //적은 id를 기반으로 db에 검색
+
+
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -327,21 +323,39 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         mList = new ArrayList<>();
     }
 
-    public void addItem(String name, String address, String person){
+    public void addItem(String name, String address, String person, long id, long code){
         SelectStore_recyclerViewItem item = new SelectStore_recyclerViewItem();
 
         item.setSelectStoreName(name);
         item.setSelectStoreAddress(address);
         item.setSelectStorePerson(person);
+        item.setSelectStoreId(id);
+        item.setSelectStoreCode(code);
+
 
         mList.add(item);
     }
     private void updateRecyclerView(List<StoreResponseDto> stores) {
         mList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
         for (StoreResponseDto store : stores) {
-            addItem(store.getName(), store.getAddress(), "" + store.getCount());
+            addItem(store.getName(), store.getAddress(), "" + store.getCount(), store.getId(), store.getCode());
         }
+
         mRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
+        mRecyclerViewAdapter.setOnItemClickListener(new SelectStore_RecyclerViewAdpater.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                // 해당 아이템 레이아웃 클릭 시 처리할 코드 이쪽 수정 필!
+                SelectStore_recyclerViewItem item = mList.get(position);
+
+                appInData.setStoreId(item.getSelectStoreId()); //storeId저장
+                appInData.setStoreCode(item.getSelectStoreCode());
+
+                Intent intent = new Intent(getApplicationContext(), Home_Ceo.class); //사장, 스테프 구분 필요
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void handleError(String errorMsg) {

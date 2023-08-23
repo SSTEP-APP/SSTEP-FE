@@ -19,7 +19,7 @@ public class StaffRequestDto {
     private String username; //회원 아이디
     private long code; //사업장 초대 코드 번호
     private long id; //직원 고유번호
-    private Date startDay; //입사일
+    private String startDay; //입사일
     private String paymentDate; //급여지급일
 
     private int hourMoney; //시급
@@ -50,7 +50,7 @@ public class StaffRequestDto {
         return id;
     }
 
-    public Date getStartDay() {
+    public String getStartDay() {
         return startDay;
     }
 
@@ -82,7 +82,7 @@ public class StaffRequestDto {
         return submitStatus;
     }
 
-    public StaffRequestDto(String username, long code, Date startDay, String paymentDate, int hourMoney, int wageType, boolean ownerStatus, boolean joinStatus, boolean submitStatus) {
+    public StaffRequestDto(String username, long code, String startDay, String paymentDate, int hourMoney, int wageType, boolean ownerStatus, boolean joinStatus, boolean submitStatus) {
         this.username = username;
         this.code = code;
         this.startDay = startDay;
@@ -94,7 +94,7 @@ public class StaffRequestDto {
         this.submitStatus = submitStatus;
     }
 
-    public StaffRequestDto(String username, long code, long id, Date startDay, String paymentDate, int hourMoney, int wageType, boolean ownerStatus, boolean joinStatus, boolean submitStatus) {
+    public StaffRequestDto(String username, long code, long id, String startDay, String paymentDate, int hourMoney, int wageType, boolean ownerStatus, boolean joinStatus, boolean submitStatus) {
         this.username = username;
         this.code = code;
         this.id = id;
@@ -105,5 +105,12 @@ public class StaffRequestDto {
         this.ownerStatus = ownerStatus;
         this.joinStatus = joinStatus;
         this.submitStatus = submitStatus;
+    }
+    public StaffRequestDto(long id, String startDay, String paymentDate, int hourMoney, int wageType) {
+        this.id = id;
+        this.startDay = startDay;
+        this.paymentDate = paymentDate;
+        this.hourMoney = hourMoney;
+        this.wageType = wageType;
     }
 }

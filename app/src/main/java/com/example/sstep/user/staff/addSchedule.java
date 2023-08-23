@@ -11,17 +11,31 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.R;
+import com.example.sstep.store.store_api.NullOnEmptyConverterFactory;
+import com.example.sstep.store.store_api.StoreApiService;
+import com.example.sstep.user.staff_api.ScheduleRequestDto;
+import com.example.sstep.user.staff_api.StaffApiService;
+import com.example.sstep.user.staff_api.StaffRequestDto;
 
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class addSchedule extends AppCompatActivity {
 
@@ -40,6 +54,7 @@ public class addSchedule extends AppCompatActivity {
     private ArrayList<Staff_infoInput_recyclerViewItem> mList;
     private ArrayList<String> checkedItems = new ArrayList<>();
     int checkCount = 0;
+    long staffId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +80,26 @@ public class addSchedule extends AppCompatActivity {
         timePickDialog.setContentView(R.layout.dialog_time_setting);// xml 레이아웃 파일과 연결
         dayAddBtn = findViewById(R.id.addSch_dayAddBtn);
 
+        Intent intent = getIntent();
+        //staffId 받기
+        staffId = intent.getLongExtra("staffId", 999);
+        String inStartDay = intent.getStringExtra("startDay");
+        String paymentDate = intent.getStringExtra("paymentDate");
+        int hourMoney = getIntent().getIntExtra("hourMoney", 7000);
+        int wageType = getIntent().getIntExtra("wageType", 1);
 
+        Toast.makeText(this, ""+staffId, Toast.LENGTH_SHORT).show();
 
         //뒤로가기 버튼
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), staff_infoInput.class);
+                intent.putExtra("staffId", staffId);
+                intent.putExtra("hourMoney", hourMoney);
+                intent.putExtra("wageType", wageType);
+                intent.putExtra("startDay", inStartDay);
+                intent.putExtra("paymentDate",paymentDate);
                 startActivity(intent);
                 finish();
             }
@@ -212,6 +240,11 @@ public class addSchedule extends AppCompatActivity {
                 }
                 Intent intent = new Intent(addSchedule.this, staff_infoInput.class);
                 intent.putStringArrayListExtra("LIST_DATA", listData);
+                intent.putExtra("staffId", staffId);
+                intent.putExtra("hourMoney", hourMoney);
+                intent.putExtra("wageType", wageType);
+                intent.putExtra("startDay", inStartDay);
+                intent.putExtra("paymentDate",paymentDate);
                 startActivity(intent);
             }
         });
@@ -253,4 +286,5 @@ public class addSchedule extends AppCompatActivity {
             }
         }
     }
+
 }

@@ -7,7 +7,6 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface StaffApiService {
-/*
     //직원 정보 입력 시 직원 등록 => null로 저장되어있던 직원 정보를 입력된 정보로 update 과정
     @POST("/staff/{storeId}/{staffId}/update-staff")
     Call<Void> updateStaff(
@@ -17,12 +16,21 @@ public interface StaffApiService {
     );
 
     //직원별 스케줄 저장
-    @POST("/staff/{staffId}/add-schedule")
+    @POST("schedule/{staffId}/add-schedule")
     Call<Void> registerSchedule(
             @Path("staffId") Long staffId,
             @Body ScheduleRequestDto scheduleRequestDto
     );
 
+    //id와 storecode로 staffId가져오기
+    @GET("/staff/{username}/{storeCode}")
+    Call<StaffInviteResponseDto> getStaffByUsernameAndStoreCode(
+            @Path("username") String username,
+            @Path("storeCode") Long storeCode
+        );
+
+
+    /*
     //직원별 캘린더(일정) 저장
     @POST("/staff/{staffId}/add-calendar")
     Call<Void> registerCalendar(
@@ -99,7 +107,9 @@ public interface StaffApiService {
     @GET("/staff/{storeId}/un-reg/work-doc/staffs")
     Call<List<Staff>> getUnRegWorkDocStaffs(
             @Path("storeId") Long storeId
-    );*/
+    );
+
+     */
 
 
 

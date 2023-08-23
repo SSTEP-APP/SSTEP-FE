@@ -1,43 +1,50 @@
-package com.example.sstep.store;
+package com.example.sstep.staffinvite;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.R;
+import com.example.sstep.user.staff.InputStaffInfo;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<SelectStore_RecyclerViewAdpater.ViewHolder> {
+public class StaffInvite_RecyclerViewAdpater extends RecyclerView.Adapter<StaffInvite_RecyclerViewAdpater.ViewHolder> {
+    Dialog staffInviteYes_dialog;
+    private Context context;
 
     private OnItemClickListener onItemClickListener;
-    FrameLayout selectStoreLayout; // selectstoreRI_onelistF 뷰를 참조할 변수
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         onItemClickListener = listener;
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView selectStoreName, selectStoreAddress, selectStorePerson;
-        //ImageView
+        TextView staffInviteName, staffInviteUserName, staffInviteId;
+        Button yesBtn, noBtn;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            selectStoreName = (TextView) itemView.findViewById(R.id.selectstoreRI_storenameTv);
-            selectStoreAddress = (TextView) itemView.findViewById(R.id.selectstoreRI_addressTv);
-            selectStorePerson = (TextView) itemView.findViewById(R.id.selectstoreRI_personNumTv);
-            selectStoreLayout = itemView.findViewById(R.id.selectstoreRI_onelistF); // 뷰 초기화
+            staffInviteName = (TextView) itemView.findViewById(R.id.staffInvite1_RI_nameTv);
+            staffInviteUserName = (TextView) itemView.findViewById(R.id.staffInvite1_RI_idTv);
+            yesBtn = (Button) itemView.findViewById(R.id.staffInvite1_RI_yesBtn);
+            noBtn = (Button) itemView.findViewById(R.id.staffInvite1_RI_noBtn);
 
-            selectStoreLayout.setOnClickListener(new View.OnClickListener() {
+            yesBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (onItemClickListener != null) {
@@ -49,14 +56,11 @@ public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<Select
                 }
             });
         }
-
-
-
     }
 
-    private List<SelectStore_recyclerViewItem> mList = null;
+    private List<StaffInvite_recyclerViewItem> mList = null;
 
-    public SelectStore_RecyclerViewAdpater(List<SelectStore_recyclerViewItem> mList) {
+    public StaffInvite_RecyclerViewAdpater(List<StaffInvite_recyclerViewItem> mList) {
         this.mList = mList;
     }
 
@@ -64,9 +68,9 @@ public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<Select
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+        context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.slectstore_recycle_item, parent, false);
+        View view = inflater.inflate(R.layout.staffinvite_recycle_item, parent, false);
         ViewHolder vh = new ViewHolder(view);
         return vh;
     }
@@ -74,11 +78,11 @@ public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<Select
     // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        SelectStore_recyclerViewItem item = mList.get(position);
+        StaffInvite_recyclerViewItem item = mList.get(position);
 
-        holder.selectStoreName.setText(item.getSelectStoreName());
-        holder.selectStoreAddress.setText(item.getSelectStoreAddress());
-        holder.selectStorePerson.setText(item.getSelectStorePerson());
+        holder.staffInviteName.setText(item.getStaffInviteName());
+        holder.staffInviteUserName.setText(item.getStaffInviteUserName());
+        long staffId = item.getStaffInviteId();
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,4 +105,6 @@ public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<Select
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
+
+
 }

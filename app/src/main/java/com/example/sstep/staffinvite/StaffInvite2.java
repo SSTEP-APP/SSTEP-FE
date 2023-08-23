@@ -20,12 +20,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.store.store_api.StoreApiService;
-import com.example.sstep.store.store_api.StoreRegisterReqDto;
 import com.example.sstep.user.member.MemberApiService;
-import com.example.sstep.user.member.MemberModel;
+import com.example.sstep.user.member.MemberResponseDto;
 import com.example.sstep.user.staff_api.StaffRequestDto;
 
 import java.util.ArrayList;
@@ -43,6 +43,8 @@ public class StaffInvite2 extends AppCompatActivity implements View.OnClickListe
     ImageButton backib;
     EditText nameEt, numberEt;
     Button completeBtn;
+    String userId, userName;
+    long storeId, storecode;
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 100;
 
     // 생성된 인증번호를 저장할 리스트 선언
@@ -66,7 +68,13 @@ public class StaffInvite2 extends AppCompatActivity implements View.OnClickListe
 
         // 전화번호 입력시 자동 '-' 입력
         numberEt.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+
+        AppInData appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        userId = appInData.getUserId(); // 사용자 ID 가져오기
+        storeId = appInData.getStoreId(); // storeId 가져오기
+        storecode = appInData.getStoreCode();
     }
+
 
     @Override
     public void onClick(View v) {
@@ -87,41 +95,36 @@ public class StaffInvite2 extends AppCompatActivity implements View.OnClickListe
                             .build();
 
                     StoreApiService apiService = retrofit.create(StoreApiService.class);
+                    MemberApiService apiService2 = retrofit.create(MemberApiService.class);
 
-                    // 사업장등록에 필요한 데이터를 StaffRequestDto 객체로 생성
-                    StaffRequestDto staffRequestDto = new StaffRequestDto(
-                            "814",
-                            895800,
-                            null,
-                            null,
-                            0,
-                            0,
-                            false,
-                            false,
-                            false
-                    );
-
-                    //적은 id를 기반으로 db에 검색
-                    Call<Void> call = apiService.inviteStaffToStore(staffRequestDto);
-                    call.enqueue(new Callback<Void>() {
+                    //userName받기 이름과 전화번호로 회원 찾기
+                    Call<MemberResponseDto> call2 = apiService2.getMemberByNameAndPhoneNum(nameEt.getText().toString().trim(), numberEt.getText().toString().trim());
+                    call2.enqueue(new Callback<MemberResponseDto>() {
                         @Override
-                        public void onResponse(Call<Void> call, Response<Void> response) {
+                        public void onResponse(Call<MemberResponseDto> call, Response<MemberResponseDto> response) {
                             if (response.isSuccessful()) {
-                                sendSMS();
+                                MemberResponseDto member = response.body();
+                                userName = member.getUsername();
+                                inviteStaffToStore(apiService, userName, storecode);
+
+                                // 응답 성공 시 처리
                             } else {
-                                Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "이름과 전화번호를 확인하세요", Toast.LENGTH_SHORT).show();
+                                return;
                             }
                         }
-
                         @Override
-                        public void onFailure(Call<Void> call, Throwable t) {
-                            // 실패 처리
+                        public void onFailure(Call<MemberResponseDto> call, Throwable t) {
                             String errorMessage = t != null ? t.getMessage() : "Unknown error";
                             Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                             t.printStackTrace();
-
                         }
                     });
+
+
+
+
+
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -144,7 +147,7 @@ public class StaffInvite2 extends AppCompatActivity implements View.OnClickListe
             if (ContextCompat.checkSelfPermission(StaffInvite2.this, android.Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                 // 인증번호 생성 및 발송
                 String verificationCode = generateUniqueVerificationCode();
-                String message = name + " 님이 초대되었습니다. \n 사업장 코드는 " + verificationCode + " 입니다.";
+                String message = name + " 님이 초대되었습니다. \n 사업장 코드는 " + storecode + " 입니다.";
                 sendVerificationCode(phoneNumber, message);
                 showCompleteDl(message); // 다이얼로그 표시
                 int code = Integer.parseInt(verificationCode);
@@ -205,6 +208,43 @@ public class StaffInvite2 extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(getApplicationContext(), StaffInvite.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+    }
+
+    public void inviteStaffToStore(StoreApiService apiService, String userName, long storecode) {
+        // 새로운 StaffRequestDto 객체 생성
+        StaffRequestDto staffRequestDto = new StaffRequestDto(
+                userName,
+                storecode,
+                null,
+                null,
+                0,
+                0,
+                false,
+                false,
+                false
+        );
+
+        //적은 id를 기반으로 db에 검색
+        Call<Void> call = apiService.inviteStaffToStore(staffRequestDto);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    sendSMS();
+                } else {
+                    Toast.makeText(getApplicationContext(), "실패!!" + response.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // 실패 처리
+                String errorMessage = t != null ? t.getMessage() : "Unknown error";
+                Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
+
             }
         });
     }

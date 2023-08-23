@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -22,6 +23,7 @@ import androidx.core.content.ContextCompat;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
 import com.example.sstep.store.RegisterStore_calendarDialog;
+import com.example.sstep.user.join.JoinActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -40,8 +42,13 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
     Button ci_indateBtn, ci_wageBtn, pi_tgsetBtn1, pi_leftBtn, pi_rightBtn, completeBtn;
     TextView pi_ymTv, pi_insapplyTv1, pi_insapplyTv2, pi_wageTv;
     EditText pi_rbdayEt;
+
     boolean completeBtnState;
 
+    private java.sql.Date startDay; //입사일
+    private String paymentDate;
+
+    int wageType; //급여 지급 방식 일급(1), 주급(2), 월급(3)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +78,9 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
         pi_ymTv=findViewById(R.id.isi_pi_ymTv);
         pi_insapplyTv1=findViewById(R.id.isi_pi_insapplyTv1);
         pi_insapplyTv2=findViewById(R.id.isi_pi_insapplyTv2);
+
+
+
 
         // 년도, 월 날짜 이동
         DateYearMonth_NavigationClickListener dateYearMonth_NavigationClickListener = new DateYearMonth_NavigationClickListener(pi_ymTv, pi_leftBtn, pi_rightBtn){
@@ -138,6 +148,18 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.isi_completeBtn: // 완료 버튼
                 Intent intent = new Intent(getApplicationContext(), staff_infoInput.class);
+                Intent intent1 = getIntent();
+                long staffId = intent1.getLongExtra("staffId", 1);
+                intent.putExtra("staffId", staffId);
+                try{
+                    intent.putExtra("hourMoney", Integer.parseInt(pi_rbdayEt.getText().toString()));
+                }catch (NumberFormatException e) {
+                    Toast.makeText(InputStaffInfo.this, "시급을 잘못 입력하였습니다.", Toast.LENGTH_SHORT).show();
+                }
+                intent.putExtra("wageType", wageType);
+                intent.putExtra("startDay", ci_indateBtn.getText().toString().trim());
+                intent.putExtra("paymentDate", ci_wageBtn.getText().toString().trim());
+                Toast.makeText(InputStaffInfo.this, "방식"+ wageType, Toast.LENGTH_SHORT).show(); //삭제
                 startActivity(intent);
                 finish();
                 break;
@@ -153,12 +175,15 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
             case R.id.isi_pi_payRg: // '시급,일급,월급' Rg
                 switch (checkedId){
                     case R.id.isi_pi_payhourRb: // 시급
+                        wageType = 1;
                         pi_wageTv.setText("시급");
                         break;
                     case R.id.isi_pi_paydayRb: // 일급
+                        wageType = 2;
                         pi_wageTv.setText("일급");
                         break;
                     case R.id.isi_pi_paymonthRb: // 월급
+                        wageType = 3;
                         pi_wageTv.setText("월급");
                         break;
                     default:
@@ -184,6 +209,7 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
 
     // 달력 다이얼로그 띄우기
     public void showCalendarDialog(final Button button) {
+
         CalendarDialog calendarDialog = new CalendarDialog(InputStaffInfo.this,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
@@ -193,10 +219,6 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
                         String dateString = year + "년 " + (month + 1) + "월 " + dayOfMonth + "일";
                         button.setText(dateString);
 
-                        if(!pi_tgsetBtn1.getText().toString().equals("설정")){
-                            pi_tgsetBtn1.setBackgroundResource(R.drawable.yroundrec_w_sblue);
-                            pi_tgsetBtn1.setTextColor(ContextCompat.getColor(InputStaffInfo.this, R.color.blue));
-                        }
                     }
                 });
         // 다이얼로그 띄우기

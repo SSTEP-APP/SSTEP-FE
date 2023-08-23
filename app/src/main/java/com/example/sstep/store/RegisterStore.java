@@ -19,14 +19,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.BaseDialog_OkCenter;
-import com.example.sstep.LoginData;
+import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.document.contract.EditTextValidator;
 import com.example.sstep.store.store_api.NullOnEmptyConverterFactory;
 import com.example.sstep.store.store_api.StoreApiService;
 import com.example.sstep.store.store_api.StoreRegisterReqDto;
-import com.example.sstep.store.store_api.StoreRequestDto;
-import com.example.sstep.user.staff_api.StaffRequestDto;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -85,7 +83,7 @@ public class RegisterStore extends AppCompatActivity {
         checkCompleteBtnState();
 
         // 로그인된 ID값 가지고 오기
-        LoginData loginData = (LoginData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        AppInData loginData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
         String userId = loginData.getUserId(); // 사용자 ID 가져오기
 
         //주소등록

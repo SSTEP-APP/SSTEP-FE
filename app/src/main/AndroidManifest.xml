@@ -28,7 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SSTEP"
         android:usesCleartextTraffic="true"
-        android:name=".LoginData"
+        android:name=".AppInData"
         tools:targetApi="31">
         <activity
             android:name=".community.Community"
@@ -82,12 +82,7 @@
             android:exported="false" /> <!-- 사업장 선택 -->
         <activity
             android:name=".store.SelectStore"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity> <!-- 사업장 등록 -->
         <activity android:name=".store.RegisterStore" />
         <activity
