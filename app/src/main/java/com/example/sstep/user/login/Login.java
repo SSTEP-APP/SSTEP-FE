@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.BaseDialog_Bottom;
 import com.example.sstep.BaseDialog_OkCenter;
-import com.example.sstep.LoginData;
 import com.example.sstep.R;
 import com.example.sstep.store.SelectStore;
 import com.example.sstep.user.join.JoinActivity;
@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     ImageButton logIn_kakaoBtn, logIn_naverBtn, logIn_googleBtn;
     Dialog showComplete_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
-    LoginData loginData;
+    AppInData appInData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +64,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
 
         //로그인 정보 저장
-        loginData = (LoginData) getApplication();
+        appInData = (AppInData) getApplication();
 
 
     }
@@ -122,7 +122,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             //startActivity(intent);
                             // finish();
                             //로그인 정보 저장
-                            loginData.setUserId(idEt.getText().toString());
+                            appInData.setUserId(idEt.getText().toString());
                             showCompleteDl();
                         }
                         else {

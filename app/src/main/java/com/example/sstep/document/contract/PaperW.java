@@ -19,9 +19,9 @@ public class PaperW extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paperw);
 
-        backib=findViewById(R.id.paperw_backib); backib.setOnClickListener(this);
-        workpF=findViewById(R.id.paperw_workpF); workpF.setOnClickListener(this);
-        photoF=findViewById(R.id.paperw_photoF); photoF.setOnClickListener(this);
+        backib=findViewById(R.id.paperw_backib); backib.setOnClickListener(this); //뒤로가기
+        workpF=findViewById(R.id.paperw_workpF); workpF.setOnClickListener(this); //표준근로계약서 작성
+        photoF=findViewById(R.id.paperw_photoF); photoF.setOnClickListener(this); //사진촬영
     }
 
     @Override

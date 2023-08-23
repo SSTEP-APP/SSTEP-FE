@@ -127,82 +127,8 @@
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/staffInvite1_recycleView"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:visibility="gone"/>
-                        <!-- 승인 내용_L -->
-                        <LinearLayout
-                            android:id="@+id/staffInvite1_innerLayout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp">
-                            <!-- 사람이미지 -->
-                            <ImageView
-                                android:id="@+id/staffInvite1_personIv"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:background="@drawable/yicon_stafffemale"
-                                android:layout_gravity="center_vertical"/>
+                            android:layout_height="match_parent" />
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_marginLeft="20dp"
-                                android:layout_gravity="center_vertical">
-                                <!-- 이름 -->
-                                <TextView
-                                    android:id="@+id/staffInvite1_nameTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="이름"
-                                    android:textColor="#737373"
-                                    android:textSize="13sp" />
-
-                                <!-- 아이디 -->
-                                <TextView
-                                    android:id="@+id/staffInvite1_idTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="아이디"
-                                    android:textColor="@color/black"
-                                    android:textSize="13sp" />
-                            </LinearLayout>
-                            <View
-                                android:id="@+id/modistore_view2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="0dp"
-                                android:layout_weight="1" />
-                            <!-- 승인 버튼 -->
-                            <Button
-                                android:id="@+id/staffInvite1_yesBtn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:minWidth="0dp"
-                                android:minHeight="0dp"
-                                android:layout_gravity="center_vertical|right"
-                                android:text="승인"
-                                android:textColor="@color/blue"
-                                android:textSize="13sp"
-                                android:layout_marginRight="20dp"
-                                android:clickable="true"/>
-
-                            <!-- 거절 버튼 -->
-                            <Button
-                                android:id="@+id/staffInvite1_noBtn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical|right"
-                                android:layout_marginRight="10dp"
-                                android:clickable="true"
-                                android:minWidth="0dp"
-                                android:minHeight="0dp"
-                                android:text="거절"
-                                android:textColor="#737373"
-                                android:textSize="13sp" />
-                        </LinearLayout> <!-- 승인 내용_L -->
                     </LinearLayout>
 
                 </LinearLayout>
@@ -276,73 +202,10 @@
                             android:background="@color/line"
                             tools:ignore="Suspicious0dp" />
 
-                        <!-- 승인 대기중 내용_L -->
-                        <LinearLayout
-                            android:id="@+id/staffInvite1_onelistL2"
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/staffInvite1_is_recycleView"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp">
-                            <!-- 사람이미지 -->
-                            <ImageView
-                                android:id="@+id/staffInvite1_personIv2"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                app:srcCompat="@drawable/yicon_stafffemale"
-                                android:layout_gravity="center_vertical"/>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_marginLeft="20dp"
-                                android:layout_gravity="center_vertical">
-                                <!-- 이름 -->
-                                <TextView
-                                    android:id="@+id/staffInvite1_nameTv2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="이름"
-                                    android:textColor="#737373"
-                                    android:textSize="13sp" />
-
-                                <!-- 아이디 -->
-                                <TextView
-                                    android:id="@+id/staffInvite1_idTv2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="아이디"
-                                    android:textColor="@color/black"
-                                    android:textSize="13sp" />
-                            </LinearLayout>
-                            <View
-                                android:layout_width="wrap_content"
-                                android:layout_height="0dp"
-                                android:layout_weight="1" />
-                            <!-- 재전송 버튼 -->
-                            <TextView
-                                android:id="@+id/staffInvite1_resendBtn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical|right"
-                                android:text="재전송"
-                                android:textColor="@color/blue"
-                                android:textSize="13sp"
-                                android:layout_marginRight="20dp"/>
-
-                            <!-- 삭제 버튼 -->
-                            <TextView
-                                android:id="@+id/staffInvite1_deleteBtn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical|right"
-                                android:text="삭제"
-                                android:textColor="#737373"
-                                android:textSize="13sp"
-                                android:layout_marginRight="10dp"/>
-                        </LinearLayout> <!-- 승인 대기중 내용_L -->
+                            android:layout_height="match_parent" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout> <!-- 초대 승인 대기중 전체 L -->

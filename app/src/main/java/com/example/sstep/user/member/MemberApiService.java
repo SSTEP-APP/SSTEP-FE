@@ -20,4 +20,11 @@ public interface MemberApiService {
     //회원이 소속된 사업장 리스트
     @GET("member/{username}/stores")
     Call<List<StoreResponseDto>> getStoresBelongMember(@Path("username") String username);
+
+    //이름 & 전화번호로 회원 조회
+    @GET("member/{name}/{phoneNum}")
+    Call<MemberResponseDto> getMemberByNameAndPhoneNum(
+            @Path("name") String name,
+            @Path("phoneNum") String phoneNum
+    );
 }

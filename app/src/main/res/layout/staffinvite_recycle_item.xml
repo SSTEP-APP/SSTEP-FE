@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/staffinvite_RI_recycle_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/staffInvite1_RI_innerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+                <!-- 사람이미지 -->
+                <ImageView
+                    android:id="@+id/staffInvite1_RI_personIv"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/yicon_stafffemale"
+                    android:layout_gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="center_vertical">
+                        <!-- 이름 -->
+                        <TextView
+                            android:id="@+id/staffInvite1_RI_nameTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="이름"
+                            android:textColor="#737373"
+                            android:textSize="13sp" />
+
+                        <!-- 아이디 -->
+                        <TextView
+                            android:id="@+id/staffInvite1_RI_idTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="아이디"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                </LinearLayout>
+                <View
+                    android:id="@+id/staffInvite_RI_view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <!-- 승인 버튼 -->
+                <Button
+                    android:id="@+id/staffInvite1_RI_yesBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:layout_gravity="center_vertical|right"
+                    android:text="승인"
+                    android:textColor="@color/blue"
+                    android:textSize="13sp"
+                    android:layout_marginRight="20dp"
+                    android:clickable="true"/>
+
+                <!-- 거절 버튼 -->
+                <Button
+                    android:id="@+id/staffInvite1_RI_noBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="10dp"
+                    android:clickable="true"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="거절"
+                    android:textColor="#737373"
+                    android:textSize="13sp" />
+        </LinearLayout> <!-- 승인 내용_L -->
+
+</LinearLayout>
+

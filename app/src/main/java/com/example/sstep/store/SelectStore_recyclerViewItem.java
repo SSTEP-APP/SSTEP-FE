@@ -4,6 +4,8 @@ public class SelectStore_recyclerViewItem {
     private String selectStoreName;
     private String selectStoreAddress;
     private String selectStorePerson;
+    private long selectStoreId;
+    private long selectStoreCode;
 
     public String getSelectStoreName() {
         return selectStoreName;
@@ -27,5 +29,21 @@ public class SelectStore_recyclerViewItem {
 
     public void setSelectStorePerson(String selectStorePerson) {
         this.selectStorePerson = selectStorePerson;
+    }
+
+    public long getSelectStoreId() {
+        return selectStoreId;
+    }
+
+    public void setSelectStoreId(long selectStoreId) {
+        this.selectStoreId = selectStoreId;
+    }
+
+    public long getSelectStoreCode() {
+        return selectStoreCode;
+    }
+
+    public void setSelectStoreCode(long selectStoreCode) {
+        this.selectStoreCode = selectStoreCode;
     }
 }

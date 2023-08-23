@@ -39,9 +39,13 @@ public interface StoreApiService {
     @POST("/store/invite/staff")
     Call<Void> inviteStaffToStore(@Body StaffRequestDto dto);
 
+    /*
     //직원이 사업장 코드 입력시
     @POST("/store/input-code/staff")
     Call<Void> inputCode(@Body StaffRequestDto dto);
+     */
+    @POST("/store/{staffId}/input-code/staff")
+    Call<Void> inputCode(@Path("staffId") long staffId);
 
     //직원 추가 => 사업장 코드 입력 후 사장이 승인을 받아줬을 경우
     @POST("/store/add/staff")
