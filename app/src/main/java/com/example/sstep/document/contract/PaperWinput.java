@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class PaperWinput extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, View.OnClickListener{
+public class PaperWinput extends AppCompatActivity implements View.OnClickListener{
 
     ScrollView scrollView;
     CustomDrawingView customDrawingView;
@@ -99,16 +99,6 @@ public class PaperWinput extends AppCompatActivity implements CompoundButton.OnC
         wage_updownIv=findViewById(R.id.paperwinput_wage_updownIv);wage_updownIv.setOnClickListener(this);
         workTerms_hidL=findViewById(R.id.paperwinput_workTerms_hidL);
         wage_hidL=findViewById(R.id.paperwinput_wage_hidL);
-        restdaySelectTv = findViewById(R.id.paperwinput_workTerms_restdaySelectTv);
-        restdayTv1 = findViewById(R.id.paperwinput_workTerms_restdayTv1);
-        restdayTv2 = findViewById(R.id.paperwinput_workTerms_restdayTv2);
-        restdayMonCb = findViewById(R.id.paperwinput_workTerms_restdayMonCb); restdayMonCb.setOnCheckedChangeListener(this);
-        restdayTheCb = findViewById(R.id.paperwinput_workTerms_restdayTheCb); restdayTheCb.setOnCheckedChangeListener(this);
-        restdayWedCb = findViewById(R.id.paperwinput_workTerms_restdayWedCb); restdayWedCb.setOnCheckedChangeListener(this);
-        restdayThuCb = findViewById(R.id.paperwinput_workTerms_restdayThuCb); restdayThuCb.setOnCheckedChangeListener(this);
-        restdayFriCb = findViewById(R.id.paperwinput_workTerms_restdayFriCb); restdayFriCb.setOnCheckedChangeListener(this);
-        restdaySatCb = findViewById(R.id.paperwinput_workTerms_restdaySatCb); restdaySatCb.setOnCheckedChangeListener(this);
-        restdaySunCb = findViewById(R.id.paperwinput_workTerms_restdaySunCb); restdaySunCb.setOnCheckedChangeListener(this);
         restdayCheckedList = new CheckBox[] {restdayMonCb, restdayTheCb, restdayWedCb, restdayThuCb, restdayFriCb, restdaySatCb, restdaySunCb};
 
         workTerms_workstartDateIb = findViewById(R.id.paperwinput_workTerms_workstartDateIb); workTerms_workstartDateIb.setOnClickListener(this);
@@ -321,99 +311,6 @@ public class PaperWinput extends AppCompatActivity implements CompoundButton.OnC
                 checkCompleteBtnState();
             }
         });
-    }
-
-
-    // 휴일 _선택된 CheckBox 색상변경 및 textView 에 값 넣기
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        String restdayChecked="";
-        int restdayCount = 0;
-        switch (buttonView.getId()){
-            case R.id.paperwinput_workTerms_restdayMonCb: // 월
-                if (isChecked) {
-                    restdayMonCb.setTextColor(getResources().getColor(R.color.black));
-                } else {
-                    restdayMonCb.setTextColor(getResources().getColor(R.color.ypaperwinput_cboff));
-                }
-                break;
-            case R.id.paperwinput_workTerms_restdayTheCb: // 화
-                if (isChecked) {
-                    restdayTheCb.setTextColor(getResources().getColor(R.color.black));
-                } else {
-                    restdayTheCb.setTextColor(getResources().getColor(R.color.ypaperwinput_cboff));
-                }
-                break;
-            case R.id.paperwinput_workTerms_restdayWedCb: // 수
-                if (isChecked) {
-                    restdayWedCb.setTextColor(getResources().getColor(R.color.black));
-                } else {
-                    restdayWedCb.setTextColor(getResources().getColor(R.color.ypaperwinput_cboff));
-                }
-                break;
-            case R.id.paperwinput_workTerms_restdayThuCb: // 목
-                if (isChecked) {
-                    restdayThuCb.setTextColor(getResources().getColor(R.color.black));
-                } else {
-                    restdayThuCb.setTextColor(getResources().getColor(R.color.ypaperwinput_cboff));
-                }
-                break;
-            case R.id.paperwinput_workTerms_restdayFriCb: // 금
-                if (isChecked) {
-                    restdayFriCb.setTextColor(getResources().getColor(R.color.black));
-                } else {
-                    restdayFriCb.setTextColor(getResources().getColor(R.color.ypaperwinput_cboff));
-                }
-                break;
-            case R.id.paperwinput_workTerms_restdaySatCb: // 토
-                if (isChecked) {
-                    restdaySatCb.setTextColor(getResources().getColor(R.color.black));
-                } else {
-                    restdaySatCb.setTextColor(getResources().getColor(R.color.ypaperwinput_cboff));
-                }
-                break;
-            case R.id.paperwinput_workTerms_restdaySunCb: // 일
-                if (isChecked) {
-                    restdaySunCb.setTextColor(getResources().getColor(R.color.black));
-                } else {
-                    restdaySunCb.setTextColor(getResources().getColor(R.color.ypaperwinput_cboff));
-                }
-                break;
-
-            default:
-
-                break;
-        }
-        String restdaySelect = "";
-        for(int i=0; i<restdayCheckedList.length; i++) {
-            if(restdayCheckedList[i].isChecked()==true) {
-                restdayChecked += restdayCheckedList[i].getText().toString() + ", ";
-                restdaySelect= restdayChecked.substring(0, restdayChecked.length() - 2);
-                restdayCount += 1;
-            }
-        }
-        if (restdaySelect==""){
-            restdayTv1.setVisibility(View.INVISIBLE);
-            restdayTv2.setVisibility(View.INVISIBLE);
-            restdaySelectTv.setText(restdaySelect);
-        } else {
-            restdayTv1.setVisibility(View.VISIBLE);
-            restdayTv2.setVisibility(View.VISIBLE);
-            restdaySelectTv.setText(restdaySelect);
-        }
-
-        // 휴일 선택 개수 제한
-        for(int i=0; i<restdayCheckedList.length; i++) {
-            if (restdayCount >= 7-workdayCount) {
-                if (restdayCheckedList[i].isChecked() == false) {
-                    restdayCheckedList[i].setEnabled(false);
-                } else {
-                    restdayCheckedList[i].setEnabled(true);
-                }
-            } else {
-                restdayCheckedList[i].setEnabled(true);
-            }
-        }
     }
 
     @Override
