@@ -1,14 +1,16 @@
-package com.example.sstep;
+package com.example.sstep.community;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Community_input extends AppCompatActivity {
+import com.example.sstep.R;
+
+public class Community_view extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.community_input);
+        setContentView(R.layout.community_view);
     }
 }
