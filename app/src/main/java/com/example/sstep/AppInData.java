@@ -1,0 +1,34 @@
+package com.example.sstep;
+
+import android.app.Application;
+
+public class AppInData extends Application {
+    private String userId;
+    private long storeId;
+    private long storeCode;
+    private long ivStaffId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public long getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(long storeId) {
+        this.storeId = storeId;
+    }
+
+    public long getStoreCode() {
+        return storeCode;
+    }
+
+    public void setStoreCode(long storeCode) {
+        this.storeCode = storeCode;
+    }
+}
