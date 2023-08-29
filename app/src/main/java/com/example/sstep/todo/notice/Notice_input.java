@@ -20,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,16 +29,32 @@ import androidx.core.app.ActivityCompat;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
+import com.example.sstep.commute.Commute_map;
+import com.example.sstep.store.store_api.NullOnEmptyConverterFactory;
+import com.example.sstep.store.store_api.StoreApiService;
+import com.example.sstep.store.store_api.StoreRegisterReqDto;
+import com.example.sstep.todo.notice.notice_api.NoticeApiService;
+import com.example.sstep.todo.notice.notice_api.NoticeRequestDto;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Notice_input extends AppCompatActivity implements View.OnClickListener {
 
+    LocalDate noticeDate; // 공지 작성 일자
+    String noticeDateStr;
     ImageButton backib, cameraIbtn, photoIbtn, deleteIbtn;
-    EditText titleEt,contentEt;
-    TextView titleLimitTv, contentLimitTv, pictureNumTv;
+    EditText titleEt, contentEt;
+    TextView titleLimitTv, contentLimitTv, pictureNumTv; TextView join_okdl_commentTv;
     Button completeBtn;
     LinearLayout pictureHL;
 
@@ -156,7 +173,67 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
                 onPictureDelete();
                 break;
             case R.id.notice_input_completeBtn: // 등록하기
-                showCompleteDl();
+                // 현재 날짜 가져오기
+                noticeDate = LocalDate.now(); // 출퇴근일자, yyyy-mm-dd
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                noticeDateStr = noticeDate.format(formatter);
+
+                //레트로핏 작동
+                try {
+
+                    //네트워크 요청 구현
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                            .addConverterFactory(new NullOnEmptyConverterFactory())
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+
+                    NoticeApiService noticeApiService = retrofit.create(NoticeApiService.class);
+
+                    // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
+                    NoticeRequestDto noticeRequestDto = new NoticeRequestDto(
+                            titleEt.getText().toString().trim(), //공지글 제목
+                            noticeDateStr, //공지글 작성 일자
+                            contentEt.getText().toString().trim(), //공지글 내용
+                            0, //공지 조회수,
+                            null
+                    );
+
+                    Call<Void> call = noticeApiService.registerNotice(2L, noticeRequestDto);
+
+                    call.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful()) {
+                                showCompleteDl();
+                                Toast.makeText(Notice_input.this, "성공", Toast.LENGTH_SHORT).show();
+                                // 성공적인 응답 처리
+                            } else {
+                                // 기타 다른 상태 코드 처리
+                                try {
+                                    String errorResponse = response.errorBody().string();
+                                    Toast.makeText(Notice_input.this, "공지사항 등록 실패!! 에러 메시지: " + errorResponse, Toast.LENGTH_SHORT).show();
+                                    // 에러 메시지를 사용하여 추가적인 처리 수행
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            // 실패 처리
+                            String errorMessage = t != null ? t.getMessage() : "Unknown error";
+                            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                            t.printStackTrace();
+                        }
+                    });
+
+
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 break;
             default:
                 break;
@@ -168,10 +245,11 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
         showComplete_dialog.show();
         // 다이얼로그의 배경을 투명으로 만든다.
         showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        TextView join_okdl_commentTv; Button join_okdl_okBtn;
+        Button join_okdl_okBtn;
         join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
         join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
         join_okdl_commentTv.setText("공지사항 작성 완료하였습니다.");
+
         // '공지사항 dialog' _ 확인 버튼 클릭 시
         join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
