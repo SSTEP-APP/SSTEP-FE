@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,8 +30,26 @@ import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
 import com.example.sstep.document.PhotoDialog;
+import com.example.sstep.document.healthdoc_api.HealthDocApiService;
+import com.example.sstep.document.healthdoc_api.HealthDocRequestDto;
+import com.example.sstep.document.work_doc_api.WorkDocApiService;
+import com.example.sstep.store.store_api.StoreRegisterReqDto;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PaperHinput extends AppCompatActivity implements View.OnClickListener, PhotoDialog.PhotoDialogListener {
 
@@ -123,7 +143,59 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
         TextView join_okdl_commentTv; Button join_okdl_okBtn;
         join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
         join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
-        join_okdl_commentTv.setText("보건증 작성 완료하였습니다.");
+        join_okdl_commentTv.setText("로딩중");
+
+        try {
+            //file을 part타입으로 변경
+            Bitmap photoBitmap = ((BitmapDrawable) photoviewIv.getDrawable()).getBitmap();
+            MultipartBody.Part filePart = bitmapToMultipart(photoBitmap);
+
+            // MultipartBody.Part에서 RequestBody 추출
+            RequestBody requestBody = filePart.body();
+
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            HealthDocRequestDto healthDocRequestDto = new HealthDocRequestDto(
+                    dateBtn.getText().toString().trim(),
+                    enddateTv.getText().toString().trim(),
+                    requestBody
+            );
+
+
+            HealthDocApiService apiService = retrofit.create(HealthDocApiService.class);
+            Call<Void> call = apiService.registerHealthDoc(19L, healthDocRequestDto);
+
+
+            call.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    if (response.isSuccessful()) {
+
+                        // 파일 업로드 성공
+                        join_okdl_commentTv.setText("보건증 작성을 완료하였습니다.");
+                        Toast.makeText(getApplicationContext(), "보건증 작성을 완료하였습니다.", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        // 파일 업로드 실패
+                        join_okdl_commentTv.setText("보건증 작성에 실패했습니다." + response);
+                        Toast.makeText(getApplicationContext(), "보건증 작성을 실패했습니다." + response.body(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    join_okdl_commentTv.setText("보건증 작성이 실패했습니다."+t.getMessage());
+                    Toast.makeText(getApplicationContext(), "보건증 작성이 실패했습니다."+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
         // '회원가입 dialog' _ 확인 버튼 클릭 시
         join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -209,5 +281,14 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
             completeBtn.setEnabled(false);
             completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
         }
+    }
+
+    private MultipartBody.Part bitmapToMultipart(Bitmap bitmap) {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+        byte[] imageBytes = bos.toByteArray();
+
+        RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), imageBytes);
+        return MultipartBody.Part.createFormData("file", "image.jpg", requestFile);
     }
 }

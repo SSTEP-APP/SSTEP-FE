@@ -16,7 +16,7 @@ public interface StaffApiService {
     );
 
     //직원별 스케줄 저장
-    @POST("schedule/{staffId}/add-schedule")
+    @POST("/schedule/{staffId}/add-schedule")
     Call<Void> registerSchedule(
             @Path("staffId") Long staffId,
             @Body ScheduleRequestDto scheduleRequestDto

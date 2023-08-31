@@ -6,7 +6,7 @@ public class AppInData extends Application {
     private String userId;
     private long storeId;
     private long storeCode;
-    private long ivStaffId;
+    private long staffId;
 
     public String getUserId() {
         return userId;
@@ -30,5 +30,13 @@ public class AppInData extends Application {
 
     public void setStoreCode(long storeCode) {
         this.storeCode = storeCode;
+    }
+
+    public long getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(long staffId) {
+        this.staffId = staffId;
     }
 }
