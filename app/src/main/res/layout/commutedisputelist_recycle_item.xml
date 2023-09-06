@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/commutedisputelist_recycle_layout">
+
+    <LinearLayout
+        android:id="@+id/commutedisputelist_recycle_innerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/yroundrec_w"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginBottom="15dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/yicon_stafffemale"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="15dp">
+            <TextView
+                android:id="@+id/commutedisputelist_dateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2023.08.18"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/commutedisputelist_nameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="김유경"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <ImageView
+            android:id="@+id/paperwlist_reggoIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yicon_go"
+            android:layout_gravity="right|center_vertical"/>
+    </LinearLayout>
+</LinearLayout>

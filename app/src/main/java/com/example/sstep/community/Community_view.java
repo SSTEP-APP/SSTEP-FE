@@ -1,16 +1,16 @@
-package com.example.sstep.date;
-
-import android.os.Bundle;
+package com.example.sstep.community;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+
 import com.example.sstep.R;
 
-public class Date_settingBreaktime extends AppCompatActivity {
+public class Community_view extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_date_setting_breaktime);
+        setContentView(R.layout.community_view);
     }
 }

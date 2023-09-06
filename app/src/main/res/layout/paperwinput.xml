@@ -313,7 +313,7 @@
 
                         <ImageButton
                             android:id="@+id/paperwinput_workTerms_workstartDateIb"
-                            android:layout_width="25dp"
+                            android:layout_width="17dp"
                             android:layout_height="25dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginRight="15dp"

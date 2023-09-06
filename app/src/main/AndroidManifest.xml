@@ -20,6 +20,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
+        android:name=".AppInData"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -28,8 +29,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SSTEP"
         android:usesCleartextTraffic="true"
-        android:name=".AppInData"
         tools:targetApi="31">
+
         <activity
             android:name=".community.Community"
             android:exported="true">
@@ -42,7 +43,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBfGGbhoQpcitlIe-KBbvOsRwLtvmk6Y_E" />
-
 
         <activity
             android:name=".store.WebViewActivity"
@@ -82,8 +82,7 @@
             android:exported="false" /> <!-- 사업장 선택 -->
         <activity
             android:name=".store.SelectStore"
-            android:exported="false">
-        </activity> <!-- 사업장 등록 -->
+            android:exported="false" /> <!-- 사업장 등록 -->
         <activity android:name=".store.RegisterStore" />
         <activity
             android:name=".store.Search_Address"
@@ -287,6 +286,52 @@
         <activity android:name=".staffinvite.StaffInvite2" /> <!-- 출퇴근 지도 -->
         <activity
             android:name=".commute.Commute_map"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".commute.CommuteDispute_ceo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".commute.CommuteDispute_WriteStaff"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".commute.CommuteDisputeList"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".date.Date"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".date.Date_plus"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
