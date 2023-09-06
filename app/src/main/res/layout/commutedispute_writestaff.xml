@@ -239,7 +239,8 @@
                     android:paddingBottom="15dp"
                     android:layout_marginTop="15dp"
                     android:gravity="top"
-                    android:lineSpacingExtra="5dp"/>
+                    android:lineSpacingExtra="5dp"
+                    android:maxLength="40"/>
 
             </LinearLayout>
 

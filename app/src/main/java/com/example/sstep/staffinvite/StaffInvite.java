@@ -35,6 +35,7 @@ import com.example.sstep.user.staff_api.StaffRequestDto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -125,11 +126,11 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
                             .build();
                     StoreApiService apiService = retrofit.create(StoreApiService.class);
 
-                    Call<List<StaffInviteResponseDto>> call = apiService.getInputCodeStaffs(storeId); //storeId 삽입
-                    retrofit2.Response<List<StaffInviteResponseDto>> response = call.execute();
+                    Call<Set<StaffInviteResponseDto>> call = apiService.getInputCodeStaffs(storeId); //storeId 삽입
+                    retrofit2.Response<Set<StaffInviteResponseDto>> response = call.execute();
 
                     if (response.isSuccessful()) {
-                        final List<StaffInviteResponseDto> codeStaffs = response.body();
+                        final Set<StaffInviteResponseDto> codeStaffs = response.body();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -164,11 +165,11 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
                             .build();
                     StoreApiService apiService2 = retrofit.create(StoreApiService.class);
 
-                    Call<List<StaffInviteResponseDto>> call2 = apiService2.getInviteStaffs(storeId); //storeId 삽입
-                    retrofit2.Response<List<StaffInviteResponseDto>> response2 = call2.execute();
+                    Call<Set<StaffInviteResponseDto>> call2 = apiService2.getInviteStaffs(storeId); //storeId 삽입
+                    retrofit2.Response<Set<StaffInviteResponseDto>> response2 = call2.execute();
 
                     if (response2.isSuccessful()) {
-                        final List<StaffInviteResponseDto> codeStaffsIS = response2.body();
+                        final Set<StaffInviteResponseDto> codeStaffsIS = response2.body();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -238,7 +239,7 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
         mList = new ArrayList<>();
     }
 
-    protected void onResume(List<StaffInviteResponseDto> stores) {
+    protected void onResume(Set<StaffInviteResponseDto> stores) {
         super.onResume();
 
         // 이곳에서 리사이클러뷰 데이터를 업데이트하고 어댑터를 갱신합니다.
@@ -257,7 +258,7 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
 
         mList.add(item);
     }
-    private void updateRecyclerView(List<StaffInviteResponseDto> stores) {
+    private void updateRecyclerView(Set<StaffInviteResponseDto> stores) {
         mList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
         for (StaffInviteResponseDto store : stores) {
             addItem(store.getName(), store.getUsername(), store.getStaffId());
@@ -309,7 +310,7 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
         iSList = new ArrayList<>();
     }
 
-    protected void onResumeIS(List<StaffInviteResponseDto> stores) {
+    protected void onResumeIS(Set<StaffInviteResponseDto> stores) {
         super.onResume();
 
         // 이곳에서 리사이클러뷰 데이터를 업데이트하고 어댑터를 갱신합니다.
@@ -327,7 +328,7 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
 
         iSList.add(item);
     }
-    private void updateRecyclerViewIS(List<StaffInviteResponseDto> stores) {
+    private void updateRecyclerViewIS(Set<StaffInviteResponseDto> stores) {
         iSList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
         for (StaffInviteResponseDto store : stores) {
             addItemIS(store.getName(), store.getUsername());

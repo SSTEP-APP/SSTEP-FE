@@ -26,6 +26,8 @@ import com.example.sstep.R;
 import com.example.sstep.commute.commute_api.CommuteApiService;
 import com.example.sstep.commute.commute_api.CommuteRequestDto;
 import com.example.sstep.home.Home_staff;
+import com.example.sstep.store.store_api.StoreApiService;
+import com.example.sstep.store.store_api.StoreResponseDto;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -55,6 +57,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Commute_map extends AppCompatActivity implements OnMapReadyCallback {
 
     String staffName, startTimeStr, endTimeStr, commuteDateStr;
+    Double latitude, longitude;
+    long store_Code;
     LocalTime startTime, endTime; // 출근 시간, 퇴근 시간
     LocalDate commuteDate; // 출퇴근 일자
     DayOfWeek dayOfWeek; // 출퇴근 요일
@@ -96,6 +100,47 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
         showCommuteOut_dialog = new Dialog(Commute_map.this);
         showCommuteOut_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showCommuteOut_dialog.setContentView(R.layout.commute_outdl); // xml 레이아웃 파일과 연결
+
+
+        // 위도, 경도 가져오기
+        try {
+
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            StoreApiService apiService = retrofit.create(StoreApiService.class);
+            Long storeCode = Long.valueOf(898509); // store_Code 0 : 898509, x : 503288
+            //적은 id를 기반으로 db에 검색
+            Call<StoreResponseDto> call = apiService.getStore(storeCode);
+            call.enqueue(new Callback<StoreResponseDto>() {
+                @Override
+                public void onResponse(Call<StoreResponseDto> call, Response<StoreResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        StoreResponseDto storeResponseData  = response.body();
+                        // 적은 id로 패스워드 데이터 가져오기
+                        Long checkstoreCode =storeResponseData.getCode(); // id에 id 설정
+                        latitude= Double.valueOf(storeResponseData.getLatitude());
+                        longitude= Double.valueOf(storeResponseData.getLongitude());
+
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<StoreResponseDto> call, Throwable t) {
+                    // 실패 처리
+                    String errorMessage = "요청 실패: " + t.getMessage();
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // 닫기 버튼
         bottomonbtn.setOnClickListener(new View.OnClickListener() {
@@ -197,7 +242,7 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
                         googleMap.addMarker(new MarkerOptions().position(currentLatLng).title("내 위치"));
 
                         // 등록된 위치와 현재 위치 사이의 거리를 계산
-                        LatLng registeredLatLng = new LatLng(37.3454, 126.9561); //37.3454,126.9561
+                        LatLng registeredLatLng = new LatLng(latitude, longitude); //37.3454,126.9561
                         float[] distanceResults = new float[1];
                         Location.distanceBetween(
                                 registeredLatLng.latitude, registeredLatLng.longitude,
@@ -267,6 +312,45 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
         commute_indl_nameTv = showCommuteIn_dialog.findViewById(R.id.commute_indl_nameTv);
         commute_indl_timeTv = showCommuteIn_dialog.findViewById(R.id.commute_indl_timeTv);
         commute_indl_okBtn = showCommuteIn_dialog.findViewById(R.id.commute_indl_okBtn);
+
+        try {
+
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            StoreApiService apiService = retrofit.create(StoreApiService.class);
+            Long storeCode = Long.valueOf(898509); // store_Code 0 : 898509, x : 503288
+            //적은 id를 기반으로 db에 검색
+            Call<StoreResponseDto> call = apiService.getStore(storeCode);
+            call.enqueue(new Callback<StoreResponseDto>() {
+                @Override
+                public void onResponse(Call<StoreResponseDto> call, Response<StoreResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        StoreResponseDto storeResponseData  = response.body();
+                        // 적은 id로 패스워드 데이터 가져오기
+                        Long checkstoreCode =storeResponseData.getCode(); // id에 id 설정
+                        latitude= Double.valueOf(storeResponseData.getLatitude());
+                        longitude= Double.valueOf(storeResponseData.getLongitude());
+
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<StoreResponseDto> call, Throwable t) {
+                    // 실패 처리
+                    String errorMessage = "요청 실패: " + t.getMessage();
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // 출근 시각 : 현재 시각 가져오기
         startTime = LocalTime.now();
