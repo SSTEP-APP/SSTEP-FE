@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/background"
-    tools:context=".Community_input">
+    tools:context=".community.Community_input">
 
     <FrameLayout
         android:id="@+id/commuinput_top"

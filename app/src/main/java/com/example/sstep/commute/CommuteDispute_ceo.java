@@ -1,15 +1,16 @@
-package com.example.sstep.date;
-
-import android.os.Bundle;
+package com.example.sstep.commute;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+
 import com.example.sstep.R;
-public class Date_settingBreakDay extends AppCompatActivity {
+
+public class CommuteDispute_ceo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_date_setting_breakday);
+        setContentView(R.layout.commutedispute_ceo);
     }
 }

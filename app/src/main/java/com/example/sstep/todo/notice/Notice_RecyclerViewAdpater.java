@@ -22,6 +22,7 @@ import com.example.sstep.todo.checklist.Checklist_detail;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 public class Notice_RecyclerViewAdpater extends RecyclerView.Adapter<Notice_RecyclerViewAdpater.Holder> {
@@ -31,7 +32,14 @@ public class Notice_RecyclerViewAdpater extends RecyclerView.Adapter<Notice_Recy
     // 어댑터 생성자
     public Notice_RecyclerViewAdpater(Context context, List<Notice_recyclerViewWordItemData> list) {
         this.context = context;
-        this.list = list;
+        this.list.addAll(list);
+    }
+
+    // 데이터 업데이트 메서드 추가
+    public void updateData(List<Notice_recyclerViewWordItemData> newList) {
+        list.clear();
+        list.addAll(newList);
+        notifyDataSetChanged();
     }
 
     // ViewHolder 생성
@@ -49,9 +57,9 @@ public class Notice_RecyclerViewAdpater extends RecyclerView.Adapter<Notice_Recy
         // 각 위치에 문자열 세팅
         int itemposition = position;
         holder.titleTv.setText(list.get(itemposition).title);
-        holder.contentTv.setText(list.get(itemposition).content);
-        holder.nameTv.setText(list.get(itemposition).name);
-        holder.dateTv.setText(list.get(itemposition).date);
+        holder.contentTv.setText(list.get(itemposition).contents);
+//        holder.nameTv.setText(list.get(itemposition).name);
+        holder.dateTv.setText(list.get(itemposition).writeDate);
 
         // 아이템 뷰 클릭 시 이벤트 처리
         holder.layout.setOnClickListener(new View.OnClickListener() {
@@ -62,9 +70,9 @@ public class Notice_RecyclerViewAdpater extends RecyclerView.Adapter<Notice_Recy
 
                 // 값 전달
                 intent.putExtra("title", list.get(itemposition).title);
-                intent.putExtra("content", list.get(itemposition).content);
-                intent.putExtra("name", list.get(itemposition).name);
-                intent.putExtra("date", list.get(itemposition).date);
+                intent.putExtra("content", list.get(itemposition).contents);
+//                intent.putExtra("name", list.get(itemposition).name);
+                intent.putExtra("date", list.get(itemposition).writeDate);
 
                 context.startActivity(intent);
             }

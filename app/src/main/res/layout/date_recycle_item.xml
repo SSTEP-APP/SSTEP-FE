@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:id="@+id/date_recycle_layout">
+
+    <TextView
+        android:id="@+id/date_recycle_dayTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1월 26일 목요일"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"/>
+
+    <LinearLayout
+        android:id="@+id/date_recycle_nodataLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/yroundrec_w"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/date_recycle_notext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:text="일정근무 직원이 없습니다."
+            android:textColor="#66000000"
+            android:background="@drawable/yicon_date_nodata"
+            android:gravity="center_horizontal"
+            android:paddingTop="12dp"
+            android:paddingLeft="5dp"/>
+
+        <ImageView
+            android:id="@+id/date_recycle_nodataImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/j_date_nodataimg" />
+
+    </LinearLayout> <!-- nodata_L -->
+
+    <LinearLayout
+        android:id="@+id/date_recycle_dataLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/yroundrec_w"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/date_recycle_userIconImg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/yicon_stafffemale"
+                android:layout_marginLeft="5dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/date_recycle_userNameTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="직원이름"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/nanumsquareneo_cbd"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/date_recycle_userPositionTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="[직원]"
+                        android:textSize="12sp"
+                        android:textColor="@color/likeblack"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/date_recycle_statusTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="퇴근"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    android:background="@drawable/yroundrec_w_cate"
+                    android:backgroundTint="#B1D6B3"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:layout_marginTop="3dp"
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/ycircle"/>
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:text="근무일정"
+                android:textColor="@color/likeblack"/>
+            <!-- 근무일정 -->
+            <TextView
+                android:id="@+id/date_recycle_scheduleTimeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/likeblack"
+                android:text="17:30~23:30"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="출퇴근시간"
+                android:textColor="@color/likeblack"
+                android:textSize="13sp"/>
+            <!-- 출퇴근시간 -->
+            <TextView
+                android:id="@+id/date_recycle_workTimeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/likeblack"
+                android:text="17:30~23:30"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+            <Button
+                android:id="@+id/date_recycle_changeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="0dp"
+                android:text="근무일정 수정"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:background="@drawable/yroundrec_w_cate"
+                android:backgroundTint="@color/background"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"/>
+            <Button
+                android:id="@+id/date_recycle_commuteDisputeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="0dp"
+                android:text="출퇴근시간 이의신청"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:background="@drawable/yroundrec_w_cate"
+                android:backgroundTint="@color/background"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+            <Button
+                android:id="@+id/date_recycle_deleteBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="0dp"
+                android:text="삭제"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:background="@drawable/yroundrec_w_cate"
+                android:backgroundTint="@color/background"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"/>
+        </LinearLayout>
+    </LinearLayout> <!-- data_L -->
+
+</LinearLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/background"
-    tools:context=".Community_view">
+    tools:context=".community.Community_view">
 
     <!-- top_익명 커뮤니티 -->
     <FrameLayout

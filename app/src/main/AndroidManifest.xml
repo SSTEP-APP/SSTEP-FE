@@ -32,6 +32,7 @@
         android:largeHeap="true"
         android:vmSafeMode="false"
         tools:targetApi="31">
+
         <activity
             android:name=".community.Community"
             android:exported="true">
@@ -84,8 +85,7 @@
             android:exported="false" /> <!-- 사업장 선택 -->
         <activity
             android:name=".store.SelectStore"
-            android:exported="false">
-        </activity> <!-- 사업장 등록 -->
+            android:exported="false" /> <!-- 사업장 등록 -->
         <activity android:name=".store.RegisterStore" />
         <activity
             android:name=".store.Search_Address"
@@ -289,6 +289,52 @@
         <activity android:name=".staffinvite.StaffInvite2" /> <!-- 출퇴근 지도 -->
         <activity
             android:name=".commute.Commute_map"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".commute.CommuteDispute_ceo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".commute.CommuteDispute_WriteStaff"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".commute.CommuteDisputeList"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".date.Date"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".date.Date_plus"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
