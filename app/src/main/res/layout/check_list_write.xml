@@ -160,6 +160,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/yroundrec_b"
+                        android:visibility="invisible"
                         android:text="선택"
                         android:textColor="#FFFFFF"
                         android:textSize="13sp"
@@ -255,6 +256,7 @@
                     android:layout_marginBottom="15dp"/>
 
                 <RadioGroup
+                    android:id="@+id/checkList_write_categoryRG"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">

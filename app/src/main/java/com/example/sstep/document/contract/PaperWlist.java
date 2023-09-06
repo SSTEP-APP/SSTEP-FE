@@ -156,7 +156,15 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
         regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
         unRegNumTv.setText(String.valueOf(unRegRecyclerViewAdapter.getItemCount()));
 
-
+        regNumTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                intent = new Intent(getApplicationContext(), PaperW.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 

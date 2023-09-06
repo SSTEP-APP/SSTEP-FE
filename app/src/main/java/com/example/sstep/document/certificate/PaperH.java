@@ -16,8 +16,11 @@ import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.document.healthdoc_api.HealthDocApiService;
 import com.example.sstep.document.healthdoc_api.HealthDocResponseDto;
+import com.example.sstep.home.Home_Ceo;
 import com.example.sstep.staffinvite.StaffInvite;
 import com.example.sstep.staffinvite.StaffInvite_RecyclerViewAdpater;
+import com.example.sstep.store.SelectStore_RecyclerViewAdpater;
+import com.example.sstep.store.SelectStore_recyclerViewItem;
 import com.example.sstep.store.store_api.StoreApiService;
 import com.example.sstep.user.member.NullOnEmptyConverterFactory;
 import com.example.sstep.user.staff_api.StaffInviteResponseDto;
@@ -60,7 +63,7 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
         //storeId지정
         //AppInData appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
         //storeId = appInData.getStoreId(); // 사용자 ID 가져오기
-        storeId=3;
+        storeId=1;
 
         regFirstInit();
         UnRegFirstInit();
@@ -153,6 +156,18 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
         regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
         unRegNumTv.setText(String.valueOf(unRegRecyclerViewAdapter.getItemCount()));
 
+
+        //임시파일
+        regNumTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                intent = new Intent(getApplicationContext(), PaperHinput.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     @Override
@@ -200,6 +215,24 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
 
         }
         regRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
+
+        //수정
+        /*
+        PaperH_Reg_RecyclerViewAdpater.setOnItemClickListener(new PaperH_Reg_RecyclerViewAdpater.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                // 해당 아이템 레이아웃 클릭 시 처리할 코드 이쪽 수정 필!
+                PaperH_Reg_recyclerViewItem item = regList.get(position);
+
+
+
+                Intent intent = new Intent(getApplicationContext(), Home_Ceo.class); //사장, 스테프 구분 필요
+                startActivity(intent);
+                finish();
+            }
+        });
+
+         */
 
     }
 

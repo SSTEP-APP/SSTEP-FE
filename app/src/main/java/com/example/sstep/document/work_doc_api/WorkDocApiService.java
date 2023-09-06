@@ -31,19 +31,19 @@ public interface WorkDocApiService {
     );
 
     //1차 등록한 계약서(사진) 정보
-    @GET("/{staffId}/first")
+    @GET("/work-doc/{staffId}/first")
     Call<PhotoResponseDto> getFirstWorkDoc(@Path("staffId") Long staffId);
 
     //근로 계약서 2차(최종) 등록
-    @POST("/{staffId}/add/second")
+    @POST("/work-doc/{staffId}/add/second")
     Call<Void> registerWorkDocSecond(@Path("staffId") Long staffId, @Body MultipartBody.Part multipartFile);
 
     //근로 계약서 등록한 직원 목록
-    @GET("/{storeId}/reg/work-doc/staffs")
+    @GET("/work-doc/{storeId}/reg/work-doc/staffs")
     Call<Set<WorkDocResponseDto>> getRegWorkDocStaffs(@Path("storeId") Long storeId);
 
     //근로 계약서 미 등록한 직원 목록
-    @GET("/{storeId}/un-reg/work-doc/staffs")
+    @GET("/work-doc/{storeId}/un-reg/work-doc/staffs")
     Call<Set<WorkDocResponseDto>> getUnRegWorkDocStaffs(@Path("storeId") Long storeId);
 
 

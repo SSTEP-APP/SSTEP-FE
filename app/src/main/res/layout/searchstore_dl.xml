@@ -8,6 +8,7 @@
     android:background="@drawable/joinokdl">
 
     <TextView
+        android:id="@+id/searchstore_dl_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="사업장 코드"

@@ -6,6 +6,7 @@ import com.example.sstep.user.staff_api.StaffRequestDto;
 import com.example.sstep.user.staff_api.StaffResponseDto;
 
 import java.util.List;
+import java.util.Set;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -21,11 +22,11 @@ public interface StoreApiService {
     @POST("/store/register")
     Call<Void> registerStore(@Body StoreRegisterReqDto dto);
 
-    /*
+
     //직원 목록 조회
     @GET("/store/{storeId}/staffs")
-    Call<List<Staff>> getStaffsByStoreId(@Path("storeId") Long storeId);
-     */
+    Call<Set<StaffResponseDto>> getStaffsByStoreId(@Path("storeId") Long storeId);
+
 
     //직원 조회
     @GET("/store/{staffId}")
@@ -53,11 +54,11 @@ public interface StoreApiService {
 
     //초대 여부가 true 직원 리스트 가져오기
     @GET("/store/{storeId}/invite-staffs")
-    Call<List<StaffInviteResponseDto>> getInviteStaffs(@Path("storeId") Long storeId);
+    Call<Set<StaffInviteResponseDto>> getInviteStaffs(@Path("storeId") Long storeId);
 
     //코드 입력 여부가 true인 직원 리스트 가져오기
     @GET("/store/{storeId}/input-code/staffs")
-    Call<List<StaffInviteResponseDto>> getInputCodeStaffs(@Path("storeId") Long storeId);
+    Call<Set<StaffInviteResponseDto>> getInputCodeStaffs(@Path("storeId") Long storeId);
 
     /*
     //해당 날짜에 근무하는 직원 리스트 가져오기
