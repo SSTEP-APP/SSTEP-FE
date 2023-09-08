@@ -1,6 +1,5 @@
 package com.example.sstep.document.healthdoc_api;
 
-import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

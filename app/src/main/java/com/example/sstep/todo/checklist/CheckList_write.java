@@ -32,16 +32,21 @@ import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
 import com.example.sstep.document.certificate.PaperHinput;
+import com.example.sstep.document.healthdoc_api.HealthDocApiService;
+import com.example.sstep.document.healthdoc_api.HealthDocResponseDto;
+import com.example.sstep.store.store_api.StoreApiService;
 import com.example.sstep.todo.checklist.checklist_api.CategoryApiService;
 import com.example.sstep.todo.checklist.checklist_api.CategoryRequestDto;
 import com.example.sstep.todo.checklist.checklist_api.CategoryResponseDto;
 import com.example.sstep.todo.checklist.checklist_api.CheckListManagerRequestDto;
 import com.example.sstep.todo.checklist.checklist_api.ChecklistApiService;
+import com.example.sstep.todo.checklist.checklist_api.ChecklistManagerApiService;
 import com.example.sstep.todo.checklist.checklist_api.ChecklistRequestDto;
 import com.example.sstep.user.member.MemberApiService;
 import com.example.sstep.user.member.MemberRequestDto;
 import com.example.sstep.user.member.MemberResponseDto;
 import com.example.sstep.user.member.NullOnEmptyConverterFactory;
+import com.example.sstep.user.staff_api.StaffResponseDto;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -117,19 +122,62 @@ public class CheckList_write extends AppCompatActivity {
         updateRB();
 
         //리사이클 뷰
+
         firstInit();
-        // 임의로 5개 입력
-        //db에서 값 받아서 넣기
-        for (int i = 0; i < 5; i++) {
-            addItem("iconName", "cancelBtn", "staff_name");
-        }
+
+
+
 
         mRecyclerViewAdapter = new CheckList_write_RecyclerViewAdpater(mList);
+
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
 
 
+
+        //직원 리스트 불러오기
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                        .addConverterFactory(new NullOnEmptyConverterFactory())
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                // StoreService 인터페이스 구현체 생성
+                StoreApiService storeService = retrofit.create(StoreApiService.class);
+
+                // 서버에 데이터 요청
+                Long storeId = 1L; // 원하는 storeId를 지정하세요.
+                Call<Set<StaffResponseDto>> call = storeService.getStaffsByStoreId(storeId);
+                call.enqueue(new Callback<Set<StaffResponseDto>>() {
+                    @Override
+                    public void onResponse(Call<Set<StaffResponseDto>> call, Response<Set<StaffResponseDto>> response) {
+                        if (response.isSuccessful()) {
+                            Set<StaffResponseDto> staffs = response.body();
+
+                            for (StaffResponseDto staff : staffs) {
+                                addItem(staff.getStaffName());
+                            }
+
+                        } else {
+                            // 요청 실패
+                            Toast.makeText(CheckList_write.this, "데이터를 가져오는 데 실패했습니다."+response.message() ,Toast.LENGTH_SHORT).show();
+                            title.setText(response.message());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Set<StaffResponseDto>> call, Throwable t) {
+                        // 네트워크 오류 또는 예외 발생
+                        Toast.makeText(CheckList_write.this, "데이터를 가져오는 데 실패했습니다."+t.getMessage() ,Toast.LENGTH_SHORT).show();
+                        title.setText(t.getCause().toString());
+                    }
+                });
+            }
+        }).start();
         //상단 버튼
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,7 +237,6 @@ public class CheckList_write extends AppCompatActivity {
                 if (((CheckBox) view).isChecked()) {
                     addStaffBtn.setVisibility(View.VISIBLE);
                     staffList_layout.setVisibility(View.VISIBLE);
-
 
                 } else {
                     addStaffBtn.setVisibility(View.GONE);
@@ -272,6 +319,14 @@ public class CheckList_write extends AppCompatActivity {
         //스피너 값 설정
 
 
+        //직원 리스트 내용을 누르면 제거
+        mRecyclerViewAdapter.setOnItemClickListener(new CheckList_write_RecyclerViewAdpater.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                mRecyclerViewAdapter.removeItem(position);
+            }
+        });
+
     }
 
 
@@ -281,15 +336,16 @@ public class CheckList_write extends AppCompatActivity {
         mList = new ArrayList<>();
     }
 
-    public void addItem(String imgName, String mainText, String subText){
+    public void addItem(String subText){
         CheckList_write_recyclerViewItem item = new CheckList_write_recyclerViewItem();
 
-        item.setCheckList_write_Img(imgName);
-        item.setCheckList_write_cancelImg(mainText);
         item.setChecklist_write_staffName(subText);
-
         mList.add(item);
+        mRecyclerViewAdapter.notifyDataSetChanged(); // 데이터가 변경되었음을 어댑터에 알림
+
     }
+
+
 
     private void checkInputValidity() {
         // 버튼 활성화&비활성화
@@ -355,8 +411,6 @@ public class CheckList_write extends AppCompatActivity {
                 return; // 코드 실행 종료
             }
 
-
-
             //네트워크 요청 구현
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
@@ -374,7 +428,8 @@ public class CheckList_write extends AppCompatActivity {
                     endDay,
                     pictureCB.isChecked(),
                     false,
-                    selectedText
+                    selectedText,
+                    1
             );
 
 // 등록 요청을 서버에 전송
@@ -384,6 +439,19 @@ public class CheckList_write extends AppCompatActivity {
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()) {
                         // 등록 성공
+                        long checkId;
+/*
+
+                        CheckListManagerRequestDto checkListManagerRequestDto = new CheckListManagerRequestDto(
+
+                        );
+
+                        ChecklistManagerApiService checkListManagerApi = retrofit.create(ChecklistManagerApiService.class);
+
+                        Call<Void> call2 = checkListManagerApi.registerCheckListManager(checkId, );
+
+
+ */
                         join_okdl_commentTv.setText("해야할 일 등록이 추가하였습니다.");
                         // 응답을 필요에 따라 처리하세요.
                     } else {
@@ -536,6 +604,7 @@ public class CheckList_write extends AppCompatActivity {
                         if (iterator.hasNext()) {
                             CategoryResponseDto secondCategory = iterator.next();
                             secondCateRb.setText(secondCategory.getName());
+                            secondCateRb.setVisibility(View.VISIBLE);
                         }else {
                             secondCateRb.setText("등록해주세요");
                             secondCateRb.setVisibility(View.INVISIBLE);
@@ -545,6 +614,7 @@ public class CheckList_write extends AppCompatActivity {
                         if (iterator.hasNext()) {
                             CategoryResponseDto thirdCategory = iterator.next();
                             thirdCateRb.setText(thirdCategory.getName());
+                            thirdCateRb.setVisibility(View.VISIBLE);
                         }else {
                             thirdCateRb.setText("등록해주세요");
                             thirdCateRb.setVisibility(View.INVISIBLE);
@@ -585,5 +655,47 @@ public class CheckList_write extends AppCompatActivity {
         calendarDialog.show();
     }
 
+    /*
+    public void getStaffList(){
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                .addConverterFactory(new NullOnEmptyConverterFactory())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // StoreService 인터페이스 구현체 생성
+        StoreApiService storeService = retrofit.create(StoreApiService.class);
+
+        // 서버에 데이터 요청
+        Long storeId = 1L; // 원하는 storeId를 지정하세요.
+        Call<Set<StaffResponseDto>> call = storeService.getStaffsByStoreId(storeId);
+        call.enqueue(new Callback<Set<StaffResponseDto>>() {
+            @Override
+            public void onResponse(Call<Set<StaffResponseDto>> call, Response<Set<StaffResponseDto>> response) {
+                if (response.isSuccessful()) {
+                    Set<StaffResponseDto> staffs = response.body();
+
+                    for (StaffResponseDto staff : staffs) {
+                        addItem(staff.getStaffName());
+                    }
+
+                } else {
+                    // 요청 실패
+                    Toast.makeText(CheckList_write.this, "데이터를 가져오는 데 실패했습니다."+response.message() ,Toast.LENGTH_SHORT).show();
+                    title.setText(response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Set<StaffResponseDto>> call, Throwable t) {
+                // 네트워크 오류 또는 예외 발생
+                Toast.makeText(CheckList_write.this, "데이터를 가져오는 데 실패했습니다."+t.getMessage() ,Toast.LENGTH_SHORT).show();
+                title.setText(t.getCause().toString());
+            }
+        });
+    }
+
+     */
 
 }

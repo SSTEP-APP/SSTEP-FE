@@ -38,9 +38,6 @@ import com.example.sstep.document.work_doc_api.PhotoResponseDto;
 import com.example.sstep.document.work_doc_api.WorkDocApiService;
 import com.example.sstep.store.store_api.StoreRegisterReqDto;
 
-
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;

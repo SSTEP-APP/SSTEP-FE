@@ -3,7 +3,6 @@ package com.example.sstep.todo.checklist.checklist_api;
 
 import com.example.sstep.document.work_doc_api.PhotoResponseDto;
 
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Set;
 
