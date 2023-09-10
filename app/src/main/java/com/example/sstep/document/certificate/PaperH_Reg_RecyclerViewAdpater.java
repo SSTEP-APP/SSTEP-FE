@@ -19,9 +19,9 @@ import java.util.List;
 public class PaperH_Reg_RecyclerViewAdpater extends RecyclerView.Adapter<PaperH_Reg_RecyclerViewAdpater.ViewHolder> {
     private Context context;
 
-    private OnItemClickListener onItemClickListener;
+    private static OnItemClickListener onItemClickListener;
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
+    public static void setOnItemClickListener(OnItemClickListener listener) {
         onItemClickListener = listener;
     }
     public class ViewHolder extends RecyclerView.ViewHolder {

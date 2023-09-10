@@ -26,4 +26,16 @@ public class HealthDocResponseDto {
     public String getCheckUpDate() {
         return checkUpDate;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+
+    public PhotoResponseDto getPhotoResponseDto() {
+        return photoResponseDto;
+    }
 }

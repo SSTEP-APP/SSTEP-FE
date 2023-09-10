@@ -208,7 +208,7 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
 
         regList.add(item);
     }
-    private void RegUpdateRecyclerView(Set<HealthDocResponseDto> list) {
+    private void  RegUpdateRecyclerView(Set<HealthDocResponseDto> list) {
         regList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
         for (HealthDocResponseDto docH : list) {
             RegAddItem(docH.getName(), docH.getCheckUpDate());
@@ -217,22 +217,24 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
         regRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
 
         //수정
-        /*
+
+
         PaperH_Reg_RecyclerViewAdpater.setOnItemClickListener(new PaperH_Reg_RecyclerViewAdpater.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 // 해당 아이템 레이아웃 클릭 시 처리할 코드 이쪽 수정 필!
                 PaperH_Reg_recyclerViewItem item = regList.get(position);
+                Intent intent = new Intent(getApplicationContext(), PaperHview.class); //사장, 스테프 구분 필요
+                intent.putExtra("name", item.getPaperH_reg_name());
+                intent.putExtra("date", item.getPaperH_reg_date());
+                //intent.putExtra("staffId", item.getPaperH_reg_staffId);
 
-
-
-                Intent intent = new Intent(getApplicationContext(), Home_Ceo.class); //사장, 스테프 구분 필요
                 startActivity(intent);
                 finish();
             }
         });
 
-         */
+
 
     }
 
