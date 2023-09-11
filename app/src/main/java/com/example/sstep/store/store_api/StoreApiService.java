@@ -22,9 +22,12 @@ public interface StoreApiService {
     @POST("/store/register")
     Call<Void> registerStore(@Body StoreRegisterReqDto dto);
 
+
+    //직원 목록 조회
     //해당 사업장의 직원 목록 조회
     @GET("/store/{storeId}/staffs")
     Call<Set<StaffResponseDto>> getStaffsByStoreId(@Path("storeId") Long storeId);
+
 
     //사업장 코드로 사업장 조회
     @GET("/store/{storeCode}")

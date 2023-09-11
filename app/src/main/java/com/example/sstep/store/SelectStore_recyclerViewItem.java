@@ -6,6 +6,8 @@ public class SelectStore_recyclerViewItem {
     private String selectStorePerson;
     private long selectStoreId;
     private long selectStoreCode;
+    private long selectStaffId;
+    private boolean selectIsOwner;
 
     public String getSelectStoreName() {
         return selectStoreName;
@@ -45,5 +47,21 @@ public class SelectStore_recyclerViewItem {
 
     public void setSelectStoreCode(long selectStoreCode) {
         this.selectStoreCode = selectStoreCode;
+    }
+
+    public long getSelectStaffId() {
+        return selectStaffId;
+    }
+
+    public void setSelectStaffId(long selectStaffId) {
+        this.selectStaffId = selectStaffId;
+    }
+
+    public boolean isSelectIsOwner() {
+        return selectIsOwner;
+    }
+
+    public void setSelectIsOwner(boolean selectIsOwner) {
+        this.selectIsOwner = selectIsOwner;
     }
 }

@@ -92,16 +92,17 @@
                     android:textSize="13sp"
                     android:textStyle="bold"
                     android:gravity="center_horizontal"/>
+
                 <TextView
                     android:id="@+id/paperview_nametv1"
                     android:layout_width="215dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="17dp"
+                    android:gravity="center_horizontal"
                     android:text="김유경"
                     android:textColor="@color/black"
-                    android:textSize="13sp"
-                    android:gravity="center_horizontal" />
+                    android:textSize="13sp" />
 
                 <!-- 회차 text -->
                 <TextView

@@ -40,9 +40,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!-- 구글 맵 -->
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBfGGbhoQpcitlIe-KBbvOsRwLtvmk6Y_E" />
+            android:value="AIzaSyABz2u4RBf4cjboyd_xeuTqv2zkoeOZSEg" />
 
         <activity
             android:name=".store.WebViewActivity"
