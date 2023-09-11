@@ -46,8 +46,13 @@ import com.example.sstep.user.member.MemberApiService;
 import com.example.sstep.user.member.MemberRequestDto;
 import com.example.sstep.user.member.MemberResponseDto;
 import com.example.sstep.user.member.NullOnEmptyConverterFactory;
+import com.example.sstep.user.staff.Staff_infoInput_recyclerViewItem;
+import com.example.sstep.user.staff.staff_infoInput;
+import com.example.sstep.user.staff_api.ScheduleRequestDto;
+import com.example.sstep.user.staff_api.StaffApiService;
 import com.example.sstep.user.staff_api.StaffResponseDto;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -655,47 +660,56 @@ public class CheckList_write extends AppCompatActivity {
         calendarDialog.show();
     }
 
-    /*
-    public void getStaffList(){
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
-                .addConverterFactory(new NullOnEmptyConverterFactory())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        // StoreService 인터페이스 구현체 생성
-        StoreApiService storeService = retrofit.create(StoreApiService.class);
+    private void addCM(long storeId, CheckListManagerRequestDto checkListManagerRequestDto) {
+        try {
 
-        // 서버에 데이터 요청
-        Long storeId = 1L; // 원하는 storeId를 지정하세요.
-        Call<Set<StaffResponseDto>> call = storeService.getStaffsByStoreId(storeId);
-        call.enqueue(new Callback<Set<StaffResponseDto>>() {
-            @Override
-            public void onResponse(Call<Set<StaffResponseDto>> call, Response<Set<StaffResponseDto>> response) {
-                if (response.isSuccessful()) {
-                    Set<StaffResponseDto> staffs = response.body();
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(new com.example.sstep.store.store_api.NullOnEmptyConverterFactory())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
 
-                    for (StaffResponseDto staff : staffs) {
-                        addItem(staff.getStaffName());
+            ChecklistManagerApiService cmApiService = retrofit.create(ChecklistManagerApiService.class);
+
+            // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
+            Call<Void> call = cmApiService.registerCheckListManager(storeId, checkListManagerRequestDto);
+
+            call.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    int statusCode = response.code();
+                    if (statusCode == 200 || statusCode == 201) {
+                        Toast.makeText(CheckList_write.this, "일정이 등록되었습니다.", Toast.LENGTH_SHORT).show();
+
+                        // 성공적인 응답 처리
+                    } else {
+                        try {
+                            String errorResponse = response.errorBody().string();
+                            Toast.makeText(CheckList_write.this, "일정 등록 실패!! 에러 메시지: " + errorResponse, Toast.LENGTH_SHORT).show();
+                            // 에러 메시지를 사용하여 추가적인 처리 수행
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-
-                } else {
-                    // 요청 실패
-                    Toast.makeText(CheckList_write.this, "데이터를 가져오는 데 실패했습니다."+response.message() ,Toast.LENGTH_SHORT).show();
-                    title.setText(response.message());
                 }
-            }
 
-            @Override
-            public void onFailure(Call<Set<StaffResponseDto>> call, Throwable t) {
-                // 네트워크 오류 또는 예외 발생
-                Toast.makeText(CheckList_write.this, "데이터를 가져오는 데 실패했습니다."+t.getMessage() ,Toast.LENGTH_SHORT).show();
-                title.setText(t.getCause().toString());
-            }
-        });
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    // 네트워크 오류나 기타 이유로 등록 실패
+                    String errorMessage = t != null ? t.getMessage() : "Unknown error";
+                    Toast.makeText(CheckList_write.this, "일정등록실패" + errorMessage, Toast.LENGTH_SHORT).show();
+                    t.printStackTrace();
+                }
+            });
+
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(CheckList_write.this, "오류" + e.toString(), Toast.LENGTH_SHORT).show();
+        }
     }
-
-     */
 
 }
