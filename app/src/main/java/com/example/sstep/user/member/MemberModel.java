@@ -35,4 +35,12 @@ public class MemberModel {
         return password;
     }
 
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
 }

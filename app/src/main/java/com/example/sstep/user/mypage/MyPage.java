@@ -10,12 +10,23 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.R;
 import com.example.sstep.home.Home_Ceo;
 import com.example.sstep.user.login.Login;
+import com.example.sstep.user.member.MemberApiService;
+import com.example.sstep.user.member.MemberModel;
+import com.example.sstep.user.member.MemberResponseDto;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MyPage extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +35,8 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
     ImageButton backib;
     Dialog logoutdl, dropdl;
     Intent intent;
+    String memberId, memberName;
+    TextView nameTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +50,7 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
         dropHL5 = findViewById(R.id.mypage_dropHL5); dropHL5.setOnClickListener(this);
         profileBtn = findViewById(R.id.mypage_profileBtn); profileBtn.setOnClickListener(this);
         backib = findViewById(R.id.mypage_backib); backib.setOnClickListener(this);
+        nameTv=findViewById(R.id.mypage_nameTv);
 
         logoutdl = new Dialog(MyPage.this); // Dialog 초기화
         logoutdl.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
@@ -45,6 +59,41 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
         dropdl = new Dialog(MyPage.this); // Dialog 초기화
         dropdl.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         dropdl.setContentView(R.layout.mypage_dropdl); // xml 레이아웃 파일과 연결
+
+        // memberId 가져오기
+        try {
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            MemberApiService apiService = retrofit.create(MemberApiService.class);
+            memberId = "819id";
+            //적은 id를 기반으로 db에 검색
+            Call<MemberResponseDto> call = apiService.getMemberByUsername(memberId);
+            call.enqueue(new Callback<MemberResponseDto>() {
+                @Override
+                public void onResponse(Call<MemberResponseDto> call, Response<MemberResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        MemberResponseDto data = response.body();
+                        // 적은 id로 패스워드 데이터 가져오기
+                        memberName =data.getName(); // id에 id 설정
+                        nameTv.setText(memberName);
+                    } else {
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MemberResponseDto> call, Throwable t) {
+                    // 실패 처리
+                    String errorMessage = "요청 실패: " + t.getMessage();
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

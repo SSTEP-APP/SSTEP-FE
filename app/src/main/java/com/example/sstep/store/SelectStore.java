@@ -31,6 +31,7 @@ import com.example.sstep.user.staff_api.StaffRequestDto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -99,11 +100,11 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                             .build();
                     MemberApiService apiService = retrofit.create(MemberApiService.class);
 
-                    Call<List<StoreResponseDto>> call = apiService.getStoresBelongMember(userId);
-                    retrofit2.Response<List<StoreResponseDto>> response = call.execute();
+                    Call<Set<StoreResponseDto>> call = apiService.getStoresBelongMember(userId);
+                    retrofit2.Response<Set<StoreResponseDto>> response = call.execute();
 
                     if (response.isSuccessful()) {
-                        final List<StoreResponseDto> stores = response.body();
+                        final Set<StoreResponseDto> stores = response.body();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -335,7 +336,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
 
         mList.add(item);
     }
-    private void updateRecyclerView(List<StoreResponseDto> stores) {
+    private void updateRecyclerView(Set<StoreResponseDto> stores) {
         mList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
         for (StoreResponseDto store : stores) {
             addItem(store.getName(), store.getAddress(), "" + store.getCount(), store.getId(), store.getCode());
@@ -361,7 +362,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
     private void handleError(String errorMsg) {
         Toast.makeText(this, errorMsg + "!!", Toast.LENGTH_SHORT).show();
     }
-    protected void onResume(List<StoreResponseDto> stores) {
+    protected void onResume(Set<StoreResponseDto> stores) {
         super.onResume();
 
         // 이곳에서 리사이클러뷰 데이터를 업데이트하고 어댑터를 갱신합니다.

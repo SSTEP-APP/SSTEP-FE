@@ -41,6 +41,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,6 +58,7 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
     TextView titleLimitTv, contentLimitTv, pictureNumTv; TextView join_okdl_commentTv;
     Button completeBtn;
     LinearLayout pictureHL;
+    long photoId;
 
     private static final int REQ_CODE_SELECT_CAMERA = 100;
     private static final int REQ_CODE_GALLERY_IMAGE = 200;
@@ -196,10 +198,10 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
                             noticeDateStr, //공지글 작성 일자
                             contentEt.getText().toString().trim(), //공지글 내용
                             0, //공지 조회수,
-                            null
+                            null //사진 정보
                     );
 
-                    Call<Void> call = noticeApiService.registerNotice(2L, noticeRequestDto);
+                    Call<Void> call = noticeApiService.registerNotice(2L, noticeRequestDto); // staffId
 
                     call.enqueue(new Callback<Void>() {
                         @Override
@@ -240,7 +242,7 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    // '보건증 완료'버튼 클릭 시
+    // 완료'버튼 클릭 시
     public void showCompleteDl(){
         showComplete_dialog.show();
         // 다이얼로그의 배경을 투명으로 만든다.

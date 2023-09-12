@@ -153,27 +153,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="출퇴근시간"
-                android:textColor="@color/likeblack"
-                android:textSize="13sp"/>
-            <!-- 출퇴근시간 -->
-            <TextView
-                android:id="@+id/date_recycle_workTimeTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:textColor="@color/likeblack"
-                android:text="17:30~23:30"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
