@@ -12,7 +12,7 @@ import retrofit2.http.Path;
 public interface ChecklistManagerApiService {
 
     //카테고리 목록 조회
-    @GET("/check-manager/{storeId}/categories")
+    @POST("/check-manager/{checkListId}/add")
     Call<Void> registerCheckListManager(
             @Path("checkListId") Long checkListId,
             @Body CheckListManagerRequestDto checkListManagerRequestDto

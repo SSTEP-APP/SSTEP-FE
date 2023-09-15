@@ -25,13 +25,13 @@ public class PaperW_UnCom_RecyclerViewAdpater extends RecyclerView.Adapter<Paper
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView unComName;
-
+        TextView unRegdateTv;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             unComName = (TextView) itemView.findViewById(R.id.paperwlist_unregnameTv);
-
+            unRegdateTv = (TextView) itemView.findViewById(R.id.paperwlist_unregdateTv);
         }
     }
 
@@ -58,6 +58,7 @@ public class PaperW_UnCom_RecyclerViewAdpater extends RecyclerView.Adapter<Paper
         PaperW_UnCom_recyclerViewItem item = mList.get(position);
 
         holder.unComName.setText(item.getUnComName());
+        holder.unRegdateTv.setText(item.getType());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

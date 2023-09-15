@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.telephony.PhoneNumberFormattingTextWatcher;
@@ -41,12 +43,15 @@ import com.example.sstep.CalendarDialog;
 import com.example.sstep.CustomTextWatcher_Comma;
 import com.example.sstep.R;
 import com.example.sstep.document.certificate.Paper;
+import com.example.sstep.document.work_doc_api.PhotoApiService;
 import com.example.sstep.document.work_doc_api.WorkDocApiService;
+import com.example.sstep.document.work_doc_api.WorkDocRequestDto;
 import com.example.sstep.document.work_doc_api.WorkDocResponseDto;
 import com.example.sstep.todo.checklist.CheckList_photo_dialog;
 import com.example.sstep.todo.checklist.Checklist_detail;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -152,7 +157,12 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
         // 앱데이터 저장된 값 가져오기
         AppInData appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
         storeId = appInData.getStoreId();
-        staffId = appInData.getStaffId();
+        if(storeId <3){
+            storeId=3;
+        }
+
+        Intent intent1 = getIntent();
+        staffId = intent1.getLongExtra("staffId", 0);
 
         // EditText 천단위 콤마(,)
         wageEt.addTextChangedListener(new CustomTextWatcher_Comma(wageEt));
@@ -319,8 +329,6 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
         writeDayTv.setText(currentDate);
 
 
-
-
         //정보입력하기
         try {
 
@@ -332,7 +340,7 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
 
             WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
             //적은 id를 기반으로 db에 검색
-            Call<WorkDocResponseDto> call = apiService.getInfoForWorkDoc(19L,3L);
+            Call<WorkDocResponseDto> call = apiService.getInfoForWorkDoc(staffId, storeId);
             call.enqueue(new Callback<WorkDocResponseDto>() {
                 @Override
                 public void onResponse(Call<WorkDocResponseDto> call, Response<WorkDocResponseDto> response) {
@@ -425,62 +433,35 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
         join_okdl_commentTv.setText("로딩중");
 
         try {
-            screenShot();
-            //file을 part타입으로 변경
-            RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-            MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
+            PhotoTask photoTask = new PhotoTask(); // PhotoTask 인스턴스 생성
+            photoTask.execute();
 
-
+            long photoId = photoTask.get();
+            Toast.makeText(PaperWinput.this, ""+photoId, Toast.LENGTH_SHORT).show();
             //네트워크 요청 구현
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
+            WorkDocRequestDto workDocRequestDto = new WorkDocRequestDto(photoId);
+
             WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
 
+            Call<Void> call = apiService.registerWorkDocFirst(staffId, workDocRequestDto);
 
-            Call<ResponseBody> call = apiService.registerWorkDocFirst(19L, filePart);
-
-
-            call.enqueue(new Callback<ResponseBody>() {
+            call.enqueue(new Callback<Void>() {
                 @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    if (response.isSuccessful()) {
-                        try {
-                            // 응답 바디 스트림을 가져옵니다.
-                            InputStream inputStream = response.body().byteStream();
-
-                            int bufferSize = 8192; // 읽을 버퍼 크기 (8KB)
-                            byte[] buffer = new byte[bufferSize];
-                            int bytesRead;
-
-                            // 여기에서 buffer 배열의 데이터(bytesRead 만큼)를 처리하면 됩니다.
-                            // 예를 들어, 읽은 데이터를 파일에 저장하거나, 필요한 작업을 수행할 수 있습니다.
-                            // 이 코드에서는 아무 작업도 하지 않고 데이터를 소비합니다.
-                            while ((bytesRead = inputStream.read(buffer)) != -1) {
-                                // 읽은 데이터를 처리하는 로직을 여기에 추가합니다.
-                            }
-
-                            // 파일 업로드 성공
-                            join_okdl_commentTv.setText("근로계약서 작성을 완료하였습니다.");
-                            Toast.makeText(getApplicationContext(), "근로계약서 작성을 완료하였습니다.", Toast.LENGTH_SHORT).show();
-                        } catch (IOException e) {
-                            // 읽기 중에 예외가 발생한 경우 처리합니다.
-                            e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), "근로계약서 작성을 실패했습니다." + e.toString(), Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        // 파일 업로드 실패
-                        join_okdl_commentTv.setText("근로계약서 작성에 실패했습니다." + response);
-                        Toast.makeText(getApplicationContext(), "근로계약서 작성을 실패했습니다." + response.body(), Toast.LENGTH_SHORT).show();
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    if(response.isSuccessful()){
+                        join_okdl_commentTv.setText("작성에 성공했습니다.");
+                    }else {
+                        join_okdl_commentTv.setText("작성 실패"+response.body().toString());
                     }
                 }
 
                 @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    join_okdl_commentTv.setText("근로계약서 작성이 실패했습니다."+t.getMessage());
-                    Toast.makeText(getApplicationContext(), "근로계약서 작성이 실패했습니다."+t.getMessage(), Toast.LENGTH_SHORT).show();
+                public void onFailure(Call<Void> call, Throwable t) {
 
                 }
             });
@@ -492,13 +473,8 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Paper.class);
-
-
-                /*
                 startActivity(intent);
                 finish();
-
-                 */
             }
         });
     }
@@ -541,6 +517,7 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
         storeCeoNameEt.addTextChangedListener(storeCeoNameValidator);
     }
 
+
     // 계약서 작성완료 버튼' 활성화/비활성화
     public void checkCompleteBtnState() {
         boolean isStoreNameEt = !storeNameEt.getText().toString().trim().isEmpty();
@@ -557,35 +534,83 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
             completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
         }
     }
-    public void screenShot(){
-        try {
-            //레이아웃 캡쳐
-            LinearLayout linearLayout = findViewById(R.id.paperwinput_L1); // 대상 LinearLayout
-            linearLayout.setDrawingCacheEnabled(true);
-            Bitmap bitmap = Bitmap.createBitmap(linearLayout.getWidth(), linearLayout.getHeight(), Bitmap.Config.ARGB_8888);
+
+
+    private class PhotoTask extends AsyncTask<Void, Void, Long> {
+        @Override
+        protected Long doInBackground(Void... params) {
+
+            scrollView = findViewById(R.id.paperwinput_scroll);
+            int totalHeight = scrollView.getChildAt(0).getHeight();
+            int totalWidth = scrollView.getChildAt(0).getWidth();
+            Bitmap bitmap = Bitmap.createBitmap(totalWidth, totalHeight, Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(bitmap);
-            linearLayout.draw(canvas);
+            scrollView.draw(canvas);
 
-            file = new File(getExternalFilesDir(null), "linear_layout_image.jpg"); // 파일 경로 및 이름
-            FileOutputStream fos = new FileOutputStream(file);
-            SaveWorkDoc saveTask = new SaveWorkDoc(file, new SaveWorkDoc.Callback() {
-                @Override
-                public void onSaveComplete(boolean success) {
-                    if (success) {
-                        // 저장 성공
-                        Toast.makeText(getApplicationContext(), "스크린샷 성공", Toast.LENGTH_SHORT).show();
-                    } else {
-                        // 저장 실패
-                        Toast.makeText(getApplicationContext(), "스크린샷 실패", Toast.LENGTH_SHORT).show();
-                    }
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream); // Bitmap을 JPEG 바이트 배열로 압축
+            byte[] byteArray = stream.toByteArray();
+            RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
+            MultipartBody.Part body = MultipartBody.Part.createFormData("file", "paperW.jpeg", requestFile); // 파일 이름을 "19hdoc.jpeg"로 변경
+
+            // 네트워크 요청을 백그라운드 스레드에서 수행
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            PhotoApiService apiService2 = retrofit.create(PhotoApiService.class);
+            Call<Long> call2 = apiService2.savePhoto(body);
+
+            try {
+                Response<Long> response = call2.execute();
+
+                if (response.isSuccessful()) {
+                    return response.body(); // 성공한 경우 이미지 ID 반환
+                } else {
+
+                    return response.body();
+
                 }
-            });
+            } catch (IOException e) {
+                e.printStackTrace();
+                return -1L; // 예외 발생한 경우 -1 반환 또는 다른 실패 코드 반환
+            }
+        }
 
-            saveTask.execute(bitmap);
-            fos.flush();
-            fos.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        @Override
+        protected void onPostExecute(Long result) {
+            showComplete_dialog.show();
+            // 다이얼로그의 배경을 투명으로 만든다.
+            showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            TextView join_okdl_commentTv;
+            Button join_okdl_okBtn;
+            join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
+            join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
+            join_okdl_commentTv.setText("로딩중");
+
+            if (result != null) {
+                if (result != -1L) {
+                    String message = "보건증 작성을 완료하였습니다. 이미지 ID: " + result;
+                    join_okdl_commentTv.setText(message);
+                    // 이미지 ID를 사용하여 이미지를 가져오거나 다른 작업 수행
+
+                    // Toast로 결과를 표시
+                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                } else {
+                    String errorMessage = "보건증 작성이 실패했습니다!";
+                    join_okdl_commentTv.setText(errorMessage);
+
+                    // Toast로 실패 메시지 표시
+                    Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                String nullMessage = "서버 응답이 null입니다.";
+                join_okdl_commentTv.setText(nullMessage);
+
+                // Toast로 null 메시지 표시
+                Toast.makeText(getApplicationContext(), nullMessage, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

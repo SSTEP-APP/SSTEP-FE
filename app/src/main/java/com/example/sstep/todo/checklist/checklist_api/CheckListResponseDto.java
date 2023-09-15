@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ChecklistResponseDto {
+public class CheckListResponseDto {
     private long id; //체크 리스트 고유번호
     private String title; //체크 리스트 제목
     private String contents; //체크 리스트 내용

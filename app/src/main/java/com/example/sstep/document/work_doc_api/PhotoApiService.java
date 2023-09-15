@@ -13,8 +13,6 @@ public interface PhotoApiService {
     @POST("/photo/add")
     Call<Long> savePhoto(@Part MultipartBody.Part photo);
 
-
-
 }
 
 
