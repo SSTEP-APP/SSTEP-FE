@@ -85,6 +85,7 @@ public class Notice_view extends AppCompatActivity implements View.OnClickListen
                             .addConverterFactory(new NullOnEmptyConverterFactory())
                             .addConverterFactory(GsonConverterFactory.create(gson))
                             .build();
+
                     NoticeApiService apiService = retrofit.create(NoticeApiService.class);
 
                     Call<NoticeResponseDto> call = apiService.getNotice(noticeId); // noticeId
@@ -107,7 +108,6 @@ public class Notice_view extends AppCompatActivity implements View.OnClickListen
                                     // photoDto에서 data 가져오기
                                     Set<PhotoResponseDto> photoResponseDtos = notices.getPhotoResponseDtos();
 
-
                                     if (photoResponseDtos != null) {
                                         int i = 0;
                                         for (PhotoResponseDto photoResponseDto : photoResponseDtos) {
@@ -116,7 +116,7 @@ public class Notice_view extends AppCompatActivity implements View.OnClickListen
                                             Bitmap bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
                                             // ImageView에 Bitmap 설정
                                             photos[i].setImageBitmap(bitmap);
-//                                            i++;
+                                            i++;
                                         }
                                     } else {
                                         Toast.makeText(Notice_view.this, "null", Toast.LENGTH_SHORT).show();

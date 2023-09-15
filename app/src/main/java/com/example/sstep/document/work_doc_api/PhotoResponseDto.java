@@ -1,5 +1,10 @@
 package com.example.sstep.document.work_doc_api;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PhotoResponseDto {
+public class PhotoResponseDto implements Parcelable{
     private long id;
     private String fileName;
     private String contentType;
@@ -46,4 +51,38 @@ public class PhotoResponseDto {
     public void setData(byte[] data) {
         this.data = data;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(fileName);
+        dest.writeString(contentType);
+        dest.writeByteArray(data);
+
+    }
+
+    public static final Parcelable.Creator<PhotoResponseDto> CREATOR = new Parcelable.Creator<PhotoResponseDto>() {
+        public PhotoResponseDto createFromParcel(Parcel in) {
+            return new PhotoResponseDto(in);
+        }
+
+        public PhotoResponseDto[] newArray(int size) {
+            return new PhotoResponseDto[size];
+        }
+    };
+
+    private PhotoResponseDto(Parcel in) {
+        id = in.readLong();
+        fileName = in.readString();
+        contentType = in.readString();
+        data = in.createByteArray();
+    }
+
+
 }

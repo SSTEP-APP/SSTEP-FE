@@ -19,7 +19,7 @@ public class NoticeResponseDto {
     private String writeDate; //공지글 작성 일자
     private String contents; //공지글 내용
     private int hits; //공지 조회수
-    private Set<PhotoResponseDto> photoResponseDtos; //사진 정보
+    private Set<PhotoResponseDto> photo; //사진 정보
 
 
     public long getId() {
@@ -63,10 +63,10 @@ public class NoticeResponseDto {
     }
 
     public Set<PhotoResponseDto> getPhotoResponseDtos() {
-        return photoResponseDtos;
+        return photo;
     }
 
-    public void setPhotoResponseDtos(Set<PhotoResponseDto> photoResponseDtos) {
-        this.photoResponseDtos = photoResponseDtos;
+    public void setPhotoResponseDtos(Set<PhotoResponseDto> photo) {
+        this.photo = photo;
     }
 }
