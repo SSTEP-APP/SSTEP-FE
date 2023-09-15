@@ -37,7 +37,7 @@ public class PaperHview extends AppCompatActivity implements View.OnClickListene
     Button modiBtn1, reBtn2;
     TextView nameTv,regDateTv, endDateTv;
     ImageView photo;
-
+    long staffId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +54,9 @@ public class PaperHview extends AppCompatActivity implements View.OnClickListene
 
         // Intent에서 데이터 받기
         Intent intent = getIntent();
+        staffId = intent.getLongExtra("staffId",1);
 
-        long staffId = 22;
+
 
 
         Gson gson = new GsonBuilder()
@@ -95,6 +96,7 @@ public class PaperHview extends AppCompatActivity implements View.OnClickListene
 
                                     if (photoResponseDto != null) {
                                         byte[] imageData = photoResponseDto.getData();
+                                        photoResponseDto.getFileName();
                                         Bitmap bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
                                         photo.setImageBitmap(bitmap);
                                     } else {

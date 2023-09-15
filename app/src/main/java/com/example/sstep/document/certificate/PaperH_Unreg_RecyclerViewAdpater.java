@@ -20,9 +20,9 @@ public class PaperH_Unreg_RecyclerViewAdpater extends RecyclerView.Adapter<Paper
 
     private Context context;
 
-    private OnItemClickListener onItemClickListener;
+    private static OnItemClickListener onItemClickListener;
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
+    public static void setOnItemClickListener(OnItemClickListener listener) {
         onItemClickListener = listener;
     }
     public class ViewHolder extends RecyclerView.ViewHolder {

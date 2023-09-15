@@ -223,59 +223,6 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    /*
-    private void savePhoto(Bitmap photo){
-
-        try {
-            //file을 requestBody타입으로 변경
-            Bitmap photoBitmap = ((BitmapDrawable) photoviewIv.getDrawable()).getBitmap();
-            // 1. Bitmap을 파일로 저장
-            File bitmapFile = convertBitmapToFile(photoBitmap);
-            // 2. 파일을 RequestBody로 변환
-            RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), bitmapFile);
-            // 3. RequestBody를 MultipartBody.Part로 변환
-            MultipartBody.Part body = MultipartBody.Part.createFormData("file", bitmapFile.getName(), requestFile);
-
-            //네트워크 요청 구현
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-
-            PhotoApiService apiService = retrofit.create(PhotoApiService.class);
-            Call<PhotoResponseDto> call = apiService.savePhoto(body);
-
-            call.enqueue(new Callback<PhotoResponseDto>() {
-                @Override
-                public void onResponse(Call<PhotoResponseDto> call, Response<PhotoResponseDto> response) {
-                    if (response.isSuccessful()) {
-                        PhotoResponseDto photoResponse = response.body();
-                        photoId = photoResponse.getId();
-                        // 업로드 성공 처리
-                    } else {
-                        // 업로드 실패 처리
-                        Toast.makeText(PaperHinput.this, "사진 저장에 실패했습니다." + response, Toast.LENGTH_SHORT).show();
-
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<PhotoResponseDto> call, Throwable t) {
-                    Toast.makeText(PaperHinput.this, "사진 저장에 실패했습니다!!" + t.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-
-
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-     */
-
-
     private class PhotoTask extends AsyncTask<Void, Void, Long> {
         @Override
         protected Long doInBackground(Void... params) {
@@ -376,7 +323,7 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
                 join_okdl_commentTv.setText(nullMessage);
 
             }
-            // '회원가입 dialog' _ 확인 버튼 클릭 시
+
             join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

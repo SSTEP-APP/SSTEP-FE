@@ -22,13 +22,8 @@ public interface WorkDocApiService {
     );
 
     //근로 계약서 1차 등록
-    @Multipart
-
     @POST("/work-doc/{staffId}/add/first")
-    Call<ResponseBody> registerWorkDocFirst(
-            @Path("staffId") Long staffId,
-            @Part MultipartBody.Part file
-    );
+    Call<Void> registerWorkDocFirst(@Path("staffId") Long staffId, @Body WorkDocRequestDto workDocRequestDto);
 
     //1차 등록한 계약서(사진) 정보
     @GET("/work-doc/{staffId}/first")
@@ -36,17 +31,23 @@ public interface WorkDocApiService {
 
     //근로 계약서 2차(최종) 등록
     @POST("/work-doc/{staffId}/add/second")
-    Call<Void> registerWorkDocSecond(@Path("staffId") Long staffId, @Body MultipartBody.Part multipartFile);
+    Call<Void> registerWorkDocSecond(@Path("staffId") Long staffId, @Body WorkDocRequestDto workDocRequestDto);
 
-    //근로 계약서 등록한 직원 목록
-    @GET("/work-doc/{storeId}/reg/work-doc/staffs")
-    Call<Set<WorkDocResponseDto>> getRegWorkDocStaffs(@Path("storeId") Long storeId);
+    //근로 계약서 최종 정보
+    @GET("/work-doc/{staffId}/second")
+    Call<PhotoResponseDto> getSecondWorkDoc(@Path("staffId") Long staffId);
+
+    //근로 계약서 1차 등록한 직원 목록
+    @GET("/work-doc/{storeId}/reg-first/work-doc/staffs")
+    Call<Set<WorkDocResponseDto>> getRegFirstWorkDocStaffs(@Path("storeId") Long storeId);
+
+    //근로 계약서 2차 등록한 직원 목록
+    @GET("/work-doc/{storeId}/reg-second/work-doc/staffs")
+    Call<Set<WorkDocResponseDto>> getRegSecondWorkDocStaffs(@Path("storeId") Long storeId);
 
     //근로 계약서 미 등록한 직원 목록
     @GET("/work-doc/{storeId}/un-reg/work-doc/staffs")
     Call<Set<WorkDocResponseDto>> getUnRegWorkDocStaffs(@Path("storeId") Long storeId);
-
-
 
 }
 

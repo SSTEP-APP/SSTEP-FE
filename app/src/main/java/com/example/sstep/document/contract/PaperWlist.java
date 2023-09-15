@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sstep.R;
 import com.example.sstep.document.certificate.Paper;
 import com.example.sstep.document.certificate.PaperH_Reg_recyclerViewItem;
+import com.example.sstep.document.certificate.PaperH_Unreg_RecyclerViewAdpater;
 import com.example.sstep.document.certificate.PaperH_Unreg_recyclerViewItem;
+import com.example.sstep.document.certificate.PaperHview;
 import com.example.sstep.document.healthdoc_api.HealthDocResponseDto;
 import com.example.sstep.document.work_doc_api.WorkDocApiService;
 import com.example.sstep.document.work_doc_api.WorkDocResponseDto;
@@ -74,7 +76,7 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
         TextView tv = findViewById(R.id.paperwlist_regTv);
 
 
-        //보건증 등록된 사람 보기
+        //근로계약서 등록된 사람 보기
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -86,7 +88,7 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
                             .build();
                     WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
 
-                    Call<Set<WorkDocResponseDto>> call = apiService.getRegWorkDocStaffs(storeId); //storeId 삽입
+                    Call<Set<WorkDocResponseDto>> call = apiService.getRegSecondWorkDocStaffs(storeId); //storeId 삽입
                     retrofit2.Response<Set<WorkDocResponseDto>> response = call.execute();
 
                     if (response.isSuccessful()) {
@@ -95,7 +97,9 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
                             @Override
                             public void run() {
                                 regOnResume(codeStaffs);
+                                regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
                             }
+
                         });
                     } else {
                     }
@@ -113,7 +117,7 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
 
 
 
-        //보건증 등록 안된 사람 보기
+        //근로계약서 등록 안된 사람 보기
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -125,6 +129,20 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
                             .build();
                     WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
 
+                    Call<Set<WorkDocResponseDto>> call2 = apiService.getRegFirstWorkDocStaffs(storeId); //storeId 삽입
+                    retrofit2.Response<Set<WorkDocResponseDto>> response2 = call2.execute();
+
+                    if (response2.isSuccessful()) {
+                        final Set<WorkDocResponseDto> codeStaffs = response2.body();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                String type = "근로계약서 확인 중";
+                                UnRegOnResume(codeStaffs, type);
+                            }
+                        });
+                    }
+
                     Call<Set<WorkDocResponseDto>> call = apiService.getUnRegWorkDocStaffs(storeId); //storeId 삽입
                     retrofit2.Response<Set<WorkDocResponseDto>> response = call.execute();
 
@@ -133,12 +151,11 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                UnRegOnResume(codeStaffs);
+                                String type = "근로계약서 미등록";
+                                UnRegOnResume(codeStaffs, type);
+                                unRegNumTv.setText(String.valueOf(unRegRecyclerViewAdapter.getItemCount()));
                             }
                         });
-                    } else {
-
-
                     }
                 } catch (Exception e) {
                     final String errorMsg = e.toString();
@@ -153,18 +170,21 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
             }
         }).start();
 
-        regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
-        unRegNumTv.setText(String.valueOf(unRegRecyclerViewAdapter.getItemCount()));
 
-        regNumTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent;
-                intent = new Intent(getApplicationContext(), PaperW.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
+
+
+        //직원인 경우
+        /*
+        if
+        TextView topTv = findViewById(R.id.paperwlist_topTv);
+        topTv.setText("근로계약서 보기");
+
+         */
+
+
+
+
 
     }
 
@@ -200,25 +220,36 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
 
         // 이곳에서 리사이클러뷰 데이터를 업데이트하고 어댑터를 갱신합니다.
         RegUpdateRecyclerView(list); // 원하는 업데이트 로직을 여기에 작성
-
         regRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터 갱신
     }
 
 
-    public void RegAddItem(String name){
+    public void RegAddItem(String name, long staffId){
         PaperW_Com_recyclerViewItem item = new PaperW_Com_recyclerViewItem();
 
         item.setComName(name);
+        item.setComStaffId(staffId);
 
         regList.add(item);
     }
     private void RegUpdateRecyclerView(Set<WorkDocResponseDto> list) {
         regList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
-        for (WorkDocResponseDto docH : list) {
-            RegAddItem(docH.getStaffName());
-
+        for (WorkDocResponseDto docW : list) {
+            RegAddItem(docW.getStaffName(), docW.getStaffId());
         }
         regRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
+        regRecyclerViewAdapter.setOnItemClickListener(new PaperW_Com_RecyclerViewAdpater.OnItemClickListener(){
+            @Override
+            public void onItemClick(int position) {
+                // 해당 아이템 레이아웃 클릭 시 처리할 코드 이쪽 수정 필!
+                PaperW_Com_recyclerViewItem item = regList.get(position);
+                Intent intent = new Intent(getApplicationContext(), PaperWceoview.class); //사장, 스테프 구분 필요
+                intent.putExtra("staffId", item.getComStaffId());
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
     }
 
@@ -231,30 +262,53 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
         unRegList = new ArrayList<>();
     }
 
-    protected void UnRegOnResume(Set<WorkDocResponseDto> list) {
+    protected void UnRegOnResume(Set<WorkDocResponseDto> list,String type) {
         super.onResume();
 
         // 이곳에서 리사이클러뷰 데이터를 업데이트하고 어댑터를 갱신합니다.
-        UnRegUpdateRecyclerView(list); // 원하는 업데이트 로직을 여기에 작성
+        UnRegUpdateRecyclerView(list, type); // 원하는 업데이트 로직을 여기에 작성
 
         unRegRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터 갱신
     }
 
 
-    public void UnRegAddItem(String name){
+    public void UnRegAddItem(String name, long staffId, String type){
         PaperW_UnCom_recyclerViewItem item = new PaperW_UnCom_recyclerViewItem();
 
         item.setUnComName(name);
+        item.setUnComStaffId(staffId);
+        item.setType(type);
 
         unRegList.add(item);
     }
-    private void UnRegUpdateRecyclerView(Set<WorkDocResponseDto> list) {
-        unRegList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
-        for (WorkDocResponseDto docH : list) {
-            UnRegAddItem(docH.getStaffName());
+    private void UnRegUpdateRecyclerView(Set<WorkDocResponseDto> list, String type) {
+        //unRegList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
+        for (WorkDocResponseDto docW : list) {
+            UnRegAddItem(docW.getStaffName(), docW.getStaffId(), type);
 
         }
-        unRegRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
+        unRegRecyclerViewAdapter.setOnItemClickListener(new PaperW_UnCom_RecyclerViewAdpater.OnItemClickListener(){
+            @Override
+            public void onItemClick(int position) {
+                // 해당 아이템 레이아웃 클릭 시 처리할 코드 이쪽 수정 필!
+                PaperW_UnCom_recyclerViewItem item = unRegList.get(position);
 
+                if(item.getType().equals("근로계약서 미등록")) {
+                    Intent intent = new Intent(getApplicationContext(), PaperW.class);
+                    intent.putExtra("staffId", item.getUnComStaffId());
+                    startActivity(intent);
+                    finish();
+
+                }else {
+                    Intent intent = new Intent(getApplicationContext(), PaperWsecondInput.class);
+                    intent.putExtra("staffId", item.getUnComStaffId());
+                    startActivity(intent);
+                    finish();
+                }
+
+            }
+        });
+
+        unRegRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
     }
 }

@@ -10,16 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class WorkDocRequestDto {
-    private long id;
-    private String name;
-    private String address;
-    private String latitude;
-    private String longitude;
-    private boolean scale;
-    private boolean plan;
-    private long code;
+    private long photoId;
 
-
-
-
+    public WorkDocRequestDto(long photoId) {
+        this.photoId = photoId;
+    }
 }

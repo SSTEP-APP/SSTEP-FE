@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -28,6 +30,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
@@ -91,6 +94,7 @@ public class CheckList_write extends AppCompatActivity {
     Dialog showComplete_dialog, addCategory_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
     String today, endDay;
+    long storeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,14 +128,16 @@ public class CheckList_write extends AppCompatActivity {
         secondCateRb = findViewById(R.id.checkList_write_secondCategoryBtn);
         thirdCateRb= findViewById(R.id.checkList_write_thirdCategoryBtn);
 
+        //appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        //storeId = appInData.getUserId(); // 사용자 ID 가져오기
+
+        storeId = 1;
+
         updateRB();
 
         //리사이클 뷰
 
         firstInit();
-
-
-
 
         mRecyclerViewAdapter = new CheckList_write_RecyclerViewAdpater(mList);
 
@@ -164,7 +170,7 @@ public class CheckList_write extends AppCompatActivity {
                             Set<StaffResponseDto> staffs = response.body();
 
                             for (StaffResponseDto staff : staffs) {
-                                addItem(staff.getStaffName());
+                                addItem(staff.getStaffName(), staff.getPhoneNum(), staff.getId());
                             }
 
                         } else {
@@ -210,14 +216,21 @@ public class CheckList_write extends AppCompatActivity {
             }
         });
 
-        completeBtn.setOnClickListener(new View.OnClickListener() {
+        runOnUiThread(new Runnable() {
             @Override
-            public void onClick(View view) {
-                showCompleteDl();
+            public void run() {
+                completeBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        showCompleteDl();
+                    }
+                });
             }
         });
 
-        //입력사항 받기
+
+
+        //입력사항 받기-
         //title.getText();
 
         //마감예정 시간 체크박스
@@ -341,10 +354,12 @@ public class CheckList_write extends AppCompatActivity {
         mList = new ArrayList<>();
     }
 
-    public void addItem(String subText){
+    public void addItem(String subText, String phoneNum, long staffId){
         CheckList_write_recyclerViewItem item = new CheckList_write_recyclerViewItem();
 
         item.setChecklist_write_staffName(subText);
+        item.setChecklist_write_phoneNum(phoneNum);
+        item.setChecklist_write_staffId(staffId);
         mList.add(item);
         mRecyclerViewAdapter.notifyDataSetChanged(); // 데이터가 변경되었음을 어댑터에 알림
 
@@ -434,50 +449,39 @@ public class CheckList_write extends AppCompatActivity {
                     pictureCB.isChecked(),
                     false,
                     selectedText,
-                    1
+                    1// 수정
             );
 
 // 등록 요청을 서버에 전송
-            Call<Void> call = apiService.registerCheckList(19L,checklistRequestDto);
-            call.enqueue(new Callback<Void>() {
+// 네트워크 요청을 비동기적으로 실행
+            Call<Long> call = apiService.registerCheckList(19L, checklistRequestDto);
+            call.enqueue(new Callback<Long>() {
                 @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
+                public void onResponse(Call<Long> call, Response<Long> response) {
                     if (response.isSuccessful()) {
-                        // 등록 성공
-                        long checkId;
-/*
-
-                        CheckListManagerRequestDto checkListManagerRequestDto = new CheckListManagerRequestDto(
-
-                        );
-
-                        ChecklistManagerApiService checkListManagerApi = retrofit.create(ChecklistManagerApiService.class);
-
-                        Call<Void> call2 = checkListManagerApi.registerCheckListManager(checkId, );
-
-
- */
-                        join_okdl_commentTv.setText("해야할 일 등록이 추가하였습니다.");
-                        // 응답을 필요에 따라 처리하세요.
+                        // 네트워크 요청이 성공했을 때의 처리
+                        long checklistId = response.body();
+                        registerCheckListManager(checklistId);
+                        join_okdl_commentTv.setText("작성이 완료되었습니다.");
                     } else {
-                        // 등록 실패
-                        int statusCode = response.code();
-                        join_okdl_commentTv.setText("해야할 일 등록이 실패했습니다.\n 오류코드: " + statusCode);
-                        // 에러 응답을 처리하세요.
+                        // 네트워크 요청이 실패했을 때의 처리
+                        Toast.makeText(CheckList_write.this, "담당자 등록 실패", Toast.LENGTH_SHORT).show();
+                        join_okdl_commentTv.setText("작성이 실패했습니다." + response.message());
                     }
                 }
 
                 @Override
-                public void onFailure(Call<Void> call, Throwable t) {
-                    // 네트워크 오류나 기타 이유로 등록 실패
-                    String errorMessage = t != null ? t.getMessage() : "Unknown error";
-
-                        join_okdl_commentTv.setText("할일 등록이 실패했습니다!!\n 오류메시지: " + errorMessage);
-                        t.printStackTrace();
+                public void onFailure(Call<Long> call, Throwable t) {
+                    // 네트워크 요청이 실패했을 때의 처리
+                    t.printStackTrace();
+                    join_okdl_commentTv.setText(t.toString());
                 }
             });
+
+
         }catch (Exception e) {
             e.printStackTrace();
+            join_okdl_commentTv.setText(e.toString());
         }
 
 
@@ -660,9 +664,23 @@ public class CheckList_write extends AppCompatActivity {
         calendarDialog.show();
     }
 
+    public void registerCheckListManager(long checkListId) {
+        // 스케줄 정보를 리사이클러뷰에서 가져옴
+        for (CheckList_write_recyclerViewItem item : mList) {
+            String sName = item.getChecklist_write_staffName(); // 이름
+            String sPhone = item.getChecklist_write_phoneNum(); // 번호
+            long sStaffId = item.getChecklist_write_staffId();
+
+            // 서버에 등록하기 위해 스케줄 정보를 객체로 만들기
+            CheckListManagerRequestDto checkListManagerRequestDto = new CheckListManagerRequestDto(sName, sPhone, sStaffId);
+
+            addCM(checkListId, checkListManagerRequestDto);
+        }
+    }
 
 
-    private void addCM(long storeId, CheckListManagerRequestDto checkListManagerRequestDto) {
+    //체크리스트 매니저 등록
+    private void addCM(long checkListId, CheckListManagerRequestDto checkListManagerRequestDto) {
         try {
 
             //네트워크 요청 구현
@@ -673,11 +691,10 @@ public class CheckList_write extends AppCompatActivity {
                     .build();
 
             ChecklistManagerApiService cmApiService = retrofit.create(ChecklistManagerApiService.class);
-
             // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
-            Call<Void> call = cmApiService.registerCheckListManager(storeId, checkListManagerRequestDto);
+            Call<Void> call2 = cmApiService.registerCheckListManager(checkListId, checkListManagerRequestDto);
 
-            call.enqueue(new Callback<Void>() {
+            call2.enqueue(new Callback<Void>() {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     int statusCode = response.code();
@@ -689,6 +706,7 @@ public class CheckList_write extends AppCompatActivity {
                         try {
                             String errorResponse = response.errorBody().string();
                             Toast.makeText(CheckList_write.this, "일정 등록 실패!! 에러 메시지: " + errorResponse, Toast.LENGTH_SHORT).show();
+
                             // 에러 메시지를 사용하여 추가적인 처리 수행
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -711,5 +729,7 @@ public class CheckList_write extends AppCompatActivity {
             Toast.makeText(CheckList_write.this, "오류" + e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
+
+
 
 }

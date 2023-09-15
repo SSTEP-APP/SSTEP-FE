@@ -157,17 +157,6 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
         unRegNumTv.setText(String.valueOf(unRegRecyclerViewAdapter.getItemCount()));
 
 
-        //임시파일
-        regNumTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent;
-                intent = new Intent(getApplicationContext(), PaperHinput.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
     }
 
     @Override
@@ -214,9 +203,7 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
             RegAddItem(docH.getName(), docH.getCheckUpDate());
 
         }
-        regRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
 
-        //수정
 
 
         PaperH_Reg_RecyclerViewAdpater.setOnItemClickListener(new PaperH_Reg_RecyclerViewAdpater.OnItemClickListener() {
@@ -235,6 +222,7 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
         });
 
 
+        regRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
 
     }
 
@@ -270,9 +258,21 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
             UnRegAddItem(docH.getName());
 
         }
+
+
+        PaperH_Unreg_RecyclerViewAdpater.setOnItemClickListener(new PaperH_Unreg_RecyclerViewAdpater.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                // 해당 아이템 레이아웃 클릭 시 처리할 코드 이쪽 수정 필!
+                PaperH_Unreg_recyclerViewItem item = unRegList.get(position);
+                Intent intent = new Intent(getApplicationContext(), PaperHinput.class); //사장, 스테프 구분 필요
+                intent.putExtra("name", item.getPaperH_UnReg_Name());
+
+                startActivity(intent);
+                finish();
+            }
+        });
         unRegRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
 
     }
-
-
 }
