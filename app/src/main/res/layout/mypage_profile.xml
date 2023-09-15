@@ -127,34 +127,7 @@
                 android:textCursorDrawable="@drawable/yet_cursor"
                 android:inputType="phone"
                 android:fontFamily="@font/nanumsquareneo_brg"/>
-            <!-- 이메일 -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="이메일"
-                android:textSize="15sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="25dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:id="@+id/mypage_profile_emailEt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/yedittext_w_sg"
-                android:textColor="@color/black"
-                android:textColorHint="#C6C6C8"
-                android:hint="이메일"
-                android:text="email@naver.com"
-                android:textSize="15sp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="5dp"
-                android:textCursorDrawable="@drawable/yet_cursor"
-                android:inputType="text"
-                android:fontFamily="@font/nanumsquareneo_brg"/>
+
         </LinearLayout>
     </FrameLayout>
 

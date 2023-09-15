@@ -215,43 +215,41 @@
     </GridLayout>
 
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:scrollbars="none"
-        android:visibility="visible">
+        android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/date_recycleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:orientation="vertical">
+            android:layout_gravity="bottom|right"
+            android:background="#00FFFFFF"
+            android:orientation="vertical"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/date_recycleView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
+            <ImageButton
+                android:id="@+id/date_plusBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="right"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/yicon_plus" />
         </LinearLayout>
-    </ScrollView>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:background="#00FFFFFF"
-        android:orientation="vertical"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp">
-
-        <ImageButton
-            android:id="@+id/date_plusBtn"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="right"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/yicon_plus" />
-    </LinearLayout>
+    </FrameLayout>
 </LinearLayout>
