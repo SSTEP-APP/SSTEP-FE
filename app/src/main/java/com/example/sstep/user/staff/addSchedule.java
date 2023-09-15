@@ -165,6 +165,7 @@ public class addSchedule extends AppCompatActivity {
                     public void onClick(View view) {
 
                         endTimeText.setText( timePicker.getCurrentHour() + ":" + timePicker.getCurrentMinute());
+                        timePickDialog.dismiss();
                     }
                 });
             }
