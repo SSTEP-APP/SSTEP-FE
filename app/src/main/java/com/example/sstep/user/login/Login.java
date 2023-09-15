@@ -22,6 +22,7 @@ import com.example.sstep.store.SelectStore;
 import com.example.sstep.user.join.JoinActivity;
 import com.example.sstep.user.member.MemberApiService;
 import com.example.sstep.user.member.MemberModel;
+import com.example.sstep.user.member.MemberResponseDto;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -87,7 +88,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 finish();
                 break;
             case R.id.logIn_searchPass: //패스워드 찾기
-                intent = new Intent(getApplicationContext(), Login_test.class);
+                intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -108,12 +109,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
             MemberApiService apiService = retrofit.create(MemberApiService.class);
             //적은 id를 기반으로 db에 검색
-            Call<MemberModel> call = apiService.getDataFromServer(idEt.getText().toString().trim());
-            call.enqueue(new Callback<MemberModel>() {
+            Call<MemberResponseDto> call = apiService.getMemberByUsername(idEt.getText().toString().trim());
+            call.enqueue(new Callback<MemberResponseDto>() {
                 @Override
-                public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
+                public void onResponse(Call<MemberResponseDto> call, Response<MemberResponseDto> response) {
                     if (response.isSuccessful()) {
-                        MemberModel data = response.body();
+                        MemberResponseDto data = response.body();
                         // 적은 id로 패스워드 데이터 가져오기
                         checkPassword =data.getPassword(); // id에 id 설정
                         if(checkPassword.equals(passwordEt.getText().toString())){
@@ -166,7 +167,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 }
 
                 @Override
-                public void onFailure(Call<MemberModel> call, Throwable t) {
+                public void onFailure(Call<MemberResponseDto> call, Throwable t) {
                     // 실패 처리
                     String errorMessage = "요청 실패: " + t.getMessage();
                 }

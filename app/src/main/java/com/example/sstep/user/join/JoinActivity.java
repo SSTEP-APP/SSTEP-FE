@@ -340,13 +340,12 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
             );
 
 // 회원가입 요청을 서버에 전송
-            Call<MemberResponseDto> call = apiService.save(memberRequestDto);
-            call.enqueue(new Callback<MemberResponseDto>() {
+            Call<Void> call = apiService.joinMember(memberRequestDto);
+            call.enqueue(new Callback<Void>() {
                 @Override
-                public void onResponse(Call<MemberResponseDto> call, Response<MemberResponseDto> response) {
+                public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()) {
                         // 회원가입 성공
-                        MemberResponseDto memberResponseDto = response.body();
                         join_okdl_commentTv.setText("회원가입이 완료되었습니다.\n 로그인해 주세요.");
                         // 응답을 필요에 따라 처리하세요.
                     } else {
@@ -358,7 +357,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 @Override
-                public void onFailure(Call<MemberResponseDto> call, Throwable t) {
+                public void onFailure(Call<Void> call, Throwable t) {
                     // 네트워크 오류나 기타 이유로 회원가입 실패
                     String errorMessage = t != null ? t.getMessage() : "Unknown error";
                     if (errorMessage.equals("End of input at line 1 column 1 path $")){
@@ -401,14 +400,14 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
 
             MemberApiService apiService = retrofit.create(MemberApiService.class);
             //적은 id를 기반으로 db에 검색
-            Call<MemberModel> call = apiService.getDataFromServer(idEt.getText().toString().trim());
-            call.enqueue(new Callback<MemberModel>() {
+            Call<MemberResponseDto> call = apiService.getMemberByUsername(idEt.getText().toString().trim());
+            call.enqueue(new Callback<MemberResponseDto>() {
                 @Override
-                public void onResponse(Call<MemberModel> call, Response<MemberModel> response) {
+                public void onResponse(Call<MemberResponseDto> call, Response<MemberResponseDto> response) {
                     if (response.isSuccessful()) {
-                        MemberModel data = response.body();
+                        MemberResponseDto data = response.body();
                         // 적은 id로 id 데이터 가져오기
-                        testId =data.getMemberId();
+                        testId =data.getUsername();
                         if(testId.equals(idEt.getText().toString().trim())){
                             join_okdl_commentTv.setText("중복된 아이디가 있습니다.\n다른 아이디를 입력해 주세요.");
                             idEt.setText("");
@@ -449,7 +448,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 @Override
-                public void onFailure(Call<MemberModel> call, Throwable t) {
+                public void onFailure(Call<MemberResponseDto> call, Throwable t) {
                     // 실패 처리
                     String errorMessage = t != null ? t.getMessage() : "Unknown error";
 

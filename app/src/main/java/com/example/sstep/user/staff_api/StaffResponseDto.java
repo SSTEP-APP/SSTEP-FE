@@ -38,7 +38,7 @@ public class StaffResponseDto {
     public String getStaffName() {
         return staffName;
     }
-
+  
     public String getPhoneNum() {
         return phoneNum;
     }
