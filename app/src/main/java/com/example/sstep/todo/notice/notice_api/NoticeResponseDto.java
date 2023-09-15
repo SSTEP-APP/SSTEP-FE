@@ -1,18 +1,17 @@
 package com.example.sstep.todo.notice.notice_api;
 
-
-import com.example.sstep.photo_api.PhotoResponseDto;
+import com.example.sstep.document.work_doc_api.PhotoResponseDto;
 
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Builder
 public class NoticeResponseDto {
     private long id; //공지 고유번호
@@ -20,25 +19,8 @@ public class NoticeResponseDto {
     private String writeDate; //공지글 작성 일자
     private String contents; //공지글 내용
     private int hits; //공지 조회수
-    private Set<PhotoResponseDto> photo; //사진 정보
+    private Set<PhotoResponseDto> photoResponseDtos; //사진 정보
 
-
-    public NoticeResponseDto(long id, String title, String writeDate, String contents, int hits, Set<PhotoResponseDto> photo) {
-        this.id = id;
-        this.title = title;
-        this.writeDate = writeDate;
-        this.contents = contents;
-        this.hits = hits;
-        this.photo = photo;
-    }
-
-    public NoticeResponseDto(long id, String title, String writeDate, String contents, int hits) {
-        this.id = id;
-        this.title = title;
-        this.writeDate = writeDate;
-        this.contents = contents;
-        this.hits = hits;
-    }
 
     public long getId() {
         return id;
@@ -80,11 +62,11 @@ public class NoticeResponseDto {
         this.hits = hits;
     }
 
-    public Set<PhotoResponseDto> getPhoto() {
-        return photo;
+    public Set<PhotoResponseDto> getPhotoResponseDtos() {
+        return photoResponseDtos;
     }
 
-    public void setPhoto(Set<PhotoResponseDto> photo) {
-        this.photo = photo;
+    public void setPhotoResponseDtos(Set<PhotoResponseDto> photoResponseDtos) {
+        this.photoResponseDtos = photoResponseDtos;
     }
 }

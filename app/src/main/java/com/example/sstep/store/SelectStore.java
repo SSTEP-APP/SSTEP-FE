@@ -324,7 +324,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         mList = new ArrayList<>();
     }
 
-    public void addItem(String name, String address, String person, long id, long code){
+    public void addItem(String name, String address, String person, long id, long code,long staffId, boolean isOwner){
         SelectStore_recyclerViewItem item = new SelectStore_recyclerViewItem();
 
         item.setSelectStoreName(name);
@@ -332,14 +332,15 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         item.setSelectStorePerson(person);
         item.setSelectStoreId(id);
         item.setSelectStoreCode(code);
-
+        item.setSelectStaffId(staffId);
+        item.setSelectIsOwner(isOwner);
 
         mList.add(item);
     }
     private void updateRecyclerView(Set<StoreResponseDto> stores) {
         mList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
         for (StoreResponseDto store : stores) {
-            addItem(store.getName(), store.getAddress(), "" + store.getCount(), store.getId(), store.getCode());
+            addItem(store.getName(), store.getAddress(), "" + store.getCount(), store.getId(), store.getCode(), store.getStaffId(), store.isOwner());
         }
 
         mRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알림
@@ -351,6 +352,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
 
                 appInData.setStoreId(item.getSelectStoreId()); //storeId저장
                 appInData.setStoreCode(item.getSelectStoreCode());
+                appInData.setStaffId(item.getSelectStaffId());
 
                 Intent intent = new Intent(getApplicationContext(), Home_Ceo.class); //사장, 스테프 구분 필요
                 startActivity(intent);

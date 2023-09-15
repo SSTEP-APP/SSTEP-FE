@@ -2,19 +2,24 @@ package com.example.sstep.document.contract;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -26,19 +31,44 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.CustomTextWatcher_Comma;
 import com.example.sstep.R;
 import com.example.sstep.document.certificate.Paper;
+import com.example.sstep.document.work_doc_api.WorkDocApiService;
+import com.example.sstep.document.work_doc_api.WorkDocResponseDto;
+import com.example.sstep.todo.checklist.CheckList_photo_dialog;
+import com.example.sstep.todo.checklist.Checklist_detail;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PaperWinput extends AppCompatActivity implements View.OnClickListener{
 
@@ -55,16 +85,20 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
             restdayTv1,restdayTv2, workTerms_workstartDateTv,writeDayTv;
     ImageView workTerms_updownIv,wage_updownIv;
     LinearLayout workTerms_hidL,wage_hidL;
-    CheckBox restdayMonCb, restdayTheCb, restdayWedCb, restdayThuCb,restdayFriCb, restdaySatCb,restdaySunCb, privacyCb;
     ImageButton backib, workTerms_workstartDateIb, storeCeoSignRefreshIb, writeDayIb;
     Button completeBtn;
-    public CheckBox[] restdayCheckedList;
     int workdayCount = 0;
     Dialog showComplete_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
 
-    Boolean isStartTimeSp=false,isendTimeSp=false, isworkDaySp=false, isprivacyCb=false,
-            isStoreNameEt=false,isStoreAddressEt=false,isStorePhoneEt=false,isStoreCeoNameEt=false;
+    RadioGroup wageTypeRG;
+    RadioButton dayRB, weekRB, monthRB;
+    File file;
+
+    long storeId, staffId;
+
+
+    Boolean isStartTimeSp=false,isendTimeSp=false, isworkDaySp=false, isprivacyCb=false;
     EditTextValidator storeNameValidator, storeAddressValidator, storePhoneValidator, storeCeoNameValidator;
 
     @Override
@@ -91,7 +125,11 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
         writeDayTv=findViewById(R.id.paperwinput_writeDayTv);
 
         wageEt=findViewById(R.id.paperwinput_wage_wageEt);
-        privacyCb=findViewById(R.id.paperwinput_privacyCb);
+
+        wageTypeRG = findViewById(R.id.paperwinput_wage_paydayRg);
+        monthRB = findViewById(R.id.paperwinput_wage_paydayMonthRb);
+        weekRB = findViewById(R.id.paperwinput_wage_paydayWeekRb);
+        dayRB = findViewById(R.id.paperwinput_wage_paydayDayRb);
 
         backib=findViewById(R.id.paperwinput_backib); backib.setOnClickListener(this);
         completeBtn=findViewById(R.id.paperwinput_completeBtn); completeBtn.setOnClickListener(this);
@@ -99,8 +137,6 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
         wage_updownIv=findViewById(R.id.paperwinput_wage_updownIv);wage_updownIv.setOnClickListener(this);
         workTerms_hidL=findViewById(R.id.paperwinput_workTerms_hidL);
         wage_hidL=findViewById(R.id.paperwinput_wage_hidL);
-        restdayCheckedList = new CheckBox[] {restdayMonCb, restdayTheCb, restdayWedCb, restdayThuCb, restdayFriCb, restdaySatCb, restdaySunCb};
-
         workTerms_workstartDateIb = findViewById(R.id.paperwinput_workTerms_workstartDateIb); workTerms_workstartDateIb.setOnClickListener(this);
         writeDayIb=findViewById(R.id.paperwinput_writeDayIb); writeDayIb.setOnClickListener(this);
 
@@ -113,7 +149,10 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
         showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
 
-
+        // 앱데이터 저장된 값 가져오기
+        AppInData appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        storeId = appInData.getStoreId();
+        staffId = appInData.getStaffId();
 
         // EditText 천단위 콤마(,)
         wageEt.addTextChangedListener(new CustomTextWatcher_Comma(wageEt));
@@ -195,30 +234,6 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
         }
         PwiWorkdayAdapterSpinner = new PwiWorkdayAdapterSpinner(this,workTerms_workDaySpList);
         workTerms_workDaySp.setAdapter(PwiWorkdayAdapterSpinner);
-        workTerms_workDaySp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                for(int i=0; i<restdayCheckedList.length; i++) {
-                    restdayCheckedList[i].setChecked(false);
-                    restdayCheckedList[i].setEnabled(true);
-                }
-                if(position==0) {
-                    workTerms_workDaySp.setBackgroundResource(R.drawable.yedittext_w_sg);
-                    ((TextView) view.findViewById(R.id.paperwinput_spinner_view_text)).setTextColor(getResources().getColor(R.color.yedittext_sg));
-                    isworkDaySp = false;
-                } else {
-                    workTerms_workDaySp.setBackgroundResource(R.drawable.yedittext_w_sblack);
-                    workdayCount = position;
-                    isworkDaySp = true;
-                }
-                checkCompleteBtnState();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
 
         // 근무장소 _실시간 글자수
@@ -303,15 +318,59 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
         String currentDate = dateFormat.format(Calendar.getInstance().getTime());
         writeDayTv.setText(currentDate);
 
-        // '개인정보 수집 및 이용 동의' 체크 시 true/false
-        privacyCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                isprivacyCb = isChecked;
-                checkCompleteBtnState();
-            }
-        });
+
+
+
+        //정보입력하기
+        try {
+
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
+            //적은 id를 기반으로 db에 검색
+            Call<WorkDocResponseDto> call = apiService.getInfoForWorkDoc(19L,3L);
+            call.enqueue(new Callback<WorkDocResponseDto>() {
+                @Override
+                public void onResponse(Call<WorkDocResponseDto> call, Response<WorkDocResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        WorkDocResponseDto workDocResponseDto  = response.body();
+                        // 적은 id로 패스워드 데이터 가져오기
+                        storeNameEt.setText(workDocResponseDto.getStoreName());
+                        storeAddressEt.setText(workDocResponseDto.getStoreAddress());
+                        storePhoneEt.setText(workDocResponseDto.getStorePhoneNum());
+                        storeCeoNameEt.setText(workDocResponseDto.getStoreOwnerName());
+                        workTerms_workstartDateTv.setText(workDocResponseDto.getStartDay());
+                        wageEt.setText(""+workDocResponseDto.getHourMoney());
+
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "실패"+ response.toString(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<WorkDocResponseDto> call, Throwable t) {
+                    // 실패 처리
+                    String errorMessage = "요청 실패: " + t.getMessage();
+                    Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                    storeAddressEt.setText(errorMessage);
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
     }
+
 
     @Override
     public void onClick(View v) {
@@ -362,14 +421,84 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
         TextView join_okdl_commentTv; Button join_okdl_okBtn;
         join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
         join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
-        join_okdl_commentTv.setText("근로계약서 작성 완료하였습니다.");
+
+        join_okdl_commentTv.setText("로딩중");
+
+        try {
+            screenShot();
+            //file을 part타입으로 변경
+            RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+            MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
+
+
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
+
+
+            Call<ResponseBody> call = apiService.registerWorkDocFirst(19L, filePart);
+
+
+            call.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()) {
+                        try {
+                            // 응답 바디 스트림을 가져옵니다.
+                            InputStream inputStream = response.body().byteStream();
+
+                            int bufferSize = 8192; // 읽을 버퍼 크기 (8KB)
+                            byte[] buffer = new byte[bufferSize];
+                            int bytesRead;
+
+                            // 여기에서 buffer 배열의 데이터(bytesRead 만큼)를 처리하면 됩니다.
+                            // 예를 들어, 읽은 데이터를 파일에 저장하거나, 필요한 작업을 수행할 수 있습니다.
+                            // 이 코드에서는 아무 작업도 하지 않고 데이터를 소비합니다.
+                            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                                // 읽은 데이터를 처리하는 로직을 여기에 추가합니다.
+                            }
+
+                            // 파일 업로드 성공
+                            join_okdl_commentTv.setText("근로계약서 작성을 완료하였습니다.");
+                            Toast.makeText(getApplicationContext(), "근로계약서 작성을 완료하였습니다.", Toast.LENGTH_SHORT).show();
+                        } catch (IOException e) {
+                            // 읽기 중에 예외가 발생한 경우 처리합니다.
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "근로계약서 작성을 실패했습니다." + e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        // 파일 업로드 실패
+                        join_okdl_commentTv.setText("근로계약서 작성에 실패했습니다." + response);
+                        Toast.makeText(getApplicationContext(), "근로계약서 작성을 실패했습니다." + response.body(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    join_okdl_commentTv.setText("근로계약서 작성이 실패했습니다."+t.getMessage());
+                    Toast.makeText(getApplicationContext(), "근로계약서 작성이 실패했습니다."+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
         // '회원가입 dialog' _ 확인 버튼 클릭 시
         join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Paper.class);
+
+
+                /*
                 startActivity(intent);
                 finish();
+
+                 */
             }
         });
     }
@@ -420,7 +549,7 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
         boolean isStoreCeoNameEt = !storeCeoNameEt.getText().toString().trim().isEmpty();
 
         if(isStoreNameEt && isStoreAddressEt && isStorePhoneEt && isStoreCeoNameEt &&
-            customDrawingView.isCeoSign() && isStartTimeSp && isendTimeSp && isworkDaySp && isprivacyCb){
+            customDrawingView.isCeoSign() && isStartTimeSp && isendTimeSp /*&& isworkDaySp && isprivacyCb*/){
             completeBtn.setEnabled(true);
             completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnon);
         }else{
@@ -428,4 +557,36 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
             completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
         }
     }
+    public void screenShot(){
+        try {
+            //레이아웃 캡쳐
+            LinearLayout linearLayout = findViewById(R.id.paperwinput_L1); // 대상 LinearLayout
+            linearLayout.setDrawingCacheEnabled(true);
+            Bitmap bitmap = Bitmap.createBitmap(linearLayout.getWidth(), linearLayout.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            linearLayout.draw(canvas);
+
+            file = new File(getExternalFilesDir(null), "linear_layout_image.jpg"); // 파일 경로 및 이름
+            FileOutputStream fos = new FileOutputStream(file);
+            SaveWorkDoc saveTask = new SaveWorkDoc(file, new SaveWorkDoc.Callback() {
+                @Override
+                public void onSaveComplete(boolean success) {
+                    if (success) {
+                        // 저장 성공
+                        Toast.makeText(getApplicationContext(), "스크린샷 성공", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // 저장 실패
+                        Toast.makeText(getApplicationContext(), "스크린샷 실패", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+            saveTask.execute(bitmap);
+            fos.flush();
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

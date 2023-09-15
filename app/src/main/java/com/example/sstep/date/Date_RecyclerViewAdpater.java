@@ -41,7 +41,10 @@ public class Date_RecyclerViewAdpater extends RecyclerView.Adapter<Date_Recycler
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Date_recyclerViewWordItemData itemData = itemList.get(position);
 
-        holder.dayTv.setText(itemData.getDate());
+        // itemData에서 필요한 정보를 가져와서 뷰에 설정
+        holder.dayTv.setText(itemData.getDate()); // calendarDate 설정
+        holder.userNameTv.setText(itemData.getStaffName()); // staffName 설정
+//        holder.scheduleTimeTv.setText(itemData.getStartCalTime() + " ~ " + itemData.getEndCalTime()); // startCalTime와 endCalTime 설정
     }
 
     @Override
@@ -50,12 +53,13 @@ public class Date_RecyclerViewAdpater extends RecyclerView.Adapter<Date_Recycler
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView dayTv;
+        TextView dayTv, userNameTv;
         LinearLayout nodataLayout, dataLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             dayTv = itemView.findViewById(R.id.date_recycle_dayTv);
+            userNameTv = itemView.findViewById(R.id.date_recycle_userNameTv);
             nodataLayout = itemView.findViewById(R.id.date_recycle_nodataLayout);
             dataLayout = itemView.findViewById(R.id.date_recycle_dataLayout);
         }

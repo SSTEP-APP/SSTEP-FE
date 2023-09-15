@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class StoreResponseDto {
     private long id; //사업장 고유번호
+    private long staffId; // 스테프 고유번호
     private String name; //사업장 이름
     private String address; //사업장 주소
     private String latitude; //사업장 위도 좌표
@@ -20,10 +21,12 @@ public class StoreResponseDto {
     private boolean plan; //사업장 유료플랜 여부
     private long code; //사업장 코드번호 => 인앱 사업장 검색시 사용
     private int count; //사업장 구성원 수
+    private boolean isOwner; //사업장 사장 여부
 
 
-    public StoreResponseDto(long id, String name, String address, String latitude, String longitude, boolean scale, boolean plan, long code, int count) {
+    public StoreResponseDto(long id,long staffId, String name, String address, String latitude, String longitude, boolean scale, boolean plan, long code, int count, boolean isOwner) {
         this.id = id;
+        this.staffId = staffId;
         this.name = name;
         this.address = address;
         this.latitude = latitude;
@@ -32,6 +35,7 @@ public class StoreResponseDto {
         this.plan = plan;
         this.code = code;
         this.count = count;
+        this.isOwner = isOwner;
     }
 
     public long getId() {
@@ -104,5 +108,21 @@ public class StoreResponseDto {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public long getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(long staffId) {
+        this.staffId = staffId;
+    }
+
+    public boolean isOwner() {
+        return isOwner;
+    }
+
+    public void setOwner(boolean owner) {
+        isOwner = owner;
     }
 }

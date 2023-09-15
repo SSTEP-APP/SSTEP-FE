@@ -5,8 +5,10 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
@@ -20,6 +22,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,8 +31,30 @@ import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
 import com.example.sstep.document.PhotoDialog;
+import com.example.sstep.document.healthdoc_api.HealthDocApiService;
+import com.example.sstep.document.healthdoc_api.HealthDocRequestDto;
+import com.example.sstep.document.work_doc_api.PhotoApiService;
+import com.example.sstep.document.work_doc_api.PhotoResponseDto;
+import com.example.sstep.document.work_doc_api.WorkDocApiService;
+import com.example.sstep.store.store_api.StoreRegisterReqDto;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+
+import okhttp3.MediaType;
+
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Part;
 
 public class PaperHinput extends AppCompatActivity implements View.OnClickListener, PhotoDialog.PhotoDialogListener {
 
@@ -44,6 +69,8 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
     boolean completeBtnState;
     Dialog showComplete_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
+
+    long photoId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,22 +144,7 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
 
     // '계약서 작성완료'버튼 클릭 시
     public void showCompleteDl(){
-        showComplete_dialog.show();
-        // 다이얼로그의 배경을 투명으로 만든다.
-        showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        TextView join_okdl_commentTv; Button join_okdl_okBtn;
-        join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
-        join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
-        join_okdl_commentTv.setText("보건증 작성 완료하였습니다.");
-        // '회원가입 dialog' _ 확인 버튼 클릭 시
-        join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Paper.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        new PhotoTask().execute();
     }
 
     // 달력 다이얼로그 띄우기
@@ -143,11 +155,11 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         // 사용자가 날짜를 선택하면 호출되는 콜백 메서드
                         // 여기에 선택한 날짜 처리 코드를 작성합니다.
-                        String dateString = year + "년 " + (month + 1) + "월 " + dayOfMonth + "일";
+                        String dateString = year + "-" + (month + 1) + "-" + dayOfMonth;
                         dateBtn.setText(dateString);
 
                         // '만료일'에 1년 더해 입력
-                        enddateTv.setText(year+1 + "년 " + (month + 1) + "월 " + dayOfMonth + "일");
+                        enddateTv.setText(year+1 + "-" + (month + 1) + "-" + dayOfMonth);
                         checkInputValidity();
                     }
                 });
@@ -210,4 +222,170 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
             completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
         }
     }
+
+    /*
+    private void savePhoto(Bitmap photo){
+
+        try {
+            //file을 requestBody타입으로 변경
+            Bitmap photoBitmap = ((BitmapDrawable) photoviewIv.getDrawable()).getBitmap();
+            // 1. Bitmap을 파일로 저장
+            File bitmapFile = convertBitmapToFile(photoBitmap);
+            // 2. 파일을 RequestBody로 변환
+            RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), bitmapFile);
+            // 3. RequestBody를 MultipartBody.Part로 변환
+            MultipartBody.Part body = MultipartBody.Part.createFormData("file", bitmapFile.getName(), requestFile);
+
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            PhotoApiService apiService = retrofit.create(PhotoApiService.class);
+            Call<PhotoResponseDto> call = apiService.savePhoto(body);
+
+            call.enqueue(new Callback<PhotoResponseDto>() {
+                @Override
+                public void onResponse(Call<PhotoResponseDto> call, Response<PhotoResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        PhotoResponseDto photoResponse = response.body();
+                        photoId = photoResponse.getId();
+                        // 업로드 성공 처리
+                    } else {
+                        // 업로드 실패 처리
+                        Toast.makeText(PaperHinput.this, "사진 저장에 실패했습니다." + response, Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<PhotoResponseDto> call, Throwable t) {
+                    Toast.makeText(PaperHinput.this, "사진 저장에 실패했습니다!!" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+     */
+
+
+    private class PhotoTask extends AsyncTask<Void, Void, Long> {
+        @Override
+        protected Long doInBackground(Void... params) {
+
+            Bitmap photoBitmap = ((BitmapDrawable) photoviewIv.getDrawable()).getBitmap();
+
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            photoBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream); // CompressFormat을 JPEG로 변경
+            byte[] byteArray = stream.toByteArray();
+            RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray); // MediaType을 "image/jpeg"로 변경
+            MultipartBody.Part body = MultipartBody.Part.createFormData("file", 19 + "hdoc.jpeg", requestFile); // 파일 이름을 "hdoc.jpg"로 변경
+
+            // 네트워크 요청을 백그라운드 스레드에서 수행
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            PhotoApiService apiService2 = retrofit.create(PhotoApiService.class);
+            Call<Long> call2 = apiService2.savePhoto(body);
+
+            try {
+                Response<Long> response = call2.execute();
+
+                if (response.isSuccessful()) {
+                    return response.body(); // 성공한 경우 이미지 ID 반환
+                } else {
+
+                    return response.body();
+
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                return -1L; // 예외 발생한 경우 -1 반환 또는 다른 실패 코드 반환
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Long result) {
+            showComplete_dialog.show();
+            // 다이얼로그의 배경을 투명으로 만든다.
+            showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            TextView join_okdl_commentTv;
+            Button join_okdl_okBtn;
+            join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
+            join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
+            join_okdl_commentTv.setText("로딩중");
+
+            if (result != null) {
+                if (result != -1L) {
+                    //네트워크 요청 구현
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+
+                    HealthDocRequestDto healthDocRequestDto = new HealthDocRequestDto(
+                            dateBtn.getText().toString().trim(),
+                            enddateTv.getText().toString().trim(),
+                            result
+                    );
+                    HealthDocApiService apiService = retrofit.create(HealthDocApiService.class);
+                    Call<Void> call = apiService.registerHealthDoc(22L, healthDocRequestDto);
+                    call.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful()) {
+
+                                // 파일 업로드 성공
+                                join_okdl_commentTv.setText("보건증 작성을 완료하였습니다.");
+                                Toast.makeText(getApplicationContext(), "보건증 작성을 완료하였습니다.", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                // 파일 업로드 실패
+                                join_okdl_commentTv.setText("보건증 작성에 실패했습니다." + response);
+                                Toast.makeText(getApplicationContext(), "보건증 작성을 실패했습니다." + response.body(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            join_okdl_commentTv.setText("보건증 작성이 실패했습니다."+t.getMessage());
+                            Toast.makeText(getApplicationContext(), "보건증 작성이 실패했습니다."+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    });
+                    // 이미지 ID를 사용하여 이미지를 가져오거나 다른 작업 수행
+
+                    // Toast로 결과를 표시
+                } else {
+                    String errorMessage = "보건증 작성이 실패했습니다!";
+                    join_okdl_commentTv.setText(errorMessage);
+
+                    // Toast로 실패 메시지 표시
+                }
+            } else {
+                String nullMessage = "서버 응답이 null입니다.";
+                join_okdl_commentTv.setText(nullMessage);
+
+            }
+            // '회원가입 dialog' _ 확인 버튼 클릭 시
+            join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), Paper.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+        }
+    }
+
 }

@@ -148,7 +148,7 @@ public class Date extends AppCompatActivity implements View.OnClickListener{
         for (java.util.Date date : weekDates) {
             ymd = sdf_ymd.format(date); // "yyyy-MM-dd" 형식
             day2 = sdf_day.format(date); // 요일 "EEE"
-            dateItemList.add(new Date_recyclerViewWordItemData(ymd + ", " + day2 + "요일"));
+            dateItemList.add(new Date_recyclerViewWordItemData(ymd + ", " + day2 + "요일", null, null, null));
         }
 
         dateRecyclerViewAdapter.notifyDataSetChanged();

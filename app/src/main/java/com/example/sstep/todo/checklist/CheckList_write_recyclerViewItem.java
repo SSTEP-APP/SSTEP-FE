@@ -5,21 +5,12 @@ public class CheckList_write_recyclerViewItem{
     private String CheckList_write_cancelImg;
     private String checklist_write_staffName;
 
-    public String getCheckList_write_Img() {
-        return CheckList_write_Img;
+    // 클릭 이벤트 처리를 위한 인터페이스 정의
+    public interface OnItemClickListener {
+        void onItemClick(int position);
     }
+    private OnItemClickListener onItemClickListener;
 
-    public void setCheckList_write_Img(String checkList_write_Img) {
-        CheckList_write_Img = checkList_write_Img;
-    }
-
-    public String getCheckList_write_cancelImg() {
-        return CheckList_write_cancelImg;
-    }
-
-    public void setCheckList_write_cancelImg(String checkList_write_cancelImg) {
-        CheckList_write_cancelImg = checkList_write_cancelImg;
-    }
 
     public String getChecklist_write_staffName() {
         return checklist_write_staffName;
@@ -27,5 +18,17 @@ public class CheckList_write_recyclerViewItem{
 
     public void setChecklist_write_staffName(String checklist_write_staffName) {
         this.checklist_write_staffName = checklist_write_staffName;
+    }
+
+    // 클릭 이벤트 핸들러 설정 메서드
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
+
+    // 클릭 이벤트를 호출하는 메서드
+    public void performItemClick(int position) {
+        if (onItemClickListener != null) {
+            onItemClickListener.onItemClick(position);
+        }
     }
 }
