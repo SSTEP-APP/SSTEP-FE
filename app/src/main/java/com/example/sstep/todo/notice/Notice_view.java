@@ -162,9 +162,6 @@ public class Notice_view extends AppCompatActivity implements View.OnClickListen
                 }
             }
         }).start();
-
-        // 서버에서 이미지 데이터 가져오기
-//        loadImagesFromServer();
     }
 
     private void loadImagesFromServer() {

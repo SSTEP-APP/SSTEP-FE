@@ -2,8 +2,6 @@ package com.example.sstep.todo.notice;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.style.TtsSpan;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -14,56 +12,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sstep.AppInData;
 import com.example.sstep.R;
-import com.example.sstep.alarm.Alarm1_RecyclerViewAdpater;
-import com.example.sstep.alarm.Alarm1_recyclerViewWordItemData;
 import com.example.sstep.document.work_doc_api.ByteArrayTypeAdapter;
 import com.example.sstep.home.Home_Ceo;
-import com.example.sstep.store.SelectStore;
-import com.example.sstep.store.SelectStore_RecyclerViewAdpater;
-import com.example.sstep.store.SelectStore_recyclerViewItem;
 import com.example.sstep.store.store_api.NullOnEmptyConverterFactory;
-import com.example.sstep.store.store_api.StoreResponseDto;
 import com.example.sstep.todo.notice.notice_api.NoticeApiService;
-import com.example.sstep.todo.notice.notice_api.NoticeRequestDto;
 import com.example.sstep.todo.notice.notice_api.NoticeResponseDto;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
-import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.style.TtsSpan;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.sstep.R;
-import com.example.sstep.alarm.Alarm1_RecyclerViewAdpater;
-import com.example.sstep.alarm.Alarm1_recyclerViewWordItemData;
-import com.example.sstep.home.Home_Ceo;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.util.ArrayList;
 import java.util.Set;
 
 public class Notice extends AppCompatActivity implements View.OnClickListener {
@@ -71,7 +40,7 @@ public class Notice extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "Notice";
     private RecyclerView mRecyclerView;
     private Notice_RecyclerViewAdpater mRecyclerViewAdapter;
-    private Set<Notice_recyclerViewWordItemData> set = new HashSet<>();
+    private Set<Notice_recyclerViewItem> set = new HashSet<>();
     private LinearLayout nodataLayout, dataLayout;
     ImageButton plusbtn, backib;
     TextView listCountNumTv; // 공지사항 리스트 개수
@@ -150,10 +119,10 @@ public class Notice extends AppCompatActivity implements View.OnClickListener {
 
 
     // 공지사항 데이터를 아이템으로 변환하여 Set에 저장하는 함수
-    private Set<Notice_recyclerViewWordItemData> createRecyclerViewItemSet(Set<NoticeResponseDto> noticeSet) {
-        Set<Notice_recyclerViewWordItemData> itemSet = new HashSet<>();
+    private Set<Notice_recyclerViewItem> createRecyclerViewItemSet(Set<NoticeResponseDto> noticeSet) {
+        Set<Notice_recyclerViewItem> itemSet = new HashSet<>();
         for (NoticeResponseDto notice : noticeSet) {
-            Notice_recyclerViewWordItemData item = new Notice_recyclerViewWordItemData(
+            Notice_recyclerViewItem item = new Notice_recyclerViewItem(
                     notice.getTitle(),
                     notice.getWriteDate(),
                     notice.getContents()

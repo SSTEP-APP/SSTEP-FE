@@ -23,7 +23,8 @@
             android:text="일정관리"
             android:textColor="@color/topText"
             android:textSize="17sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -43,195 +44,149 @@
     <!-- 날짜 전체 HL -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp">
-        <Button
-            android:id="@+id/date_prevWeekBtn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/yicon_left"
-            android:layout_gravity="left|center_vertical"
-            android:layout_marginLeft="40dp"
-            android:backgroundTint="@color/grey_737373"/>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+        android:layout_height="58dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/yroundrec_w"
+        android:foregroundTint="#FF0000"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
-            <TextView
-                android:id="@+id/date_currentWeekTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2023년 1월"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_gravity="center_horizontal"/>
-
-        </LinearLayout>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-        <Button
-            android:id="@+id/date_nextWeekBtn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/yicon_right"
-            android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="40dp"
-            android:backgroundTint="@color/grey_737373"/>
-    </LinearLayout> <!-- 날짜 전체 HL -->
-
-    <!-- 주간의 연도와 주차를 표시하는 텍스트뷰 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <!-- 주간 날짜를 표시하는 그리드뷰 -->
-        <LinearLayout
-            android:id="@+id/date_dateContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="26dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-    </LinearLayout>
 
-    <!-- 아래 내용을 주간 날짜 개수만큼 반복해서 추가 -->
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rowCount="2"
-        android:columnCount="7"
-        android:background="@color/white">
-        <TextView
-            android:id="@+id/date_dayTv1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="일"  />
-        <TextView
-            android:id="@+id/date_dayTv2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="월" />
-        <TextView
-            android:id="@+id/date_dayTv3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="화" />
-        <TextView
-            android:id="@+id/date_dayTv4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="수" />
-        <TextView
-            android:id="@+id/date_dayTv5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="목" />
-        <TextView
-            android:id="@+id/date_dayTv6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="금" />
-        <TextView
-            android:id="@+id/date_dayTv7"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="토" />
+            <ImageButton
+                android:id="@+id/date_preDayBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="left|center_vertical"
+                android:background="@drawable/yicon_left" />
 
-        <TextView
-            android:id="@+id/date_dateTv1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="1"  />
-        <TextView
-            android:id="@+id/date_dateTv2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="2" />
-        <TextView
-            android:id="@+id/date_dateTv3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="3" />
-        <TextView
-            android:id="@+id/date_dateTv4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="4" />
-        <TextView
-            android:id="@+id/date_dateTv5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="5" />
-        <TextView
-            android:id="@+id/date_dateTv6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="6" />
-        <TextView
-            android:id="@+id/date_dateTv7"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center_horizontal"
-            android:text="7" />
-    </GridLayout>
+            <ImageButton
+                android:id="@+id/date_refreshBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="6dp"
+                android:background="@drawable/yicon_refresh" />
 
+            <View
+                android:id="@+id/date_view1"
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/date_yearMonthDayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2023년 1월 20일"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/date_weekofdayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="금요일"
+                    android:textColor="#595959"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/date_view2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/date_calendarBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="6dp"
+                android:background="@drawable/yicon_circlecalendar"
+                android:scaleType="centerInside"
+                android:backgroundTint="#737373"/>
+
+            <ImageButton
+                android:id="@+id/date_nextDayBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/yicon_right"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+
+    </LinearLayout> <!-- 날짜 전체 HL -->
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-            <LinearLayout
+        <LinearLayout
+            android:id="@+id/date_nodataLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:background="@drawable/yroundrec_w"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/date_notext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:text="일정근무 직원이 없습니다."
+                android:textColor="#66000000"
+                android:background="@drawable/yicon_date_nodata"
+                android:gravity="center_horizontal"
+                android:paddingTop="12dp"
+                android:paddingLeft="5dp"/>
+
+            <ImageView
+                android:id="@+id/date_nodataImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/j_date_nodataimg" />
+
+        </LinearLayout> <!-- nodata_L -->
+        <LinearLayout
+            android:id="@+id/date_dataLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/date_recycleView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/background"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/date_recycleView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"

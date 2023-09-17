@@ -17,6 +17,8 @@ import com.example.sstep.R;
 import java.util.ArrayList;
 
 public class DatePlus_RecyclerViewAdpater extends RecyclerView.Adapter<DatePlus_RecyclerViewAdpater.ViewHolder> {
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView staffImg;
         ImageButton staffCancelBtn;
@@ -49,9 +51,9 @@ public class DatePlus_RecyclerViewAdpater extends RecyclerView.Adapter<DatePlus_
         }
     }
 
-    private ArrayList<DatePlus_recyclerViewWordItemData> mList = null;
+    private ArrayList<DatePlus_recyclerViewItem> mList = null;
 
-    public DatePlus_RecyclerViewAdpater(ArrayList<DatePlus_recyclerViewWordItemData> mList) {
+    public DatePlus_RecyclerViewAdpater(ArrayList<DatePlus_recyclerViewItem> mList) {
         this.mList = mList;
     }
 
@@ -69,7 +71,7 @@ public class DatePlus_RecyclerViewAdpater extends RecyclerView.Adapter<DatePlus_
     // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DatePlus_recyclerViewWordItemData item = mList.get(position);
+        DatePlus_recyclerViewItem item = mList.get(position);
 
         holder.staffImg.setImageResource(R.drawable.yicon_stafffemale);   // db에서 스태프에게 설정된 프로필사진 받기
         holder.staffCancelBtn.setImageResource(R.drawable.yicon_closered); // 취소 버튼 고정

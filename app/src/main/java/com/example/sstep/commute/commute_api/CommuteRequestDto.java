@@ -13,11 +13,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class CommuteRequestDto {
-    private long id; //실 출퇴근시간 고유번호
     private String commuteDate; //출퇴근 일자
     private DayOfWeek dayOfWeek; //출퇴근 요일
     private String startTime; //출근 시간
-    private String endTime; //퇴근 시간
+    private String endTime; //근무 종료 시간
     private boolean isLate; //지각 여부
     private String disputeMessage; //출퇴근 관련 이의 신청 메시지
     private String disputeStartTime; //정정 출근 시간
@@ -32,14 +31,6 @@ public class CommuteRequestDto {
         this.disputeMessage = disputeMessage;
         this.disputeStartTime = disputeStartTime;
         this.disputeEndTime = disputeEndTime;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getCommuteDate() {

@@ -23,27 +23,15 @@ import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.date.date_api.CalendarApiService;
 import com.example.sstep.date.date_api.CalendarRequestDto;
-import com.example.sstep.store.SelectStore_recyclerViewItem;
 import com.example.sstep.store.store_api.NullOnEmptyConverterFactory;
 import com.example.sstep.store.store_api.StoreApiService;
-import com.example.sstep.store.store_api.StoreResponseDto;
-import com.example.sstep.todo.notice.Notice;
-import com.example.sstep.todo.notice.Notice_RecyclerViewAdpater;
-import com.example.sstep.todo.notice.Notice_input;
-import com.example.sstep.todo.notice.Notice_recyclerViewWordItemData;
-import com.example.sstep.todo.notice.notice_api.NoticeApiService;
-import com.example.sstep.todo.notice.notice_api.NoticeRequestDto;
-import com.example.sstep.todo.notice.notice_api.NoticeResponseDto;
-import com.example.sstep.user.staff.addSchedule;
 import com.example.sstep.user.staff_api.StaffResponseDto;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -56,6 +44,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Date_plus extends AppCompatActivity {
 
+    // 선택한 직원의 아이디를 담을 리스트
+    List<Long> selectedStaffIds = new ArrayList<>();
     Dialog timePickDialog;
     TextView workTimeText, homeTimeText; TextView join_okdl_commentTv;
     LinearLayout SelectedStaffLayout;
@@ -63,7 +53,7 @@ public class Date_plus extends AppCompatActivity {
     private static final String TAG = "Date_plus";
     private RecyclerView mRecyclerView;
     private DatePlus_RecyclerViewAdpater mRecyclerViewAdapter;
-    private ArrayList<DatePlus_recyclerViewWordItemData> mList;
+    private ArrayList<DatePlus_recyclerViewItem> mList;
 
     String calendarDate, startCalTime, endCalTime;
     DayOfWeek dayOfWeek;
@@ -71,6 +61,7 @@ public class Date_plus extends AppCompatActivity {
     Button completeBtn;
     Dialog showComplete_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
+    long storeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,9 +98,10 @@ public class Date_plus extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
 
+        //appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        //storeId = appInData.getUserId(); // 사용자 ID 가져오기
 
-        // 직원 목록 조회
-//        fetchStaffList();
+        storeId = 1;
 
         //직원 리스트 불러오기
         new Thread(new Runnable() {
@@ -124,8 +116,6 @@ public class Date_plus extends AppCompatActivity {
                 // StoreService 인터페이스 구현체 생성
                 StoreApiService storeService = retrofit.create(StoreApiService.class);
 
-                // 서버에 데이터 요청
-                Long storeId = 1L; // 원하는 storeId를 지정하세요.
                 Call<Set<StaffResponseDto>> call = storeService.getStaffsByStoreId(storeId);
                 call.enqueue(new Callback<Set<StaffResponseDto>>() {
                     @Override
@@ -134,7 +124,8 @@ public class Date_plus extends AppCompatActivity {
                             Set<StaffResponseDto> staffs = response.body();
 
                             for (StaffResponseDto staff : staffs) {
-                                addItem(staff.getStaffName());
+                                selectedStaffIds.add(staff.getId()); // 모든 직원 아이디 추가
+                                addItem(staff.getStaffName(), staff.getPhoneNum(), staff.getId());
                             }
 
                         } else {
@@ -156,6 +147,8 @@ public class Date_plus extends AppCompatActivity {
         mRecyclerViewAdapter.setOnItemClickListener(new DatePlus_RecyclerViewAdpater.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
+                long staffId = mList.get(position).getDateplus_recycle_staffId();
+                selectedStaffIds.remove(staffId); // 선택된 직원 아이디 제거
                 mRecyclerViewAdapter.removeItem(position);
             }
         });
@@ -177,6 +170,7 @@ public class Date_plus extends AppCompatActivity {
             }
         });
 
+        // 근무일 입력
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayOfMonth) {
@@ -196,61 +190,66 @@ public class Date_plus extends AppCompatActivity {
         completeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startCalTime = workTimeText.getText().toString().trim();
+                endCalTime = homeTimeText.getText().toString().trim();
 
-                //레트로핏 작동
-                try {
+                // 선택한 직원 ID를 반복하면서 각 직원에 대한 API 호출을 수행합니다.
+                for (long staffId : selectedStaffIds) {
+                    //레트로핏 작동
+                    try {
+                        //네트워크 요청 구현
+                        Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                                .addConverterFactory(new NullOnEmptyConverterFactory())
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build();
+                        CalendarApiService apiService = retrofit.create(CalendarApiService.class);
+                        // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
+                        CalendarRequestDto calendarRequestDto = new CalendarRequestDto(
+                                calendarDate, //일자
+                                dayOfWeek, //요일,
+                                startCalTime, //근무 시작 시간
+                                endCalTime //근무 종료 시간
+                        );
+                        Call<Void> call = apiService.registerCalendar(staffId, calendarRequestDto); // staffId, calendarRequestDto
 
-                    //네트워크 요청 구현
-                    Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
-                            .addConverterFactory(new NullOnEmptyConverterFactory())
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .build();
-
-                    CalendarApiService apiService = retrofit.create(CalendarApiService.class);
-
-                    // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
-                    CalendarRequestDto calendarRequestDto = new CalendarRequestDto(
-                            calendarDate, //일자
-                            dayOfWeek, //요일,
-                            startCalTime, //근무 시작 시간
-                            endCalTime //근무 종료 시간
-                    );
-
-                    Call<Void> call = apiService.registerCalendar(2L, calendarRequestDto); // staffId, calendarRequestDto
-
-                    call.enqueue(new Callback<Void>() {
-                        @Override
-                        public void onResponse(Call<Void> call, Response<Void> response) {
-                            if (response.isSuccessful()) {
-                                showCompleteDl();
-                                Toast.makeText(Date_plus.this, "성공", Toast.LENGTH_SHORT).show();
-                                // 성공적인 응답 처리
-                            } else {
-                                // 기타 다른 상태 코드 처리
-                                try {
-                                    String errorResponse = response.errorBody().string();
-                                    Toast.makeText(Date_plus.this, "일정 추가 실패!! 에러 메시지: " + errorResponse, Toast.LENGTH_SHORT).show();
-                                    // 에러 메시지를 사용하여 추가적인 처리 수행
-                                } catch (IOException e) {
-                                    e.printStackTrace();
+                        call.enqueue(new Callback<Void>() {
+                            @Override
+                            public void onResponse(Call<Void> call, Response<Void> response) {
+                                if (response.isSuccessful()) {
+                                    // 각 직원의 일정이 성공적으로 저장되었을 때 메시지를 표시합니다.
+                                    String successMessage = "직원 ID " + staffId + "의 일정이 성공적으로 저장되었습니다.";
+                                    showCompleteDl();
+                                    Toast.makeText(Date_plus.this, "성공"+ successMessage, Toast.LENGTH_SHORT).show();
+                                    // 성공적인 응답 처리
+                                } else {
+                                    // 기타 다른 상태 코드 처리
+                                    try {
+                                        String errorResponse = response.errorBody().string();
+                                        Toast.makeText(Date_plus.this, "일정 추가 실패!! 에러 메시지: " + errorResponse, Toast.LENGTH_SHORT).show();
+                                        // 에러 메시지를 사용하여 추가적인 처리 수행
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
                                 }
                             }
-                        }
 
-                        @Override
-                        public void onFailure(Call<Void> call, Throwable t) {
-                            // 실패 처리
-                            String errorMessage = t != null ? t.getMessage() : "Unknown error";
-                            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
-                            t.printStackTrace();
-                        }
-                    });
+                            @Override
+                            public void onFailure(Call<Void> call, Throwable t) {
+                                // 실패 처리
+                                String errorMessage = t != null ? t.getMessage() : "Unknown error";
+                                Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                                t.printStackTrace();
+                            }
+                        });
 
 
-                }catch (Exception e) {
-                    e.printStackTrace();
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
+
+
 
             }
         });
@@ -336,10 +335,10 @@ public class Date_plus extends AppCompatActivity {
 
 
     // 직원 목록을 아이템으로 변환
-    private List<DatePlus_recyclerViewWordItemData> createRecyclerViewItemList(Set<StaffResponseDto> staffSet) {
-        List<DatePlus_recyclerViewWordItemData> itemList = new ArrayList<>();
+    private List<DatePlus_recyclerViewItem> createRecyclerViewItemList(Set<StaffResponseDto> staffSet) {
+        List<DatePlus_recyclerViewItem> itemList = new ArrayList<>();
         for (StaffResponseDto staff : staffSet) {
-            DatePlus_recyclerViewWordItemData item = new DatePlus_recyclerViewWordItemData();
+            DatePlus_recyclerViewItem item = new DatePlus_recyclerViewItem();
             item.setDateplus_recycle_staffNameText(staff.getStaffName());
             itemList.add(item);
         }
@@ -347,9 +346,12 @@ public class Date_plus extends AppCompatActivity {
     }
 
     // RecyclerView에 아이템 추가
-    private void addItem(String subText) {
-        DatePlus_recyclerViewWordItemData item = new DatePlus_recyclerViewWordItemData();
+    private void addItem(String subText, String phoneNum, long staffId) {
+        DatePlus_recyclerViewItem item = new DatePlus_recyclerViewItem();
+
         item.setDateplus_recycle_staffNameText(subText);
+        item.setDateplus_recycle_phoneNum(phoneNum);
+        item.setDateplus_recycle_staffId(staffId);
         mList.add(item);
         mRecyclerViewAdapter.notifyDataSetChanged(); // 데이터가 변경되었음을 어댑터에 알림
     }

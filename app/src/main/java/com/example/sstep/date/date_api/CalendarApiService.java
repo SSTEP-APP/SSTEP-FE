@@ -3,6 +3,7 @@ package com.example.sstep.date.date_api;
 import com.example.sstep.todo.notice.notice_api.NoticeRequestDto;
 import com.example.sstep.todo.notice.notice_api.NoticeResponseDto;
 
+import java.time.DayOfWeek;
 import java.util.Set;
 
 import retrofit2.Call;
@@ -18,6 +19,10 @@ public interface CalendarApiService {
     Call<Void> registerCalendar(@Path("staffId") Long staffId, @Body CalendarRequestDto calendarRequestDto);
 
     //해당 날짜에 근무하는 직원 리스트 가져오기
-    @GET("/calendar/{storeId}/day-work-staffs")
-    Call<Set<CalendarResponseDto>> getDayWorkStaffs(@Path("storeId") Long storeId, @Body CalendarRequestDto calendarRequestDto);
+    @GET("/calendar/{storeId}/{date}/{day}/day-work-staffs")
+    Call<Set<CalendarResponseDto>> getDayWorkStaffs(
+            @Path("storeId") Long storeId,
+            @Path("date") String date,
+            @Path("day") DayOfWeek day
+    );
 }
