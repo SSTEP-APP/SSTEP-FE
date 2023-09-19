@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,29 +23,14 @@ import androidx.core.app.ActivityCompat;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.document.PhotoDialog;
-import com.example.sstep.store.store_api.StoreApiService;
-import com.example.sstep.store.store_api.StoreResponseDto;
-import com.example.sstep.user.member.MemberApiService;
-import com.example.sstep.user.member.MemberModel;
-import com.example.sstep.user.member.MemberRequestDto;
-import com.example.sstep.user.member.MemberResponseDto;
-import com.example.sstep.user.member.NullOnEmptyConverterFactory;
-import com.example.sstep.user.staff_api.StaffApiService;
-import com.example.sstep.user.staff_api.StaffResponseDto;
 
 import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MyPage_Profile extends AppCompatActivity implements View.OnClickListener, PhotoDialog.PhotoDialogListener{
 
-    EditText nameEt, phoneEt;
-    String memberId, nameStr, phoneStr;
+    EditText nameEt, phoneEt, emailEt;
     ImageButton backib, cameraIb;
     Button completeBtn;
     CircleImageView profileIv;
@@ -62,6 +46,7 @@ public class MyPage_Profile extends AppCompatActivity implements View.OnClickLis
 
         nameEt = findViewById(R.id.mypage_profile_nameEt);
         phoneEt = findViewById(R.id.mypage_profile_phoneEt);
+        emailEt = findViewById(R.id.mypage_profile_emailEt);
         profileIv = findViewById(R.id.mypage_profile_profileIv);
         completeBtn=findViewById(R.id.mypage_profile_completeBtn); completeBtn.setOnClickListener(this);
         backib = findViewById(R.id.mypage_profile_backib);backib.setOnClickListener(this);
@@ -80,44 +65,6 @@ public class MyPage_Profile extends AppCompatActivity implements View.OnClickLis
 
         // 전화번호 입력시 자동 '-' 입력
         phoneEt.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
-
-        // memberId 가져오기
-        try {
-            //네트워크 요청 구현
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-
-            MemberApiService apiService = retrofit.create(MemberApiService.class);
-            memberId = "819id";
-            //적은 id를 기반으로 db에 검색
-            Call<MemberResponseDto> call = apiService.getMemberByUsername(memberId);
-            call.enqueue(new Callback<MemberResponseDto>() {
-                @Override
-                public void onResponse(Call<MemberResponseDto> call, Response<MemberResponseDto> response) {
-                    if (response.isSuccessful()) {
-                        MemberResponseDto data = response.body();
-                        // 적은 id로 패스워드 데이터 가져오기
-                        nameStr =data.getName(); // id에 id 설정
-                        nameEt.setText(nameStr);
-                        phoneStr =data.getPhoneNum();
-                        phoneEt.setText(phoneStr);
-                    } else {
-
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<MemberResponseDto> call, Throwable t) {
-                    // 실패 처리
-                    String errorMessage = "요청 실패: " + t.getMessage();
-                }
-            });
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     @Override
@@ -177,55 +124,7 @@ public class MyPage_Profile extends AppCompatActivity implements View.OnClickLis
         TextView join_okdl_commentTv; Button join_okdl_okBtn;
         join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
         join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
-
-        // 정보 수정하기
-        try {
-
-            //네트워크 요청 구현
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
-                    .addConverterFactory(new NullOnEmptyConverterFactory())
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-
-
-            MemberApiService apiService = retrofit.create(MemberApiService.class);
-            // 회원가입에 필요한 데이터를 MemberRequestDto 객체로 생성
-            MemberRequestDto memberRequestDto = new MemberRequestDto(
-                    nameEt.getText().toString().trim(),
-                    phoneEt.getText().toString().trim()
-            );
-
-            // 회원가입 요청을 서버에 전송
-            Call<Void> call = apiService.joinMember(memberRequestDto);
-            call.enqueue(new Callback<Void>() {
-                @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
-                    if (response.isSuccessful()) {
-                        // 수정 성공
-                        Void memberResponseDto = response.body();
-                        join_okdl_commentTv.setText("프로필 수정을 완료하였습니다.");
-                        // 응답을 필요에 따라 처리하세요.
-                    } else {
-                        // 실패
-                        int statusCode = response.code();
-                        join_okdl_commentTv.setText("프로필 수정을 실패했습니다.오류코드"+statusCode);
-                        // 에러 응답을 처리하세요.
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<Void> call, Throwable t) {
-                    // 네트워크 오류나 기타 이유로 회원가입 실패
-                    String errorMessage = t != null ? t.getMessage() : "Unknown error";
-                    join_okdl_commentTv.setText("실패.오류코드"+errorMessage);
-                }
-            });
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
+        join_okdl_commentTv.setText("프로필 수정을 완료하였습니다.");
         // '회원가입 dialog' _ 확인 버튼 클릭 시
         join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override

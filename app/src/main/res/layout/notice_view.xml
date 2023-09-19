@@ -126,7 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/yedittext_w_sg"
-                    android:text="공지 제목"
+                    android:text="[출근] 명찰 착용"
                     android:textColor="@color/likeblack"
                     android:textSize="13sp"
                     android:paddingLeft="15dp"

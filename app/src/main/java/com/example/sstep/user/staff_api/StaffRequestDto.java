@@ -30,8 +30,6 @@ public class StaffRequestDto {
     private boolean submitStatus; //코드 입력 여부
 
 
-
-
     public void setJoinStatus(boolean joinStatus) {
         this.joinStatus = joinStatus;
     }

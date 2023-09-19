@@ -19,10 +19,7 @@ public class MemberRequestDto {
         this.password = password;
         this.phoneNum = phoneNum;
         this.username = username;
-    }
 
-    public MemberRequestDto(String name, String phoneNum) {
-        this.name = name;
-        this.phoneNum = phoneNum;
+
     }
 }

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import okhttp3.MultipartBody;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,15 +17,16 @@ public class NoticeRequestDto {
     private String writeDate; //공지글 작성 일자
     private String contents; //공지글 내용
     private int hits; //공지 조회수
-    private long[] photoId; //사진 고유번호 배열
+    private MultipartBody.Part[] multipartFile; //사진 정보
 
-    public NoticeRequestDto(String title, String writeDate, String contents, int hits, long[] photoId) {
+    public NoticeRequestDto(String title, String writeDate, String contents, int hits, MultipartBody.Part[] multipartFile) {
         this.title = title;
         this.writeDate = writeDate;
         this.contents = contents;
         this.hits = hits;
-        this.photoId = photoId;
+        this.multipartFile = multipartFile;
     }
+
 
     public long getId() {
         return id;
@@ -66,11 +68,11 @@ public class NoticeRequestDto {
         this.hits = hits;
     }
 
-    public long[] getPhotoId() {
-        return photoId;
+    public MultipartBody.Part[] getMultipartFile() {
+        return multipartFile;
     }
 
-    public void setPhotoId(long[] photoId) {
-        this.photoId = photoId;
+    public void setMultipartFile(MultipartBody.Part[] multipartFile) {
+        this.multipartFile = multipartFile;
     }
 }

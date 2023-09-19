@@ -18,7 +18,6 @@ import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.alarm.Alarm1_RecyclerViewAdpater;
 import com.example.sstep.alarm.Alarm1_recyclerViewWordItemData;
-import com.example.sstep.document.work_doc_api.ByteArrayTypeAdapter;
 import com.example.sstep.home.Home_Ceo;
 import com.example.sstep.store.SelectStore;
 import com.example.sstep.store.SelectStore_RecyclerViewAdpater;
@@ -59,9 +58,6 @@ import com.example.sstep.R;
 import com.example.sstep.alarm.Alarm1_RecyclerViewAdpater;
 import com.example.sstep.alarm.Alarm1_recyclerViewWordItemData;
 import com.example.sstep.home.Home_Ceo;
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -90,19 +86,40 @@ public class Notice extends AppCompatActivity implements View.OnClickListener {
         dataLayout = (LinearLayout)  findViewById(R.id.notice_dataLayout);
         mRecyclerView.setHasFixedSize(true); // 리사이클러뷰의 크기가 고정됨을 설정
 
+        /*
+        try {
+            if(list.isEmpty()){
+                nodataLayout.setVisibility(View.VISIBLE);
+                dataLayout.setVisibility(View.GONE);
+            }else{
+                nodataLayout.setVisibility(View.GONE);
+                dataLayout.setVisibility(View.VISIBLE);
+                mRecyclerViewAdapter = new Notice_RecyclerViewAdpater(getApplicationContext(), list);
+                mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                mRecyclerView.setAdapter(mRecyclerViewAdapter);
 
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY) // 대소문자 구분
-                .registerTypeAdapter(byte[].class, new ByteArrayTypeAdapter())
-                .create();
+                // 리스트 개수를 텍스트뷰에 설정
+                listCountNumTv.setText(String.valueOf(list.size()));
+            }
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+            Log.e("error", e.toString());
+        }
+         */
 
         // 공지사항 목록 조회
+        fetchNoticeList();
+
+    }
+
+    // 공지사항 목록 조회
+    private void fetchNoticeList() {
         try {
             //네트워크 요청 구현
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
                     .addConverterFactory(new NullOnEmptyConverterFactory())
-                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
             NoticeApiService apiService = retrofit.create(NoticeApiService.class);
@@ -144,10 +161,7 @@ public class Notice extends AppCompatActivity implements View.OnClickListener {
         }catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
-
 
     // 공지사항 데이터를 아이템으로 변환하여 Set에 저장하는 함수
     private Set<Notice_recyclerViewWordItemData> createRecyclerViewItemSet(Set<NoticeResponseDto> noticeSet) {
@@ -156,7 +170,9 @@ public class Notice extends AppCompatActivity implements View.OnClickListener {
             Notice_recyclerViewWordItemData item = new Notice_recyclerViewWordItemData(
                     notice.getTitle(),
                     notice.getWriteDate(),
-                    notice.getContents()
+                    notice.getContents(),
+                    0,
+                    null
             );
             itemSet.add(item);
         }

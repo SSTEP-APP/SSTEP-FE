@@ -88,6 +88,20 @@
                             android:layout_height="0dp"
                             android:layout_weight="1" />
 
+                        <Button
+                            android:id="@+id/datePlus_selectStaffBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:background="@drawable/yroundrec_w_sblue"
+                            android:text="직원 선택하기"
+                            android:textColor="#0D69F3"
+                            android:textSize="12sp"
+                            android:paddingLeft="18dp"
+                            android:paddingRight="18dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -110,15 +124,41 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="15dp"
                         android:orientation="horizontal">
                         <!-- 리스트뷰 필요 직원 아이콘및 이름-->
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/datePlus_recycleView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
+                        <FrameLayout
+                            android:layout_width="70dp"
+                            android:layout_height="80dp"
+                            android:layout_marginRight="25dp">
+
+                            <ImageView
+                                android:id="@+id/datePlus_staffImg"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_horizontal|top"
+                                app:srcCompat="@drawable/yicon_stafffemale" />
+
+                            <ImageButton
+                                android:id="@+id/datePlus_staffCancelBtn"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="right|top"
+                                android:background="@android:color/transparent"
+                                android:scaleType="centerInside"
+                                app:srcCompat="@drawable/j_x_btn_img" />
+
+                            <TextView
+                                android:id="@+id/datePlus_staffNameText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|center_horizontal"
+                                android:text="000"
+                                android:textColor="#000000"
+                                android:textSize="11sp" />
+                        </FrameLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -312,7 +352,7 @@
                 android:background="#FFFFFF"
                 android:orientation="vertical">
                 <Button
-                    android:id="@+id/datePlus_completeBtn"
+                    android:id="@+id/datePlus__completeBtn"
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:layout_gravity="center_vertical"

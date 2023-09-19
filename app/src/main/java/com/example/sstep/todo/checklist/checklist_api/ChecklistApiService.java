@@ -30,19 +30,40 @@ public interface ChecklistApiService {
     Call<CheckListResponseDto> getCheckList(@Path("checklistId") Long checklistId);
 
     //카테고리 별 체크 리스트 완료 목록
-    @GET("/check-list/{staffId}/complete-checklists")
+    @GET("/check-list/{staffId}/{categoryId}/{date}/complete-checklists")
     Call<Set<CheckListResponseDto>> getCompleteCheckListsByCategory(
             @Path("staffId") Long staffId,
-            @Body ChecklistRequestDto checkListRequestDto
+            @Path("categoryId") Long categoryId,
+            @Path("date") String date
     );
 
     //카테고리 별 체크 리스트 미완료 목록
-    @GET("/check-list/{staffId}/uncompleted-checklists")
+    @GET("/check-list/{staffId}/{categoryId}/{date}/uncompleted-checklists")
     Call<Set<CheckListResponseDto>> getUnCompletedCheckListsByCategory(
             @Path("staffId") Long staffId,
-            @Body ChecklistRequestDto checkListRequestDto
+            @Path("categoryId") Long categoryId,
+            @Path("date") String date
+    );
+
+    // 사업장 전체에 해당하는 체크리스트 목록을 가져오는 엔드포인트
+    @GET("/check-list/{storeId}/store-checklists")
+    Call<Set<CheckListResponseDto>> getStoreCheckLists(@Path("storeId") Long storeId);
+
+    // 사업장 전체에 해당하는 체크리스트 미완료 목록을 가져오는 엔드포인트
+    @GET("/check-list/{storeId}/{categoryId}/{date}/store/uncompleted-checklists")
+    Call<Set<CheckListResponseDto>> getStoreUnCompletedCheckListsByCategory(
+            @Path("storeId") Long storeId,
+            @Path("categoryId") Long categoryId,
+            @Path("date") String date
+    );
+
+    // 사업장 전체에 해당하는 체크리스트 완료 목록을 가져오는 엔드포인트
+    @GET("/check-list/{storeId}/{categoryId}/{date}/store/complete-checklists")
+        Call<Set<CheckListResponseDto>> getStoreCompleteCheckListsByCategory(
+            @Path("storeId") Long storeId,
+            @Path("categoryId") Long categoryId,
+            @Path("date") String date
     );
 
 }
-
 

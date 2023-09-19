@@ -72,7 +72,7 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
     private GoogleMap googleMap;
     private MapView mapView;
     private FusedLocationProviderClient fusedLocationClient;
-    private static final float MAX_DISTANCE_THRESHOLD = 50.0f; // 일정 거리 (미터) 설정
+    private static final float MAX_DISTANCE_THRESHOLD = 500.0f; // 일정 거리 (미터) 설정
 
     Dialog showCommuteIn_dialog, showCommuteOut_dialog;
     BaseDialog_OkCenter baseDialog_okCenter, baseDialog_okCenter2;
@@ -257,10 +257,6 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
                             showNoMarker(registeredLatLng);
                             showCurrentLocationButton(false); // 버튼을 숨김
                         }
-
-                        // 현재 위치의 위도와 경도를 Toast로 표시
-                        String currentLocationInfo = "현재 위치: 위도 " + location.getLatitude() + ", 경도 " + location.getLongitude();
-                        Toast.makeText(getApplicationContext(), currentLocationInfo, Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -397,7 +393,7 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
                     );
 
                     //적은 id를 기반으로 db에 검색
-                    Call<Void> call = apiService.registerCommute(1L, commuteRequestDto); // staffId에 해당하는 값을 설정해야 함
+                    Call<Void> call = apiService.registerCommute(2L, commuteRequestDto); // staffId에 해당하는 값을 설정해야 함
                     call.enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {

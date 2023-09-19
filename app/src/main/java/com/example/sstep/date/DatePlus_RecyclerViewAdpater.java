@@ -29,10 +29,12 @@ public class DatePlus_RecyclerViewAdpater extends RecyclerView.Adapter<DatePlus_
         }
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+/*
             staffImg = (ImageView) itemView.findViewById(R.id.dateplus_recycle_staffImg);
             staffCancelBtn = (ImageButton) itemView.findViewById(R.id.dateplus_recycle_staffCancelBtn);
             staffName = (TextView) itemView.findViewById(R.id.dateplus_recycle_staffNameText);
+
+ */
             staffName.setVisibility(View.VISIBLE);
 
             itemView.setOnClickListener(new View.OnClickListener() {

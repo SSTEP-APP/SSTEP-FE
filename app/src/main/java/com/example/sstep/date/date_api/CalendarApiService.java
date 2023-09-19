@@ -13,11 +13,9 @@ import retrofit2.http.Path;
 
 public interface CalendarApiService {
 
-    //직원별 캘린더(일정) 저장
     @POST("/calendar/{staffId}/add-calendar")
     Call<Void> registerCalendar(@Path("staffId") Long staffId, @Body CalendarRequestDto calendarRequestDto);
 
-    //해당 날짜에 근무하는 직원 리스트 가져오기
     @GET("/calendar/{storeId}/day-work-staffs")
     Call<Set<CalendarResponseDto>> getDayWorkStaffs(@Path("storeId") Long storeId, @Body CalendarRequestDto calendarRequestDto);
 }

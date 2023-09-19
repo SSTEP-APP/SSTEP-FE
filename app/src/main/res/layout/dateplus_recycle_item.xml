@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/dateplus_recycle_layout"
@@ -16,38 +16,30 @@
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
-        <FrameLayout
-            android:id="@+id/dateplus_recycle_staffF"
+        <TextView
+            android:id="@+id/dateplus_recycle_staffNameTv"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-
-            <ImageView
-                android:id="@+id/dateplus_recycle_staffImg"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal|top"
-                android:background="@drawable/yicon_stafffemale" />
-
-            <ImageButton
-                android:id="@+id/dateplus_recycle_staffCancelBtn"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_gravity="right|top"
-                android:background="@drawable/yicon_closered"
-                android:scaleType="centerInside" />
-
-            <TextView
-                android:id="@+id/dateplus_recycle_staffNameText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:text="직원명"
-                android:textColor="#000000"
-                android:textSize="11sp"
-                android:layout_marginTop="50dp"/>
-        </FrameLayout>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquareneo_cbd"
+            android:text="김유경"
+            android:textColor="@color/black"
+            android:textSize="13sp"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/dateplus_recycle_phoneNumTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01012345678"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:layout_gravity="center_horizontal"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
     </LinearLayout> <!-- 상위직원 1위 _HL -->
 
