@@ -22,13 +22,23 @@ import androidx.core.content.ContextCompat;
 
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
+import com.example.sstep.document.healthdoc_api.HealthDocApiService;
+import com.example.sstep.document.healthdoc_api.HealthDocResponseDto;
 import com.example.sstep.store.RegisterStore_calendarDialog;
 import com.example.sstep.user.join.JoinActivity;
+import com.example.sstep.user.member.NullOnEmptyConverterFactory;
+import com.example.sstep.user.staff_api.StaffApiService;
+import com.example.sstep.user.staff_api.StaffResponseDto;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Set;
+
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class InputStaffInfo extends AppCompatActivity implements View.OnClickListener,
         RadioGroup.OnCheckedChangeListener{
@@ -40,9 +50,10 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
     RadioGroup pi_payRg;
     RadioButton pi_payhourRb,pi_paydayRb,pi_paymonthRb;
     Button ci_indateBtn, ci_wageBtn, pi_tgsetBtn1, pi_leftBtn, pi_rightBtn, completeBtn;
-    TextView pi_ymTv, pi_insapplyTv1, pi_insapplyTv2, pi_wageTv;
+    TextView pi_ymTv, pi_insapplyTv1, pi_insapplyTv2, pi_wageTv, pi_nameTv;
     EditText pi_rbdayEt;
-
+    TextView isi_profile_nameTv;
+    Button isi_profile_callBtn;
     boolean completeBtnState;
 
     private String paymentDate;
@@ -78,6 +89,10 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
         pi_insapplyTv1=findViewById(R.id.isi_pi_insapplyTv1);
         pi_insapplyTv2=findViewById(R.id.isi_pi_insapplyTv2);
 
+        isi_profile_nameTv =findViewById(R.id.isi_profile_nameTv);
+        isi_profile_callBtn = findViewById(R.id.isi_profile_callBtn);
+
+
 
 
 
@@ -96,6 +111,44 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
         pi_rightBtn.setOnClickListener(dateYearMonth_NavigationClickListener);
 
         setInitialDate();
+        Intent intent2 = getIntent();
+        long staffInfoId = intent2.getLongExtra("staffId", 1);
+
+        //직원 정보 조회
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+                    StaffApiService apiService = retrofit.create(StaffApiService.class);
+
+                    Call<StaffResponseDto> call = apiService.getStaffByStaffId(staffInfoId); //storeId 삽입
+                    retrofit2.Response<StaffResponseDto> response = call.execute();
+
+                    final StaffResponseDto staffResponseDto = response.body();
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            isi_profile_nameTv.setText(staffResponseDto.getStaffName());
+                            isi_profile_callBtn.setText(staffResponseDto.getPhoneNum());
+                        }
+                    });
+                } catch (Exception e) {
+                    final String errorMsg = e.toString();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            handleError(errorMsg);
+
+                        }
+                    });
+                }
+            }
+        }).start();
 
 
         pi_rbdayEt.addTextChangedListener(new TextWatcher() {
@@ -253,5 +306,9 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
             completeBtn.setEnabled(false);
             completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
         }
+    }
+
+    private void handleError(String errorMsg) {
+        Toast.makeText(this, errorMsg + "!!", Toast.LENGTH_SHORT).show();
     }
 }

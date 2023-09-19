@@ -208,9 +208,7 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
                                             regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
                                         }
                                     }
-
                                 }
-
                             });
                         } else {
                         }
@@ -251,10 +249,9 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
                                     for (WorkDocResponseDto workDocResponseDto : codeStaffs) {
                                         if(workDocResponseDto.getStaffId() == staffId){
                                             myWorkDocResponseDto.add(workDocResponseDto);
-                                            regOnResume(myWorkDocResponseDto);
                                             String type = "근로계약서를 확인해 주세요";
                                             UnRegOnResume(codeStaffs, type);
-                                            unRegNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
+                                            unRegNumTv.setText(String.valueOf(unRegRecyclerViewAdapter.getItemCount()));
                                         }
                                     }
                                 }

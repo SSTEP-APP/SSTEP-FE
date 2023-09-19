@@ -26,6 +26,7 @@ import com.example.sstep.store.store_api.StoreRegisterReqDto;
 import com.example.sstep.user.staff_api.ScheduleRequestDto;
 import com.example.sstep.user.staff_api.StaffApiService;
 import com.example.sstep.user.staff_api.StaffRequestDto;
+import com.example.sstep.user.staff_api.StaffResponseDto;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -127,6 +128,47 @@ public class staff_infoInput extends AppCompatActivity {
         hourMoney = getIntent().getIntExtra("hourMoney", 8000);
         wageType = getIntent().getIntExtra("wageType", 1);
         hourlyWageText.setText(""+hourMoney);
+
+        TextView staff_info_nameText = findViewById(R.id.staff_info_nameText);
+        Button staff_info_callText = findViewById(R.id.staff_info_callText);
+
+        Intent intent2 = getIntent();
+        long staffInfoId = intent2.getLongExtra("staffId", 1);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+                    StaffApiService apiService = retrofit.create(StaffApiService.class);
+
+                    Call<StaffResponseDto> call = apiService.getStaffByStaffId(staffInfoId); //storeId 삽입
+                    retrofit2.Response<StaffResponseDto> response = call.execute();
+
+                    final StaffResponseDto staffResponseDto = response.body();
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            staff_info_nameText.setText(staffResponseDto.getStaffName());
+                            staff_info_callText.setText(staffResponseDto.getPhoneNum());
+                        }
+                    });
+                } catch (Exception e) {
+                    final String errorMsg = e.toString();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            handleError(errorMsg);
+                        }
+                    });
+                }
+            }
+        }).start();
+
 
 
         if (inStartDay != null) {
@@ -479,6 +521,8 @@ public class staff_infoInput extends AppCompatActivity {
 
         return new LocalTime[]{startLocalTime, endLocalTime};
     }
-
+    private void handleError(String errorMsg) {
+        Toast.makeText(this, errorMsg + "!!", Toast.LENGTH_SHORT).show();
+    }
 
 }
