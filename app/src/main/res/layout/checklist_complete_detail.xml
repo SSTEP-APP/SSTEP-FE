@@ -158,29 +158,21 @@
                     android:textSize="15sp" />
 
                 <!-- 사진촬영 F -->
-                <ImageButton
-                    android:id="@+id/checkComDetail_pictureIb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/yicon_reccamera"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:visibility="visible"
-                    android:clickable="false"/>
+
                 <FrameLayout
                     android:id="@+id/checkComDetail_photoF"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone">
+                    android:visibility="visible">
+
                     <ImageView
                         android:id="@+id/checkComDetail_photoviewIv"
                         android:layout_width="330dp"
                         android:layout_height="250dp"
-                        android:background="@drawable/yroundrec_w_sg"
                         android:layout_gravity="center_horizontal"
-                        android:scaleType="fitXY"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/yroundrec_w_sg"
+                        android:scaleType="fitXY" />
                 </FrameLayout>
 
                 <TextView

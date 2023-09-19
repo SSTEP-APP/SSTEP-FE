@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.R;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<SelectStore_RecyclerViewAdpater.ViewHolder> {
 

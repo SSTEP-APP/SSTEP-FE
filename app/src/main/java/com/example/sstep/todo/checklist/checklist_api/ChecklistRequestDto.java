@@ -35,6 +35,12 @@ public class ChecklistRequestDto {
         this.categoryId = categoryId;
     }
 
+    public ChecklistRequestDto(boolean isComplete, String memo, long photoId) {
+        this.isComplete = isComplete;
+        this.memo = memo;
+        this.photoId = photoId;
+    }
+
     public String getTitle() {
         return title;
     }

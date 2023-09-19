@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dateplus_listdl_L1"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:maxHeight="300dp"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:layout_gravity="center"
+    android:background="@drawable/yroundrec_w">
+
+    <ScrollView
+        android:id="@+id/dateplus_listdl_scoll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:maxHeight="300dp"
+        android:scrollbars="none">
+        <!-- 스크롤 _L -->
+        <LinearLayout
+            android:id="@+id/dateplus_listdl_scollL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/dateplus_listdl_nodataLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="선택가능한 직원이 없습니다."
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dateplus_listdl_dataLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dateplus_listdl_recycleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="300dp"
+                    android:nestedScrollingEnabled="false"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout> <!-- 스크롤 _L -->
+    </ScrollView>
+
+</LinearLayout>

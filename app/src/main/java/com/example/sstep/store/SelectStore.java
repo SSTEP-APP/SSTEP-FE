@@ -31,7 +31,6 @@ import com.example.sstep.user.staff_api.StaffRequestDto;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -97,11 +96,11 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                             .build();
                     MemberApiService apiService = retrofit.create(MemberApiService.class);
 
-                    Call<Set<StoreResponseDto>> call = apiService.getStoresBelongMember(userId);
-                    retrofit2.Response<Set<StoreResponseDto>> response = call.execute();
+                    Call<List<StoreResponseDto>> call = apiService.getStoresBelongMember(userId);
+                    retrofit2.Response<List<StoreResponseDto>> response = call.execute();
 
                     if (response.isSuccessful()) {
-                        final Set<StoreResponseDto> stores = response.body();
+                        final List<StoreResponseDto> stores = response.body();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -334,7 +333,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
 
         mList.add(item);
     }
-    private void updateRecyclerView(Set<StoreResponseDto> stores) {
+    private void updateRecyclerView(List<StoreResponseDto> stores) {
         mList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
         for (StoreResponseDto store : stores) {
             addItem(store.getName(), store.getAddress(), "" + store.getCount(), store.getId(), store.getCode(), store.getStaffId(), store.isOwner());
@@ -350,6 +349,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                 appInData.setStoreId(item.getSelectStoreId()); //storeId저장
                 appInData.setStoreCode(item.getSelectStoreCode());
                 appInData.setStaffId(item.getSelectStaffId());
+                appInData.setOwner(item.isSelectIsOwner());
 
                 Intent intent = new Intent(getApplicationContext(), Home_Ceo.class); //사장, 스테프 구분 필요
                 startActivity(intent);
@@ -361,7 +361,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
     private void handleError(String errorMsg) {
         Toast.makeText(this, errorMsg + "!!", Toast.LENGTH_SHORT).show();
     }
-    protected void onResume(Set<StoreResponseDto> stores) {
+    protected void onResume(List<StoreResponseDto> stores) {
         super.onResume();
 
         // 이곳에서 리사이클러뷰 데이터를 업데이트하고 어댑터를 갱신합니다.

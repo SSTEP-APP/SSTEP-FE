@@ -24,6 +24,7 @@ import com.example.sstep.document.work_doc_api.WorkDocResponseDto;
 import com.example.sstep.user.member.NullOnEmptyConverterFactory;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -37,8 +38,8 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
     ImageButton backib;
 
     TextView regNumTv, unRegNumTv;
-
-    long storeId;
+    Boolean owner;
+    long storeId, staffId;
 
     private RecyclerView regRecyclerView;
     private RecyclerView unRegRecyclerView;
@@ -57,7 +58,11 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
         //unreglistL=findViewById(R.id.paperwlist_unreglistL); unreglistL.setOnClickListener(this);
         backib=findViewById(R.id.paperwlist_backib); backib.setOnClickListener(this);
 
+        //앱 데이터에서 가져오기
+
         storeId = 3;
+        owner = false;
+        staffId = 22;
 
         regFirstInit();
         UnRegFirstInit();
@@ -76,101 +81,198 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
         TextView tv = findViewById(R.id.paperwlist_regTv);
 
 
-        //근로계약서 등록된 사람 보기
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
-                            .addConverterFactory(new NullOnEmptyConverterFactory())
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .build();
-                    WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
+        if(owner) {
+            //근로계약서 등록된 사람 보기
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                                .addConverterFactory(new NullOnEmptyConverterFactory())
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build();
+                        WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
 
-                    Call<Set<WorkDocResponseDto>> call = apiService.getRegSecondWorkDocStaffs(storeId); //storeId 삽입
-                    retrofit2.Response<Set<WorkDocResponseDto>> response = call.execute();
+                        Call<Set<WorkDocResponseDto>> call = apiService.getRegSecondWorkDocStaffs(storeId); //storeId 삽입
+                        retrofit2.Response<Set<WorkDocResponseDto>> response = call.execute();
 
-                    if (response.isSuccessful()) {
-                        final Set<WorkDocResponseDto> codeStaffs = response.body();
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                regOnResume(codeStaffs);
-                                regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
-                            }
+                        if (response.isSuccessful()) {
+                            final Set<WorkDocResponseDto> codeStaffs = response.body();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    regOnResume(codeStaffs);
+                                    regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
+                                }
 
-                        });
-                    } else {
-                    }
-                } catch (Exception e) {
-                    final String errorMsg = e.toString();
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            handleError(errorMsg);
+                            });
+                        } else {
                         }
-                    });
+                    } catch (Exception e) {
+                        final String errorMsg = e.toString();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                handleError(errorMsg);
+                            }
+                        });
+                    }
                 }
-            }
-        }).start();
+            }).start();
 
 
+            //근로계약서 등록 안된 사람 보기
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                                .addConverterFactory(new NullOnEmptyConverterFactory())
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build();
+                        WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
 
-        //근로계약서 등록 안된 사람 보기
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
-                            .addConverterFactory(new NullOnEmptyConverterFactory())
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .build();
-                    WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
+                        Call<Set<WorkDocResponseDto>> call2 = apiService.getRegFirstWorkDocStaffs(storeId); //storeId 삽입
+                        retrofit2.Response<Set<WorkDocResponseDto>> response2 = call2.execute();
 
-                    Call<Set<WorkDocResponseDto>> call2 = apiService.getRegFirstWorkDocStaffs(storeId); //storeId 삽입
-                    retrofit2.Response<Set<WorkDocResponseDto>> response2 = call2.execute();
-
-                    if (response2.isSuccessful()) {
-                        final Set<WorkDocResponseDto> codeStaffs = response2.body();
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                String type = "근로계약서 확인 중";
-                                UnRegOnResume(codeStaffs, type);
-                            }
-                        });
-                    }
-
-                    Call<Set<WorkDocResponseDto>> call = apiService.getUnRegWorkDocStaffs(storeId); //storeId 삽입
-                    retrofit2.Response<Set<WorkDocResponseDto>> response = call.execute();
-
-                    if (response.isSuccessful()) {
-                        final Set<WorkDocResponseDto> codeStaffs = response.body();
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                String type = "근로계약서 미등록";
-                                UnRegOnResume(codeStaffs, type);
-                                unRegNumTv.setText(String.valueOf(unRegRecyclerViewAdapter.getItemCount()));
-                            }
-                        });
-                    }
-                } catch (Exception e) {
-                    final String errorMsg = e.toString();
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            handleError(errorMsg);
-                            tv.setText(errorMsg);
+                        if (response2.isSuccessful()) {
+                            final Set<WorkDocResponseDto> codeStaffs = response2.body();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String type = "근로계약서 확인 중";
+                                    UnRegOnResume(codeStaffs, type);
+                                }
+                            });
                         }
-                    });
+
+                        Call<Set<WorkDocResponseDto>> call = apiService.getUnRegWorkDocStaffs(storeId); //storeId 삽입
+                        retrofit2.Response<Set<WorkDocResponseDto>> response = call.execute();
+
+                        if (response.isSuccessful()) {
+                            final Set<WorkDocResponseDto> codeStaffs = response.body();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String type = "근로계약서 미등록";
+                                    UnRegOnResume(codeStaffs, type);
+                                    unRegNumTv.setText(String.valueOf(unRegRecyclerViewAdapter.getItemCount()));
+                                }
+                            });
+                        }
+                    } catch (Exception e) {
+                        final String errorMsg = e.toString();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                handleError(errorMsg);
+                                tv.setText(errorMsg);
+                            }
+                        });
+                    }
                 }
-            }
-        }).start();
+            }).start();
 
 
+        }
+        else {
+            //직원이 근로계약서 등록된 사람 보기
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                                .addConverterFactory(new NullOnEmptyConverterFactory())
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build();
+                        WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
+
+                        Call<Set<WorkDocResponseDto>> call = apiService.getRegSecondWorkDocStaffs(storeId); //storeId 삽입
+                        retrofit2.Response<Set<WorkDocResponseDto>> response = call.execute();
+
+                        if (response.isSuccessful()) {
+                            final Set<WorkDocResponseDto> codeStaffs = response.body();
+                            Set<WorkDocResponseDto> myWorkDocResponseDto = new HashSet<>();
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    for (WorkDocResponseDto workDocResponseDto : codeStaffs) {
+                                        if(workDocResponseDto.getStaffId() == staffId){
+                                            myWorkDocResponseDto.add(workDocResponseDto);
+                                            regOnResume(myWorkDocResponseDto);
+                                            regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
+                                        }
+                                    }
+
+
+                                }
+
+                            });
+                        } else {
+                        }
+                    } catch (Exception e) {
+                        final String errorMsg = e.toString();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                handleError(errorMsg);
+                            }
+                        });
+                    }
+                }
+            }).start();
+
+
+            //직원이 근로계약서 등록 안된 사람 보기
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                                .addConverterFactory(new NullOnEmptyConverterFactory())
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build();
+                        WorkDocApiService apiService = retrofit.create(WorkDocApiService.class);
+
+                        Call<Set<WorkDocResponseDto>> call2 = apiService.getRegFirstWorkDocStaffs(storeId); //storeId 삽입
+                        retrofit2.Response<Set<WorkDocResponseDto>> response2 = call2.execute();
+
+                        if (response2.isSuccessful()) {
+                            final Set<WorkDocResponseDto> codeStaffs = response2.body();
+                            Set<WorkDocResponseDto> myWorkDocResponseDto = new HashSet<>();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    for (WorkDocResponseDto workDocResponseDto : codeStaffs) {
+                                        if(workDocResponseDto.getStaffId() == staffId){
+                                            myWorkDocResponseDto.add(workDocResponseDto);
+                                            regOnResume(myWorkDocResponseDto);
+                                            String type = "근로계약서를 확인해 주세요";
+                                            UnRegOnResume(codeStaffs, type);
+                                            unRegNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    } catch (Exception e) {
+                        final String errorMsg = e.toString();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                handleError(errorMsg);
+                                tv.setText(errorMsg);
+                            }
+                        });
+                    }
+                }
+            }).start();
+        }
 
 
 

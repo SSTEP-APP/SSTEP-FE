@@ -7,6 +7,7 @@ public class AppInData extends Application {
     private long storeId;
     private long storeCode;
     private long staffId;
+    private boolean owner;
 
     public String getUserId() {
         return userId;
@@ -54,5 +55,13 @@ public class AppInData extends Application {
 
     public void setStoreName(String storeName) {
         this.storeName = storeName;
+    }
+
+    public boolean isOwner() {
+        return owner;
+    }
+
+    public void setOwner(boolean owner) {
+        this.owner = owner;
     }
 }
