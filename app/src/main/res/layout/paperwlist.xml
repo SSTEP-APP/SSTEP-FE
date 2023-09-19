@@ -99,11 +99,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
+                        android:fontFamily="@font/nanumsquareneo_ehv"
                         android:gravity="right"
-                        android:text="1"
+                        android:text="0"
                         android:textColor="@color/blue"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/nanumsquareneo_ehv" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <View
@@ -166,11 +166,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
+                        android:fontFamily="@font/nanumsquareneo_ehv"
                         android:gravity="right"
-                        android:text="1"
+                        android:text="0"
                         android:textColor="@color/blue"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/nanumsquareneo_ehv" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <View

@@ -803,43 +803,45 @@
             </LinearLayout>
 
             <!-- 맨 아래 버튼 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="#FFFFFF"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp">
-                <CheckBox
-                    android:id="@+id/paperwinput_privacyCb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/ychbox_rec_blue"
-                    android:text="개인정보 수집 및 이용 동의"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:paddingLeft="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:checked="false"/>
-
-                <Button
-                    android:id="@+id/paperwinput_completeBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:background="@drawable/yroundrec_bottombtnoff"
-                    android:clickable="false"
-                    android:text="계약서 작성완료"
-                    android:textColor="@color/white"
-                    android:textSize="17sp" />
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="15dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/paperwinput_privacyCb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:button="@drawable/ychbox_rec_blue"
+            android:checked="false"
+            android:paddingLeft="15dp"
+            android:text="개인정보 수집 및 이용 동의"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/paperwinput_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:clickable="false"
+            android:text="계약서 작성완료"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </LinearLayout>
 
 
 </LinearLayout>
