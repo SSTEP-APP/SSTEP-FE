@@ -31,6 +31,7 @@ import com.example.sstep.date.date_api.CalendarApiService;
 import com.example.sstep.date.date_api.CalendarResponseDto;
 import com.example.sstep.document.work_doc_api.ByteArrayTypeAdapter;
 import com.example.sstep.store.SelectStore;
+import com.example.sstep.todo.checklist.CheckList;
 import com.example.sstep.todo.checklist.Checklist_detail;
 import com.example.sstep.todo.checklist.checklist_api.CheckListResponseDto;
 import com.example.sstep.todo.checklist.checklist_api.ChecklistApiService;
@@ -214,6 +215,17 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
         checkListRecyclerView.setAdapter(checkListRecyclerViewAdapter);
         checkListRecyclerView.setLayoutManager(new LinearLayoutManager(Home_staff.this, RecyclerView.VERTICAL, false)); //리사이클러뷰 양식지정
 
+        Button checkListBtn = findViewById(R.id.homestaff_checklistBtn);
+        checkListBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                intent = new Intent(getApplicationContext(), CheckList.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         //체크리스트 리사이클러뷰 값 불러오기
         new Thread(new Runnable() {
             @Override
@@ -395,9 +407,7 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    private void handleError(String errorMsg) {
-        Toast.makeText(this, errorMsg + "!!", Toast.LENGTH_SHORT).show();
-    }
+
 
     // 일정 리스트
     private void fetchDate() {

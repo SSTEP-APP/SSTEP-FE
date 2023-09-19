@@ -255,8 +255,16 @@ public class CheckList extends AppCompatActivity {
                                 spinner.setAdapter(spinnerAdapter);
                                 String selectedItem = (String) spinner.getSelectedItem();
 
-                                viewModel.setCategoryIdLiveData(dictionary.get(selectedItem));
-                                viewModel2.setDate(todayText.getText().toString());
+                                if(dictionary.get(selectedItem)==null){
+                                    Toast.makeText(CheckList.this, "체크리스트를 등록해주세요.", Toast.LENGTH_SHORT).show();
+                                    Intent intent;
+                                    intent = new Intent(getApplicationContext(), CheckList_write.class);
+                                    startActivity(intent);
+                                    finish();
+                                }else {
+                                    viewModel.setCategoryIdLiveData(dictionary.get(selectedItem));
+                                    viewModel2.setDate(todayText.getText().toString());
+                                }
 
 
                             }
