@@ -29,9 +29,11 @@ public interface StaffApiService {
             @Path("storeCode") Long storeCode
         );
 
+    // 추가
+
+    //직원 조회
     @GET("/staff/{staffId}")
     Call<StaffResponseDto> getStaffByStaffId(@Path("staffId") Long staffId);
-
 
     /*
     //직원별 캘린더(일정) 저장

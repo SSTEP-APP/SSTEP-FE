@@ -46,5 +46,13 @@ public class StaffResponseDto {
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
+
+    public boolean isOwnerStatus() {
+        return ownerStatus;
+    }
+
+    public void setOwnerStatus(boolean ownerStatus) {
+        this.ownerStatus = ownerStatus;
+    }
 }
 

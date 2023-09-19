@@ -37,6 +37,7 @@ import com.example.sstep.todo.checklist.checklist_api.CheckListResponseDto;
 import com.example.sstep.todo.checklist.checklist_api.ChecklistApiService;
 import com.example.sstep.store.store_api.StoreApiService;
 import com.example.sstep.store.store_api.StoreResponseDto;
+import com.example.sstep.todo.notice.Notice;
 import com.example.sstep.todo.notice.notice_api.NoticeApiService;
 import com.example.sstep.todo.notice.notice_api.NoticeResponseDto;
 import com.example.sstep.user.member.MemberApiService;
@@ -350,6 +351,11 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
                 break;
             case R.id.homestaff_dateplusBtn: // 일정
                 intent = new Intent(getApplicationContext(), Date_plus.class);
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.homestaff_noticeBtn:
+                intent = new Intent(getApplicationContext(), Notice.class);
                 startActivity(intent);
                 finish();
                 break;

@@ -10,20 +10,36 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.home.Home_Ceo;
 import com.example.sstep.user.login.Login;
+import com.example.sstep.user.member.MemberApiService;
+import com.example.sstep.user.member.MemberResponseDto;
+import com.example.sstep.user.staff_api.StaffApiService;
+import com.example.sstep.user.staff_api.StaffResponseDto;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MyPage extends AppCompatActivity implements View.OnClickListener {
 
+    AppInData appInData;
+    String userName;
+    long staffId;
     LinearLayout alarmHL1, pwdHL2, askHL3, logoutHL4, dropHL5;
     Button profileBtn;
     ImageButton backib;
     Dialog logoutdl, dropdl;
     Intent intent;
+    TextView nameTv, posiTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +53,8 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
         dropHL5 = findViewById(R.id.mypage_dropHL5); dropHL5.setOnClickListener(this);
         profileBtn = findViewById(R.id.mypage_profileBtn); profileBtn.setOnClickListener(this);
         backib = findViewById(R.id.mypage_backib); backib.setOnClickListener(this);
+        nameTv=findViewById(R.id.mypage_nameTv);
+        posiTv=findViewById(R.id.mypage_posiTv);
 
         logoutdl = new Dialog(MyPage.this); // Dialog 초기화
         logoutdl.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
@@ -45,6 +63,51 @@ public class MyPage extends AppCompatActivity implements View.OnClickListener {
         dropdl = new Dialog(MyPage.this); // Dialog 초기화
         dropdl.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         dropdl.setContentView(R.layout.mypage_dropdl); // xml 레이아웃 파일과 연결
+
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        userName = appInData.getUserName();
+        staffId = appInData.getStaffId();
+
+        nameTv.setText(userName);
+
+        // staffId 를 통해 직급 가져오기
+        try {
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            StaffApiService apiService = retrofit.create(StaffApiService.class);
+            //적은 id를 기반으로 db에 검색
+            Call<StaffResponseDto> call = apiService.getStaffByStaffId(staffId); //staffId 아이디
+            call.enqueue(new Callback<StaffResponseDto>() {
+                @Override
+                public void onResponse(Call<StaffResponseDto> call, Response<StaffResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        StaffResponseDto data = response.body();
+                        // 적은 id로 패스워드 데이터 가져오기
+                        boolean ownerStatus =data.isOwnerStatus(); // id에 id 설정 true면 사장, false면 직원
+                        if (ownerStatus) {
+                            posiTv.setText("[사장]");
+                        }else{
+                            posiTv.setText("[직원]");
+                        }
+                    } else {
+                        // 오류 처리
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<StaffResponseDto> call, Throwable t) {
+                    // 실패 처리
+                    String errorMessage = "요청 실패: " + t.getMessage();
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
