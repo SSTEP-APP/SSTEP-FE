@@ -405,6 +405,7 @@
                             android:paddingRight="40dp" />
 
                         <Button
+                            android:id="@+id/homeceo_checklist_addCheckListBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"

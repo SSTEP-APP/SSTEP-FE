@@ -96,6 +96,7 @@ public class CheckList_write extends AppCompatActivity {
     Dialog showComplete_dialog, addCategory_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
     String today, endDay;
+    AppInData appInData;
     long storeId;
     Map<String, Integer> dictionary = new HashMap<>();
 
@@ -132,8 +133,8 @@ public class CheckList_write extends AppCompatActivity {
         thirdCateRb= findViewById(R.id.checkList_write_thirdCategoryBtn);
 
         
-        //appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
-        //storeId = appInData.getUserId(); // 사용자 ID 가져오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        storeId = appInData.getStoreId(); // 사용자 ID 가져오기
 
         updateRB();
 
@@ -163,7 +164,6 @@ public class CheckList_write extends AppCompatActivity {
                 StoreApiService storeService = retrofit.create(StoreApiService.class);
 
                 // 서버에 데이터 요청
-                Long storeId = 1L; // 원하는 storeId를 지정하세요.
                 Call<Set<StaffResponseDto>> call = storeService.getStaffsByStoreId(storeId);
                 call.enqueue(new Callback<Set<StaffResponseDto>>() {
                     @Override
@@ -543,7 +543,7 @@ public class CheckList_write extends AppCompatActivity {
                     );
 
                     // 등록 요청을 서버에 전송
-                    Call<Void> call = apiService.saveCategory(1L, categoryRequestDto);
+                    Call<Void> call = apiService.saveCategory(storeId, categoryRequestDto);
                     call.enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
@@ -597,7 +597,7 @@ public class CheckList_write extends AppCompatActivity {
         // 등록에 필요한 데이터를 ChecklistRequestDto 객체로 생성
 
         // 등록 요청을 서버에 전송
-        Call<Set<CategoryResponseDto>> call = apiService.getCategories(1L);
+        Call<Set<CategoryResponseDto>> call = apiService.getCategories(storeId);
 
         call.enqueue(new Callback<Set<CategoryResponseDto>>() {
             @Override
@@ -611,7 +611,10 @@ public class CheckList_write extends AppCompatActivity {
                         if (iterator.hasNext()) {
                             CategoryResponseDto firstCategory = iterator.next();
                             firstCateRB.setText(firstCategory.getName());
+                            firstCateRB.setVisibility(View.VISIBLE);
                             dictionary.put(firstCategory.getName(), (int)firstCategory.getId());
+                        }else {
+
                         }
 
                         // 두 번째 카테고리 가져오기
@@ -636,6 +639,13 @@ public class CheckList_write extends AppCompatActivity {
                             thirdCateRb.setText("등록해주세요");
                             thirdCateRb.setVisibility(View.INVISIBLE);
                         }
+                    }
+                    else {
+                        firstCateRB.setText("등록해주세요");
+                        firstCateRB.setVisibility(View.INVISIBLE);
+                        secondCateRb.setVisibility(View.INVISIBLE);
+                        thirdCateRb.setVisibility(View.INVISIBLE);
+                        Toast.makeText(CheckList_write.this, "카테고리를 추가해 주세요", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(CheckList_write.this, "에러발생"+response.body().toString(), Toast.LENGTH_SHORT).show();
