@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CommuteResponseDto {
     private long staffId; //직원 고유 번호
+    private long commuteId; //출퇴근 고유 번호
     private String staffName; //직원 이름
-    private long id; //실 출퇴근시간 고유번호
     private String commuteDate; //출퇴근 일자
     private DayOfWeek dayOfWeek; //출퇴근 요일
     private String startTime; //출근 시간
@@ -26,11 +26,10 @@ public class CommuteResponseDto {
     private String disputeStartTime; //정정 출근 시간
     private String disputeEndTime; //정정 퇴근 시간
 
-
-    public CommuteResponseDto(long staffId, String staffName, long id, String commuteDate, DayOfWeek dayOfWeek, String startTime, String endTime, boolean isLate, String disputeMessage, String disputeStartTime, String disputeEndTime) {
+    public CommuteResponseDto(long staffId, long commuteId, String staffName, String commuteDate, DayOfWeek dayOfWeek, String startTime, String endTime, boolean isLate, String disputeMessage, String disputeStartTime, String disputeEndTime) {
         this.staffId = staffId;
+        this.commuteId = commuteId;
         this.staffName = staffName;
-        this.id = id;
         this.commuteDate = commuteDate;
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
@@ -49,20 +48,20 @@ public class CommuteResponseDto {
         this.staffId = staffId;
     }
 
+    public long getCommuteId() {
+        return commuteId;
+    }
+
+    public void setCommuteId(long commuteId) {
+        this.commuteId = commuteId;
+    }
+
     public String getStaffName() {
         return staffName;
     }
 
     public void setStaffName(String staffName) {
         this.staffName = staffName;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getCommuteDate() {

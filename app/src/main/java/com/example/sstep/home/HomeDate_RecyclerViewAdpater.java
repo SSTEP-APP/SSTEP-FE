@@ -1,19 +1,21 @@
-package com.example.sstep.date;
+package com.example.sstep.home;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.R;
+import com.example.sstep.date.Date_recyclerViewItem;
 
 import java.util.List;
 
-public class Date_RecyclerViewAdpater extends RecyclerView.Adapter<Date_RecyclerViewAdpater.ViewHolder> {
+public class HomeDate_RecyclerViewAdpater extends RecyclerView.Adapter<HomeDate_RecyclerViewAdpater.ViewHolder> {
 
     private Context context;
     private static OnItemClickListener onItemClickListener;
@@ -23,18 +25,21 @@ public class Date_RecyclerViewAdpater extends RecyclerView.Adapter<Date_Recycler
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView staffNameTv, scheduleTimeTv;
+        TextView calendarDateTv, staffNameTv, schTimeTv;
+        LinearLayout goLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            staffNameTv = (TextView) itemView.findViewById(R.id.date_recycle_userNameTv);
-            scheduleTimeTv = (TextView) itemView.findViewById(R.id.date_recycle_scheduleTimeTv);
+            calendarDateTv = (TextView) itemView.findViewById(R.id.home_date_recycle_calendarDateTv);
+            staffNameTv = (TextView) itemView.findViewById(R.id.home_date_recycle_staffNameTv);
+            schTimeTv = (TextView) itemView.findViewById(R.id.home_date_recycle_schTimeTv);
+            goLayout = (LinearLayout) itemView.findViewById(R.id.home_date_recycle_goLayout);
         }
     }
 
-    private List<Date_recyclerViewItem> mList = null;
+    private List<HomeDate_recyclerViewItem> mList = null;
 
-    public Date_RecyclerViewAdpater(List<Date_recyclerViewItem> mList) {
+    public HomeDate_RecyclerViewAdpater(List<HomeDate_recyclerViewItem> mList) {
         this.mList = mList;
     }
 
@@ -44,7 +49,7 @@ public class Date_RecyclerViewAdpater extends RecyclerView.Adapter<Date_Recycler
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.date_recycle_item, parent, false);
+        View view = inflater.inflate(R.layout.home_date_recycle_item, parent, false);
         ViewHolder vh = new ViewHolder(view);
         return vh;
     }
@@ -52,10 +57,11 @@ public class Date_RecyclerViewAdpater extends RecyclerView.Adapter<Date_Recycler
     // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Date_recyclerViewItem item = mList.get(position);
+        HomeDate_recyclerViewItem item = mList.get(position);
 
+        holder.calendarDateTv.setText(item.getCalendarDate());
         holder.staffNameTv.setText(item.getStaffName());
-        holder.scheduleTimeTv.setText(item.getStartCalTime() + "~" + item.getEndCalTime());
+        holder.schTimeTv.setText(item.getStartCalTime() + " ~ " + item.getEndCalTime());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

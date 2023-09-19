@@ -84,7 +84,7 @@
                         android:id="@+id/mypage_nameTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="김유경"
+                        android:text="직원명"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
                     <!-- 직급_text-->

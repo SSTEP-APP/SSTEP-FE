@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:id="@+id/commutedisputelist_recycle_layout">
+    android:id="@+id/disputelist_recycle_layout">
 
     <LinearLayout
-        android:id="@+id/commutedisputelist_recycle_innerLayout"
+        android:id="@+id/disputelist_recycle_innerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -28,14 +28,14 @@
             android:gravity="center_vertical"
             android:layout_marginLeft="15dp">
             <TextView
-                android:id="@+id/commutedisputelist_dateTv"
+                android:id="@+id/disputelist_recycle_disputeDateTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2023.08.18"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
             <TextView
-                android:id="@+id/commutedisputelist_nameTv"
+                android:id="@+id/disputelist_recycle_staffNameTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="김유경"
@@ -48,7 +48,7 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
         <ImageView
-            android:id="@+id/paperwlist_reggoIv"
+            android:id="@+id/disputelist_recycle_reggoIv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/yicon_go"

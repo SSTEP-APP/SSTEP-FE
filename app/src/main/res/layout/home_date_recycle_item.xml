@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/home_date_recycle_layout">
+
+    <LinearLayout
+        android:id="@+id/home_date_recycle_innerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/home_date_recycle_calendarDateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2023.02.12 (수)"
+            android:textSize="13sp"
+            android:textColor="@color/black"/>
+        <LinearLayout
+            android:id="@+id/home_date_recycle_goLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/yroundrec_homeceo_date"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="20dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/home_date_recycle_staffNameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="직원 이름"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/home_date_recycle_schTimeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="근무시작시간 ~ 근무종료시간"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -78,9 +78,6 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
         appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
         userId = appInData.getUserId(); // 사용자 ID 가져오기
 
-
-
-
         //리사이클러뷰를 통해 사업장 리스트 가지고 오기
         firstInit();
 
