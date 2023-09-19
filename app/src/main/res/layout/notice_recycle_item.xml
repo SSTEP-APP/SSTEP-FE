@@ -74,6 +74,18 @@
                 android:text="2023.05.31(수) 14:30"
                 android:textColor="#737373"
                 android:textSize="13sp" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/notice_recycle_hitsTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="조회수 : 0"
+                android:textColor="#737373"
+                android:textSize="13sp" />
         </LinearLayout> <!-- 공지사항 내용 _HL -->
     </LinearLayout> <!-- 공지사항 _L -->
 

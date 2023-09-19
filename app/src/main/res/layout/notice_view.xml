@@ -83,15 +83,6 @@
                             android:text="김유경"
                             android:textStyle="bold"
                             android:textColor="@color/likeblack"/>
-                        <TextView
-                            android:id="@+id/notice_view_posiTv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="[사업주]"
-                            android:textStyle="bold"
-                            android:textColor="@color/likeblack"
-                            android:layout_marginLeft="5dp"
-                            android:textSize="15sp"/>
                     </LinearLayout>
                     <TextView
                         android:id="@+id/notice_view_dateTv"

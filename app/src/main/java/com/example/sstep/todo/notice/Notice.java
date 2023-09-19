@@ -12,9 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.document.work_doc_api.ByteArrayTypeAdapter;
 import com.example.sstep.home.Home_Ceo;
+import com.example.sstep.home.Home_staff;
 import com.example.sstep.store.store_api.NullOnEmptyConverterFactory;
 import com.example.sstep.todo.notice.notice_api.NoticeApiService;
 import com.example.sstep.todo.notice.notice_api.NoticeResponseDto;
@@ -37,6 +39,11 @@ import java.util.Set;
 
 public class Notice extends AppCompatActivity implements View.OnClickListener {
 
+    AppInData appInData;
+    String userName;
+    long storeId;
+    boolean isOwner;
+
     private static final String TAG = "Notice";
     private RecyclerView mRecyclerView;
     private Notice_RecyclerViewAdpater mRecyclerViewAdapter;
@@ -52,6 +59,11 @@ public class Notice extends AppCompatActivity implements View.OnClickListener {
         plusbtn = findViewById(R.id.notice_plusbtn); plusbtn.setOnClickListener(this);
         backib=findViewById(R.id.notice_backib); backib.setOnClickListener(this);
         listCountNumTv=findViewById(R.id.notice_listCountNumTv);
+
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        storeId = appInData.getStoreId();
+        isOwner = appInData.isOwner();
 
         // 리사이클 뷰
         mRecyclerView = (RecyclerView) findViewById(R.id.notice_recycleView);
@@ -76,7 +88,7 @@ public class Notice extends AppCompatActivity implements View.OnClickListener {
 
             NoticeApiService apiService = retrofit.create(NoticeApiService.class);
 
-            Call<Set<NoticeResponseDto>> call = apiService.getNotices(2L); // storeId
+            Call<Set<NoticeResponseDto>> call = apiService.getNotices(storeId); // storeId
             call.enqueue(new Callback<Set<NoticeResponseDto>>() {
                 @Override
                 public void onResponse(Call<Set<NoticeResponseDto>> call, Response<Set<NoticeResponseDto>> response) {
@@ -123,9 +135,12 @@ public class Notice extends AppCompatActivity implements View.OnClickListener {
         Set<Notice_recyclerViewItem> itemSet = new HashSet<>();
         for (NoticeResponseDto notice : noticeSet) {
             Notice_recyclerViewItem item = new Notice_recyclerViewItem(
+                    notice.getId(),
                     notice.getTitle(),
                     notice.getWriteDate(),
-                    notice.getContents()
+                    notice.getContents(),
+                    notice.getWriterName(),
+                    notice.getHits()
             );
             itemSet.add(item);
         }
@@ -159,9 +174,15 @@ public class Notice extends AppCompatActivity implements View.OnClickListener {
         Intent intent;
         switch (v.getId()){
             case R.id.notice_backib:
-                intent = new Intent(getApplicationContext(), Home_Ceo.class);
-                startActivity(intent);
-                finish();
+                if(isOwner) {
+                    intent = new Intent(getApplicationContext(), Home_Ceo.class);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    intent = new Intent(getApplicationContext(), Home_staff.class);
+                    startActivity(intent);
+                    finish();
+                }
                 break;
             case R.id.notice_plusbtn: // '추가 plus'버튼 선택 시
                 intent = new Intent(getApplicationContext(), Notice_input.class);

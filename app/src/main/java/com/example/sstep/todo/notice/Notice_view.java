@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.document.work_doc_api.ByteArrayTypeAdapter;
 import com.example.sstep.document.work_doc_api.PhotoResponseDto;
@@ -32,9 +33,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Notice_view extends AppCompatActivity implements View.OnClickListener {
 
+    AppInData appInData;
     long staffId, noticeId;
+    String staffName;
+    boolean isOwner;
     ImageButton backib;
-    TextView nameTv, posiTv, dateTv, titleTv, contentTv;
+    TextView nameTv, dateTv, titleTv, contentTv;
     String title, content, date;
     private ImageView[] photos = new ImageView[4]; // 이미지뷰 배열
 
@@ -45,7 +49,6 @@ public class Notice_view extends AppCompatActivity implements View.OnClickListen
 
         backib=findViewById(R.id.notice_view_backib); backib.setOnClickListener(this);
         nameTv=findViewById(R.id.notice_view_nameTv);
-        posiTv=findViewById(R.id.notice_view_posiTv);
         dateTv=findViewById(R.id.notice_view_dateTv);
         titleTv=findViewById(R.id.notice_view_titleTv);
         contentTv=findViewById(R.id.notice_view_contentTv);
@@ -54,9 +57,13 @@ public class Notice_view extends AppCompatActivity implements View.OnClickListen
         photos[2]=findViewById(R.id.notice_view_pictureIv3);
         photos[3]=findViewById(R.id.notice_view_pictureIv4);
 
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        staffId = appInData.getStaffId();
+
         // Intent로 전달된 데이터 추출
         Intent intent = getIntent();
-//        String title = intent.getStringExtra("title");
+        noticeId = intent.getLongExtra("noticeId", 0L);
 //        String content = intent.getStringExtra("content");
 //        String name = intent.getStringExtra("name");
 //        String date = intent.getStringExtra("date");
@@ -67,8 +74,6 @@ public class Notice_view extends AppCompatActivity implements View.OnClickListen
 //        nameTv.setText(name);
 //        dateTv.setText(date);
 
-        staffId = 2;
-        noticeId = 15;
 
 
         Gson gson = new GsonBuilder()
@@ -98,8 +103,9 @@ public class Notice_view extends AppCompatActivity implements View.OnClickListen
                             @Override
                             public void run() {
                                 // 성공적인 응답 처리
+                                nameTv.setText(notices.getWriterName());
                                 titleTv.setText(notices.getTitle());
-                                dateTv.setText(notices.getWriteDate());
+                                dateTv.setText("작성일 : " + notices.getWriteDate());
                                 contentTv.setText(notices.getContents());
                                 // responseBody를 바이트 배열로 변환
 
