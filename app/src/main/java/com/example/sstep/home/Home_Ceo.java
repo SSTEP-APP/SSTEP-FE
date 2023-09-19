@@ -114,7 +114,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
 
         boolean owner = appInData.isOwner();
         if (owner){
-            //그대로 진행
+            //사장이므로 그대로 진행
         }else {
             Intent intent;
             intent = new Intent(getApplicationContext(), Home_staff.class);
