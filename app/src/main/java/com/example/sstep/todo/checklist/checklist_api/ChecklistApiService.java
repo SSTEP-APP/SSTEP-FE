@@ -67,4 +67,3 @@ public interface ChecklistApiService {
 
 }
 
-
