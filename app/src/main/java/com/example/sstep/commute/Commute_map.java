@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.commute.commute_api.CommuteApiService;
@@ -56,16 +57,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Commute_map extends AppCompatActivity implements OnMapReadyCallback {
 
-    String staffName, startTimeStr, endTimeStr, commuteDateStr;
+    AppInData appInData;
+    String userName;
+    long storeCode;
+    String startTimeStr, endTimeStr, commuteDateStr;
     Double latitude, longitude;
-    long store_Code;
     LocalTime startTime, endTime; // 출근 시간, 퇴근 시간
     LocalDate commuteDate; // 출퇴근 일자
     DayOfWeek dayOfWeek; // 출퇴근 요일
     ImageView nocurrentLocationBtn;
     ImageButton mapbtn, currentLocationBtn;
     Button bottomonbtn;
-    TextView commute_indl_nameTv, commute_indl_timeTv, commute_outdl_nameTv, commute_outdl_timeTv, commute_indl_tv2;
+    TextView commute_indl_nameTv, commute_indl_timeTv, commute_outdl_nameTv, commute_outdl_timeTv;
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
@@ -101,6 +104,10 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
         showCommuteOut_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showCommuteOut_dialog.setContentView(R.layout.commute_outdl); // xml 레이아웃 파일과 연결
 
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        userName = appInData.getUserName();
+        storeCode = appInData.getStoreCode();
 
         // 위도, 경도 가져오기
         try {
@@ -112,7 +119,6 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
                     .build();
 
             StoreApiService apiService = retrofit.create(StoreApiService.class);
-            Long storeCode = Long.valueOf(898509); // store_Code 0 : 898509, x : 503288
             //적은 id를 기반으로 db에 검색
             Call<StoreResponseDto> call = apiService.getStore(storeCode);
             call.enqueue(new Callback<StoreResponseDto>() {
@@ -316,7 +322,7 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
         commute_indl_nameTv = showCommuteIn_dialog.findViewById(R.id.commute_indl_nameTv);
         commute_indl_timeTv = showCommuteIn_dialog.findViewById(R.id.commute_indl_timeTv);
         commute_indl_okBtn = showCommuteIn_dialog.findViewById(R.id.commute_indl_okBtn);
-
+        commute_indl_nameTv.setText(userName);
         try {
 
             //네트워크 요청 구현
@@ -326,7 +332,6 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
                     .build();
 
             StoreApiService apiService = retrofit.create(StoreApiService.class);
-            Long storeCode = Long.valueOf(898509); // store_Code 0 : 898509, x : 503288
             //적은 id를 기반으로 db에 검색
             Call<StoreResponseDto> call = apiService.getStore(storeCode);
             call.enqueue(new Callback<StoreResponseDto>() {
@@ -361,7 +366,6 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
         DateTimeFormatter timeformatter = DateTimeFormatter.ofPattern("HH:mm", Locale.getDefault());
         startTimeStr = startTime.format(timeformatter);
         commute_indl_timeTv.setText("출근시간 " + startTimeStr + " 입니다.");
-
         // '출근 dialog' _ 확인 버튼 클릭 시
         commute_indl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -449,7 +453,8 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
         commute_outdl_nameTv = showCommuteOut_dialog.findViewById(R.id.commute_outdl_nameTv);
         commute_outdl_timeTv = showCommuteOut_dialog.findViewById(R.id.commute_outdl_timeTv);
         commute_outdl_okBtn = showCommuteOut_dialog.findViewById(R.id.commute_outdl_okBtn);
-
+        commute_outdl_nameTv.setText(userName);
+        
         // 퇴근 시각 : 현재 시각 가져오기
         endTime = LocalTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm", Locale.getDefault());

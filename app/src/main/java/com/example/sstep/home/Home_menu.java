@@ -36,8 +36,7 @@ public class Home_menu extends AppCompatActivity implements View.OnClickListener
     TextView storeNameTv, nameTv, paperTv, noticeTv, checklistTv, logoutTv;
     Dialog logoutdl;
     AppInData appInData;
-    String userId, userName, storeName;
-    long storeCode;
+    String userName, storeName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,76 +57,11 @@ public class Home_menu extends AppCompatActivity implements View.OnClickListener
 
         // ID값 가지고 오기
         appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
-        userId = appInData.getUserId();
-        storeCode = appInData.getStoreCode();
+        userName = appInData.getUserName();
+        storeName = appInData.getStoreName();
 
-        // userId 를 통해 name 가져오기
-        try {
-            //네트워크 요청 구현
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-
-            MemberApiService apiService = retrofit.create(MemberApiService.class);
-            //적은 id를 기반으로 db에 검색
-            Call<MemberResponseDto> call = apiService.getMemberByUsername(userId); //username 아이디
-            call.enqueue(new Callback<MemberResponseDto>() {
-                @Override
-                public void onResponse(Call<MemberResponseDto> call, Response<MemberResponseDto> response) {
-                    if (response.isSuccessful()) {
-                        MemberResponseDto data = response.body();
-                        // 적은 id로 패스워드 데이터 가져오기
-                        userName =data.getName(); // id에 id 설정
-                        nameTv.setText(userName);
-                    } else {
-                        // 오류 처리
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<MemberResponseDto> call, Throwable t) {
-                    // 실패 처리
-                    String errorMessage = "요청 실패: " + t.getMessage();
-                }
-            });
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // storecode 를 통해 storeName 가져오기
-        try {
-            //네트워크 요청 구현
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-
-            StoreApiService apiService = retrofit.create(StoreApiService.class);
-            //적은 id를 기반으로 db에 검색
-            Call<StoreResponseDto> call = apiService.getStore(storeCode); //username 아이디
-            call.enqueue(new Callback<StoreResponseDto>() {
-                @Override
-                public void onResponse(Call<StoreResponseDto> call, Response<StoreResponseDto> response) {
-                    if (response.isSuccessful()) {
-                        StoreResponseDto data = response.body();
-                        // 적은 id로 패스워드 데이터 가져오기
-                        storeName =data.getName(); // id에 id 설정
-                        storeNameTv.setText(storeName);
-                    } else {
-                        // 오류 처리
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<StoreResponseDto> call, Throwable t) {
-                    // 실패 처리
-                    String errorMessage = "요청 실패: " + t.getMessage();
-                }
-            });
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
+        storeNameTv.setText(storeName);
+        nameTv.setText(userName);
     }
 
     @Override

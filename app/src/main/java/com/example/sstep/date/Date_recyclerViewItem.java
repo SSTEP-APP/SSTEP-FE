@@ -32,8 +32,8 @@ public class Date_recyclerViewItem {
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
-    private PaperH_Reg_recyclerViewItem.OnItemClickListener onItemClickListener;
-    public void setOnItemClickListener(PaperH_Reg_recyclerViewItem.OnItemClickListener listener) {
+    private Date_recyclerViewItem.OnItemClickListener onItemClickListener;
+    public void setOnItemClickListener(Date_recyclerViewItem.OnItemClickListener listener) {
         this.onItemClickListener = listener;
     }
 

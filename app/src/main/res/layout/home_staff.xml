@@ -285,6 +285,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
                     <Button
+                        android:id="@+id/homestaff_dateBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="전체보기"
@@ -299,22 +300,65 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="30dp"
-                        android:background="@drawable/yicon_nocalendar" />
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp">
+                        <TextView
+                            android:id="@+id/homestaff_date_countNumTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="오늘 0"
+                            android:textColor="@color/blue"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1.5dp"
+                            android:background="@color/blue"
+                            android:layout_gravity="bottom"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:background="#DADADA"
+                        android:layout_gravity="bottom"/>
+                    <LinearLayout
+                        android:id="@+id/homestaff_date_nodataLayout"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="일정이 없습니다."
-                        android:layout_marginTop="20dp"/>
+                        android:orientation="vertical"
+                        android:visibility="visible">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/yicon_nocalendar" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="일정이 없습니다."
+                            android:layout_marginTop="20dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/homestaff_date_dataLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/homestaff_date_recycleView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="40dp"/>
+                    </LinearLayout>
 
                     <Button
+                        android:id="@+id/homestaff_dateplusBtn"
                         android:layout_width="130dp"
                         android:layout_height="40dp"
                         android:background="@drawable/yroundrec_w"

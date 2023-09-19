@@ -33,15 +33,7 @@
         <activity
             android:name=".document.contract.PaperWsecondInput"
             android:exported="false" />
-        <activity
-            android:name=".community.Community"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- 구글 맵 -->
+         <!-- 구글 맵 -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyABz2u4RBf4cjboyd_xeuTqv2zkoeOZSEg" />
