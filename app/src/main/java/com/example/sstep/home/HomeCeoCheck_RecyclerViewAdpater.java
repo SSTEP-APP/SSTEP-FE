@@ -5,8 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.R;
-import com.example.sstep.alarm.Alarm1_recyclerViewWordItemData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +19,10 @@ import java.util.List;
 
 public class HomeCeoCheck_RecyclerViewAdpater extends RecyclerView.Adapter<HomeCeoCheck_RecyclerViewAdpater.Holder> {
     private Context context;
-    private List<HomeCeoCheck_recyclerViewWordItemData> list = new ArrayList<>();
+    private List<HomeCeoCheck_recyclerViewItem> list = new ArrayList<>();
 
     // 어댑터 생성자
-    public HomeCeoCheck_RecyclerViewAdpater(Context context, List<HomeCeoCheck_recyclerViewWordItemData> list) {
+    public HomeCeoCheck_RecyclerViewAdpater(Context context, List<HomeCeoCheck_recyclerViewItem> list) {
         this.context = context;
         this.list = list;
     }

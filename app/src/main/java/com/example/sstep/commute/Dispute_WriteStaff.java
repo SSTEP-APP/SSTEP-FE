@@ -77,6 +77,7 @@ public class Dispute_WriteStaff extends AppCompatActivity implements View.OnClic
         dayOfWeekStr = intent.getStringExtra("dayOfWeek");
         disputeStartTime = intent.getStringExtra("startTime");
         disputeEndTime = intent.getStringExtra("endTime");
+        commuteId = intent.getLongExtra("commuteId", 0L);
 
         disputeDateTv.setText(commuteDate + " (" + dayOfWeekStr + ")");
         workTimeTv.setText(disputeStartTime);
@@ -118,6 +119,7 @@ public class Dispute_WriteStaff extends AppCompatActivity implements View.OnClic
                 showTimePickerDialog(homeTimeTv);
                 break;
             case R.id.cdwstaff_completeBtn: // 등록하기
+                disputeMessage = contentEt.getText().toString().trim();
                 try {
                     //네트워크 요청 구현
                     Retrofit retrofit = new Retrofit.Builder()
@@ -137,7 +139,6 @@ public class Dispute_WriteStaff extends AppCompatActivity implements View.OnClic
                             disputeStartTime, //정정 출근 시간
                             disputeEndTime //정정 퇴근 시간
                     );
-                    commuteId = 3;
                     Call<Void> call = apiService.disputeCommute(commuteId, commuteRequestDto); // commuteId, commuteRequestDto
 
                     call.enqueue(new Callback<Void>() {
@@ -145,7 +146,7 @@ public class Dispute_WriteStaff extends AppCompatActivity implements View.OnClic
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {
                                 showCompleteDl("출퇴근시간 이의신청을 완료하였습니다.");
-                                Toast.makeText(Dispute_WriteStaff.this, "성공", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Dispute_WriteStaff.this, "성공"+disputeMessage+disputeStartTime+disputeEndTime, Toast.LENGTH_SHORT).show();
                                 // 성공적인 응답 처리
                             } else {
                                 // 기타 다른 상태 코드 처리

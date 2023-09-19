@@ -1,24 +1,28 @@
-package com.example.sstep.commute;
+package com.example.sstep.home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.R;
+import com.example.sstep.commute.DisputeStaff_recyclerViewItem;
+import com.example.sstep.commute.Dispute_WriteStaff;
 import com.example.sstep.commute.commute_api.CommuteApiService;
 import com.example.sstep.commute.commute_api.CommuteResponseDto;
 import com.example.sstep.store.store_api.NullOnEmptyConverterFactory;
+import com.example.sstep.todo.notice.Notice_view;
 
 import java.time.DayOfWeek;
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -28,10 +32,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_RecyclerViewAdpater.ViewHolder> {
+public class HomeStaffNotice_RecyclerViewAdpater extends RecyclerView.Adapter<HomeStaffNotice_RecyclerViewAdpater.ViewHolder> {
 
-    String commuteDateStr, dayOfWeekStr, staffNameStr;
-    long commuteId;
+    long noticeId;
+    String writeDateStr, titleStr, staffNameStr;
     private Context context;
     private static OnItemClickListener onItemClickListener;
 
@@ -40,20 +44,21 @@ public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_Re
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView disputeDateTv, staffNameTv;
-        LinearLayout innerLayout;
+        TextView writeDateTv, titleTv, staffNameTv;
+        LinearLayout goLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            disputeDateTv = (TextView) itemView.findViewById(R.id.disputelist_recycle_disputeDateTv);
-            staffNameTv = (TextView) itemView.findViewById(R.id.disputelist_recycle_staffNameTv);
-            innerLayout = (LinearLayout) itemView.findViewById(R.id.disputelist_recycle_innerLayout);
+            writeDateTv = (TextView) itemView.findViewById(R.id.homestaff_notice_recycle_writeDateTv);
+            titleTv = (TextView) itemView.findViewById(R.id.homestaff_notice_recycle_titleTv);
+            staffNameTv = (TextView) itemView.findViewById(R.id.homestaff_notice_recycle_staffNameTv);
+            goLayout = (LinearLayout) itemView.findViewById(R.id.homestaff_notice_recycle_goLayout);
         }
     }
 
-    private List<Dispute_recyclerViewItem> mList = null;
+    private List<HomeStaffNotice_recyclerViewItem> mList = null;
 
-    public Dispute_RecyclerViewAdpater(List<Dispute_recyclerViewItem> mList) {
+    public HomeStaffNotice_RecyclerViewAdpater(List<HomeStaffNotice_recyclerViewItem> mList) {
         this.mList = mList;
     }
 
@@ -63,7 +68,7 @@ public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_Re
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.disputelist_recycle_item, parent, false);
+        View view = inflater.inflate(R.layout.homestaff_notice_recycle_item, parent, false);
         ViewHolder vh = new ViewHolder(view);
         return vh;
     }
@@ -93,16 +98,19 @@ public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_Re
     // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Dispute_recyclerViewItem item = mList.get(position);
+        HomeStaffNotice_recyclerViewItem item = mList.get(position);
 
-        commuteDateStr = item.getCommuteDate();
-        dayOfWeekStr = convertDayOfWeek(item.getDayOfWeek());
+        writeDateStr = item.getWriteDate();
+        titleStr = item.getTitle();
         staffNameStr = item.getStaffName();
+        noticeId = item.getNoticeId();
 
-        holder.disputeDateTv.setText(commuteDateStr + " (" + dayOfWeekStr + ")");
+        holder.writeDateTv.setText(writeDateStr);
+        holder.titleTv.setText(titleStr);
         holder.staffNameTv.setText(staffNameStr);
 
-        holder.innerLayout.setOnClickListener(new View.OnClickListener() {
+        // 이의신청 버튼에 대한 클릭 리스너 설정
+        holder.goLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (onItemClickListener != null) {
@@ -111,12 +119,11 @@ public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_Re
                         onItemClickListener.onItemClick(position);
                     }
                 }
-                Intent intent = new Intent(context, Dispute_WriteCeo.class);
 
-                intent.putExtra("commuteDate", commuteDateStr);
-                intent.putExtra("dayOfWeek", dayOfWeekStr);
-                intent.putExtra("staffName", staffNameStr);
-                intent.putExtra("commuteId", commuteId);
+                Intent intent = new Intent(context, Notice_view.class);
+
+                intent.putExtra("noticeId", noticeId);
+
             }
         });
 
@@ -141,5 +148,6 @@ public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_Re
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
+
 
 }

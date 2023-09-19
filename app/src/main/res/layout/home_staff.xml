@@ -353,6 +353,7 @@
                         android:fontFamily="@font/nanumsquareneo_deb"
                         android:layout_marginLeft="20dp"/>
                     <TextView
+                        android:id="@+id/homestaff_notice_countNumTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
@@ -377,9 +378,11 @@
                         android:drawablePadding="5dp"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/homestaff_notice_nodataLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="visible">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -393,6 +396,18 @@
                         android:layout_gravity="center_horizontal"
                         android:text="새로운 공지을 등록해보세요."
                         android:layout_marginTop="20dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/homestaff_notice_dataLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/homestaff_notice_recycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="40dp"/>
                 </LinearLayout>
             </LinearLayout> <!-- 해야할 일 -->
         </LinearLayout>

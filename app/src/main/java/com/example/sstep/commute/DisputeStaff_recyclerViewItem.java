@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class DisputeStaff_recyclerViewItem {
     private String commuteDate, startTime, endTime;
     private DayOfWeek dayOfWeek;
+    private long commuteId;
 
     public String getCommuteDate() {
         return commuteDate;
@@ -41,6 +42,14 @@ public class DisputeStaff_recyclerViewItem {
 
     public void setDayOfWeek(DayOfWeek dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
+    }
+
+    public long getCommuteId() {
+        return commuteId;
+    }
+
+    public void setCommuteId(long commuteId) {
+        this.commuteId = commuteId;
     }
 
     public OnItemClickListener getOnItemClickListener() {

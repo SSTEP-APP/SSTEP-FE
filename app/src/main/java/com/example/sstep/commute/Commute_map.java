@@ -397,7 +397,7 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
                     );
 
                     //적은 id를 기반으로 db에 검색
-                    Call<Void> call = apiService.registerCommute(1L, commuteRequestDto); // staffId에 해당하는 값을 설정해야 함
+                    Call<Void> call = apiService.registerCommute(2L, commuteRequestDto); // staffId에 해당하는 값을 설정해야 함
                     call.enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {

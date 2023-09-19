@@ -33,7 +33,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
 
     private HomeCeoCheck_RecyclerViewAdpater checkRecyclerViewAdapter;
     private RecyclerView checkRecyclerView;
-    private ArrayList<HomeCeoCheck_recyclerViewWordItemData> check_list = new ArrayList<>();
+    private ArrayList<HomeCeoCheck_recyclerViewItem> check_list = new ArrayList<>();
     private LinearLayout check_nodataLayout, check_dataLayout;
 
     ImageButton menuIBtn, alarmIBtn, staffInviteCloseIBtn;
@@ -112,7 +112,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
          */
 
         // 리사이클 뷰
-        check_list = HomeCeoCheck_recyclerViewWordItemData.createContactsList(16);// 리스트 갯수
+        check_list = HomeCeoCheck_recyclerViewItem.createContactsList(16);// 리스트 갯수
         checkRecyclerView = (RecyclerView) findViewById(R.id.homeceo_checklist_recycleView);
         check_nodataLayout = (LinearLayout) findViewById(R.id.homeceo_checklist_nodataLayout);
         check_dataLayout = (LinearLayout)  findViewById(R.id.homeceo_checklist_dataLayout);
