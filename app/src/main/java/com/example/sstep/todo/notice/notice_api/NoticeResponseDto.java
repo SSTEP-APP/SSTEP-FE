@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class NoticeResponseDto {
     private long id; //공지 고유번호
+    private String writerName; //작성자 이름
     private String title; //공지글 제목
     private String writeDate; //공지글 작성 일자
     private String contents; //공지글 내용
@@ -28,6 +29,14 @@ public class NoticeResponseDto {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getWriterName() {
+        return writerName;
+    }
+
+    public void setWriterName(String writerName) {
+        this.writerName = writerName;
     }
 
     public String getTitle() {

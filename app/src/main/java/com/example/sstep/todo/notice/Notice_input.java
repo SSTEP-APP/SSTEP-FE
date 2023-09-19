@@ -26,6 +26,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.document.work_doc_api.PhotoApiService;
@@ -51,6 +52,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Notice_input extends AppCompatActivity implements View.OnClickListener {
 
+    AppInData appInData;
+    long staffId;
     LocalDate noticeDate; // 공지 작성 일자
     String noticeDateStr;
     ImageButton backib, cameraIbtn, photoIbtn, deleteIbtn;
@@ -96,6 +99,10 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
         showComplete_dialog = new Dialog(Notice_input.this);
         showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
+
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        staffId = appInData.getStaffId();
 
         // '제목' 글자 수 제한
         titleEt.addTextChangedListener(new TextWatcher() {
@@ -388,7 +395,7 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
                 primitivePhotoIds //사진 정보
         );
 
-        Call<Void> call = noticeApiService.registerNotice(2L, noticeRequestDto); // staffId
+        Call<Void> call = noticeApiService.registerNotice(staffId, noticeRequestDto); // staffId
 
         call.enqueue(new Callback<Void>() {
             @Override
