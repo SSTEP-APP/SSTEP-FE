@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context=".community.Community_view">
+
+    <!-- top_익명 커뮤니티 -->
+    <FrameLayout
+        android:id="@+id/commuview_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/commuview_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="익명 커뮤니티"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/commuview_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingTop="30dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/yicon_commuperson"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="20dp">
+                            <TextView
+                                android:id="@+id/commuview_contentNameTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="익명 1"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/nanumsquareneo_deb"
+                                android:textSize="15sp"/>
+                            <TextView
+                                android:id="@+id/commuview_contentDateTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2023.02.28(화) 22:21"
+                                android:textColor="@color/likeblack"
+                                android:textSize="13sp"
+                                android:layout_marginTop="3dp"/>
+                            <TextView
+                                android:id="@+id/commuview_contentRegTv2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="댓글 내용"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:layout_marginTop="30dp"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <ImageButton
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/yicon_moreitem"/>
+                    </LinearLayout>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:text="1"
+                        android:textSize="12sp"
+                        android:drawableLeft="@drawable/yicon_commugood"
+                        android:drawablePadding="5dp"
+                        android:background="@drawable/yroundrec_commubtn"
+                        android:backgroundTint="#DFEEFF"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="7dp"
+                        android:paddingRight="7dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_marginTop="15dp"
+                android:paddingTop="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="30dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:text="댓글"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/commuview_commentCountTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:text="1"
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.7dp"
+                    android:layout_weight="1"
+                    android:background="@color/line"
+                    android:layout_marginTop="20dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/yicon_commuperson"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp">
+                        <TextView
+                            android:id="@+id/commuview_commentNameTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="익명 1"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/nanumsquareneo_deb"
+                            android:textSize="15sp"/>
+                        <TextView
+                            android:id="@+id/commuview_commentDateTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2023.02.28(화) 22:21"
+                            android:textColor="@color/likeblack"
+                            android:textSize="13sp"
+                            android:layout_marginTop="3dp"/>
+                        <TextView
+                            android:id="@+id/commuview_commentRegTv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="댓글 내용"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:layout_marginTop="8dp"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageButton
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/yicon_moreitem"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="top" />
+        <EditText
+            android:id="@+id/commuview_commentET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yroundrec_g"
+            android:hint="댓글을 입력하세요."
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="14sp"/>
+
+        <ImageButton
+            android:id="@+id/commuview_commentIBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/yicon_send" />
+    </FrameLayout>
+
+</LinearLayout>

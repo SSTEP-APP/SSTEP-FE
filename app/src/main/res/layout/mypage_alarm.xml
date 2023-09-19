@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:id="@+id/mypage_alarm_L1"
+    tools:context=".user.mypage.MyPage_Alarm">
+    <!-- top_알림설정-->
+    <FrameLayout
+        android:id="@+id/mypage_alarm_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/mypage_alarm_topText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="알림설정"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/mypage_alarm_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <!-- 선택들 L-->
+    <LinearLayout
+        android:id="@+id/mypage_alarm_L2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/yroundrec_w"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp">
+        <!-- 푸시 끄기/켜기 HL-->
+        <LinearLayout
+            android:id="@+id/mypage_alarm_HL1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/mypage_alarm_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="푸시 끄기/켜기"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Switch
+                android:id="@+id/mypage_alarm_allsw1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:thumbTint="@color/white"
+                android:track="@drawable/yswitch_track" />
+
+        </LinearLayout> <!-- 푸시 끄기/켜기 HL-->
+
+        <!-- 출퇴근 푸시 HL-->
+        <LinearLayout
+            android:id="@+id/mypage_alarm_HL2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
+            <TextView
+                android:id="@+id/mypage_alarm_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="출퇴근 푸시"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:layout_gravity="center_vertical"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <Switch
+                android:id="@+id/mypage_alarm_inoutsw2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:track="@drawable/yswitch_track"
+                android:thumbTint="@color/white"/>
+        </LinearLayout> <!-- 출퇴근 푸시 HL-->
+
+        <!-- 근무일정 푸시 HL-->
+        <LinearLayout
+            android:id="@+id/mypage_alarm_HL3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/mypage_alarm_tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="근무일정 푸시"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_gravity="center_vertical"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <Switch
+                android:id="@+id/mypage_alarm_workcalsw3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:track="@drawable/yswitch_track"
+                android:thumbTint="@color/white"/>
+        </LinearLayout> <!-- 근무일정 푸시 HL-->
+
+        <!-- 해야할 일 HL-->
+        <LinearLayout
+            android:id="@+id/mypage_alarm_HL4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
+            <TextView
+                android:id="@+id/mypage_alarm_tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="해야할 일 푸시"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:layout_gravity="center_vertical"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <Switch
+                android:id="@+id/mypage_alarm_todosw4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:track="@drawable/yswitch_track"
+                android:thumbTint="@color/white"/>
+        </LinearLayout> <!-- 해야할 일 HL-->
+
+        <!-- 공지사항 HL-->
+        <LinearLayout
+            android:id="@+id/mypage_alarm_HL5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
+            <TextView
+                android:id="@+id/mypage_alarm_tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="공지사항 푸시"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:layout_gravity="center_vertical" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <Switch
+                android:id="@+id/mypage_alarm_notisw5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:track="@drawable/yswitch_track"
+                android:thumbTint="@color/white"/>
+        </LinearLayout> <!-- 공지사항 HL-->
+
+    </LinearLayout> <!-- 선택들 L-->
+</LinearLayout>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- top_공지사항 보기-->
+    <FrameLayout
+        android:id="@+id/notice_view_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/notice_view_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="공지사항 보기"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/notice_view_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+    <ScrollView
+        android:id="@+id/notice_view_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/notice_view_scrollL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+            <!-- 작성자 프로필 _L -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/white">
+                <ImageView
+                    android:id="@+id/notice_view_profileIv"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/yicon_ceomale"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="center_vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/notice_view_nameTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="김유경"
+                            android:textStyle="bold"
+                            android:textColor="@color/likeblack"/>
+                        <TextView
+                            android:id="@+id/notice_view_posiTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="[사업주]"
+                            android:textStyle="bold"
+                            android:textColor="@color/likeblack"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="15sp"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/notice_view_dateTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="작성일 : 2023.07.19(수) 12:21"
+                        android:layout_marginTop="10dp"
+                        android:textSize="13sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- 제목 _L -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/white">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="제목"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"/>
+                <TextView
+                    android:id="@+id/notice_view_titleTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:text="공지 제목"
+                    android:textColor="@color/likeblack"
+                    android:textSize="13sp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="10dp"/>
+
+                <!-- 내용 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="내용"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="40dp"/>
+
+                <TextView
+                    android:id="@+id/notice_view_contentTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:text="유니폼 명찰 착용해 주세요."
+                    android:textColor="@color/likeblack"
+                    android:textSize="13sp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="top"
+                    android:lineSpacingExtra="5dp"/>
+
+                <!--사진 첨부-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="사진"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="40dp"/>
+                <!-- 사진 첨부 내용 _L -->
+                <LinearLayout
+                    android:id="@+id/notice_view_L4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/yroundrec_g"
+                    android:padding="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp">
+                    <!-- 사진 첨부 사진 _HL -->
+                    <LinearLayout
+                        android:id="@+id/notice_view_pictureHL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp">
+                        <ImageView
+                            android:id="@+id/notice_view_pictureIv1"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w"
+                            android:scaleType="centerCrop"
+                            android:layout_marginRight="21dp"/>
+                        <ImageView
+                            android:id="@+id/notice_view_pictureIv2"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w"
+                            android:scaleType="centerCrop"
+                            android:layout_marginRight="21dp"/>
+                        <ImageView
+                            android:id="@+id/notice_view_pictureIv3"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w"
+                            android:scaleType="centerCrop"
+                            android:layout_marginRight="21dp"/>
+                        <ImageView
+                            android:id="@+id/notice_view_pictureIv4"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w"
+                            android:scaleType="centerCrop"/>
+                    </LinearLayout> <!-- 사진 첨부 사진 _HL -->
+                </LinearLayout> <!-- 사진 첨부 내용 _L -->
+
+            </LinearLayout>
+        </LinearLayout> <!-- 스크롤 _L -->
+    </ScrollView>
+
+
+</LinearLayout>

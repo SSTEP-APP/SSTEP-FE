@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/monthstate_listdl_L1"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:maxHeight="300dp"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:layout_gravity="center"
+    android:background="@drawable/yroundrec_w">
+
+    <ScrollView
+        android:id="@+id/monthstate_listdl_scoll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:maxHeight="300dp"
+        android:scrollbars="none">
+        <!-- 스크롤 _L -->
+        <LinearLayout
+            android:id="@+id/monthstate_listdl_scollL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/monthstate_listdl_recycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="300dp"
+                android:nestedScrollingEnabled="false"/>
+
+
+
+        </LinearLayout> <!-- 스크롤 _L -->
+    </ScrollView>
+
+</LinearLayout>

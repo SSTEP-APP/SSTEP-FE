@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:id="@+id/mypage_L1"
+    tools:context=".user.mypage.MyPage">
+    <!-- top_마이페이지-->
+    <FrameLayout
+        android:id="@+id/mypage_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/mypage_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="마이페이지"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/mypage_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <!-- 사람이미지 -->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/mypage_profileIv"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/yicon_stafffemale"
+                    android:layout_gravity="center_horizontal"/>
+
+
+                <!-- 이름,직급 HL -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <!-- 이름_text-->
+                    <TextView
+                        android:id="@+id/mypage_nameTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="직원명"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+                    <!-- 직급_text-->
+                    <TextView
+                        android:id="@+id/mypage_posiTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="[직원]"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </LinearLayout> <!-- 이름,직급 HL -->
+                <Button
+                    android:id="@+id/mypage_profileBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/yroundrec_w_sblue"
+                    android:minWidth="1dp"
+                    android:minHeight="1dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="7dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="7dp"
+                    android:text="프로필 수정"
+                    android:textColor="@color/lightblue"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- 선택들 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+                <!-- 알림설정 HL-->
+                <LinearLayout
+                    android:id="@+id/mypage_alarmHL1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="알림 설정"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:drawableLeft="@drawable/yicon_bell"
+                        android:drawablePadding="10dp"
+                        android:gravity="center_vertical"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_go"
+                        android:backgroundTint="@color/blue"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout> <!-- 알림설정 HL-->
+
+                <!-- 비밀번호 변경 HL-->
+                <LinearLayout
+                    android:id="@+id/mypage_pwdHL2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="비밀번호 변경"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:drawableLeft="@drawable/yicon_lock"
+                        android:drawablePadding="10dp"
+                        android:gravity="center_vertical"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_go"
+                        android:backgroundTint="@color/blue"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout> <!-- 비밀번호 변경 HL-->
+
+                <!-- 문의하기 HL-->
+                <LinearLayout
+                    android:id="@+id/mypage_askHL3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="문의하기"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:drawableLeft="@drawable/yicon_question"
+                        android:drawablePadding="10dp"
+                        android:gravity="center_vertical"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_go"
+                        android:backgroundTint="@color/blue"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout> <!-- 문의하기 HL-->
+
+                <!-- 로그아웃 HL-->
+                <LinearLayout
+                    android:id="@+id/mypage_logoutHL4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="로그아웃"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:drawableLeft="@drawable/yicon_logout"
+                        android:drawablePadding="10dp"
+                        android:gravity="center_vertical"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_go"
+                        android:backgroundTint="@color/blue"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout> <!-- 로그아웃 HL-->
+
+                <!-- 회원탈퇴 HL-->
+                <LinearLayout
+                    android:id="@+id/mypage_dropHL5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="25dp"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="회원탈퇴"
+                        android:textSize="15sp"
+                        android:textColor="#737373"
+                        android:drawableLeft="@drawable/yicon_greytrash"
+                        android:drawablePadding="10dp"
+                        android:gravity="center_vertical"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_go"
+                        android:backgroundTint="@color/blue"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout> <!-- 회원탈퇴 HL-->
+            </LinearLayout> <!-- 선택들 L-->
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

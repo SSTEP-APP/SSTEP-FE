@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:id="@+id/paperview_L1">
+
+    <!-- top_보건증 상세 -->
+    <FrameLayout
+        android:id="@+id/paperview_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/paperview_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="보건증 상세"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/paperview_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <!-- 보건증 상세, 버튼 포함 L-->
+    <LinearLayout
+        android:id="@+id/paperview_L3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="15dp">
+
+        <!-- 보건증 상세 L -->
+        <LinearLayout
+            android:id="@+id/paperview_L4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/yroundrec_w"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="40dp">
+            <!-- 회차 text -->
+            <TextView
+                android:id="@+id/paperview_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최신 보건증"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"/>
+
+            <!-- 보건증 상세 정보 F -->
+            <FrameLayout
+                android:id="@+id/paperview_F2"
+                android:layout_width="330dp"
+                android:layout_height="289dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/yicon_linepaper">
+
+                <!-- 성명 text -->
+                <TextView
+                    android:id="@+id/paperview_tv2"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:text="성명"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/paperview_nametv1"
+                    android:layout_width="215dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="110dp"
+                    android:layout_marginTop="17dp"
+                    android:gravity="center_horizontal"
+                    android:text="김유경"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+
+                <!-- 회차 text -->
+                <TextView
+                    android:id="@+id/paperview_tv3"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="68dp"
+                    android:text="검진일"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/paperview_numtv2"
+                    android:layout_width="215dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="110dp"
+                    android:layout_marginTop="68dp"
+                    android:text="2023.07.19"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:gravity="center_horizontal"/>
+
+                <!-- 검진일 text -->
+                <TextView
+                    android:id="@+id/paperview_tv4"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="119dp"
+                    android:text="만료일"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/paperview_datetv3"
+                    android:layout_width="215dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="110dp"
+                    android:layout_marginTop="119dp"
+                    android:text="2024.07.19"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:gravity="center_horizontal"/>
+
+                <!-- 사진 text -->
+                <TextView
+                    android:id="@+id/paperview_tv5"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="210dp"
+                    android:text="사진"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+                <ImageView
+                android:id="@+id/paperview_photoiv1"
+                android:layout_width="194dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="160dp"
+                android:background="@drawable/yroundrec_w_sg"/>
+            </FrameLayout> <!-- 보건증 상세 정보 F -->
+            <TextView
+                android:id="@+id/paperview_inputdatetv4"
+                android:layout_width="215dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:text="입력일자 : 2023.07.19"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_gravity="right"
+                android:gravity="right"/>
+        </LinearLayout> <!-- 보건증 상세 L -->
+        <LinearLayout
+            android:id="@+id/paperview_HL2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="50dp">
+            <Button
+                android:id="@+id/paperview_modiBtn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yroundrec2_w_sb"
+                android:text="수정하기"
+                android:textColor="@color/blue"
+                android:layout_gravity="left"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/paperview_reBtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:background="@drawable/yroundrec2_b"
+                android:text="갱신하기"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout> <!-- 보건증 상세, 버튼 포함 L -->
+</LinearLayout>

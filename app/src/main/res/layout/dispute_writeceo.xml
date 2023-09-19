@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".commute.Dispute_WriteCeo">
+
+    <!-- top_알림-->
+    <FrameLayout
+        android:id="@+id/cdwceo_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/cdwceo_topText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="출퇴근시간 수정"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/cdwceo_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <!-- 스크롤 -->
+    <ScrollView
+        android:id="@+id/cdwceo_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/cdwceo_scrollL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:background="@color/white"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:text="신청자"
+                    android:textColor="@color/blue"
+                    android:textSize="17sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical">
+                    <!-- 사람이미지 -->
+                    <ImageView
+                        android:id="@+id/cdwceo_staffIv"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:srcCompat="@drawable/yicon_stafffemale" />
+
+                    <!-- 이름 [직책] -->
+                    <TextView
+                        android:id="@+id/cdwceo_staffNameTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="김희범"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="20dp"/>
+                    <!-- 이름 [직책] -->
+                    <TextView
+                        android:id="@+id/cdwceo_posiTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="[직원]"
+                        android:textColor="#737373"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="15dp"
+                        android:text="이의신청한 날짜"
+                        android:textColor="@color/likeblack"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/cdwceo_disputeDateTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="15dp"
+                        android:text="2023-08-12 (화)"
+                        android:textColor="@color/likeblack"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="출퇴근 시간 입력"
+                    android:textSize="17sp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="30dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="출근시간"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/cdwceo_workTimeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:text="03:00"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="40dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="퇴근시간"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/cdwceo_homeTimeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:text="05:00"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <!-- 내용 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사유"
+                    android:textSize="17sp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="40dp"/>
+
+                <TextView
+                    android:id="@+id/cdwceo_contentTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:text="못 눌렀어요.."
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="top"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 맨 아래 버튼 변경 F -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/cdwceo_noBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:backgroundTint="#D15D60"
+            android:text="반려"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+        <Button
+            android:id="@+id/cdwceo_yesBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:backgroundTint="@color/blue"
+            android:text="승인"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
+</LinearLayout>

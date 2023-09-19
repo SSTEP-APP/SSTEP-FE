@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".alarm.alarm2Fragment">
+
+    <!-- 텅/이전알림 _숨김F -->
+    <FrameLayout
+        android:id="@+id/fragment_alarm2_hidF2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <!-- 텅 _L -->
+        <LinearLayout
+            android:id="@+id/fragment_alarm2_nodataLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="100dp"
+            android:layout_gravity="center_horizontal"
+            android:visibility="visible">
+            <ImageView
+                android:id="@+id/fragment_alarm2_nodataIv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/yicon_tengalarm"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/fragment_alarm2_nodataTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="알림이 없습니다."
+                android:textColor="@color/likeblack"
+                android:textSize="16sp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="30dp"/>
+        </LinearLayout> <!-- 텅 _L -->
+
+        <!-- 이전알림 _L -->
+        <LinearLayout
+            android:id="@+id/fragment_alarm2_dataLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="이전 알림"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="@font/nanumsquareneo_brg"
+                android:gravity="center_horizontal"
+                android:paddingTop="17dp"
+                android:paddingBottom="20dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/line" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_alarm2_recycleView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout> <!-- 이전알림 _L -->
+    </FrameLayout> <!-- 텅/이전알림 _숨김F -->
+</LinearLayout>

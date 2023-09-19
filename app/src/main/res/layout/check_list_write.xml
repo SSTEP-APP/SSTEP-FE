@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".todo.checklist.CheckList_write">
+
+    <!-- top_해야할 일 입력 -->
+    <FrameLayout
+        android:id="@+id/checkList_write_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/checkList_write_topText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="해야할 일 입력"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/yunderline_text" />
+
+        <ImageButton
+            android:id="@+id/checkList_write_back_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="70dp">
+
+            <!-- 제목 _L -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/white">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="할 일 제목"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"/>
+                <EditText
+                    android:id="@+id/checkList_write_titleEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:ems="10"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="제목을 입력해 주세요."
+                    android:inputType="text"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="10dp"
+                    android:maxLength="15"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="* 제목은 15자 이하로 입력해 주세요."
+                    android:textSize="10sp"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="8dp"/>
+
+                <!-- 내용 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="할 일 내용"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="40dp"/>
+
+                <EditText
+                    android:id="@+id/checkList_write_contentEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="ex) 가스벨브 잠그기"
+                    android:inputType="text|textMultiLine"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="top"
+                    android:lineSpacingExtra="5dp"
+                    android:maxLength="50"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="* 내용은 50자 이하로 입력해 주세요."
+                    android:textSize="10sp"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="8dp"/>
+
+
+                <!-- 마감 예정 시간 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="40dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="마감 예정 시간"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <Button
+                        android:id="@+id/checkList_write_addEndTimeBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yroundrec_b"
+                        android:visibility="invisible"
+                        android:text="선택"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:paddingBottom="6dp"
+                        android:paddingTop="6dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:layout_weight="1"
+                    android:background="@color/line"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <CheckBox
+                    android:id="@+id/checkList_write_endTimeRB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:checked="true"
+                    android:drawableLeft="@drawable/ychbox_black"
+                    android:drawablePadding="5dp"
+                    android:text="마감 예정 시간 미입력"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="미입력 선택시 정해진 시간없이 체크할 수 있으며 근무중인 직원에게 \n알람을 보내지 않습니다."
+                    android:textColor="#8E8E8E"
+                    android:textSize="9sp"
+                    android:lineSpacingExtra="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/white">
+
+                <!-- 카테고리 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="카테고리"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <Button
+                        android:id="@+id/checkList_write_categoryAddBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yroundrec_b"
+                        android:text="추가"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:paddingBottom="6dp"
+                        android:paddingTop="6dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:layout_weight="1"
+                    android:background="@color/line"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <RadioGroup
+                    android:id="@+id/checkList_write_categoryRG"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/checkList_write_firstCategoryBtn"
+                        android:layout_width="76dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/j_checklist_write_radiobtn"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="홀"
+                        android:textColor="@drawable/j_checklist_write_radiotext"
+                        android:textSize="12dp" />
+
+                    <View
+                        android:id="@+id/checkList_write_view3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <RadioButton
+                        android:id="@+id/checkList_write_secondCategoryBtn"
+                        android:layout_width="76dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/j_checklist_write_radiobtn"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="커피 머신"
+                        android:textColor="@drawable/j_checklist_write_radiotext"
+                        android:textSize="12dp" />
+
+                    <View
+                        android:id="@+id/checkList_write_view4"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <RadioButton
+                        android:id="@+id/checkList_write_thirdCategoryBtn"
+                        android:layout_width="76dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/j_checklist_write_radiobtn"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="오전"
+                        android:textColor="@drawable/j_checklist_write_radiotext"
+                        android:textSize="12dp" />
+                </RadioGroup>
+
+                <!-- 마감 예정 시간 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="할 일 사진촬영"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="40dp"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:layout_weight="1"
+                    android:background="@color/line"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <CheckBox
+                    android:id="@+id/checkList_write_pictureRB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:checked="false"
+                    android:drawableLeft="@drawable/ychbox_black"
+                    android:drawablePadding="5dp"
+                    android:text="할 일 관련 내용 사진촬영 필수"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/checkList_write_localEndtimeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="선택시 할 일 관련 사진을 등록해야만 체크완료 가능합니다."
+                    android:textColor="#8E8E8E"
+                    android:textSize="9sp"
+                    android:lineSpacingExtra="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"/>
+
+                <!-- 마감 예정 시간 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="40dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="할 일 담당자"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <Button
+                        android:id="@+id/checkList_write_selectStaffBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yroundrec_b"
+                        android:text="직원 선택하기"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:paddingBottom="6dp"
+                        android:paddingTop="6dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:layout_weight="1"
+                    android:background="@color/line"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <CheckBox
+                    android:id="@+id/checkList_write_staffRB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:checked="true"
+                    android:drawableLeft="@drawable/ychbox_black"
+                    android:drawablePadding="5dp"
+                    android:text="담당직원만 체크할 수 있도록 설정합니다."
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="미선택시 전 직원이 체크할 수 있습니다."
+                    android:textColor="#8E8E8E"
+                    android:textSize="9sp"
+                    android:lineSpacingExtra="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"/>
+
+                <LinearLayout
+                    android:id="@+id/checkList_write_staffList_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="horizontal">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/checkList_write_staffList_recycleView"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="12dp" />
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center_horizontal|top"
+                            app:srcCompat="@drawable/yicon_stafffemale" />
+                        <!--에러로 인해 임시적으로 jpg파일 사용-->
+                        <ImageButton
+                            android:id="@+id/imageButton"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="right|top"
+                            android:background="@android:color/transparent"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@drawable/j_x_btn_img" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- 반복 여부 _L -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/white">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="반복 여부"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"/>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:layout_weight="1"
+                    android:background="@color/line"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <RadioGroup
+                    android:id="@+id/checkList_write_repeatRG"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/checkList_write_view11"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <RadioButton
+                        android:id="@+id/checkList_write_norepeatRB"
+                        android:layout_width="113dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/j_repeat_radio_btn"
+                        android:button="@null"
+                        android:checked="true"
+                        android:drawableLeft="@drawable/j_repeat_radio_ximg"
+                        android:paddingLeft="20dp"
+                        android:text="  반복 안함"
+                        android:textColor="@drawable/j_repeat_radio_text" />
+
+                    <View
+                        android:id="@+id/checkList_write_view12"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <RadioButton
+                        android:id="@+id/checkList_write_repeatRB"
+                        android:layout_width="113dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/j_repeat_radio_btn"
+                        android:button="@null"
+                        android:checked="true"
+                        android:drawableLeft="@drawable/j_repeat_radio_repeatimg"
+                        android:paddingLeft="32dp"
+                        android:text="  반복"
+                        android:textColor="@drawable/j_repeat_radio_text" />
+
+                    <View
+                        android:id="@+id/checkList_write_view13"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/checkList_write_repeatLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- 내용 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="반복 주기"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:layout_marginTop="40dp"/>
+
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_weight="1"
+                        android:background="@color/line"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"/>
+                    <Spinner
+                        android:id="@+id/checkList_write_repeatTimespinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/j_spinner_backgroundcdcdc35"
+                        android:backgroundTint="#80000000" />
+
+                    <!-- 내용 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="반복 시작일"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:layout_marginTop="40dp"/>
+
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_weight="1"
+                        android:background="@color/line"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"/>
+
+                    <Spinner
+                        android:id="@+id/checkList_write_repeatStratDayspinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/j_spinner_backgroundcdcdc35"
+                        android:backgroundTint="#80000000" />
+
+                    <!-- 내용 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="반복 종료일"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:layout_marginTop="40dp"/>
+
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_weight="1"
+                        android:background="@color/line"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"/>
+
+                    <Spinner
+                        android:id="@+id/checkList_write_repeatEndDayspinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/j_spinner_backgroundcdcdc35"
+                        android:backgroundTint="#80000000" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/checkList_write_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:text="등록완료"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
+
+</LinearLayout>
+

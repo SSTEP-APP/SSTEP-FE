@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/commute_outdl_F1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+    <LinearLayout
+        android:id="@+id/commute_outdl_L1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/yroundrec_dl"
+        android:layout_marginTop="50dp">
+        <TextView
+            android:id="@+id/commute_outdl_nameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="직원명님,"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="70dp" />
+        <TextView
+            android:id="@+id/commute_outdl_tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="사업장에\n 퇴근처리를 완료하였습니다."
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:lineSpacingExtra="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/commute_outdl_timeTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="현재시간 12:33 입니다."
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal" />
+        <Button
+            android:id="@+id/commute_outdl_okBtn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/yroundrec_w_sblue"
+            android:text="확인"
+            android:textColor="@color/blue"
+            android:layout_margin="20dp"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/commute_outdl_iv1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/yicon_stafffemale"
+        android:layout_gravity="center_horizontal"/>
+</FrameLayout>

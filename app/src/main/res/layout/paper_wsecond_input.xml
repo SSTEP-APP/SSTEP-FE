@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".document.contract.PaperWsecondInput"
+    android:id="@+id/paperwinputsecond_L1">
+
+    <!-- top_근로계약서 입력 -->
+    <FrameLayout
+        android:id="@+id/paperwinputsecond_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/paperwinputsecond_topTv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="표준 근로계약서 작성"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_gravity="bottom"
+            android:background="@color/line" />
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/paperwinputsecond_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/paperwinputsecond_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:id="@+id/paperwinputsecond_scrollL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 근로계약서 사진 -->
+            <ImageView
+                android:id="@+id/paperwinputsecond_firstIv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="@color/white"
+                android:layout_marginTop="15dp"/>
+
+            <!-- 근로자 정보 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="@color/white"
+                android:layout_marginTop="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="근로자 정보"
+                    android:textSize="20sp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/nanumsquareneo_deb" />
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.8dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/line"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="근로자명"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="10dp"/>
+                <EditText
+                    android:id="@+id/paperwinputsecond_storeInfo_storeNameEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="이름"
+                    android:inputType="text"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:maxLength="20"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="근로자 주소"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="25dp"/>
+                <EditText
+                    android:id="@+id/paperwinputsecond_storeInfo_storeAddressEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="ex)  시흥시 산기대학로"
+                    android:inputType="text"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="근로자 연락처"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="25dp"/>
+                <EditText
+                    android:id="@+id/paperwinputsecond_storeInfo_storePhoneEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="ex)  010-0000-0000"
+                    android:inputType="phone"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:maxLength="13"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="근로자 서명"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="25dp"/>
+                <FrameLayout
+                    android:id="@+id/paperwinputsecond_storeInfo_signF"
+                    android:layout_width="360dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:padding="5dp">
+                    <!--
+                    <ImageView
+                        android:id="@+id/paperwinputsecond_storeInfo_storeCeoSignIv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                        -->
+                    <com.example.sstep.document.contract.CustomDrawingView
+                        android:id="@+id/customDrawingView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </FrameLayout>
+                <ImageButton
+                    android:id="@+id/paperwinputsecond_storeInfo_storeCeoSignRefreshIb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yicon_paperwinput_refresh"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"/>
+            </LinearLayout>
+
+            <!-- 맨 아래 버튼 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp">
+                <CheckBox
+                    android:id="@+id/paperwinputsecond_privacyCb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/ychbox_rec_blue"
+                    android:text="개인정보 수집 및 이용 동의"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:paddingLeft="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:checked="false"/>
+
+                <Button
+                    android:id="@+id/paperwinputsecond_completeBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/yroundrec_bottombtnoff"
+                    android:clickable="false"
+                    android:text="계약서 작성완료"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

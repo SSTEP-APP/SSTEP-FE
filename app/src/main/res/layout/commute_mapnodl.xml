@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/commute_mapnodl_L1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/yicon_mapr">
+
+    <ImageView
+        android:id="@+id/commute_mapnodl_iv1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/yicon_stafffemale" />
+    <LinearLayout
+        android:id="@+id/commute_mapnodl_L2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="7dp">
+        <!-- 이름 text -->
+        <TextView
+            android:id="@+id/commute_mapnodl_nametv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="김유경님"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/commute_mapnodl_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="위치가 아닙니다."
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:layout_marginTop="3dp"/>
+    </LinearLayout>
+</LinearLayout>
