@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.date.date_api.CalendarApiService;
@@ -44,6 +45,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Date_plus extends AppCompatActivity {
 
+    AppInData appInData;
+    long storeId;
+
     // 선택한 직원의 아이디를 담을 리스트
     List<Long> selectedStaffIds = new ArrayList<>();
     Dialog timePickDialog;
@@ -61,7 +65,6 @@ public class Date_plus extends AppCompatActivity {
     Button completeBtn;
     Dialog showComplete_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
-    long storeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,10 +101,10 @@ public class Date_plus extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        //appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
-        //storeId = appInData.getUserId(); // 사용자 ID 가져오기
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        storeId = appInData.getStoreId();
 
-        storeId = 1;
 
         //직원 리스트 불러오기
         new Thread(new Runnable() {
@@ -294,7 +297,7 @@ public class Date_plus extends AppCompatActivity {
 
             StoreApiService apiService = retrofit.create(StoreApiService.class);
 
-            Call<Set<StaffResponseDto>> call = apiService.getStaffsByStoreId(1L); // storeId
+            Call<Set<StaffResponseDto>> call = apiService.getStaffsByStoreId(storeId); // storeId
             call.enqueue(new Callback<Set<StaffResponseDto>>() {
                 @Override
                 public void onResponse(Call<Set<StaffResponseDto>> call, Response<Set<StaffResponseDto>> response) {

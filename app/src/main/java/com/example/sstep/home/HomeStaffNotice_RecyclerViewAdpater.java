@@ -35,7 +35,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HomeStaffNotice_RecyclerViewAdpater extends RecyclerView.Adapter<HomeStaffNotice_RecyclerViewAdpater.ViewHolder> {
 
     long noticeId;
-    String writeDateStr, titleStr, staffNameStr;
+    String writeDateStr, titleStr, writerNameStr;
     private Context context;
     private static OnItemClickListener onItemClickListener;
 
@@ -102,12 +102,12 @@ public class HomeStaffNotice_RecyclerViewAdpater extends RecyclerView.Adapter<Ho
 
         writeDateStr = item.getWriteDate();
         titleStr = item.getTitle();
-        staffNameStr = item.getStaffName();
+        writerNameStr = item.getWriterName();
         noticeId = item.getNoticeId();
 
         holder.writeDateTv.setText(writeDateStr);
         holder.titleTv.setText(titleStr);
-        holder.staffNameTv.setText(staffNameStr);
+        holder.staffNameTv.setText(writerNameStr);
 
         // 이의신청 버튼에 대한 클릭 리스너 설정
         holder.goLayout.setOnClickListener(new View.OnClickListener() {
