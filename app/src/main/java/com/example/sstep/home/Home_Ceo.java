@@ -34,6 +34,8 @@ import com.example.sstep.todo.checklist.CheckList;
 import com.example.sstep.todo.checklist.Checklist_detail;
 import com.example.sstep.todo.checklist.checklist_api.CheckListResponseDto;
 import com.example.sstep.todo.checklist.checklist_api.ChecklistApiService;
+import com.example.sstep.user.member.MemberApiService;
+import com.example.sstep.user.member.MemberResponseDto;
 import com.example.sstep.user.member.NullOnEmptyConverterFactory;
 import com.example.sstep.user.mypage.MyPage;
 
@@ -66,7 +68,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
     private List<HomeDate_recyclerViewItem> dateList;
 
     ImageButton menuIBtn, alarmIBtn, staffInviteCloseIBtn;
-    Button selectStoreBtn, mypageBtn, checklistBtn, staffInviteBtn;;
+    Button selectStoreBtn, mypageBtn, checklistBtn, staffInviteBtn, checkListaddBtn;
     TextView monthstateTv, modifyStoreTv, checkNumTv, storeNameTv, date_countNumTv;
     FrameLayout staffInviteFLayout;
     LinearLayout staffApprovalL, commutePerL, date_nodataLayout, date_dataLayout;
@@ -78,7 +80,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
     LocalDate currentDate = LocalDate.now(); // 오늘 날짜로 초기화
     DateTimeFormatter sdf_ymd = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.getDefault());
     DayOfWeek dayOfWeek;
-
+    AppInData appInData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,13 +103,81 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
         date_nodataLayout=findViewById(R.id.homeceo_date_nodataLayout);
         date_dataLayout=findViewById(R.id.homeceo_date_dataLayout);
         date_countNumTv=findViewById(R.id.homeceo_date_countNumTv);
+        checkListaddBtn=findViewById(R.id.homeceo_checklist_addCheckListBtn); checkListaddBtn.setOnClickListener(this);
 
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        userId = appInData.getUserId();
+        storeCode = appInData.getStoreCode();
+        storeId = appInData.getStoreId();
+        // userId 를 통해 name 가져오기
+        try {
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
 
-        // ID값, storeId가지고 오기
-        AppInData loginData = (AppInData) getApplication(); // AppInData 클래스의 인스턴스 가져오기
-        String userId = loginData.getUserId(); // 사용자 ID 가져오기
-        long storeCode = loginData.getStoreCode();
-        long storeId = loginData.getStoreId();
+            MemberApiService apiService = retrofit.create(MemberApiService.class);
+            //적은 id를 기반으로 db에 검색
+            Call<MemberResponseDto> call = apiService.getMemberByUsername(userId); //username 아이디
+            call.enqueue(new Callback<MemberResponseDto>() {
+                @Override
+                public void onResponse(Call<MemberResponseDto> call, Response<MemberResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        MemberResponseDto data = response.body();
+                        // 적은 id로 패스워드 데이터 가져오기
+                        userName =data.getName(); // id에 id 설정
+                        appInData.setUserName(userName); // appInData 정보 저장
+                    } else {
+                        // 오류 처리
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MemberResponseDto> call, Throwable t) {
+                    // 실패 처리
+                    String errorMessage = "요청 실패: " + t.getMessage();
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // storecode 를 통해 storeName 가져오기
+        try {
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            StoreApiService apiService = retrofit.create(StoreApiService.class);
+            //적은 id를 기반으로 db에 검색
+            Call<StoreResponseDto> call = apiService.getStore(storeCode); //username 아이디
+            call.enqueue(new Callback<StoreResponseDto>() {
+                @Override
+                public void onResponse(Call<StoreResponseDto> call, Response<StoreResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        StoreResponseDto data = response.body();
+                        // 적은 id로 패스워드 데이터 가져오기
+                        storeName =data.getName(); // id에 id 설정
+                        storeNameTv.setText(storeName);
+                        appInData.setStoreName(storeName); // appInData 정보 저장
+                    } else {
+                        // 오류 처리
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<StoreResponseDto> call, Throwable t) {
+                    // 실패 처리
+                    String errorMessage = "요청 실패: " + t.getMessage();
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
         /*
         // 리사이클 뷰
@@ -267,6 +337,11 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
                 break;
             case R.id.homeceo_staffInviteBtn: // 멤버 초대
                 intent = new Intent(getApplicationContext(), StaffInvite.class);
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.homeceo_checklist_addCheckListBtn: //  해야할 일
+                intent = new Intent(getApplicationContext(), CheckList.class);
                 startActivity(intent);
                 finish();
                 break;
