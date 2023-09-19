@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.commute.commute_api.CommuteApiService;
 import com.example.sstep.commute.commute_api.CommuteResponseDto;
@@ -33,6 +34,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Dispute_StaffList extends AppCompatActivity {
 
+    AppInData appInData;
     long staffId;
     private RecyclerView mRecyclerView;
     private DisputeStaff_RecyclerViewAdpater mRecyclerViewAdapter;
@@ -48,6 +50,10 @@ public class Dispute_StaffList extends AppCompatActivity {
         backib=findViewById(R.id.cdsl_backib);
         nodataLayout=findViewById(R.id.cdsl_nodataLayout);
         dataLayout=findViewById(R.id.cdsl_dataLayout);
+
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        staffId = appInData.getStaffId();
 
         // 리사이클 뷰
         mRecyclerView = (RecyclerView) findViewById(R.id.cdsl_recycleView);
@@ -70,7 +76,6 @@ public class Dispute_StaffList extends AppCompatActivity {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             CommuteApiService apiService = retrofit.create(CommuteApiService.class);
-            staffId = 2;
 
             Call<Set<CommuteResponseDto>> call = apiService.getCommutes(staffId); // Long staffId
 

@@ -3,7 +3,7 @@ package com.example.sstep.home;
 import java.time.DayOfWeek;
 
 public class HomeStaffNotice_recyclerViewItem {
-    private String writeDate, title, staffName;
+    private String writeDate, title, writerName;
     private long noticeId;
 
     public String getWriteDate() {
@@ -22,12 +22,12 @@ public class HomeStaffNotice_recyclerViewItem {
         this.title = title;
     }
 
-    public String getStaffName() {
-        return staffName;
+    public String getWriterName() {
+        return writerName;
     }
 
-    public void setStaffName(String staffName) {
-        this.staffName = staffName;
+    public void setWriterName(String writerName) {
+        this.writerName = writerName;
     }
 
     public long getNoticeId() {

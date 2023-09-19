@@ -16,10 +16,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
 import com.example.sstep.date.date_api.CalendarApiService;
 import com.example.sstep.date.date_api.CalendarResponseDto;
+import com.example.sstep.home.Home_Ceo;
+import com.example.sstep.home.Home_staff;
 import com.example.sstep.user.member.NullOnEmptyConverterFactory;
 
 import java.text.SimpleDateFormat;
@@ -40,8 +43,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Date extends AppCompatActivity implements View.OnClickListener{
 
+    AppInData appInData;
     LinearLayout date_nodataLayout, date_dataLayout;
-
+    boolean isOwner;
     long storeId;
     String date;
     DayOfWeek day;
@@ -77,6 +81,11 @@ public class Date extends AppCompatActivity implements View.OnClickListener{
         weekDayTv=findViewById(R.id.date_weekofdayText);
         date_nodataLayout=findViewById(R.id.date_nodataLayout);
         date_dataLayout=findViewById(R.id.date_dataLayout);
+
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        storeId = appInData.getStoreId();
+        isOwner = appInData.isOwner();
 
         // 리사이클 뷰
         mRecyclerView = (RecyclerView) findViewById(R.id.date_recycleView);
@@ -120,7 +129,6 @@ public class Date extends AppCompatActivity implements View.OnClickListener{
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             CalendarApiService apiService = retrofit.create(CalendarApiService.class);
-            storeId = 1;
 
             Call<Set<CalendarResponseDto>> call = apiService.getDayWorkStaffs(storeId, date, day);
 
@@ -193,9 +201,15 @@ public class Date extends AppCompatActivity implements View.OnClickListener{
         Intent intent;
         switch (v.getId()){
             case R.id.date_backBtn: // 뒤로가기
-//                intent = new Intent(getApplicationContext(), Home_Ceo.class); 홈화면으로 가기
-//                startActivity(intent);
-//                finish();
+                if(isOwner) {
+                    intent = new Intent(getApplicationContext(), Home_Ceo.class);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    intent = new Intent(getApplicationContext(), Home_staff.class);
+                    startActivity(intent);
+                    finish();
+                }
                 break;
             case R.id.date_plusBtn: // +추가 버튼
                 intent = new Intent(getApplicationContext(), Date_plus.class);

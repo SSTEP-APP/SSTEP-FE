@@ -560,12 +560,13 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    public void noticeRegAddItem(long noticeId, String writeDate, String title){
+    public void noticeRegAddItem(long noticeId, String writeDate, String title, String writerName){
         HomeStaffNotice_recyclerViewItem item = new HomeStaffNotice_recyclerViewItem();
 
         item.setNoticeId(noticeId);
         item.setWriteDate(writeDate);
         item.setTitle(title);
+        item.setWriterName(writerName);
 
         noticeList.add(item);
     }
@@ -584,7 +585,7 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
             Toast.makeText(getApplicationContext(), "데이터 있음", Toast.LENGTH_SHORT).show();
             // 데이터가 있는 경우, dataLayout을 보이도록 설정
             for (NoticeResponseDto notice : list) {
-                noticeRegAddItem(notice.getId(), notice.getWriteDate(), notice.getTitle());
+                noticeRegAddItem(notice.getId(), notice.getWriteDate(), notice.getTitle(), notice.getWriterName());
             }
         }
 
