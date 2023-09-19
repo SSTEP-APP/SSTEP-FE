@@ -27,4 +27,17 @@ public interface MemberApiService {
             @Path("name") String name,
             @Path("phoneNum") String phoneNum
     );
+
+    // 추가
+    //회원가입
+    @POST("/member/join")
+    Call<Void> joinMember(@Body MemberRequestDto memberRequestDto);
+
+    //아이디로 회원 조회
+    @GET("/member/{username}")
+    Call<MemberResponseDto> getMemberByUsername(@Path("username") String username);
+
+    //아이디를 통한 중복 체크
+    @POST("/member/check/duplicate")
+    Call<String> checkDuplicateUsername(@Body MemberRequestDto memberRequestDto);
 }

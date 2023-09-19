@@ -3,7 +3,7 @@ package com.example.sstep;
 import android.app.Application;
 
 public class AppInData extends Application {
-    private String userId;
+    private String userId, userName, storeName;
     private long storeId;
     private long storeCode;
     private long staffId;
@@ -39,6 +39,22 @@ public class AppInData extends Application {
 
     public void setStaffId(long staffId) {
         this.staffId = staffId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
     }
 
     public boolean isOwner() {

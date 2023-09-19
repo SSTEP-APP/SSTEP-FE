@@ -1,12 +1,13 @@
 package com.example.sstep.todo.notice;
 
-import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
@@ -14,7 +15,6 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -27,21 +27,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.sstep.BaseDialog_OkCenter;
-import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
-import com.example.sstep.commute.Commute_map;
+import com.example.sstep.document.work_doc_api.PhotoApiService;
 import com.example.sstep.store.store_api.NullOnEmptyConverterFactory;
-import com.example.sstep.store.store_api.StoreApiService;
-import com.example.sstep.store.store_api.StoreRegisterReqDto;
 import com.example.sstep.todo.notice.notice_api.NoticeApiService;
 import com.example.sstep.todo.notice.notice_api.NoticeRequestDto;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -57,6 +58,7 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
     TextView titleLimitTv, contentLimitTv, pictureNumTv; TextView join_okdl_commentTv;
     Button completeBtn;
     LinearLayout pictureHL;
+    Long[] photoIds;
 
     private static final int REQ_CODE_SELECT_CAMERA = 100;
     private static final int REQ_CODE_GALLERY_IMAGE = 200;
@@ -173,66 +175,9 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
                 onPictureDelete();
                 break;
             case R.id.notice_input_completeBtn: // 등록하기
-                // 현재 날짜 가져오기
-                noticeDate = LocalDate.now(); // 출퇴근일자, yyyy-mm-dd
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                noticeDateStr = noticeDate.format(formatter);
 
-                //레트로핏 작동
-                try {
-
-                    //네트워크 요청 구현
-                    Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
-                            .addConverterFactory(new NullOnEmptyConverterFactory())
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .build();
-
-                    NoticeApiService noticeApiService = retrofit.create(NoticeApiService.class);
-
-                    // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
-                    NoticeRequestDto noticeRequestDto = new NoticeRequestDto(
-                            titleEt.getText().toString().trim(), //공지글 제목
-                            noticeDateStr, //공지글 작성 일자
-                            contentEt.getText().toString().trim(), //공지글 내용
-                            0, //공지 조회수,
-                            null
-                    );
-
-                    Call<Void> call = noticeApiService.registerNotice(2L, noticeRequestDto);
-
-                    call.enqueue(new Callback<Void>() {
-                        @Override
-                        public void onResponse(Call<Void> call, Response<Void> response) {
-                            if (response.isSuccessful()) {
-                                showCompleteDl();
-                                Toast.makeText(Notice_input.this, "성공", Toast.LENGTH_SHORT).show();
-                                // 성공적인 응답 처리
-                            } else {
-                                // 기타 다른 상태 코드 처리
-                                try {
-                                    String errorResponse = response.errorBody().string();
-                                    Toast.makeText(Notice_input.this, "공지사항 등록 실패!! 에러 메시지: " + errorResponse, Toast.LENGTH_SHORT).show();
-                                    // 에러 메시지를 사용하여 추가적인 처리 수행
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<Void> call, Throwable t) {
-                            // 실패 처리
-                            String errorMessage = t != null ? t.getMessage() : "Unknown error";
-                            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
-                            t.printStackTrace();
-                        }
-                    });
-
-
-                }catch (Exception e) {
-                    e.printStackTrace();
-                }
+                // 이미지를 배열로 변환하여 서버에 업로드
+                new NoticePhotoTask().execute();
 
                 break;
             default:
@@ -240,26 +185,7 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    // '보건증 완료'버튼 클릭 시
-    public void showCompleteDl(){
-        showComplete_dialog.show();
-        // 다이얼로그의 배경을 투명으로 만든다.
-        showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        Button join_okdl_okBtn;
-        join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
-        join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
-        join_okdl_commentTv.setText("공지사항 작성 완료하였습니다.");
 
-        // '공지사항 dialog' _ 확인 버튼 클릭 시
-        join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Notice.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -306,6 +232,7 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
             pictureIv[currentImageView].setClipToOutline(true);
             currentImageView++;
             numPictures++;
+
         }
         // 이미지뷰가 4개 모두 채워진 경우
         if (currentImageView == 4) {
@@ -353,5 +280,175 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
             completeBtn.setEnabled(false);
             completeBtn.setBackgroundResource(R.drawable.yroundrec_bottombtnoff);
         }
+    }
+
+    private class NoticePhotoTask extends AsyncTask<Void, Void, Long[]> {
+        @Override
+        protected Long[] doInBackground(Void... params) {
+            try {
+                // (이미지 업로드 코드)
+                // 각 이미지뷰에서 비트맵 가져오기
+                Bitmap[] photoBitmapArray = new Bitmap[4];
+
+                for (int i = 0; i < 4; i++) {
+                    photoBitmapArray[i] = ((BitmapDrawable) pictureIv[i].getDrawable()).getBitmap();
+                }
+
+                photoIds = new Long[4]; // 사진 아이디를 저장할 배열
+
+                for (int i = 0; i < 4; i++) {
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    photoBitmapArray[i].compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    byte[] byteArray = stream.toByteArray();
+                    RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
+                    MultipartBody.Part body = MultipartBody.Part.createFormData("file", i + "notice.jpeg", requestFile);
+
+                    // Retrofit을 사용하여 이미지 업로드 요청을 보냄
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+
+                    PhotoApiService apiService = retrofit.create(PhotoApiService.class);
+                    Call<Long> call = apiService.savePhoto(body);
+
+                    try {
+                        Response<Long> response = call.execute();
+
+                        if (response.isSuccessful()) {
+                            photoIds[i] = response.body();
+                        } else {
+                            photoIds[i] = -1L;
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        photoIds[i] = -1L;
+                    }
+                }
+                return photoIds;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null; // 예외 발생 시 null 반환
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Long[] result) {
+            if (result != null) {
+                // 이미지 업로드 성공한 경우 처리
+                for (long imageId : result) {
+                    if (imageId == -1L) {
+                        Toast.makeText(Notice_input.this, "이미지 업로드에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+                // 이미지 업로드 성공한 경우, 이미지 아이디를 사용하여 공지사항 업로드
+                uploadNotice(result);
+            } else {
+                Toast.makeText(Notice_input.this, "서버 응답이 null입니다.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+    private void uploadNotice(Long[] photoIds) {
+
+        // 현재 날짜 가져오기
+        noticeDate = LocalDate.now(); // 출퇴근일자, yyyy-mm-dd
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        noticeDateStr = noticeDate.format(formatter);
+
+        //네트워크 요청 구현
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                .addConverterFactory(new NullOnEmptyConverterFactory())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        NoticeApiService noticeApiService = retrofit.create(NoticeApiService.class);
+
+        // 공지사항 업로드에 필요한 데이터를 NoticeRequestDto 객체로 생성
+        long[] primitivePhotoIds = new long[4];
+        if (photoIds != null) {
+            for (int i = 0; i < 4; i++) {
+                primitivePhotoIds[i] = i < photoIds.length && photoIds[i] != null ? photoIds[i] : -1L;
+            }
+        } else {
+            for (int i = 0; i < 4; i++) {
+                primitivePhotoIds[i] = -1L;
+            }
+        }
+
+        NoticeRequestDto noticeRequestDto = new NoticeRequestDto(
+                titleEt.getText().toString().trim(), //공지글 제목
+                noticeDateStr, //공지글 작성 일자
+                contentEt.getText().toString().trim(), //공지글 내용
+                0, //공지 조회수,
+                primitivePhotoIds //사진 정보
+        );
+
+        Call<Void> call = noticeApiService.registerNotice(2L, noticeRequestDto); // staffId
+
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+
+                    // 이미지 업로드 성공한 경우, 이미지 아이디를 사용하여 공지사항 업로드
+                    int uploadedPhotoCount = 0;
+                    if (photoIds != null) {
+                        for (long imageId : photoIds) {
+                            if (imageId != -1L) {
+                                uploadedPhotoCount++;
+                            }
+                        }
+                    }
+
+                    showCompleteDl("공지사항 등록을 완료하였습니다. 업로드된 사진 수: " + uploadedPhotoCount);
+                    Toast.makeText(Notice_input.this, "성공", Toast.LENGTH_SHORT).show();
+                    // 성공적인 응답 처리
+                } else {
+                    // 기타 다른 상태 코드 처리
+                    try {
+                        String errorResponse = response.errorBody().string();
+                        showCompleteDl("공지사항 등록을 실패하였습니다." + errorResponse);
+                        Toast.makeText(Notice_input.this, "공지사항 등록 실패!! 에러 메시지: " + errorResponse, Toast.LENGTH_SHORT).show();
+                        // 에러 메시지를 사용하여 추가적인 처리 수행
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // 실패 처리
+                String errorMessage = t != null ? t.getMessage() : "Unknown error";
+                Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
+            }
+        });
+    }
+
+    // '완료'버튼 클릭 시
+    public void showCompleteDl(String message){
+        showComplete_dialog.show();
+        // 다이얼로그의 배경을 투명으로 만든다.
+        showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Button join_okdl_okBtn;
+        join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
+        join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
+        join_okdl_commentTv.setText(message);
+
+        // '공지사항 dialog' _ 확인 버튼 클릭 시
+        join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Notice.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

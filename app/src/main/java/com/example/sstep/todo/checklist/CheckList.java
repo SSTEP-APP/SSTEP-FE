@@ -351,8 +351,6 @@ public class CheckList extends AppCompatActivity {
         return day;
     }
 
-
-
     // 달력 다이얼로그 띄우기
     public void showCalendarDialog(final ImageButton imageButton) {
         CalendarDialog calendarDialog = new CalendarDialog(CheckList.this,

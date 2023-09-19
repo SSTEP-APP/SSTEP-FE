@@ -1,14 +1,10 @@
 package com.example.sstep.todo.notice;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,27 +12,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sstep.R;
-import com.example.sstep.alarm.Alarm3_recyclerViewWordItemData;
-import com.example.sstep.todo.checklist.CheckList;
-import com.example.sstep.todo.checklist.Checklist_detail;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 
 public class Notice_RecyclerViewAdpater extends RecyclerView.Adapter<Notice_RecyclerViewAdpater.Holder> {
     private Context context;
-    private List<Notice_recyclerViewWordItemData> list = new ArrayList<>();
+    private List<Notice_recyclerViewItem> list = new ArrayList<>();
 
     // 어댑터 생성자
-    public Notice_RecyclerViewAdpater(Context context, List<Notice_recyclerViewWordItemData> list) {
+    public Notice_RecyclerViewAdpater(Context context, List<Notice_recyclerViewItem> list) {
         this.context = context;
         this.list.addAll(list);
     }
 
     // 데이터 업데이트 메서드 추가
-    public void updateData(List<Notice_recyclerViewWordItemData> newList) {
+    public void updateData(List<Notice_recyclerViewItem> newList) {
         list.clear();
         list.addAll(newList);
         notifyDataSetChanged();

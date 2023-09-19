@@ -451,6 +451,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
                     <Button
+                        android:id="@+id/homeceo_dateBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="전체보기"
@@ -466,11 +467,35 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp">
+                        <TextView
+                            android:id="@+id/homeceo_date_countNumTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="오늘 0"
+                            android:textColor="@color/blue"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1.5dp"
+                            android:background="@color/blue"
+                            android:layout_gravity="bottom"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:background="#DADADA"
+                        android:layout_gravity="bottom"/>
+                    <LinearLayout
                         android:id="@+id/homeceo_date_nodataLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone">
+                        android:visibility="visible">
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -485,55 +510,23 @@
                             android:text="일정이 없습니다."
                             android:layout_marginTop="20dp"/>
                     </LinearLayout>
-
                     <LinearLayout
                         android:id="@+id/homeceo_date_dataLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="40dp"
-                        android:visibility="visible">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2023.02.12 (수)"
-                            android:textSize="13sp"
-                            android:textColor="@color/black"/>
-                        <LinearLayout
+                        android:visibility="gone">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/homeceo_date_recycleView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:background="@drawable/yroundrec_homeceo_date"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:paddingRight="15dp"
-                            android:paddingLeft="15dp"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="일정 이름"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/black"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="9:00 ~ 12:00"
-                                android:textSize="13sp"
-                                android:textColor="@color/black"
-                                android:layout_marginTop="5dp"/>
-                        </LinearLayout>
+                            android:paddingRight="40dp"/>
                     </LinearLayout>
 
                     <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/homeceo_dateplusBtn"
+                        android:layout_width="130dp"
+                        android:layout_height="40dp"
                         android:background="@drawable/yroundrec_w"
                         android:backgroundTint="#DFEEFF"
                         android:minWidth="0dp"
@@ -541,12 +534,8 @@
                         android:text="일정 추가"
                         android:textColor="@color/blue"
                         android:textSize="15sp"
-                        android:layout_marginTop="25dp"
-                        android:layout_gravity="center_horizontal"
-                        android:paddingLeft="30dp"
-                        android:paddingRight="30dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"/>
+                        android:layout_marginTop="30dp"
+                        android:layout_gravity="center_horizontal"/>
                 </LinearLayout>
             </LinearLayout> <!-- 일정 -->
 

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,7 +20,7 @@ import java.util.List;
 public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<SelectStore_RecyclerViewAdpater.ViewHolder> {
 
     private OnItemClickListener onItemClickListener;
-    FrameLayout selectStoreLayout; // selectstoreRI_onelistF 뷰를 참조할 변수
+    LinearLayout selectStoreLayout; // selectstoreRI_onelistF 뷰를 참조할 변수
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         onItemClickListener = listener;
@@ -35,7 +36,7 @@ public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<Select
             selectStoreName = (TextView) itemView.findViewById(R.id.selectstoreRI_storenameTv);
             selectStoreAddress = (TextView) itemView.findViewById(R.id.selectstoreRI_addressTv);
             selectStorePerson = (TextView) itemView.findViewById(R.id.selectstoreRI_personNumTv);
-            selectStoreLayout = itemView.findViewById(R.id.selectstoreRI_onelistF); // 뷰 초기화
+            selectStoreLayout = itemView.findViewById(R.id.selectstoreRI_onelistL); // 뷰 초기화
 
             selectStoreLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -66,7 +67,7 @@ public class SelectStore_RecyclerViewAdpater extends RecyclerView.Adapter<Select
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.slectstore_recycle_item, parent, false);
+        View view = inflater.inflate(R.layout.selectstore_recycle_item, parent, false);
         ViewHolder vh = new ViewHolder(view);
         return vh;
     }

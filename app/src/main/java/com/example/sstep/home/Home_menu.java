@@ -13,17 +13,30 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.document.certificate.Paper;
+import com.example.sstep.store.store_api.StoreApiService;
+import com.example.sstep.store.store_api.StoreResponseDto;
 import com.example.sstep.todo.checklist.CheckList;
 import com.example.sstep.todo.notice.Notice;
 import com.example.sstep.user.login.Login;
+import com.example.sstep.user.member.MemberApiService;
+import com.example.sstep.user.member.MemberResponseDto;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Home_menu extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton closeIb;
-    TextView paperTv, noticeTv, checklistTv, logoutTv;
+    TextView storeNameTv, nameTv, paperTv, noticeTv, checklistTv, logoutTv;
     Dialog logoutdl;
+    AppInData appInData;
+    String userName, storeName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +48,20 @@ public class Home_menu extends AppCompatActivity implements View.OnClickListener
         noticeTv=findViewById(R.id.homemenu_noticeTv); noticeTv.setOnClickListener(this);
         checklistTv=findViewById(R.id.homemenu_checklistTv); checklistTv.setOnClickListener(this);
         logoutTv=findViewById(R.id.homemenu_logoutTv); logoutTv.setOnClickListener(this);
+        storeNameTv=findViewById(R.id.homemenu_storeNameTv);
+        nameTv=findViewById(R.id.homemenu_nameTv);
 
         logoutdl = new Dialog(Home_menu.this); // Dialog 초기화
         logoutdl.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         logoutdl.setContentView(R.layout.mypage_logoutdl); // xml 레이아웃 파일과 연결
+
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        userName = appInData.getUserName();
+        storeName = appInData.getStoreName();
+
+        storeNameTv.setText(storeName);
+        nameTv.setText(userName);
     }
 
     @Override
