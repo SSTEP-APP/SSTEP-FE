@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/j_layout_background"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/dia_select_0btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="0분" />
+
+        <View
+            android:id="@+id/dia_select_line1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/dia_select_5btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="5분" />
+
+        <View
+            android:id="@+id/dia_select_line2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/dia_select_10btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="10분"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/dia_select_line3"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/dia_select_15btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="15분"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/dia_select_line4"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/dia_select_30btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="30분"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/dia_select_line5"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D0D0D0" />
+
+        <Button
+            android:id="@+id/dia_select_60btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/j_button_shape"
+            android:backgroundTint="#FFFFFF"
+            android:text="60분"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/dia_select_line6"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#737373" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialog_text_cancleBtn"
+            android:layout_width="125dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:background="@drawable/j_layout_button_quad"
+            android:gravity="center"
+            android:text="닫기"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

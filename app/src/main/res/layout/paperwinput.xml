@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:id="@+id/paperwinput_L1">
+
+    <!-- top_근로계약서 입력 -->
+    <FrameLayout
+        android:id="@+id/paperwinput_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/paperwinput_topTv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="표준 근로계약서 작성"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_gravity="bottom"
+            android:background="@color/line" />
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/paperwinput_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/paperwinput_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:id="@+id/paperwinput_scrollL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- (사업주) 사업체 정보 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="@color/white"
+                android:layout_marginTop="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(사업주) 사업체 정보"
+                    android:textSize="20sp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/nanumsquareneo_deb" />
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.8dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/line"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(사업주) 사업체명"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="10dp"/>
+                <EditText
+                    android:id="@+id/paperwinput_storeInfo_storeNameEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="ex)  스텦"
+                    android:inputType="text"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:maxLength="20"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(사업주) 사업체 주소"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="25dp"/>
+                <EditText
+                    android:id="@+id/paperwinput_storeInfo_storeAddressEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="ex)  시흥시 산기대학로"
+                    android:inputType="text"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(사업주) 사업체 연락처"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="25dp"/>
+                <EditText
+                    android:id="@+id/paperwinput_storeInfo_storePhoneEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="ex)  010-0000-0000"
+                    android:inputType="phone"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:maxLength="13"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대표자명"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="25dp"/>
+                <EditText
+                    android:id="@+id/paperwinput_storeInfo_storeCeoNameEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="대표자명"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대표자 서명"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="25dp"/>
+                <FrameLayout
+                    android:id="@+id/paperwinput_storeInfo_signF"
+                    android:layout_width="360dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:padding="5dp">
+                    <!--
+                    <ImageView
+                        android:id="@+id/paperwinput_storeInfo_storeCeoSignIv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                        -->
+                    <com.example.sstep.document.contract.CustomDrawingView
+                        android:id="@+id/customDrawingView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </FrameLayout>
+                <ImageButton
+                    android:id="@+id/paperwinput_storeInfo_storeCeoSignRefreshIb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yicon_paperwinput_refresh"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"/>
+            </LinearLayout>
+
+            <!-- 근무조건 선택 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="35dp"
+                android:paddingBottom="35dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="@color/white"
+                android:layout_marginTop="15dp">
+                <LinearLayout
+                    android:id="@+id/paperwinput_workTerms_updownHL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="근무조건"
+                        android:textSize="20sp"
+                        android:textColor="@color/blue"
+                        android:fontFamily="@font/nanumsquareneo_deb" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(선택)"
+                        android:textSize="20sp"
+                        android:textColor="#808080"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:layout_marginLeft="10dp"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:id="@+id/paperwinput_workTerms_updownIv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_up"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/paperwinput_workTerms_hidL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:background="@color/line" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:text="근무개시일"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/paperwinput_workTerms_workstartDateTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="15dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="15dp"
+                            android:text="근무개시일"
+                            android:textColor="@color/likeblack"
+                            android:textSize="13sp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <ImageButton
+                            android:id="@+id/paperwinput_workTerms_workstartDateIb"
+                            android:layout_width="17dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/yicon_calendar" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_weight="1"
+                        android:background="#737373" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:text="근무장소"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/paperwinput_workTerms_workPlaceEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/yedittext_w_sg"
+                        android:fontFamily="@font/nanumsquareneo_brg"
+                        android:gravity="top"
+                        android:hint="근무장소를 입력해 주세요."
+                        android:inputType="text|textMultiLine"
+                        android:lineSpacingExtra="5dp"
+                        android:minHeight="80dp"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/likeblack"
+                        android:textColorHint="@color/editTextHint"
+                        android:textCursorDrawable="@drawable/yet_cursor"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/paperwinput_workTerms_workPlaceLimitTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="0/50"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="업무의 내용"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:layout_marginTop="25dp"/>
+                    <EditText
+                        android:id="@+id/paperwinput_workTerms_workContentEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/yedittext_w_sg"
+                        android:fontFamily="@font/nanumsquareneo_brg"
+                        android:gravity="top"
+                        android:hint="업무의 내용을 입력해 주세요."
+                        android:inputType="text|textMultiLine"
+                        android:lineSpacingExtra="5dp"
+                        android:minHeight="80dp"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/likeblack"
+                        android:textColorHint="@color/editTextHint"
+                        android:textCursorDrawable="@drawable/yet_cursor"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/paperwinput_workTerms_workContentLimitTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="0/50"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:text="소정근로시간"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/paperwinput_workTerms_startTimeSp"
+                                android:layout_width="170dp"
+                                android:layout_height="45dp"
+                                android:background="@drawable/yedittext_w_sg"
+                                android:spinnerMode="dropdown"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_marginRight="25dp"
+                                android:background="@drawable/yicon_catedown" />
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/paperwinput_workTerms_endTimeSp"
+                                android:layout_width="170dp"
+                                android:layout_height="45dp"
+                                android:background="@drawable/yedittext_w_sg"
+                                android:prompt="@string/end_time_hint"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_marginRight="25dp"
+                                android:background="@drawable/yicon_catedown" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:text="근무일"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp">
+
+                        <Spinner
+                            android:id="@+id/paperwinput_workTerms_workDaySp"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/yedittext_w_sg"
+                            android:spinnerMode="dropdown" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:layout_marginRight="25dp"
+                            android:background="@drawable/yicon_catedown" />
+                    </FrameLayout>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <!-- 임금 선택 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="35dp"
+                android:paddingBottom="35dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="@color/white"
+                android:layout_marginTop="15dp">
+                <LinearLayout
+                    android:id="@+id/paperwinput_wage_updownHL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="임금"
+                        android:textSize="20sp"
+                        android:textColor="@color/blue"
+                        android:fontFamily="@font/nanumsquareneo_deb" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(선택)"
+                        android:textSize="20sp"
+                        android:textColor="#808080"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:layout_marginLeft="10dp"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageView
+                        android:id="@+id/paperwinput_wage_updownIv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/yicon_up"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/paperwinput_wage_hidL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.8dp"
+                        android:layout_weight="1"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@color/line"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시급"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp">
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:id="@+id/paperwinput_wage_wageEt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/yedittext_w_sg"
+                                android:fontFamily="@font/nanumsquareneo_brg"
+                                android:hint="숫자만 입력"
+                                android:inputType="number"
+                                android:textColor="@color/likeblack"
+                                android:textColorHint="@color/editTextHint"
+                                android:textSize="13sp"
+                                android:textCursorDrawable="@drawable/yet_cursor"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="20dp"
+                                android:paddingTop="15dp"
+                                android:paddingBottom="15dp"
+                                android:maxLength="10"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="원"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_vertical|right"
+                                android:layout_marginRight="20dp"/>
+                        </FrameLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="최저임금: 시급 "
+                            android:textColor="@color/black"
+                            android:textSize="13sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9,260"
+                            android:textColor="@color/blue"
+                            android:textSize="13sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 원"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="임금지급일"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:layout_marginTop="30dp"/>
+                    <RadioGroup
+                        android:id="@+id/paperwinput_wage_paydayRg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginTop="25dp">
+                        <RadioButton
+                            android:id="@+id/paperwinput_wage_paydayMonthRb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/yradiobtn_red"
+                            android:checked="true"
+                            android:text="월급"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <RadioButton
+                            android:id="@+id/paperwinput_wage_paydayWeekRb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/yradiobtn_red"
+                            android:checked="true"
+                            android:text="주급"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <RadioButton
+                            android:id="@+id/paperwinput_wage_paydayDayRb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/yradiobtn_red"
+                            android:checked="true"
+                            android:text="일급"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+                    </RadioGroup>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp">
+                        <EditText
+                            android:id="@+id/paperwinput_wage_paydayEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/yedittext_w_sg"
+                            android:fontFamily="@font/nanumsquareneo_brg"
+                            android:hint="숫자만 입력"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/editTextHint"
+                            android:textSize="13sp"
+                            android:textCursorDrawable="@drawable/yet_cursor"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="50dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
+                            android:gravity="right"
+                            android:maxLength="2"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="일"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_marginRight="20dp"/>
+                    </FrameLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="지급방법"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanumsquareneo_deb"
+                        android:layout_marginTop="25dp"/>
+                    <RadioGroup
+                        android:id="@+id/paperwinput_wage_payOptionRg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginTop="25dp">
+                        <RadioButton
+                            android:id="@+id/paperwinput_wage_payOptionBankRb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/yradiobtn_red"
+                            android:checked="true"
+                            android:text="예금 통장에 입금"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <RadioButton
+                            android:id="@+id/paperwinput_wage_payOptionSelfRb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/yradiobtn_red"
+                            android:checked="true"
+                            android:text="직접 지급"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingLeft="10dp"/>
+                    </RadioGroup>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 작성일 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="35dp"
+                android:paddingBottom="35dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="@color/white"
+                android:layout_marginTop="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="작성일"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp">
+                    <TextView
+                        android:id="@+id/paperwinput_writeDayTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/likeblack"
+                        android:text="작성일"
+                        android:textSize="13sp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <ImageButton
+                        android:id="@+id/paperwinput_writeDayIb"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/yicon_calendar"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="15dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 맨 아래 버튼 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp">
+                <CheckBox
+                    android:id="@+id/paperwinput_privacyCb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/ychbox_rec_blue"
+                    android:text="개인정보 수집 및 이용 동의"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:paddingLeft="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:checked="false"/>
+
+                <Button
+                    android:id="@+id/paperwinput_completeBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/yroundrec_bottombtnoff"
+                    android:clickable="false"
+                    android:text="계약서 작성완료"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

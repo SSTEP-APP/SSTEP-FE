@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- top_공지사항 등록-->
+    <FrameLayout
+        android:id="@+id/notice_input_F1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/notice_input_toptv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="공지사항 등록"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/notice_input_backib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+    <ScrollView
+        android:id="@+id/notice_input_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/notice_input_scrollL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+            <!-- 제목 _L -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/white">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="제목"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"/>
+                <EditText
+                    android:id="@+id/notice_input_titleEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:ems="10"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="제목을 입력해 주세요."
+                    android:inputType="text"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:id="@+id/notice_input_titleLimitTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0/40"
+                    android:textSize="10sp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="8dp"/>
+
+                <!-- 내용 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="내용"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="40dp"/>
+
+                <EditText
+                    android:id="@+id/notice_input_contentEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:background="@drawable/yedittext_w_sg"
+                    android:fontFamily="@font/nanumsquareneo_brg"
+                    android:hint="내용을 입력해 주세요."
+                    android:inputType="text|textMultiLine"
+                    android:textColor="@color/likeblack"
+                    android:textColorHint="@color/editTextHint"
+                    android:textSize="13sp"
+                    android:textCursorDrawable="@drawable/yet_cursor"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="top"
+                    android:lineSpacingExtra="5dp"/>
+                <TextView
+                    android:id="@+id/notice_input_contentLimitTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0/80"
+                    android:textSize="10sp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="8dp"/>
+
+                <!--사진 첨부-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="사진 첨부"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumsquareneo_deb"
+                    android:layout_marginTop="40dp"/>
+                <!-- 사진 첨부 내용 _L -->
+                <LinearLayout
+                    android:id="@+id/notice_input_L4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/yroundrec_g"
+                    android:padding="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp">
+                    <!-- 사진 첨부 버튼 _HL -->
+                    <LinearLayout
+                        android:id="@+id/notice_input_HL1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageButton
+                            android:id="@+id/notice_input_cameraIbtn"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/yicon_camera"
+                            android:layout_marginRight="10dp"/>
+                        <ImageButton
+                            android:id="@+id/notice_input_photoIbtn"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/yicon_photo"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/notice_input_pictureNumTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0/4"
+                            android:textSize="13sp"/>
+                        <ImageButton
+                            android:id="@+id/notice_input_deleteIbtn"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/yicon_trash"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout> <!-- 사진 첨부 버튼 _HL -->
+                    <!-- 사진 첨부 사진 _HL -->
+                    <LinearLayout
+                        android:id="@+id/notice_input_pictureHL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp">
+                        <ImageView
+                            android:id="@+id/notice_input_pictureIv1"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w"
+                            android:scaleType="centerCrop"
+                            android:layout_marginRight="21dp"/>
+                        <ImageView
+                            android:id="@+id/notice_input_pictureIv2"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w"
+                            android:scaleType="centerCrop"
+                            android:layout_marginRight="21dp"/>
+                        <ImageView
+                            android:id="@+id/notice_input_pictureIv3"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w"
+                            android:scaleType="centerCrop"
+                            android:layout_marginRight="21dp"/>
+                        <ImageView
+                            android:id="@+id/notice_input_pictureIv4"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/yroundrec_w"
+                            android:scaleType="centerCrop"/>
+                    </LinearLayout> <!-- 사진 첨부 사진 _HL -->
+                </LinearLayout> <!-- 사진 첨부 내용 _L -->
+
+            </LinearLayout>
+        </LinearLayout> <!-- 스크롤 _L -->
+    </ScrollView>
+
+
+    <!-- 맨 아래 버튼 변경 F -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/notice_input_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnoff"
+            android:text="등록하기"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
+</LinearLayout>

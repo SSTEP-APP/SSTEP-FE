@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".user.staff.addSchedule">
+
+    <!-- top_일정 추가-->
+    <FrameLayout
+        android:id="@+id/addSch_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <TextView
+            android:id="@+id/addSch_topText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="일정 추가"
+            android:textColor="@color/topText"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/yunderline_text"
+            android:layout_gravity="bottom"/>
+
+        <!-- 뒤로가기 아이콘 -->
+        <ImageButton
+            android:id="@+id/addSch_backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/yicon_back" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+
+                <TextView
+                    android:id="@+id/addSch_localText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="일정 정보"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/addSch_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addSch_local_text2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:text="입사일"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <Button
+                        android:id="@+id/addSch_selectDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/j_button_shape"
+                        android:text="2023년 1월 26일"
+                        android:textSize="13sp"
+                        android:textColor="@color/blue"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="7dp"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- 출퇴근 요일 선택 -->
+            <LinearLayout
+                android:id="@+id/addSch_selectdayLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <TextView
+                    android:id="@+id/addSch_local_text16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="출퇴근 요일 선택"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/addSch_line5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@color/line" />
+
+                <LinearLayout
+                    android:id="@+id/addSch_checkLinearL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal">
+
+                    <CheckBox
+                        android:id="@+id/addSch_sunBtn"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/j_checkbox_layout"
+                        android:button="@android:color/transparent"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="일"
+                        android:textSize="15sp"
+                        android:textColor="#DADADA"/>
+
+                    <CheckBox
+                        android:id="@+id/addSch_monBtn"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/j_checkbox_layout"
+                        android:button="@android:color/transparent"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="월"
+                        android:textSize="15sp"
+                        android:textColor="#DADADA"
+                        android:layout_marginLeft="7dp" />
+                    <CheckBox
+                        android:id="@+id/addSch_tueBtn"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/j_checkbox_layout"
+                        android:button="@android:color/transparent"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="화"
+                        android:textSize="15sp"
+                        android:textColor="#DADADA"
+                        android:layout_marginLeft="7dp" />
+                    <CheckBox
+                        android:id="@+id/addSch_wedBtn"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/j_checkbox_layout"
+                        android:button="@android:color/transparent"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="수"
+                        android:textSize="15sp"
+                        android:textColor="#DADADA"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"/>
+                    <CheckBox
+                        android:id="@+id/addSch_thuBtn"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/j_checkbox_layout"
+                        android:button="@android:color/transparent"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="목"
+                        android:textSize="15sp"
+                        android:textColor="#DADADA"
+                        android:layout_marginRight="7dp"/>
+                    <CheckBox
+                        android:id="@+id/addSch_friBtn"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/j_checkbox_layout"
+                        android:button="@android:color/transparent"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="금"
+                        android:textSize="15sp"
+                        android:textColor="#DADADA"
+                        android:layout_marginRight="7dp" />
+                    <CheckBox
+                        android:id="@+id/addSch_satBtn"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/j_checkbox_layout"
+                        android:button="@android:color/transparent"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="토"
+                        android:textSize="15sp"
+                        android:textColor="#DADADA" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <!-- 출퇴근 시간 입력 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <TextView
+                    android:id="@+id/addSch_local_text9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="출퇴근 시간 입력"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/addSch_line8"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@color/line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="74dp"
+                    android:layout_marginRight="74dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addSch_localText4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="출근시간"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <View
+                        android:id="@+id/addSch_line3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/addSch_startTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="03:00"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/nanumsquareneo_deb" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="74dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="74dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/addSch_local_text3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="퇴근시간"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <View
+                        android:id="@+id/addSch_line4"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/addSch_endTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="05:00"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/nanumsquareneo_deb" />
+
+                </LinearLayout>
+                <Button
+                    android:id="@+id/addSch_dayAddBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/j_button_shape"
+                    android:textColor="@color/blue"
+                    android:text="추가하기"/>
+            </LinearLayout>
+
+            <!-- 근무일정확인 -->
+            <LinearLayout
+                android:id="@+id/addSch_workCheckLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/addSch_localText7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="근무일정확인"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/addSch_line7"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@color/line" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/addSch_scheduleRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 맨 아래 완료 버튼 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/addSch_completeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/yroundrec_bottombtnon"
+            android:text="일정추가 완료"
+            android:textSize="17sp"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
+
+</LinearLayout>

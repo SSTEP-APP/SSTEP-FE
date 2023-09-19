@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/j_layout_background"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialog_text_localTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:text="일정을 삭제하시겠습니까?"
+            android:textColor="#737373" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/dialog_text_text2_line2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#737373" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialog_text_cancleBtn"
+            android:layout_width="125dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:background="@drawable/j_layout_button_quad"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center"
+            android:text="취소"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <View
+            android:id="@+id/dialog_text_text2_line"
+            android:layout_width="0.5dp"
+            android:layout_height="58dp" />
+
+        <Button
+            android:id="@+id/dialog_text_delBtn"
+            android:layout_width="125dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:background="@drawable/j_layout_button_quad"
+            android:backgroundTint="#EF5E5E"
+            android:gravity="center"
+            android:text="삭제"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
