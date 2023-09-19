@@ -29,7 +29,7 @@ public class Home_Ceo_checkList_RecyclerViewAdpater extends RecyclerView.Adapter
             super(itemView);
 
             name = (TextView) itemView.findViewById(R.id.homeceo_checklist_recycle_titleCb);
-            date = (TextView) itemView.findViewById(R.id.homeceo_checklist_recycle_staffCntTv);
+            date = (TextView) itemView.findViewById(R.id.homeceo_checklist_recycle_dateTv);
 
         }
     }

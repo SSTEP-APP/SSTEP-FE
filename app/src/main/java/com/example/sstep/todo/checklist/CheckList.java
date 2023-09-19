@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
 import com.example.sstep.home.Home_Ceo;
@@ -96,6 +97,10 @@ public class CheckList extends AppCompatActivity {
         spinner = findViewById(R.id.checkList_selectCategory);
         plusBtn = findViewById(R.id.checkList_plusBtn);
         backBtn = findViewById(R.id.checkList_backBtn);
+
+        AppInData appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        storeId = appInData.getStoreId(); // 사용자 ID 가져오기
+
 
         // 뒤로가기
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -200,8 +205,6 @@ public class CheckList extends AppCompatActivity {
 
                 // Retrofit 인터페이스 사용
                 CategoryApiService apiService = retrofit.create(CategoryApiService.class);
-
-                storeId = 1;
 
                 try {
                     Call<Set<CategoryResponseDto>> call = apiService.getCategories(storeId);

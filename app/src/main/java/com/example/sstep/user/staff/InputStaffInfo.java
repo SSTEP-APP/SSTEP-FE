@@ -45,7 +45,6 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
 
     boolean completeBtnState;
 
-    private java.sql.Date startDay; //입사일
     private String paymentDate;
 
     int wageType; //급여 지급 방식 일급(1), 주급(2), 월급(3)
@@ -156,7 +155,7 @@ public class InputStaffInfo extends AppCompatActivity implements View.OnClickLis
                 }catch (NumberFormatException e) {
                     Toast.makeText(InputStaffInfo.this, "시급을 잘못 입력하였습니다.", Toast.LENGTH_SHORT).show();
                 }
-                intent.putExtra("wageType", wageType);
+                wageType = intent.getIntExtra("wageType", 1);
                 intent.putExtra("startDay", ci_indateBtn.getText().toString().trim());
                 intent.putExtra("paymentDate", ci_wageBtn.getText().toString().trim());
                 Toast.makeText(InputStaffInfo.this, "방식"+ wageType, Toast.LENGTH_SHORT).show(); //삭제

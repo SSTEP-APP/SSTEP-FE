@@ -21,7 +21,7 @@ public class StoreResponseDto {
     private boolean plan; //사업장 유료플랜 여부
     private long code; //사업장 코드번호 => 인앱 사업장 검색시 사용
     private int count; //사업장 구성원 수
-    private boolean isOwner; //사업장 사장 여부
+    private boolean owner; //사업장 사장 여부
 
 
     public StoreResponseDto(long id,long staffId, String name, String address, String latitude, String longitude, boolean scale, boolean plan, long code, int count, boolean isOwner) {
@@ -35,7 +35,7 @@ public class StoreResponseDto {
         this.plan = plan;
         this.code = code;
         this.count = count;
-        this.isOwner = isOwner;
+        this.owner = isOwner;
     }
 
     public long getId() {
@@ -119,10 +119,10 @@ public class StoreResponseDto {
     }
 
     public boolean isOwner() {
-        return isOwner;
+        return owner;
     }
 
     public void setOwner(boolean owner) {
-        isOwner = owner;
+        this.owner = owner;
     }
 }

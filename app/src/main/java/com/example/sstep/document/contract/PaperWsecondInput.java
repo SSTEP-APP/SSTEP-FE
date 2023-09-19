@@ -84,7 +84,7 @@ public class PaperWsecondInput extends AppCompatActivity implements View.OnClick
 
     File file;
 
-    long storeId, staffId;
+    long staffId;
 
 
     @Override
@@ -111,10 +111,6 @@ public class PaperWsecondInput extends AppCompatActivity implements View.OnClick
         showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
 
-        // 앱데이터 저장된 값 가져오기
-        AppInData appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
-        //storeId = appInData.getStoreId();
-        //staffId = appInData.getStaffId();
 
         //리스트에서 보낸 staffId받기
         Intent intent = getIntent();
@@ -398,12 +394,10 @@ public class PaperWsecondInput extends AppCompatActivity implements View.OnClick
 
             if (result != null) {
                 if (result != -1L) {
-                    String message = "보건증 작성을 완료하였습니다. 이미지 ID: " + result;
+                    String message = "사진 저장을 성공했습니다.";
                     join_okdl_commentTv.setText(message);
                     // 이미지 ID를 사용하여 이미지를 가져오거나 다른 작업 수행
 
-                    // Toast로 결과를 표시
-                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                 } else {
                     String errorMessage = "보건증 작성이 실패했습니다!";
                     join_okdl_commentTv.setText(errorMessage);

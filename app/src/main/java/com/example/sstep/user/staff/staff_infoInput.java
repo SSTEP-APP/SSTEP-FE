@@ -128,7 +128,6 @@ public class staff_infoInput extends AppCompatActivity {
         wageType = getIntent().getIntExtra("wageType", 1);
         hourlyWageText.setText(""+hourMoney);
 
-        Toast.makeText(this, "staff"+staffId, Toast.LENGTH_SHORT).show(); //삭제
 
         if (inStartDay != null) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일", Locale.getDefault());
@@ -367,7 +366,6 @@ public class staff_infoInput extends AppCompatActivity {
         for (Staff_infoInput_recyclerViewItem item : mList) {
             String dayOfWeek = item.getStaff_infoInput_days(); // 요일
             String time = item.getStaff_infoInput_time(); // 시간
-            Toast.makeText(staff_infoInput.this, ""+time.toString(), Toast.LENGTH_SHORT).show();
             // workTime 정보는 어떻게 처리할지에 대한 추가적인 정보가 필요하므로 이 부분을 적절하게 처리해야 합니다.
 
             // 서버에 등록하기 위해 스케줄 정보를 객체로 만들기
@@ -412,7 +410,6 @@ public class staff_infoInput extends AppCompatActivity {
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     int statusCode = response.code();
                     if (statusCode == 200 || statusCode == 201) {
-                        Toast.makeText(staff_infoInput.this, "일정이 등록되었습니다.", Toast.LENGTH_SHORT).show();
 
                         // 성공적인 응답 처리
                     } else {

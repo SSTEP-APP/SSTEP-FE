@@ -61,9 +61,8 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
 
 
         //storeId지정
-        //AppInData appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
-        //storeId = appInData.getStoreId(); // 사용자 ID 가져오기
-        storeId=1;
+        AppInData appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        storeId = appInData.getStoreId(); // 사용자 ID 가져오기
 
         regFirstInit();
         UnRegFirstInit();
@@ -189,18 +188,19 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-    public void RegAddItem(String name, String date){
+    public void RegAddItem(String name, String date, long staffId){
         PaperH_Reg_recyclerViewItem item = new PaperH_Reg_recyclerViewItem();
 
         item.setPaperH_reg_name(name);
         item.setPaperH_reg_date(date);
+        item.setPaperH_reg_staffId(staffId);
 
         regList.add(item);
     }
     private void  RegUpdateRecyclerView(Set<HealthDocResponseDto> list) {
         regList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
         for (HealthDocResponseDto docH : list) {
-            RegAddItem(docH.getName(), docH.getCheckUpDate());
+            RegAddItem(docH.getName(), docH.getCheckUpDate(), docH.getStaffId());
 
         }
 
@@ -214,7 +214,7 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
                 Intent intent = new Intent(getApplicationContext(), PaperHview.class); //사장, 스테프 구분 필요
                 intent.putExtra("name", item.getPaperH_reg_name());
                 intent.putExtra("date", item.getPaperH_reg_date());
-                //intent.putExtra("staffId", item.getPaperH_reg_staffId);
+                intent.putExtra("staffId", item.getPaperH_reg_staffId());
 
                 startActivity(intent);
                 finish();

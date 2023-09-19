@@ -85,7 +85,6 @@ public class PaperWceoview extends AppCompatActivity {
                                         Bitmap bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
                                         ImageView photo = findViewById(R.id.paperWceoview_imageView);
                                         photo.setImageBitmap(bitmap);
-                                        Toast.makeText(PaperWceoview.this, codeStaffs.getFileName()+codeStaffs.getId(), Toast.LENGTH_SHORT).show();
                                     } else {
                                         Toast.makeText(PaperWceoview.this, "null", Toast.LENGTH_SHORT).show();
                                     }

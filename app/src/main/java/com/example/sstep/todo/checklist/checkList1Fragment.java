@@ -1,5 +1,6 @@
 package com.example.sstep.todo.checklist;
 
+import android.app.Application;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -56,6 +57,7 @@ public class checkList1Fragment extends Fragment {
     Long categoryId, storeId;
     String date;
     boolean owner;
+    Long staffId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,6 +71,16 @@ public class checkList1Fragment extends Fragment {
         dataLayout = (LinearLayout)  v.findViewById(R.id.fragment_checkList1_dataLayout);
         //list = CheckList1_recyclerViewWordItemData.createContactsList(5, "");// 리스트 갯수
         mRecyclerView.setHasFixedSize(true);
+        Application appInData = (Application) requireContext().getApplicationContext();
+        if (appInData instanceof AppInData) {
+            // AppInData 클래스의 인스턴스를 사용할 수 있습니다.
+            AppInData appInDataInstance = (AppInData) appInData;
+            storeId = appInDataInstance.getStoreId();
+            staffId = appInDataInstance.getStaffId();
+            owner = appInDataInstance.isOwner();
+
+            // 이제 appInDataInstance를 사용하여 원하는 작업을 수행할 수 있습니다.
+        }
         try {
             if(list.isEmpty()){
                 nodataLayout.setVisibility(View.VISIBLE);
@@ -140,13 +152,12 @@ public class checkList1Fragment extends Fragment {
             this.viewModel2 = new ViewModelProvider((ViewModelStoreOwner) context).get(CheckListViewModel2.class);
         }
 
-        Long staffId;
+
 
         @Override
         protected String doInBackground(Void... params) {
             try {
                 // staffId와 categoryId를 가져오는 부분을 수정
-                AppInData appInData = (AppInData) context.getApplicationContext();
                 //staffId = appInData.getStaffId();
                 //owner = appInData.isOwner();
                 Log.d("MyApp", "doInBackground started");
@@ -170,9 +181,7 @@ public class checkList1Fragment extends Fragment {
                     date = sdf.format(currentDate);
                 }
                 Log.d("MyApp", "staffId: " + staffId + ", categoryId: " + categoryId + ", date: " + date);
-                staffId = 19l; //수정
-                owner = false;
-                storeId =1L;
+
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
                         .addConverterFactory(new NullOnEmptyConverterFactory())
@@ -424,10 +433,9 @@ public class checkList1Fragment extends Fragment {
 
                 // categoryId 값이 null인 경우에 대한 처리
                 if (categoryId == null || categoryId <= 0) {
-                    categoryId = 1L; // 또는 다른 적절한 기본값
+                    categoryId = 0L; // 또는 다른 적절한 기본값
                 }
 
-                staffId = 19L;
         /*
         categoryId = 1L;
         */

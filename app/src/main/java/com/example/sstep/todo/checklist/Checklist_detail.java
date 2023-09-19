@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.document.certificate.Paper;
@@ -89,7 +90,8 @@ public class Checklist_detail extends AppCompatActivity {
         showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
 
         //앱데이터 가져오기
-        staffId = 22;
+        AppInData appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        staffId = appInData.getStaffId(); // 사용자 ID 가져오기
 
         // 인텐트를 가져옴
         Intent intent = getIntent();

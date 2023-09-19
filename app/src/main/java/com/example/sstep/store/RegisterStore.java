@@ -72,7 +72,6 @@ public class RegisterStore extends AppCompatActivity {
         // 현재 날짜 정보를 받아오기
         Date currentDate = new Date(System.currentTimeMillis());
         Date sqlDate = getFormattedStartDay(currentDate); // 날짜를 java.sql.Date 형식으로 변환
-        nameEt.setText(sqlDate.toString());
         baseDialog_okCenter = new BaseDialog_OkCenter(RegisterStore.this, R.layout.join_okdl);
 
         showComplete_dialog = new Dialog(RegisterStore.this);

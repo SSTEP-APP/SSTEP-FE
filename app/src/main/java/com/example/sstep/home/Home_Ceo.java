@@ -2,7 +2,6 @@ package com.example.sstep.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -21,8 +20,6 @@ import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.alarm.Alarm;
 
-import com.example.sstep.document.certificate.PaperH;
-import com.example.sstep.document.certificate.PaperH_Reg_RecyclerViewAdpater;
 import com.example.sstep.performance.MonthState;
 import com.example.sstep.staffinvite.StaffInvite;
 import com.example.sstep.store.SelectStore;
@@ -180,30 +177,15 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
                 }
             }
         }).start();
-
-
-/*
-
-        try {
-            if(check_list.isEmpty()){
-                check_nodataLayout.setVisibility(View.VISIBLE);
-                check_dataLayout.setVisibility(View.GONE);
-            }else{
-                check_nodataLayout.setVisibility(View.GONE);
-                check_dataLayout.setVisibility(View.VISIBLE);
-                checkNumTv.setText(String.valueOf(check_list.size())); // 아이템 개수 설정
-
-                checkRecyclerViewAdapter = new HomeCeoCheck_RecyclerViewAdpater(getApplicationContext(), check_list);
-                checkRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                checkRecyclerView.setAdapter(checkRecyclerViewAdapter);
-            }
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
-            Log.e("error", e.toString());
+        LinearLayout checkListLL = findViewById(R.id.homeceo_checklist_nodataLayout);
+        if(checkListRecyclerViewAdapter.getItemCount() == 0){
+            checkListLL.setVisibility(View.VISIBLE);
+            checkListRecyclerView.setVisibility(View.GONE);
+        }else{
+            checkNumTv.setText(checkListRecyclerViewAdapter.getItemCount());
+            checkListLL.setVisibility(View.GONE);
+            checkListRecyclerView.setVisibility(View.VISIBLE);
         }
-
- */
-
     }
 
 
@@ -291,7 +273,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
     private void  RegUpdateRecyclerView(Set<CheckListResponseDto> list) {
         checkListList.clear(); // 기존 데이터를 모두 지우고 새로운 데이터로 갱신
         for (CheckListResponseDto clRes : list) {
-            RegAddItem(clRes.getTitle(), clRes.getEndDay(),clRes.getId());
+            RegAddItem(clRes.getTitle(), clRes.getDate(),clRes.getId());
         }
 
         Home_Ceo_checkList_RecyclerViewAdpater.setOnItemClickListener(new Home_Ceo_checkList_RecyclerViewAdpater.OnItemClickListener() {

@@ -64,6 +64,9 @@ public interface ChecklistApiService {
             @Path("categoryId") Long categoryId,
             @Path("date") String date
     );
+    //사업장 전체에 해당하는 직원 별 체크리스트 미완료 목록
+    @GET("/check-list/{staffId}/store-staff/uncompleted-checklists")
+    Call<Set<CheckListResponseDto>> getStoreByStaffUnCompletedCheckListsByCategory(@Path("staffId") Long staffId);
 
 }
 

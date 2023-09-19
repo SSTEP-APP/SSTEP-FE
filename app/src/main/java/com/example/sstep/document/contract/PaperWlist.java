@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.document.certificate.Paper;
 import com.example.sstep.document.certificate.PaperH_Reg_recyclerViewItem;
@@ -59,10 +60,10 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
         backib=findViewById(R.id.paperwlist_backib); backib.setOnClickListener(this);
 
         //앱 데이터에서 가져오기
-
-        storeId = 3;
-        owner = false;
-        staffId = 22;
+        AppInData appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        storeId = appInData.getStoreId(); // 사용자 ID 가져오기
+        owner = appInData.isOwner();
+        staffId = appInData.getStaffId();
 
         regFirstInit();
         UnRegFirstInit();
@@ -207,7 +208,6 @@ public class PaperWlist extends AppCompatActivity implements View.OnClickListene
                                             regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
                                         }
                                     }
-
 
                                 }
 

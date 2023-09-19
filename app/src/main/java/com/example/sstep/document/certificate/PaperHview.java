@@ -56,9 +56,6 @@ public class PaperHview extends AppCompatActivity implements View.OnClickListene
         Intent intent = getIntent();
         staffId = intent.getLongExtra("staffId",1);
 
-
-
-
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY) // 대소문자 구분
                 .registerTypeAdapter(byte[].class, new ByteArrayTypeAdapter())

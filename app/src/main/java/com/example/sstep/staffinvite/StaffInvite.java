@@ -283,7 +283,6 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
                     public void onClick(View v) {
                         Intent intent = new Intent(getApplicationContext(), InputStaffInfo.class);
                         intent.putExtra("staffId",item.getStaffInviteId());
-                        Toast.makeText(StaffInvite.this, "스테프아이디"+item.getStaffInviteId(), Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                         finish();
                     }

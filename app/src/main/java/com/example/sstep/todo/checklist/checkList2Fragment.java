@@ -1,5 +1,6 @@
 package com.example.sstep.todo.checklist;
 
+import android.app.Application;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -58,6 +59,18 @@ public class checkList2Fragment extends Fragment {
         nodataLayout = (LinearLayout) v.findViewById(R.id.fragment_checkList2_nodataLayout);
         dataLayout = (LinearLayout)  v.findViewById(R.id.fragment_checkList2_dataLayout);
         mRecyclerView.setHasFixedSize(true);
+
+        Application appInData = (Application) requireContext().getApplicationContext();
+        if (appInData instanceof AppInData) {
+            // AppInData 클래스의 인스턴스를 사용할 수 있습니다.
+            AppInData appInDataInstance = (AppInData) appInData;
+            storeId = appInDataInstance.getStoreId();
+            staffId = appInDataInstance.getStaffId();
+            owner = appInDataInstance.isOwner();
+
+            // 이제 appInDataInstance를 사용하여 원하는 작업을 수행할 수 있습니다.
+        }
+
 
         try {
             if(list.isEmpty()){
@@ -121,9 +134,6 @@ public class checkList2Fragment extends Fragment {
                 }
                 Log.d("MyApp", "staffId: " + staffId + ", categoryId: " + categoryId + ", date: " + date);
 
-                staffId = 22l;
-                storeId=1l;
-                owner = true;
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
                         .addConverterFactory(new NullOnEmptyConverterFactory())
@@ -337,12 +347,9 @@ public class checkList2Fragment extends Fragment {
 
                 // categoryId 값이 null인 경우에 대한 처리
                 if (categoryId == null || categoryId <= 0) {
-                    categoryId = 1L; // 또는 다른 적절한 기본값
+                    categoryId = 0L; // 또는 다른 적절한 기본값
                 }
 
-                staffId = 19L; // 수정
-                owner = true;
-                storeId=1L;
 
                 if (date == null) {
                     Date currentDate = new Date();

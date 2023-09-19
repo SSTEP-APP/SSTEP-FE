@@ -66,8 +66,6 @@ public class HomeCeoCheck_RecyclerViewAdpater extends RecyclerView.Adapter<HomeC
 
         public Holder(View view){
             super(view);
-            titleCb = (CheckBox) view.findViewById(R.id.homeceo_checklist_recycle_titleCb);
-            staffCntTv = (TextView) view.findViewById(R.id.homeceo_checklist_recycle_staffCntTv);
             dateTv = (TextView) view.findViewById(R.id.homeceo_checklist_recycle_dateTv);
             layout = (LinearLayout) view.findViewById(R.id.homeceo_checklist_recycle_layout);
             innerLayout = (LinearLayout) view.findViewById(R.id.homeceo_checklist_recycle_innerLayout);

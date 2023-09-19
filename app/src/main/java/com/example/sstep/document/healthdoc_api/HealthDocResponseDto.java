@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class HealthDocResponseDto {
     private long id; //문서 고유번호
+    private Long staffId; //직원 고유번호
     private String name; //직원명
     private String checkUpDate; //보건증 검진일
     private String expirationDate; //보건증 만료일
@@ -37,5 +38,13 @@ public class HealthDocResponseDto {
 
     public PhotoResponseDto getPhotoResponseDto() {
         return photoResponseDto;
+    }
+
+    public Long getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(Long staffId) {
+        this.staffId = staffId;
     }
 }

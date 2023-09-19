@@ -88,7 +88,6 @@ public class addSchedule extends AppCompatActivity {
         int hourMoney = getIntent().getIntExtra("hourMoney", 7000);
         int wageType = getIntent().getIntExtra("wageType", 1);
 
-        Toast.makeText(this, ""+staffId, Toast.LENGTH_SHORT).show();
 
         //뒤로가기 버튼
         backBtn.setOnClickListener(new View.OnClickListener() {

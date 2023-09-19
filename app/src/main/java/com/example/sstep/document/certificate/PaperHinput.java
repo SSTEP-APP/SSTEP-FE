@@ -27,6 +27,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.CalendarDialog;
 import com.example.sstep.R;
@@ -69,8 +70,8 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
     boolean completeBtnState;
     Dialog showComplete_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
+    long staffId;
 
-    long photoId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +94,10 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
         showComplete_dialog = new Dialog(PaperHinput.this);
         showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
+        //storeId지정
+        Intent intent = getIntent();
+        staffId = intent.getLongExtra("staffId",1);
+
 
         nameEt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -285,7 +290,7 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
                             result
                     );
                     HealthDocApiService apiService = retrofit.create(HealthDocApiService.class);
-                    Call<Void> call = apiService.registerHealthDoc(22L, healthDocRequestDto);
+                    Call<Void> call = apiService.registerHealthDoc(staffId, healthDocRequestDto);
                     call.enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
@@ -293,18 +298,15 @@ public class PaperHinput extends AppCompatActivity implements View.OnClickListen
 
                                 // 파일 업로드 성공
                                 join_okdl_commentTv.setText("보건증 작성을 완료하였습니다.");
-                                Toast.makeText(getApplicationContext(), "보건증 작성을 완료하였습니다.", Toast.LENGTH_SHORT).show();
 
                             } else {
                                 // 파일 업로드 실패
                                 join_okdl_commentTv.setText("보건증 작성에 실패했습니다." + response);
-                                Toast.makeText(getApplicationContext(), "보건증 작성을 실패했습니다." + response.body(), Toast.LENGTH_SHORT).show();
                             }
                         }
                         @Override
                         public void onFailure(Call<Void> call, Throwable t) {
                             join_okdl_commentTv.setText("보건증 작성이 실패했습니다."+t.getMessage());
-                            Toast.makeText(getApplicationContext(), "보건증 작성이 실패했습니다."+t.getMessage(), Toast.LENGTH_SHORT).show();
 
                         }
 

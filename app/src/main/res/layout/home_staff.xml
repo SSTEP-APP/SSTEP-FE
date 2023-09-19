@@ -215,6 +215,7 @@
                         android:fontFamily="@font/nanumsquareneo_deb"
                         android:layout_marginLeft="20dp"/>
                     <TextView
+                        android:id="@+id/homestaff_checkNumTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
@@ -239,9 +240,11 @@
                         android:drawablePadding="5dp"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/homestaff_checkListLL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -256,6 +259,11 @@
                         android:text="새로운 할 일을 등록해보세요."
                         android:layout_marginTop="20dp"/>
                 </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/homestaff_checklist_recycleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="40dp" />
             </LinearLayout> <!-- 해야할 일 -->
 
             <!-- 일정 -->

@@ -60,9 +60,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 import lombok.ToString;
@@ -95,6 +97,7 @@ public class CheckList_write extends AppCompatActivity {
     BaseDialog_OkCenter baseDialog_okCenter;
     String today, endDay;
     long storeId;
+    Map<String, Integer> dictionary = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,10 +131,9 @@ public class CheckList_write extends AppCompatActivity {
         secondCateRb = findViewById(R.id.checkList_write_secondCategoryBtn);
         thirdCateRb= findViewById(R.id.checkList_write_thirdCategoryBtn);
 
+        
         //appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
         //storeId = appInData.getUserId(); // 사용자 ID 가져오기
-
-        storeId = 1;
 
         updateRB();
 
@@ -414,6 +416,7 @@ public class CheckList_write extends AppCompatActivity {
             }
             //카테고리에서 선택된 이름 가져오기
             int selectedRadioButtonId = categoryRG.getCheckedRadioButtonId();
+            long categoryId;
 
             if (selectedRadioButtonId != -1) {
                 // 라디오 버튼 그룹에서 선택된 라디오 버튼을 찾음
@@ -421,6 +424,7 @@ public class CheckList_write extends AppCompatActivity {
 
                 // 선택된 라디오 버튼의 텍스트를 가져옴
                 selectedText = selectedRadioButton.getText().toString();
+                categoryId = dictionary.get(selectedText);
 
                 // 선택된 텍스트를 사용하여 작업 수행
                 // 예: TextView에 표시하거나 다른 처리 수행
@@ -449,7 +453,7 @@ public class CheckList_write extends AppCompatActivity {
                     pictureCB.isChecked(),
                     false,
                     selectedText,
-                    1// 수정
+                    categoryId
             );
 
 // 등록 요청을 서버에 전송
@@ -607,13 +611,16 @@ public class CheckList_write extends AppCompatActivity {
                         if (iterator.hasNext()) {
                             CategoryResponseDto firstCategory = iterator.next();
                             firstCateRB.setText(firstCategory.getName());
+                            dictionary.put(firstCategory.getName(), (int)firstCategory.getId());
                         }
 
                         // 두 번째 카테고리 가져오기
                         if (iterator.hasNext()) {
                             CategoryResponseDto secondCategory = iterator.next();
                             secondCateRb.setText(secondCategory.getName());
+                            dictionary.put(secondCategory.getName(), (int)secondCategory.getId());
                             secondCateRb.setVisibility(View.VISIBLE);
+
                         }else {
                             secondCateRb.setText("등록해주세요");
                             secondCateRb.setVisibility(View.INVISIBLE);
@@ -623,6 +630,7 @@ public class CheckList_write extends AppCompatActivity {
                         if (iterator.hasNext()) {
                             CategoryResponseDto thirdCategory = iterator.next();
                             thirdCateRb.setText(thirdCategory.getName());
+                            dictionary.put(thirdCategory.getName(), (int)thirdCategory.getId());
                             thirdCateRb.setVisibility(View.VISIBLE);
                         }else {
                             thirdCateRb.setText("등록해주세요");

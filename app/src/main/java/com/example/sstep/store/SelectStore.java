@@ -21,6 +21,7 @@ import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.home.Home_Ceo;
+import com.example.sstep.home.Home_staff;
 import com.example.sstep.store.store_api.StoreApiService;
 import com.example.sstep.store.store_api.StoreResponseDto;
 import com.example.sstep.user.member.MemberApiService;
@@ -354,9 +355,16 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                 appInData.setStaffId(item.getSelectStaffId());
                 appInData.setOwner(item.isSelectIsOwner());
 
-                Intent intent = new Intent(getApplicationContext(), Home_Ceo.class); //사장, 스테프 구분 필요
-                startActivity(intent);
-                finish();
+                if(item.isSelectIsOwner()) {
+                    Intent intent = new Intent(getApplicationContext(), Home_Ceo.class); //사장, 스테프 구분 필요
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), Home_staff.class); //사장, 스테프 구분 필요
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }

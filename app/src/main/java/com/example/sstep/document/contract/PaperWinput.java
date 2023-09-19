@@ -437,7 +437,6 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
             photoTask.execute();
 
             long photoId = photoTask.get();
-            Toast.makeText(PaperWinput.this, ""+photoId, Toast.LENGTH_SHORT).show();
             //네트워크 요청 구현
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
@@ -594,9 +593,6 @@ public class PaperWinput extends AppCompatActivity implements View.OnClickListen
                     String message = "보건증 작성을 완료하였습니다. 이미지 ID: " + result;
                     join_okdl_commentTv.setText(message);
                     // 이미지 ID를 사용하여 이미지를 가져오거나 다른 작업 수행
-
-                    // Toast로 결과를 표시
-                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                 } else {
                     String errorMessage = "보건증 작성이 실패했습니다!";
                     join_okdl_commentTv.setText(errorMessage);
