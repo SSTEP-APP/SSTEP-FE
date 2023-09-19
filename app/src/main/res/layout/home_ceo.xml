@@ -484,6 +484,7 @@
                             android:layout_gravity="bottom"
                             android:layout_marginTop="4dp"/>
                     </LinearLayout>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="1.5dp"
@@ -509,7 +510,6 @@
                             android:text="일정이 없습니다."
                             android:layout_marginTop="20dp"/>
                     </LinearLayout>
-
                     <LinearLayout
                         android:id="@+id/homeceo_date_dataLayout"
                         android:layout_width="match_parent"
