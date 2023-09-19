@@ -352,6 +352,7 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
                 appInData.setStoreId(item.getSelectStoreId()); //storeId저장
                 appInData.setStoreCode(item.getSelectStoreCode());
                 appInData.setStaffId(item.getSelectStaffId());
+                appInData.setOwner(item.isSelectIsOwner());
 
                 Intent intent = new Intent(getApplicationContext(), Home_Ceo.class); //사장, 스테프 구분 필요
                 startActivity(intent);

@@ -111,13 +111,14 @@
                     android:lineSpacingExtra="5dp"/>
 
                 <!-- 마감 예정 시간ㅔ -->
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="마감 예정 시간"
-                    android:textColor="@color/black"
+                    android:layout_marginTop="40dp"
                     android:fontFamily="@font/nanumsquareneo_deb"
-                    android:layout_marginTop="40dp"/>
+                    android:text="마감 예정일"
+                    android:textColor="@color/black" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

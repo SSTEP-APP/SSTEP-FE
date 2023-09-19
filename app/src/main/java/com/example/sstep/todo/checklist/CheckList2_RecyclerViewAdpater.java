@@ -43,12 +43,15 @@ public class CheckList2_RecyclerViewAdpater extends RecyclerView.Adapter<CheckLi
         int itemposition = position;
         holder.wordText.setText(list.get(itemposition).word);
         holder.checkImg.setImageResource(R.drawable.yicon_recchecked_blue);
+        holder.checkListId = list.get(itemposition).ctId;
+
         //Log.e("StudyApp", "onBindViewHolder" + itemposition);
         //클릭 이벤트
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, Checklist_complete_detail.class);
+                intent.putExtra("checkListId", holder.checkListId);
                 ((CheckList)context).startActivity(intent);
                 ((CheckList)context).finish();
 
@@ -56,6 +59,11 @@ public class CheckList2_RecyclerViewAdpater extends RecyclerView.Adapter<CheckLi
         });
     }
 
+    public void updateData(List<CheckList2_recyclerViewWordItemData> newData) {
+        list.clear(); // 기존 데이터 삭제
+        list.addAll(newData); // 새로운 데이터 추가
+        notifyDataSetChanged(); // 데이터 변경 시 RecyclerView에 알림
+    }
     // 몇개의 데이터를 리스트로 뿌려줘야하는지 반드시 정의해줘야한다
     @Override
     public int getItemCount() {
@@ -67,6 +75,7 @@ public class CheckList2_RecyclerViewAdpater extends RecyclerView.Adapter<CheckLi
         public TextView wordText;
         public ImageView checkImg;
         public LinearLayout layout;
+        public long checkListId;
 
         public Holder(View view){
             super(view);
