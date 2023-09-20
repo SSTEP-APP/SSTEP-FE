@@ -141,11 +141,9 @@ public class Dispute_CeoList extends AppCompatActivity {
             // 데이터가 없는 경우, nodataLayout을 보이도록 설정
             nodataLayout.setVisibility(View.VISIBLE);
             dataLayout.setVisibility(View.GONE);
-            Toast.makeText(getApplicationContext(), "데이터 없음", Toast.LENGTH_SHORT).show();
         } else {
             nodataLayout.setVisibility(View.GONE);
             dataLayout.setVisibility(View.VISIBLE);
-            Toast.makeText(getApplicationContext(), "데이터 있음", Toast.LENGTH_SHORT).show();
             // 데이터가 있는 경우, dataLayout을 보이도록 설정
             for (CommuteResponseDto commute : list) {
                 RegAddItem(commute.getCommuteDate(), commute.getDayOfWeek(), commute.getStaffName(), commute.getStartTime(), commute.getEndTime(),

@@ -179,11 +179,9 @@ public class Date extends AppCompatActivity implements View.OnClickListener{
             // 데이터가 없는 경우, nodataLayout을 보이도록 설정
             date_nodataLayout.setVisibility(View.VISIBLE);
             date_dataLayout.setVisibility(View.GONE);
-            Toast.makeText(getApplicationContext(), "데이터 없음", Toast.LENGTH_SHORT).show();
         } else {
             date_nodataLayout.setVisibility(View.GONE);
             date_dataLayout.setVisibility(View.VISIBLE);
-            Toast.makeText(getApplicationContext(), "데이터 있음", Toast.LENGTH_SHORT).show();
             // 데이터가 있는 경우, dataLayout을 보이도록 설정
             for (CalendarResponseDto calendar : list) {
                 RegAddItem(calendar.getStaffName(), calendar.getStartCalTime(), calendar.getEndCalTime());

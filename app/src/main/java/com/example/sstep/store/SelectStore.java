@@ -287,7 +287,6 @@ public class SelectStore extends AppCompatActivity implements View.OnClickListen
 
                                     }
                                 });
-                                Toast.makeText(getApplicationContext(), "성공"+staffId, Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
                             }

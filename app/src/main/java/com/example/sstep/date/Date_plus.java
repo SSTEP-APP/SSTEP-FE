@@ -218,27 +218,7 @@ public class Date_plus extends AppCompatActivity {
                             @Override
                             public void onResponse(Call<Void> call, Response<Void> response) {
                                 if (response.isSuccessful()) {
-                                    // 각 직원의 일정이 성공적으로 저장되었을 때 메시지를 표시합니다.
-                                    String successMessage = "직원 ID " + staffId + calendarDate +dayOfWeek+startCalTime+ "의 일정이 성공적으로 저장되었습니다.";
-                                    // TextView에 성공 메시지 추가
-                                    showComplete_dialog.show();
-                                    // 다이얼로그의 배경을 투명으로 만든다.
-                                    showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                                    Button join_okdl_okBtn;
-                                    join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
-                                    join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
-                                    join_okdl_commentTv.append("\n" +successMessage);
-
-                                    // '공지사항 dialog' _ 확인 버튼 클릭 시
-                                    join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            Intent intent = new Intent(getApplicationContext(), Date.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
-                                    });
-                                    Toast.makeText(Date_plus.this, "성공"+ successMessage, Toast.LENGTH_SHORT).show();
+                                    showCompleteDl();
                                     // 성공적인 응답 처리
                                 } else {
                                     // 기타 다른 상태 코드 처리

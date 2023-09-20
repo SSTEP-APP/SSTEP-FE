@@ -121,7 +121,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="스텦"
+                    android:text="스텝"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
@@ -158,7 +158,7 @@
                             android:id="@+id/monthstate_lateTv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="5회"
+                            android:text="3회"
                             android:textSize="14sp"
                             android:textColor="@color/likeblack"
                             android:fontFamily="@font/nanumsquareneo_deb"
@@ -189,7 +189,7 @@
                             android:id="@+id/monthstate_absentTv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="0회"
+                            android:text="1회"
                             android:textSize="14sp"
                             android:textColor="@color/likeblack"
                             android:fontFamily="@font/nanumsquareneo_deb"

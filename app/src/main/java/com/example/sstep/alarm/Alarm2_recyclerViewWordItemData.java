@@ -18,9 +18,9 @@ public class Alarm2_recyclerViewWordItemData {
     public static ArrayList<Alarm2_recyclerViewWordItemData> createContactsList(int numContacts) {
         ArrayList<Alarm2_recyclerViewWordItemData> contacts = new ArrayList<Alarm2_recyclerViewWordItemData>();
 
-        for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new Alarm2_recyclerViewWordItemData("이름", "내용", "카테고리", "날짜")); // DB에서 받아서 제목 넣기
-        }
+        contacts.add(new Alarm2_recyclerViewWordItemData("이름1", "[청소] 카테고리가 추가되었습니다.", "", "2023-09-19"));
+        contacts.add(new Alarm2_recyclerViewWordItemData("이름2", "[홀] 카테고리가 추가되었습니다.", "", "2023-09-20"));
+        contacts.add(new Alarm2_recyclerViewWordItemData("이름3", "[주방] 카테고리가 추가되었습니다.", "", "2023-09-20"));
 
         return contacts;
     }

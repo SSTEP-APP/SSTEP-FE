@@ -1,5 +1,7 @@
 package com.example.sstep.performance;
 
+import com.example.sstep.alarm.Alarm1_recyclerViewWordItemData;
+
 import java.util.ArrayList;
 
 public class MonthState1_recyclerViewWordItemData {
@@ -16,9 +18,10 @@ public class MonthState1_recyclerViewWordItemData {
     public static ArrayList<MonthState1_recyclerViewWordItemData> createContactsList(int numContacts) {
         ArrayList<MonthState1_recyclerViewWordItemData> contacts = new ArrayList<MonthState1_recyclerViewWordItemData>();
 
-        for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new MonthState1_recyclerViewWordItemData("이름", "지각 횟수")); // DB에서 받아서 제목 넣기
-        }
+        contacts.add(new MonthState1_recyclerViewWordItemData("유지수", "2"));
+        contacts.add(new MonthState1_recyclerViewWordItemData("김종운", "1"));
+        contacts.add(new MonthState1_recyclerViewWordItemData("김유경", "0"));
+
 
         return contacts;
     }

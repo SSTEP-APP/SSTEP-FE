@@ -18,9 +18,10 @@ public class Alarm1_recyclerViewWordItemData {
     public static ArrayList<Alarm1_recyclerViewWordItemData> createContactsList(int numContacts) {
         ArrayList<Alarm1_recyclerViewWordItemData> contacts = new ArrayList<Alarm1_recyclerViewWordItemData>();
 
-        for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new Alarm1_recyclerViewWordItemData("이름", "내용", "카테고리", "날짜")); // DB에서 받아서 제목 넣기
-        }
+        contacts.add(new Alarm1_recyclerViewWordItemData("이름1", "[식기 세척하기] 해야할 일 마감기한까지 1일 남았습니다.", "해야할 일", "2023-09-19"));
+        contacts.add(new Alarm1_recyclerViewWordItemData("이름2", "[홀] 카테고리가 추가되었습니다.", "알림", "2023-09-20"));
+        contacts.add(new Alarm1_recyclerViewWordItemData("이름3", "[새 레시피 숙지 바람] 공지가 추가되었습니다.", "공지사항", "2023-09-20"));
+
 
         return contacts;
     }
