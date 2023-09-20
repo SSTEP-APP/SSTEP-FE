@@ -27,6 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.R;
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ import java.util.Random;
 
 public class Find_id extends AppCompatActivity implements View.OnClickListener {
 
+    AppInData appInData;
     LinearLayout layoutL;
     EditText nameEt, phonumEt; String name, phonum;
     ImageButton back_Btn; Button certbtn, completeBtn;
@@ -135,7 +137,7 @@ public class Find_id extends AppCompatActivity implements View.OnClickListener {
         TextView join_okdl_commentTv; Button join_okdl_okBtn;
         join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
         join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
-        join_okdl_commentTv.setText("김유경 님의 아이디는 ididid 입니다.");
+        join_okdl_commentTv.setText("유지수 님의 아이디는 [ssid] 입니다.");
         // '아이디 찾기 dialog' _ 확인 버튼 클릭 시
         join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
             @Override

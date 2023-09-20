@@ -18,9 +18,9 @@ public class MonthState1_recyclerViewWordItemData {
     public static ArrayList<MonthState1_recyclerViewWordItemData> createContactsList(int numContacts) {
         ArrayList<MonthState1_recyclerViewWordItemData> contacts = new ArrayList<MonthState1_recyclerViewWordItemData>();
 
-        contacts.add(new MonthState1_recyclerViewWordItemData("유지수", "2"));
-        contacts.add(new MonthState1_recyclerViewWordItemData("김종운", "1"));
-        contacts.add(new MonthState1_recyclerViewWordItemData("김유경", "0"));
+        contacts.add(new MonthState1_recyclerViewWordItemData("유지수", "2회"));
+        contacts.add(new MonthState1_recyclerViewWordItemData("김종운", "1회"));
+        contacts.add(new MonthState1_recyclerViewWordItemData("김유경", "0회"));
 
 
         return contacts;
