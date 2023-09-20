@@ -262,7 +262,6 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
                             .build();
                     ChecklistApiService apiService = retrofit.create(ChecklistApiService.class);
 
-
                     Call<Set<CheckListResponseDto>> call = apiService.getStoreCheckLists(storeId);
 
                     retrofit2.Response<Set<CheckListResponseDto>> response = call.execute();
