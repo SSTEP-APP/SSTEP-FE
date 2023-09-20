@@ -59,7 +59,7 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
 
     AppInData appInData;
     String userName;
-    long storeCode;
+    long storeCode, staffId;
     String startTimeStr, endTimeStr, commuteDateStr;
     Double latitude, longitude;
     LocalTime startTime, endTime; // 출근 시간, 퇴근 시간
@@ -108,6 +108,7 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
         appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
         userName = appInData.getUserName();
         storeCode = appInData.getStoreCode();
+        staffId = appInData.getStaffId();
 
         // 위도, 경도 가져오기
         try {
@@ -386,7 +387,7 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
 
                     // 사업장등록에 필요한 데이터를 CommuteRequestDto 객체로 생성
                     CommuteRequestDto commuteRequestDto = new CommuteRequestDto(
-                            commuteDateStr, //출퇴근 일자
+                            commuteDateStr, //출퇴근 일자 commuteDateStr
                             dayOfWeek, //출퇴근 요일
                             startTimeStr, //출근 시간
                             null, //퇴근 시간
@@ -397,7 +398,7 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
                     );
 
                     //적은 id를 기반으로 db에 검색
-                    Call<Void> call = apiService.registerCommute(2L, commuteRequestDto); // staffId에 해당하는 값을 설정해야 함
+                    Call<Void> call = apiService.registerCommute(staffId, commuteRequestDto); // staffId에 해당하는 값을 설정해야 함
                     call.enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
@@ -491,7 +492,7 @@ public class Commute_map extends AppCompatActivity implements OnMapReadyCallback
                     );
 
                     //적은 id를 기반으로 db에 검색
-                    Call<Void> call = apiService.updateCommute(2L, commuteDateStr, commuteRequestDto); // staffId에 해당하는 값을 설정해야 함
+                    Call<Void> call = apiService.updateCommute(staffId, commuteDateStr, commuteRequestDto); // staffId에 해당하는 값을 설정해야 함
                     call.enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {

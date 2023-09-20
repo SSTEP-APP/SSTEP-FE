@@ -20,6 +20,7 @@ import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.alarm.Alarm;
 
+import com.example.sstep.date.Date;
 import com.example.sstep.date.date_api.CalendarApiService;
 import com.example.sstep.date.date_api.CalendarResponseDto;
 import com.example.sstep.document.certificate.PaperH;
@@ -68,7 +69,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
     private List<HomeDate_recyclerViewItem> dateList;
 
     ImageButton menuIBtn, alarmIBtn, staffInviteCloseIBtn;
-    Button selectStoreBtn, mypageBtn, checklistBtn, staffInviteBtn, checkListaddBtn;
+    Button selectStoreBtn, mypageBtn, checklistBtn, staffInviteBtn, checkListaddBtn, dateBtn;
     TextView monthstateTv, modifyStoreTv, checkNumTv, storeNameTv, date_countNumTv;
     FrameLayout staffInviteFLayout;
     LinearLayout staffApprovalL, commutePerL, date_nodataLayout, date_dataLayout;
@@ -86,6 +87,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_ceo);
+
         menuIBtn=findViewById(R.id.homeceo_menuIBtn); menuIBtn.setOnClickListener(this);
         alarmIBtn=findViewById(R.id.homeceo_alarmIBtn); alarmIBtn.setOnClickListener(this);
         selectStoreBtn=findViewById(R.id.homeceo_selectStoreBtn); selectStoreBtn.setOnClickListener(this);
@@ -95,6 +97,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
         checklistBtn=findViewById(R.id.homeceo_checklistBtn); checklistBtn.setOnClickListener(this);
         staffInviteBtn=findViewById(R.id.homeceo_staffInviteBtn); staffInviteBtn.setOnClickListener(this);
         staffInviteCloseIBtn=findViewById(R.id.homeceo_staffInviteCloseIBtn); staffInviteCloseIBtn.setOnClickListener(this);
+        dateBtn=findViewById(R.id.homeceo_dateBtn); dateBtn.setOnClickListener(this);
         staffInviteFLayout=findViewById(R.id.homeceo_staffInviteFLayout);
         checkNumTv=findViewById(R.id.homeceo_checkNumTv);
         staffApprovalL=findViewById(R.id.homeceo_staffApprovalL);
@@ -356,6 +359,11 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
                 startActivity(intent);
                 finish();
                 break;
+            case R.id.homeceo_dateBtn: // 일정
+                intent = new Intent(getApplicationContext(), Date.class);
+                startActivity(intent);
+                finish();
+                break;
             default:
                 break;
         }
@@ -483,11 +491,9 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
             // 데이터가 없는 경우, nodataLayout을 보이도록 설정
             date_nodataLayout.setVisibility(View.VISIBLE);
             date_dataLayout.setVisibility(View.GONE);
-            Toast.makeText(getApplicationContext(), "데이터 없음", Toast.LENGTH_SHORT).show();
         } else {
             date_nodataLayout.setVisibility(View.GONE);
             date_dataLayout.setVisibility(View.VISIBLE);
-            Toast.makeText(getApplicationContext(), "데이터 있음", Toast.LENGTH_SHORT).show();
             // 데이터가 있는 경우, dataLayout을 보이도록 설정
             for (CalendarResponseDto calendar : list) {
                 dateRegAddItem(calendar.getCalendarDate(), calendar.getDayOfWeek(),

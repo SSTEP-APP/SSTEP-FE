@@ -86,7 +86,7 @@ public class CheckList_write extends AppCompatActivity {
     ImageButton backBtn;
     EditText title, content;
     CheckBox endTimeCB , pictureCB, staffCB;
-    Button addEndTimeBtn, addStaffBtn, completeBtn, addCategoryBtn;
+    Button addEndTimeBtn, completeBtn, addCategoryBtn;
     LinearLayout staffList_layout, repeatLayout;
     RadioGroup repeatRG, categoryRG;
     Spinner repeatTimeSpinner, repeatStartSpinner, repeatEndSpinner;
@@ -111,7 +111,6 @@ public class CheckList_write extends AppCompatActivity {
         pictureCB = findViewById(R.id.checkList_write_pictureRB);
         staffCB = findViewById(R.id.checkList_write_staffRB);
         addEndTimeBtn = findViewById(R.id.checkList_write_addEndTimeBtn);
-        addStaffBtn = findViewById(R.id.checkList_write_selectStaffBtn);
         staffList_layout = findViewById(R.id.checkList_write_staffList_layout);
         repeatLayout = findViewById(R.id.checkList_write_repeatLayout);
         repeatRG = findViewById(R.id.checkList_write_repeatRG);
@@ -255,11 +254,9 @@ public class CheckList_write extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (((CheckBox) view).isChecked()) {
-                    addStaffBtn.setVisibility(View.VISIBLE);
                     staffList_layout.setVisibility(View.VISIBLE);
 
                 } else {
-                    addStaffBtn.setVisibility(View.GONE);
                     staffList_layout.setVisibility(View.GONE);
                 }
             }
@@ -511,7 +508,7 @@ public class CheckList_write extends AppCompatActivity {
         addCategory_dialog_okBtn = addCategory_dialog.findViewById(R.id.searchstore_dl_okBtn);
         addCategoryEt = addCategory_dialog.findViewById(R.id.searchstore_dl_numEt);
         addCategoryEt.setInputType(InputType.TYPE_CLASS_TEXT);
-        addCategory_dialog_commentTv.setText("추가 할 카테고리를 입력해주세요.");
+        addCategory_dialog_commentTv.setText("추가할 카테고리를 입력해주세요.");
         addCategoryEt.setHint("카테고리를 입력해 주세요");
 
         addCategory_dialog_okBtn.setOnClickListener(new View.OnClickListener() {

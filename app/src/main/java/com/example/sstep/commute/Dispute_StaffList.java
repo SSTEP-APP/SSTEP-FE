@@ -1,5 +1,6 @@
 package com.example.sstep.commute;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.example.sstep.date.Date_RecyclerViewAdpater;
 import com.example.sstep.date.Date_recyclerViewItem;
 import com.example.sstep.date.date_api.CalendarApiService;
 import com.example.sstep.date.date_api.CalendarResponseDto;
+import com.example.sstep.home.Home_Ceo;
 import com.example.sstep.user.member.NullOnEmptyConverterFactory;
 
 import java.time.DayOfWeek;
@@ -65,6 +67,15 @@ public class Dispute_StaffList extends AppCompatActivity {
 
         //직원의 전체 출퇴근 정보
         fetchDataForDate();
+
+        backib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Home_Ceo.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void fetchDataForDate() {
@@ -112,13 +123,14 @@ public class Dispute_StaffList extends AppCompatActivity {
 
     }
 
-    public void RegAddItem(String commuteDate, DayOfWeek dayOfWeek, String startTime, String endTime){
+    public void RegAddItem(String commuteDate, DayOfWeek dayOfWeek, String startTime, String endTime, long commuteId){
         DisputeStaff_recyclerViewItem item = new DisputeStaff_recyclerViewItem();
 
         item.setCommuteDate(commuteDate);
         item.setDayOfWeek(dayOfWeek);
         item.setStartTime(startTime);
         item.setEndTime(endTime);
+        item.setCommuteId(commuteId);
 
         mList.add(item);
     }
@@ -130,14 +142,14 @@ public class Dispute_StaffList extends AppCompatActivity {
             // 데이터가 없는 경우, nodataLayout을 보이도록 설정
             nodataLayout.setVisibility(View.VISIBLE);
             dataLayout.setVisibility(View.GONE);
-            Toast.makeText(getApplicationContext(), "데이터 없음", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "데이터 없음"+staffId, Toast.LENGTH_SHORT).show();
         } else {
             nodataLayout.setVisibility(View.GONE);
             dataLayout.setVisibility(View.VISIBLE);
             Toast.makeText(getApplicationContext(), "데이터 있음", Toast.LENGTH_SHORT).show();
             // 데이터가 있는 경우, dataLayout을 보이도록 설정
             for (CommuteResponseDto commute : list) {
-                RegAddItem(commute.getCommuteDate(), commute.getDayOfWeek(), commute.getStartTime(), commute.getEndTime());
+                RegAddItem(commute.getCommuteDate(), commute.getDayOfWeek(), commute.getStartTime(), commute.getEndTime(), commute.getCommuteId());
             }
         }
 

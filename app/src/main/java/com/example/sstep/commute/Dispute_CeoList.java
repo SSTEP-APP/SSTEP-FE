@@ -1,5 +1,6 @@
 package com.example.sstep.commute;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,9 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.commute.commute_api.CommuteApiService;
 import com.example.sstep.commute.commute_api.CommuteResponseDto;
+import com.example.sstep.home.Home_Ceo;
 import com.example.sstep.user.member.NullOnEmptyConverterFactory;
 
 import java.time.DayOfWeek;
@@ -29,6 +32,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Dispute_CeoList extends AppCompatActivity {
 
+    AppInData appInData;
     long storeId;
     private RecyclerView mRecyclerView;
     private Dispute_RecyclerViewAdpater mRecyclerViewAdapter;
@@ -53,8 +57,21 @@ public class Dispute_CeoList extends AppCompatActivity {
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        storeId = appInData.getStoreId();
+
         //해당 사업장의 이의 신청 리스트 가져오기
         fetchDataForDate();
+
+        backib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Home_Ceo.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void fetchDataForDate() {
@@ -66,7 +83,6 @@ public class Dispute_CeoList extends AppCompatActivity {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             CommuteApiService apiService = retrofit.create(CommuteApiService.class);
-            storeId = 1;
 
             Call<Set<CommuteResponseDto>> call = apiService.getDisputeList(storeId); // Long storeId
 
@@ -103,13 +119,17 @@ public class Dispute_CeoList extends AppCompatActivity {
 
     }
 
-    public void RegAddItem(String commuteDate, DayOfWeek dayOfWeek, String staffName, long commuteId){
+    public void RegAddItem(String commuteDate, DayOfWeek dayOfWeek, String staffName, String disputeStartTime, String disputeEndTime, String dispustMessage, long commuteId, long staffId){
         Dispute_recyclerViewItem item = new Dispute_recyclerViewItem();
 
         item.setCommuteDate(commuteDate);
         item.setDayOfWeek(dayOfWeek);
         item.setStaffName(staffName);
+        item.setDisputeStartTime(disputeStartTime);
+        item.setDisputeEndTime(disputeEndTime);
+        item.setDisputeMessage(dispustMessage);
         item.setCommuteId(commuteId);
+        item.setStaffId(staffId);
 
         mList.add(item);
     }
@@ -128,7 +148,8 @@ public class Dispute_CeoList extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "데이터 있음", Toast.LENGTH_SHORT).show();
             // 데이터가 있는 경우, dataLayout을 보이도록 설정
             for (CommuteResponseDto commute : list) {
-                RegAddItem(commute.getCommuteDate(), commute.getDayOfWeek(), commute.getStaffName(), commute.getCommuteId());
+                RegAddItem(commute.getCommuteDate(), commute.getDayOfWeek(), commute.getStaffName(), commute.getStartTime(), commute.getEndTime(),
+                        commute.getDisputeMessage(), commute.getCommuteId(), commute.getStaffId());
             }
         }
 

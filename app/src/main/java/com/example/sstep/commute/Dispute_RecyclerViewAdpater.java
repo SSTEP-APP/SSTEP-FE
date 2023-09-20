@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,7 +32,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_RecyclerViewAdpater.ViewHolder> {
 
     String commuteDateStr, dayOfWeekStr, staffNameStr;
-    long commuteId;
+    long staffId, commuteId;
     private Context context;
     private static OnItemClickListener onItemClickListener;
 
@@ -42,12 +43,15 @@ public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_Re
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView disputeDateTv, staffNameTv;
         LinearLayout innerLayout;
+        ImageView reggoIv;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             disputeDateTv = (TextView) itemView.findViewById(R.id.disputelist_recycle_disputeDateTv);
             staffNameTv = (TextView) itemView.findViewById(R.id.disputelist_recycle_staffNameTv);
             innerLayout = (LinearLayout) itemView.findViewById(R.id.disputelist_recycle_innerLayout);
+            reggoIv = (ImageView)  itemView.findViewById(R.id.disputelist_recycle_reggoIv);
+
         }
     }
 
@@ -99,10 +103,13 @@ public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_Re
         dayOfWeekStr = convertDayOfWeek(item.getDayOfWeek());
         staffNameStr = item.getStaffName();
 
+        staffId = item.getStaffId();
+        commuteId = item.getCommuteId();
+
         holder.disputeDateTv.setText(commuteDateStr + " (" + dayOfWeekStr + ")");
         holder.staffNameTv.setText(staffNameStr);
 
-        holder.innerLayout.setOnClickListener(new View.OnClickListener() {
+        holder.reggoIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (onItemClickListener != null) {
@@ -111,12 +118,15 @@ public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_Re
                         onItemClickListener.onItemClick(position);
                     }
                 }
+
                 Intent intent = new Intent(context, Dispute_WriteCeo.class);
 
                 intent.putExtra("commuteDate", commuteDateStr);
                 intent.putExtra("dayOfWeek", dayOfWeekStr);
                 intent.putExtra("staffName", staffNameStr);
                 intent.putExtra("commuteId", commuteId);
+                intent.putExtra("staffId", staffId);
+                context.startActivity(intent);
             }
         });
 

@@ -4,8 +4,9 @@ import java.time.DayOfWeek;
 import java.util.ArrayList;
 
 public class Dispute_recyclerViewItem {
-    private String commuteDate, staffName;
+    private String commuteDate, staffName, disputeMessage, disputeStartTime, disputeEndTime;
     private DayOfWeek dayOfWeek;
+    private long staffId;
     private long commuteId;
 
     public String getCommuteDate() {
@@ -24,12 +25,44 @@ public class Dispute_recyclerViewItem {
         this.staffName = staffName;
     }
 
+    public String getDisputeMessage() {
+        return disputeMessage;
+    }
+
+    public void setDisputeMessage(String disputeMessage) {
+        this.disputeMessage = disputeMessage;
+    }
+
+    public String getDisputeStartTime() {
+        return disputeStartTime;
+    }
+
+    public void setDisputeStartTime(String disputeStartTime) {
+        this.disputeStartTime = disputeStartTime;
+    }
+
+    public String getDisputeEndTime() {
+        return disputeEndTime;
+    }
+
+    public void setDisputeEndTime(String disputeEndTime) {
+        this.disputeEndTime = disputeEndTime;
+    }
+
     public DayOfWeek getDayOfWeek() {
         return dayOfWeek;
     }
 
     public void setDayOfWeek(DayOfWeek dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
+    }
+
+    public long getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(long staffId) {
+        this.staffId = staffId;
     }
 
     public long getCommuteId() {

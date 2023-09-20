@@ -366,21 +366,6 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
-                    <Button
-                        android:id="@+id/checkList_write_selectStaffBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/yroundrec_b"
-                        android:text="직원 선택하기"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp"
-                        android:minHeight="0dp"
-                        android:minWidth="0dp"
-                        android:paddingBottom="6dp"
-                        android:paddingTop="6dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:layout_marginRight="10dp"/>
                 </LinearLayout>
 
                 <View

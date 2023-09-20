@@ -22,7 +22,6 @@ import com.example.sstep.R;
 import com.example.sstep.date.date_api.CalendarApiService;
 import com.example.sstep.date.date_api.CalendarResponseDto;
 import com.example.sstep.home.Home_Ceo;
-import com.example.sstep.home.Home_staff;
 import com.example.sstep.user.member.NullOnEmptyConverterFactory;
 
 import java.text.SimpleDateFormat;
@@ -31,6 +30,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -45,7 +45,7 @@ public class Date extends AppCompatActivity implements View.OnClickListener{
 
     AppInData appInData;
     LinearLayout date_nodataLayout, date_dataLayout;
-    boolean isOwner;
+
     long storeId;
     String date;
     DayOfWeek day;
@@ -82,11 +82,6 @@ public class Date extends AppCompatActivity implements View.OnClickListener{
         date_nodataLayout=findViewById(R.id.date_nodataLayout);
         date_dataLayout=findViewById(R.id.date_dataLayout);
 
-        // ID값 가지고 오기
-        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
-        storeId = appInData.getStoreId();
-        isOwner = appInData.isOwner();
-
         // 리사이클 뷰
         mRecyclerView = (RecyclerView) findViewById(R.id.date_recycleView);
         mRecyclerView.setHasFixedSize(true); // 리사이클러뷰의 크기가 고정됨을 설정
@@ -105,9 +100,9 @@ public class Date extends AppCompatActivity implements View.OnClickListener{
             throw new RuntimeException(e);
         }
 
-        //storeId지정
-        //AppInData appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
-        //storeId = appInData.getStoreId(); // 사용자 ID 가져오기
+//        storeId지정
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+        storeId = appInData.getStoreId(); // 사용자 ID 가져오기
 
         // 해당 날짜에 근무하는 직원 리스트 가져오기
         fetchDataForDate(currentDate.format(sdf_ymdh));
@@ -115,7 +110,9 @@ public class Date extends AppCompatActivity implements View.OnClickListener{
         // 변경된 데이터를 RecyclerView에 반영
         mRecyclerViewAdapter.notifyDataSetChanged();
 
+
     }
+
 
     private void fetchDataForDate(String selectedDate) {
         date = currentDate.format(sdf_ymdh);
@@ -201,15 +198,9 @@ public class Date extends AppCompatActivity implements View.OnClickListener{
         Intent intent;
         switch (v.getId()){
             case R.id.date_backBtn: // 뒤로가기
-                if(isOwner) {
-                    intent = new Intent(getApplicationContext(), Home_Ceo.class);
-                    startActivity(intent);
-                    finish();
-                }else{
-                    intent = new Intent(getApplicationContext(), Home_staff.class);
-                    startActivity(intent);
-                    finish();
-                }
+                intent = new Intent(getApplicationContext(), Home_Ceo.class);
+                startActivity(intent);
+                finish();
                 break;
             case R.id.date_plusBtn: // +추가 버튼
                 intent = new Intent(getApplicationContext(), Date_plus.class);
@@ -353,6 +344,7 @@ public class Date extends AppCompatActivity implements View.OnClickListener{
     private void handleError(String errorMsg) {
         Log.e("API Error", errorMsg); // 로그로 출력하여 디버그 정보 확인
         Toast.makeText(this, "API 오류: " + errorMsg, Toast.LENGTH_SHORT).show();
+        date_topText.setText(errorMsg);
     }
 
 
