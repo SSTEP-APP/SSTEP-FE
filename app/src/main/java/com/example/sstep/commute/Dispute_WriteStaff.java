@@ -85,7 +85,12 @@ public class Dispute_WriteStaff extends AppCompatActivity implements View.OnClic
         staffId = intent.getLongExtra("staffId", 0L);
 
         disputeDateTv.setText(commuteDate + " (" + dayOfWeekStr + ")");
-        workTimeTv.setText(disputeStartTime);
+
+        if (disputeStartTime != null) {
+            workTimeTv.setText(disputeStartTime);
+        }else{
+            workTimeTv.setText("미출근");
+        }
         if (disputeEndTime != null) {
             homeTimeTv.setText(disputeEndTime);
         }else{

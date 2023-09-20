@@ -80,7 +80,9 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
         Intent intent = getIntent();
         commuteId = intent.getLongExtra("commuteId", 0L);
         staffId = intent.getLongExtra("staffId", 0L);
+
         staffNameTv.setText(staffNameStr);
+        disputeDateTv.setText(commuteDate + " (" + dayOfWeekStr + ")");
 
         //사장에게 이의신청 내용 보여주기
         new Thread(new Runnable() {
@@ -108,13 +110,17 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
                                 commuteDate = commutes.getCommuteDate();
                                 dayOfWeek=commutes.getDayOfWeek();
                                 dayOfWeekStr = convertdayOfWeekStr(dayOfWeek);
-                                workTime = commutes.getStartTime();
-                                homeTime = commutes.getEndTime();
+                                workTime = commutes.getDisputeStartTime();
+                                homeTime = commutes.getDisputeEndTime();
 
                                 staffNameTv.setText(commutes.getStaffName());
                                 disputeDateTv.setText(commuteDate + " (" + dayOfWeekStr + ")");
                                 workTimeTv.setText(workTime);
-                                homeTimeTv.setText(homeTime);
+                                if(homeTime != null) {
+                                    homeTimeTv.setText(homeTime);
+                                }else{
+                                    homeTimeTv.setText("미퇴근");
+                                }
                                 contentTv.setText(commutes.getDisputeMessage());
                                 // responseBody를 바이트 배열로 변환
                             }
@@ -147,6 +153,7 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
                 }
             }
         }).start();
+
     }
 
 
@@ -174,12 +181,12 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
                     CommuteRequestDto commuteRequestDto = new CommuteRequestDto(
                             commuteDate, //출퇴근 일자
                             dayOfWeek, //출퇴근 요일
-                            homeTime, //출근 시간
-                            workTime, //근무 종료 시간
+                            null, //출근 시간
+                            null, //근무 종료 시간
                             false, //지각 여부
                             null, //출퇴근 관련 이의 신청 메시지
-                            null, //정정 출근 시간
-                            null //정정 퇴근 시간
+                            workTime, //정정 출근 시간
+                            homeTime //정정 퇴근 시간
                     );
                     Call<Void> call = apiService.updateDisputeCommute(staffId, commuteRequestDto); // staffId, commuteRequestDto
 

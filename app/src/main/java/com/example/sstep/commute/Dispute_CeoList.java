@@ -119,12 +119,15 @@ public class Dispute_CeoList extends AppCompatActivity {
 
     }
 
-    public void RegAddItem(String commuteDate, DayOfWeek dayOfWeek, String staffName, long commuteId, long staffId){
+    public void RegAddItem(String commuteDate, DayOfWeek dayOfWeek, String staffName, String disputeStartTime, String disputeEndTime, String dispustMessage, long commuteId, long staffId){
         Dispute_recyclerViewItem item = new Dispute_recyclerViewItem();
 
         item.setCommuteDate(commuteDate);
         item.setDayOfWeek(dayOfWeek);
         item.setStaffName(staffName);
+        item.setDisputeStartTime(disputeStartTime);
+        item.setDisputeEndTime(disputeEndTime);
+        item.setDisputeMessage(dispustMessage);
         item.setCommuteId(commuteId);
         item.setStaffId(staffId);
 
@@ -145,7 +148,8 @@ public class Dispute_CeoList extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "데이터 있음", Toast.LENGTH_SHORT).show();
             // 데이터가 있는 경우, dataLayout을 보이도록 설정
             for (CommuteResponseDto commute : list) {
-                RegAddItem(commute.getCommuteDate(), commute.getDayOfWeek(), commute.getStaffName(), commute.getCommuteId(), commute.getStaffId());
+                RegAddItem(commute.getCommuteDate(), commute.getDayOfWeek(), commute.getStaffName(), commute.getStartTime(), commute.getEndTime(),
+                        commute.getDisputeMessage(), commute.getCommuteId(), commute.getStaffId());
             }
         }
 

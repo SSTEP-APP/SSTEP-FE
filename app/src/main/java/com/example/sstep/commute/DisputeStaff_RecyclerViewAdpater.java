@@ -107,6 +107,11 @@ public class DisputeStaff_RecyclerViewAdpater extends RecyclerView.Adapter<Dispu
         commuteDateStr = item.getCommuteDate();
         startTimeStr = item.getStartTime();
 
+        if (item.getStartTime() == null) {
+            startTimeStr="미출근";
+        }else{
+            startTimeStr = item.getStartTime();
+        }
         if (item.getEndTime() == null) {
             endTimeStr="미퇴근";
         }else{
