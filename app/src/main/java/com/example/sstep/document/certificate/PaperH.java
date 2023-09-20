@@ -97,6 +97,8 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
                             @Override
                             public void run() {
                                 regOnResume(codeStaffs);
+                                regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
+                                unRegNumTv.setText(String.valueOf(unRegRecyclerViewAdapter.getItemCount()));
                             }
                         });
                     } else {
@@ -135,6 +137,8 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
                             @Override
                             public void run() {
                                 UnRegOnResume(codeStaffs);
+                                regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
+                                unRegNumTv.setText(String.valueOf(unRegRecyclerViewAdapter.getItemCount()));
                             }
                         });
                     } else {
@@ -152,8 +156,7 @@ public class PaperH extends AppCompatActivity implements View.OnClickListener {
             }
         }).start();
 
-        regNumTv.setText(String.valueOf(regRecyclerViewAdapter.getItemCount()));
-        unRegNumTv.setText(String.valueOf(unRegRecyclerViewAdapter.getItemCount()));
+
 
 
     }
