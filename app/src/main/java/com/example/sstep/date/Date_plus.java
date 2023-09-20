@@ -45,9 +45,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Date_plus extends AppCompatActivity {
 
-    AppInData appInData;
-    long storeId;
-
     // 선택한 직원의 아이디를 담을 리스트
     List<Long> selectedStaffIds = new ArrayList<>();
     Dialog timePickDialog;
@@ -65,6 +62,8 @@ public class Date_plus extends AppCompatActivity {
     Button completeBtn;
     Dialog showComplete_dialog;
     BaseDialog_OkCenter baseDialog_okCenter;
+    long storeId;
+    AppInData appInData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,9 +100,8 @@ public class Date_plus extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        // ID값 가지고 오기
         appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
-        storeId = appInData.getStoreId();
+        storeId = appInData.getStoreId(); // 사용자 ID 가져오기
 
 
         //직원 리스트 불러오기
@@ -221,8 +219,25 @@ public class Date_plus extends AppCompatActivity {
                             public void onResponse(Call<Void> call, Response<Void> response) {
                                 if (response.isSuccessful()) {
                                     // 각 직원의 일정이 성공적으로 저장되었을 때 메시지를 표시합니다.
-                                    String successMessage = "직원 ID " + staffId + "의 일정이 성공적으로 저장되었습니다.";
-                                    showCompleteDl();
+                                    String successMessage = "직원 ID " + staffId + calendarDate +dayOfWeek+startCalTime+ "의 일정이 성공적으로 저장되었습니다.";
+                                    // TextView에 성공 메시지 추가
+                                    showComplete_dialog.show();
+                                    // 다이얼로그의 배경을 투명으로 만든다.
+                                    showComplete_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                                    Button join_okdl_okBtn;
+                                    join_okdl_commentTv = showComplete_dialog.findViewById(R.id.join_okdl_commentTv);
+                                    join_okdl_okBtn = showComplete_dialog.findViewById(R.id.join_okdl_okBtn);
+                                    join_okdl_commentTv.append("\n" +successMessage);
+
+                                    // '공지사항 dialog' _ 확인 버튼 클릭 시
+                                    join_okdl_okBtn.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent intent = new Intent(getApplicationContext(), Date.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    });
                                     Toast.makeText(Date_plus.this, "성공"+ successMessage, Toast.LENGTH_SHORT).show();
                                     // 성공적인 응답 처리
                                 } else {

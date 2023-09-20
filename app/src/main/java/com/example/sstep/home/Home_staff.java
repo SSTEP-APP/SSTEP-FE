@@ -75,7 +75,7 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
     AppInData appInData;
 
     String userId, userName, storeName, todayDateStr;
-    long storeCode, storeId;
+    long storeCode, storeId, staffId;
 
     private RecyclerView dateRecyclerView;
     private HomeDate_RecyclerViewAdpater dateRecyclerViewAdapter;
@@ -126,6 +126,7 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
         userId = appInData.getUserId();
         storeCode = appInData.getStoreCode();
         storeId = appInData.getStoreId();
+        staffId = appInData.getStaffId();
 
         // userId 를 통해 name 가져오기
         try {
@@ -414,7 +415,6 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
     }
 
 
-
     // 일정 리스트
     private void fetchDate() {
         todayDateStr = currentDate.format(sdf_ymd); // 오늘 날짜
@@ -488,11 +488,9 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
             // 데이터가 없는 경우, nodataLayout을 보이도록 설정
             date_nodataLayout.setVisibility(View.VISIBLE);
             date_dataLayout.setVisibility(View.GONE);
-            Toast.makeText(getApplicationContext(), "데이터 없음", Toast.LENGTH_SHORT).show();
         } else {
             date_nodataLayout.setVisibility(View.GONE);
             date_dataLayout.setVisibility(View.VISIBLE);
-            Toast.makeText(getApplicationContext(), "데이터 있음", Toast.LENGTH_SHORT).show();
             // 데이터가 있는 경우, dataLayout을 보이도록 설정
             for (CalendarResponseDto calendar : list) {
                 dateRegAddItem(calendar.getCalendarDate(), calendar.getDayOfWeek(),
@@ -578,11 +576,9 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
             // 데이터가 없는 경우, nodataLayout을 보이도록 설정
             notice_nodataLayout.setVisibility(View.VISIBLE);
             notice_dataLayout.setVisibility(View.GONE);
-            Toast.makeText(getApplicationContext(), "데이터 없음", Toast.LENGTH_SHORT).show();
         } else {
             notice_nodataLayout.setVisibility(View.GONE);
             notice_dataLayout.setVisibility(View.VISIBLE);
-            Toast.makeText(getApplicationContext(), "데이터 있음", Toast.LENGTH_SHORT).show();
             // 데이터가 있는 경우, dataLayout을 보이도록 설정
             for (NoticeResponseDto notice : list) {
                 noticeRegAddItem(notice.getId(), notice.getWriteDate(), notice.getTitle(), notice.getWriterName());

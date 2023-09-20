@@ -36,7 +36,7 @@
                 android:background="@drawable/yicon_stafffemale" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
@@ -56,58 +56,53 @@
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
-                    <TextView
-                        android:id="@+id/date_recycle_userPositionTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:text="[직원]"
-                        android:textColor="@color/likeblack"
-                        android:textSize="12sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/date_recycle_statusTv"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:background="@drawable/yroundrec_w_cate"
-                    android:backgroundTint="#B1D6B3"
-                    android:drawableLeft="@drawable/ycircle"
-                    android:drawablePadding="5dp"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="3dp"
-                    android:paddingRight="5dp"
-                    android:paddingBottom="3dp"
-                    android:text="퇴근"
-                    android:textColor="@color/black"
-                    android:textSize="11sp" />
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:text="근무일정"
+                        android:textColor="@color/likeblack"
+                        android:textSize="13sp"/>
+                    <!-- 근무일정 -->
+                    <TextView
+                        android:id="@+id/date_recycle_scheduleTimeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="17:30~23:30"
+                        android:textColor="@color/likeblack"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+<!--                <TextView-->
+<!--                    android:id="@+id/date_recycle_statusTv"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="3dp"-->
+<!--                    android:background="@drawable/yroundrec_w_cate"-->
+<!--                    android:backgroundTint="#B1D6B3"-->
+<!--                    android:drawableLeft="@drawable/ycircle"-->
+<!--                    android:drawablePadding="5dp"-->
+<!--                    android:paddingLeft="5dp"-->
+<!--                    android:paddingTop="3dp"-->
+<!--                    android:paddingRight="5dp"-->
+<!--                    android:paddingBottom="3dp"-->
+<!--                    android:text="퇴근"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="11sp" />-->
 
 
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="근무일정"
-                android:textColor="@color/likeblack"
-                android:textSize="13sp" />
-            <!-- 근무일정 -->
-            <TextView
-                android:id="@+id/date_recycle_scheduleTimeTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="17:30~23:30"
-                android:textColor="@color/likeblack"
-                android:textSize="13sp" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

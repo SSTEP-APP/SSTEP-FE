@@ -412,7 +412,7 @@ public class Notice_input extends AppCompatActivity implements View.OnClickListe
                         }
                     }
 
-                    showCompleteDl("공지사항 등록을 완료하였습니다. 업로드된 사진 수: " + uploadedPhotoCount);
+                    showCompleteDl("공지사항 등록을 완료하였습니다");
                     Toast.makeText(Notice_input.this, "성공", Toast.LENGTH_SHORT).show();
                     // 성공적인 응답 처리
                 } else {

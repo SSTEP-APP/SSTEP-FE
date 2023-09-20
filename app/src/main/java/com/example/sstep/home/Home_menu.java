@@ -15,7 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sstep.AppInData;
 import com.example.sstep.R;
+import com.example.sstep.commute.Dispute_CeoList;
+import com.example.sstep.commute.Dispute_StaffList;
+import com.example.sstep.date.Date;
 import com.example.sstep.document.certificate.Paper;
+import com.example.sstep.store.RegisterStore;
 import com.example.sstep.store.store_api.StoreApiService;
 import com.example.sstep.store.store_api.StoreResponseDto;
 import com.example.sstep.todo.checklist.CheckList;
@@ -33,10 +37,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Home_menu extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton closeIb;
-    TextView storeNameTv, nameTv, paperTv, noticeTv, checklistTv, logoutTv;
+    TextView storeNameTv, nameTv, registerStoreTv, dateTv, paperTv, noticeTv, checklistTv, disputeTv, logoutTv;
     Dialog logoutdl;
     AppInData appInData;
     String userName, storeName;
+    boolean isOwner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +52,12 @@ public class Home_menu extends AppCompatActivity implements View.OnClickListener
         paperTv=findViewById(R.id.homemenu_paperTv); paperTv.setOnClickListener(this);
         noticeTv=findViewById(R.id.homemenu_noticeTv); noticeTv.setOnClickListener(this);
         checklistTv=findViewById(R.id.homemenu_checklistTv); checklistTv.setOnClickListener(this);
+        dateTv=findViewById(R.id.homemenu_dateTv); dateTv.setOnClickListener(this);
         logoutTv=findViewById(R.id.homemenu_logoutTv); logoutTv.setOnClickListener(this);
         storeNameTv=findViewById(R.id.homemenu_storeNameTv);
         nameTv=findViewById(R.id.homemenu_nameTv);
+        disputeTv=findViewById(R.id.homemenu_disputeTv); disputeTv.setOnClickListener(this);
+        registerStoreTv=findViewById(R.id.homemenu_registerStoreTv); registerStoreTv.setOnClickListener(this);
 
         logoutdl = new Dialog(Home_menu.this); // Dialog 초기화
         logoutdl.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
@@ -59,6 +67,7 @@ public class Home_menu extends AppCompatActivity implements View.OnClickListener
         appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
         userName = appInData.getUserName();
         storeName = appInData.getStoreName();
+        isOwner = appInData.isOwner();
 
         storeNameTv.setText(storeName);
         nameTv.setText(userName);
@@ -78,6 +87,11 @@ public class Home_menu extends AppCompatActivity implements View.OnClickListener
                 startActivity(intent);
                 finish();
                 break;
+            case  R.id.homemenu_registerStoreTv: // 사업장 등록
+                intent = new Intent(getApplicationContext(), RegisterStore.class);
+                startActivity(intent);
+                finish();
+                break;
             case R.id.homemenu_noticeTv: // 공지사항
                 intent = new Intent(getApplicationContext(), Notice.class);
                 startActivity(intent);
@@ -87,6 +101,22 @@ public class Home_menu extends AppCompatActivity implements View.OnClickListener
                 intent = new Intent(getApplicationContext(), Paper.class);
                 startActivity(intent);
                 finish();
+                break;
+            case R.id.homemenu_dateTv: // 일정
+                intent = new Intent(getApplicationContext(), Date.class);
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.homemenu_disputeTv: // 출퇴근시간 이의신청
+                if (isOwner) {
+                    intent = new Intent(getApplicationContext(), Dispute_CeoList.class);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    intent = new Intent(getApplicationContext(), Dispute_StaffList.class);
+                    startActivity(intent);
+                    finish();
+                }
                 break;
             case R.id.homemenu_logoutTv: // 로그아웃
                 showlogoutDl();

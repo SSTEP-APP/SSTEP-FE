@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.commute.commute_api.CommuteApiService;
@@ -27,6 +28,8 @@ import com.example.sstep.date.date_api.CalendarApiService;
 import com.example.sstep.date.date_api.CalendarRequestDto;
 import com.example.sstep.store.store_api.NullOnEmptyConverterFactory;
 import com.example.sstep.todo.notice.Notice;
+import com.example.sstep.user.staff_api.StaffApiService;
+import com.example.sstep.user.staff_api.StaffResponseDto;
 
 import java.io.IOException;
 import java.time.DayOfWeek;
@@ -39,7 +42,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Dispute_WriteStaff extends AppCompatActivity implements View.OnClickListener{
 
-    long commuteId;
+    AppInData appInData;
+    long commuteId, staffId;
     String commuteDate, disputeStartTime, disputeEndTime, disputeMessage, dayOfWeekStr;
     DayOfWeek dayOfWeek;
     ImageButton backib;
@@ -78,10 +82,49 @@ public class Dispute_WriteStaff extends AppCompatActivity implements View.OnClic
         disputeStartTime = intent.getStringExtra("startTime");
         disputeEndTime = intent.getStringExtra("endTime");
         commuteId = intent.getLongExtra("commuteId", 0L);
+        staffId = intent.getLongExtra("staffId", 0L);
 
         disputeDateTv.setText(commuteDate + " (" + dayOfWeekStr + ")");
         workTimeTv.setText(disputeStartTime);
-        homeTimeTv.setText(disputeEndTime);
+        if (disputeEndTime != null) {
+            homeTimeTv.setText(disputeEndTime);
+        }else{
+            homeTimeTv.setText("미퇴근");
+        }
+
+        // staffId 를 통해 직급 가져오기
+        try {
+            //네트워크 요청 구현
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://ec2-3-35-10-138.ap-northeast-2.compute.amazonaws.com:3306/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            StaffApiService apiService = retrofit.create(StaffApiService.class);
+            //적은 id를 기반으로 db에 검색
+            Call<StaffResponseDto> call = apiService.getStaffByStaffId(staffId); //staffId 아이디
+            call.enqueue(new Callback<StaffResponseDto>() {
+                @Override
+                public void onResponse(Call<StaffResponseDto> call, Response<StaffResponseDto> response) {
+                    if (response.isSuccessful()) {
+                        StaffResponseDto data = response.body();
+                        // 적은 id로 패스워드 데이터 가져오기
+                        String staffName = data.getStaffName();
+                        staffNameTv.setText(staffName);
+                    } else {
+                        // 오류 처리
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<StaffResponseDto> call, Throwable t) {
+                    // 실패 처리
+                    String errorMessage = "요청 실패: " + t.getMessage();
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // '사유' 글자 수 제한
         contentEt.addTextChangedListener(new TextWatcher() {
@@ -119,6 +162,8 @@ public class Dispute_WriteStaff extends AppCompatActivity implements View.OnClic
                 showTimePickerDialog(homeTimeTv);
                 break;
             case R.id.cdwstaff_completeBtn: // 등록하기
+                disputeStartTime = workTimeTv.getText().toString().trim();
+                disputeEndTime = homeTimeTv.getText().toString().trim();
                 disputeMessage = contentEt.getText().toString().trim();
                 try {
                     //네트워크 요청 구현
@@ -145,8 +190,7 @@ public class Dispute_WriteStaff extends AppCompatActivity implements View.OnClic
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {
-                                showCompleteDl("출퇴근시간 이의신청을 완료하였습니다.");
-                                Toast.makeText(Dispute_WriteStaff.this, "성공"+disputeMessage+disputeStartTime+disputeEndTime, Toast.LENGTH_SHORT).show();
+                                showCompleteDl("이의신청을 완료하였습니다.");
                                 // 성공적인 응답 처리
                             } else {
                                 // 기타 다른 상태 코드 처리

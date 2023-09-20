@@ -31,7 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_RecyclerViewAdpater.ViewHolder> {
 
     String commuteDateStr, dayOfWeekStr, staffNameStr;
-    long commuteId;
+    long staffId, commuteId;
     private Context context;
     private static OnItemClickListener onItemClickListener;
 
@@ -117,6 +117,7 @@ public class Dispute_RecyclerViewAdpater extends RecyclerView.Adapter<Dispute_Re
                 intent.putExtra("dayOfWeek", dayOfWeekStr);
                 intent.putExtra("staffName", staffNameStr);
                 intent.putExtra("commuteId", commuteId);
+                intent.putExtra("staffId", staffId);
             }
         });
 

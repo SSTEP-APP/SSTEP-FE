@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Dispute_recyclerViewItem {
     private String commuteDate, staffName;
     private DayOfWeek dayOfWeek;
+    private long staffId;
     private long commuteId;
 
     public String getCommuteDate() {
@@ -30,6 +31,14 @@ public class Dispute_recyclerViewItem {
 
     public void setDayOfWeek(DayOfWeek dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
+    }
+
+    public long getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(long staffId) {
+        this.staffId = staffId;
     }
 
     public long getCommuteId() {

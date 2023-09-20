@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.R;
 import com.example.sstep.commute.commute_api.CommuteApiService;
 import com.example.sstep.commute.commute_api.CommuteResponseDto;
@@ -35,8 +36,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DisputeStaff_RecyclerViewAdpater extends RecyclerView.Adapter<DisputeStaff_RecyclerViewAdpater.ViewHolder> {
 
+    AppInData appInData;
     String commuteDateStr, dayOfWeekStr, startTimeStr, endTimeStr;
-    long commuteId;
+    long commuteId, staffId;
     private Context context;
     private static OnItemClickListener onItemClickListener;
 
@@ -45,14 +47,14 @@ public class DisputeStaff_RecyclerViewAdpater extends RecyclerView.Adapter<Dispu
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView dateTv, schNameTv, schTimeTv;
+        TextView dateTv, homeTimeTv, workTimeTv;
         Button disputeBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             dateTv = (TextView) itemView.findViewById(R.id.cdsl_recycle_dateTv);
-            schNameTv = (TextView) itemView.findViewById(R.id.cdsl_recycle_schNameTv);
-            schTimeTv = (TextView) itemView.findViewById(R.id.cdsl_recycle_schTimeTv);
+            homeTimeTv = (TextView) itemView.findViewById(R.id.cdsl_recycle_homeTimeTv);
+            workTimeTv = (TextView) itemView.findViewById(R.id.cdsl_recycle_workTimeTv);
             disputeBtn = (Button) itemView.findViewById(R.id.cdsl_recycle_disputeBtn);
         }
     }
@@ -104,10 +106,16 @@ public class DisputeStaff_RecyclerViewAdpater extends RecyclerView.Adapter<Dispu
         dayOfWeekStr = convertDayOfWeek(item.getDayOfWeek());
         commuteDateStr = item.getCommuteDate();
         startTimeStr = item.getStartTime();
-        endTimeStr = item.getEndTime();
+
+        if (item.getEndTime() == null) {
+            endTimeStr="미퇴근";
+        }else{
+            endTimeStr = item.getEndTime();
+        }
 
         holder.dateTv.setText(item.getCommuteDate() + " (" + dayOfWeekStr + ")");
-        holder.schTimeTv.setText(item.getStartTime() + "~" + item.getEndTime());
+        holder.homeTimeTv.setText(item.getStartTime());
+        holder.workTimeTv.setText(endTimeStr);
 
         // 이의신청 버튼에 대한 클릭 리스너 설정
         holder.disputeBtn.setOnClickListener(new View.OnClickListener() {
@@ -148,6 +156,9 @@ public class DisputeStaff_RecyclerViewAdpater extends RecyclerView.Adapter<Dispu
 
     // fetchCommuteInfo 메서드를 정의하여 Retrofit을 사용하여 출퇴근 정보를 가져오도록 합니다.
     private void fetchCommuteInfo(String commuteDateStr) {
+        // ID값 가지고 오기
+        appInData = (AppInData) context.getApplicationContext(); // MyApplication 클래스의 인스턴스 가져오기
+        staffId = appInData.getStaffId();
         try {
             // Retrofit 코드 작성
             Retrofit retrofit = new Retrofit.Builder()
@@ -157,7 +168,6 @@ public class DisputeStaff_RecyclerViewAdpater extends RecyclerView.Adapter<Dispu
                     .build();
             CommuteApiService apiService = retrofit.create(CommuteApiService.class);
 
-            long staffId = 1;
             Call<CommuteResponseDto> call = apiService.getCommute(staffId, commuteDateStr); // staffId, date
 
             call.enqueue(new Callback<CommuteResponseDto>() {
@@ -173,6 +183,7 @@ public class DisputeStaff_RecyclerViewAdpater extends RecyclerView.Adapter<Dispu
                         intent.putExtra("startTime", startTimeStr);
                         intent.putExtra("endTime", endTimeStr);
                         intent.putExtra("commuteId", commuteId);
+                        intent.putExtra("staffId", staffId);
 
                         context.startActivity(intent);
                     } else {

@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sstep.AppInData;
 import com.example.sstep.BaseDialog_OkCenter;
 import com.example.sstep.R;
 import com.example.sstep.commute.commute_api.CommuteApiService;
@@ -30,6 +31,7 @@ import com.example.sstep.todo.notice.notice_api.NoticeResponseDto;
 
 import java.io.IOException;
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.Set;
 
 import retrofit2.Call;
@@ -40,7 +42,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickListener {
 
-    String commuteDateStr, dayOfWeekStr, staffNameStr;
+    AppInData appInData;
+    String commuteDate, dayOfWeekStr, staffNameStr, workTime, homeTime;
     DayOfWeek dayOfWeek;
     long staffId, commuteId;
     ImageButton backib;
@@ -70,14 +73,13 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
         showComplete_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         showComplete_dialog.setContentView(R.layout.join_okdl); // xml 레이아웃 파일과 연결
 
+        // ID값 가지고 오기
+        appInData = (AppInData) getApplication(); // MyApplication 클래스의 인스턴스 가져오기
+
         // Intent로 전달받은 데이터 가져오기
         Intent intent = getIntent();
-        commuteDateStr = intent.getStringExtra("commuteDate");
-        dayOfWeekStr = intent.getStringExtra("dayOfWeek");
-        staffNameStr = intent.getStringExtra("staffName");
         commuteId = intent.getLongExtra("commuteId", 0L);
-
-        disputeDateTv.setText(commuteDateStr + " (" + dayOfWeekStr + ")");
+        staffId = intent.getLongExtra("staffId", 0L);
         staffNameTv.setText(staffNameStr);
 
         //사장에게 이의신청 내용 보여주기
@@ -94,7 +96,7 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
                     CommuteApiService apiService = retrofit.create(CommuteApiService.class);
 
                     Call<CommuteResponseDto> call = apiService.getDispute(commuteId); // commuteId
-                    retrofit2.Response<CommuteResponseDto> response = call.execute();
+                    Response<CommuteResponseDto> response = call.execute();
 
                     if (response.isSuccessful()) {
                         // 서버로부터 NoticeResponseDto 가져오기
@@ -103,6 +105,16 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
                             @Override
                             public void run() {
                                 // 성공적인 응답 처리
+                                commuteDate = commutes.getCommuteDate();
+                                dayOfWeek=commutes.getDayOfWeek();
+                                dayOfWeekStr = convertdayOfWeekStr(dayOfWeek);
+                                workTime = commutes.getStartTime();
+                                homeTime = commutes.getEndTime();
+
+                                staffNameTv.setText(commutes.getStaffName());
+                                disputeDateTv.setText(commuteDate + " (" + dayOfWeekStr + ")");
+                                workTimeTv.setText(workTime);
+                                homeTimeTv.setText(homeTime);
                                 contentTv.setText(commutes.getDisputeMessage());
                                 // responseBody를 바이트 배열로 변환
                             }
@@ -137,6 +149,7 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
         }).start();
     }
 
+
     @Override
     public void onClick(View v) {
         Intent intent;
@@ -149,7 +162,6 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
             case R.id.cdwceo_noBtn: // 반려
                 break;
             case R.id.cdwceo_yesBtn: // 승인
-                dayOfWeek = convertDayOfWeek(dayOfWeekStr);
                 try {
                     //네트워크 요청 구현
                     Retrofit retrofit = new Retrofit.Builder()
@@ -160,10 +172,10 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
                     CommuteApiService apiService = retrofit.create(CommuteApiService.class);
                     // 사업장등록에 필요한 데이터를 StoreRequestDto 객체로 생성
                     CommuteRequestDto commuteRequestDto = new CommuteRequestDto(
-                            commuteDateStr, //출퇴근 일자
+                            commuteDate, //출퇴근 일자
                             dayOfWeek, //출퇴근 요일
-                            null, //출근 시간
-                            null, //근무 종료 시간
+                            homeTime, //출근 시간
+                            workTime, //근무 종료 시간
                             false, //지각 여부
                             null, //출퇴근 관련 이의 신청 메시지
                             null, //정정 출근 시간
@@ -249,6 +261,28 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
                 return DayOfWeek.SUNDAY;
             default:
                 return dayOfWeek; // 다른 경우에는 열거형 이름을 반환
+        }
+    }
+
+    // 요일을 DayOfWeek로 변환하는 메서드
+    private String convertdayOfWeekStr(DayOfWeek dayOfWeek) {
+        switch (dayOfWeek) {
+            case MONDAY:
+                return "월";
+            case TUESDAY:
+                return "화";
+            case WEDNESDAY:
+                return "수";
+            case THURSDAY:
+                return "목";
+            case FRIDAY:
+                return "금";
+            case SATURDAY:
+                return "토";
+            case SUNDAY:
+                return "일";
+            default:
+                return "변환 안됨"; // 다른 경우에는 열거형 이름을 반환
         }
     }
 

@@ -1,7 +1,5 @@
 package com.example.sstep.date;
 
-import com.example.sstep.document.certificate.PaperH_Reg_recyclerViewItem;
-
 public class Date_recyclerViewItem {
     private String staffName; // staffName
     private String startCalTime; // startCalTime
@@ -32,8 +30,8 @@ public class Date_recyclerViewItem {
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
-    private Date_recyclerViewItem.OnItemClickListener onItemClickListener;
-    public void setOnItemClickListener(Date_recyclerViewItem.OnItemClickListener listener) {
+    private OnItemClickListener onItemClickListener;
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.onItemClickListener = listener;
     }
 
