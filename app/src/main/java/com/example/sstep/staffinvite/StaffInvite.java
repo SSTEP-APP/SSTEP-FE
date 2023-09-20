@@ -135,6 +135,8 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
                             @Override
                             public void run() {
                                 onResume(codeStaffs);
+                                approvenumTv.setText(String.valueOf(mRecyclerViewAdapter.getItemCount()));
+                                waitNum.setText(String.valueOf(iSRecyclerViewAdapter.getItemCount()));
                             }
                         });
                     } else {
@@ -174,6 +176,8 @@ public class StaffInvite extends AppCompatActivity implements View.OnClickListen
                             @Override
                             public void run() {
                                 onResumeIS(codeStaffsIS);
+                                approvenumTv.setText(String.valueOf(mRecyclerViewAdapter.getItemCount()));
+                                waitNum.setText(String.valueOf(iSRecyclerViewAdapter.getItemCount()));
                             }
                         });
                     } else if (response2.code()==500){

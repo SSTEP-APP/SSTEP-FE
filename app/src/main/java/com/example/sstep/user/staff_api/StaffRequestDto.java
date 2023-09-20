@@ -62,7 +62,7 @@ public class StaffRequestDto {
         return wageType;
     }
 
-    public String getUsername() {
+    public String getUername() {
         return username;
     }
 
