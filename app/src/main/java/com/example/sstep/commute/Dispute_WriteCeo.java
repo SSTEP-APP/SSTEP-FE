@@ -195,7 +195,6 @@ public class Dispute_WriteCeo extends AppCompatActivity implements View.OnClickL
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {
                                 showCompleteDl("출퇴근시간 이의신청을 완료하였습니다.");
-                                Toast.makeText(Dispute_WriteCeo.this, "성공", Toast.LENGTH_SHORT).show();
                                 // 성공적인 응답 처리
                             } else {
                                 // 기타 다른 상태 코드 처리

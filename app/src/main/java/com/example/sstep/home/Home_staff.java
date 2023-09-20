@@ -29,6 +29,7 @@ import com.example.sstep.date.Date_plus;
 import com.example.sstep.date.Date_recyclerViewItem;
 import com.example.sstep.date.date_api.CalendarApiService;
 import com.example.sstep.date.date_api.CalendarResponseDto;
+import com.example.sstep.document.certificate.Paper;
 import com.example.sstep.document.work_doc_api.ByteArrayTypeAdapter;
 import com.example.sstep.store.SelectStore;
 import com.example.sstep.todo.checklist.CheckList;
@@ -327,7 +328,7 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
                 finish();
                 break;
             case R.id.homestaff_mypageBtn: // 마이페이지
-                intent = new Intent(getApplicationContext(), MyPage.class);
+                intent = new Intent(getApplicationContext(), Paper.class);
                 startActivity(intent);
                 finish();
                 break;
