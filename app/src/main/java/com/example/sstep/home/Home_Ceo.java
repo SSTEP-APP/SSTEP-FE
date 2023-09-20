@@ -115,14 +115,18 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
         storeId = appInData.getStoreId();
 
 
-        boolean owner = appInData.isOwner();
-        if (owner){
-            //사장이므로 그대로 진행
-        }else {
-            Intent intent;
-            intent = new Intent(getApplicationContext(), Home_staff.class);
-            startActivity(intent);
-            finish();
+        try {
+            boolean owner = appInData.isOwner();
+            if (owner) {
+                //사장이므로 그대로 진행
+            } else {
+                Intent intent;
+                intent = new Intent(getApplicationContext(), Home_staff.class);
+                startActivity(intent);
+                finish();
+            }
+        }catch (Exception e){
+
         }
         // userId 를 통해 name 가져오기
         try {
@@ -376,12 +380,12 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
     }
 
     protected void regOnResume(Set<CheckListResponseDto> list) {
-        super.onResume();
-
-        // 이곳에서 리사이클러뷰 데이터를 업데이트하고 어댑터를 갱신합니다.
-        RegUpdateRecyclerView(list); // 원하는 업데이트 로직을 여기에 작성
-
-        checkListRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터 갱신
+        if (!isFinishing()) { // Activity가 파괴되지 않은 경우에만 수행
+            super.onResume();
+            // 이곳에서 리사이클러뷰 데이터를 업데이트하고 어댑터를 갱신합니다.
+            RegUpdateRecyclerView(list); // 원하는 업데이트 로직을 여기에 작성
+            checkListRecyclerViewAdapter.notifyDataSetChanged(); // 어댑터 갱신
+        }
     }
 
 
