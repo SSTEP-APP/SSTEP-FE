@@ -262,7 +262,6 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
                             .build();
                     ChecklistApiService apiService = retrofit.create(ChecklistApiService.class);
 
-
                     Call<Set<CheckListResponseDto>> call = apiService.getStoreCheckLists(storeId);
 
                     retrofit2.Response<Set<CheckListResponseDto>> response = call.execute();
@@ -273,6 +272,17 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
                             @Override
                             public void run() {
                                 regOnResume(codeStaffs);
+                                LinearLayout checkListLL = findViewById(R.id.homeceo_checklist_nodataLayout);
+                                if(checkListRecyclerViewAdapter.getItemCount() != 0){
+                                    checkNumTv.setText(checkListRecyclerViewAdapter.getItemCount());
+                                    checkListLL.setVisibility(View.GONE);
+                                    checkListRecyclerView.setVisibility(View.VISIBLE);
+
+                                }else{
+                                    checkListLL.setVisibility(View.VISIBLE);
+                                    checkListRecyclerView.setVisibility(View.GONE);
+                                }
+
                             }
                         });
                     } else {
@@ -289,15 +299,7 @@ public class Home_Ceo extends AppCompatActivity implements View.OnClickListener 
                 }
             }
         }).start();
-        LinearLayout checkListLL = findViewById(R.id.homeceo_checklist_nodataLayout);
-        if(checkListRecyclerViewAdapter.getItemCount() == 0){
-            checkListLL.setVisibility(View.VISIBLE);
-            checkListRecyclerView.setVisibility(View.GONE);
-        }else{
-            checkNumTv.setText(checkListRecyclerViewAdapter.getItemCount());
-            checkListLL.setVisibility(View.GONE);
-            checkListRecyclerView.setVisibility(View.VISIBLE);
-        }
+
     }
 
 

@@ -96,9 +96,9 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
 
     private RecyclerView checkListRecyclerView;
 
-    private Home_Ceo_checkList_RecyclerViewAdpater checkListRecyclerViewAdapter;
+    private Home_Staff_checkList_RecyclerViewAdpater checkListRecyclerViewAdapter;
 
-    private List<Home_Ceo_checkList_recyclerViewItem> checkListList;
+    private List<Home_Staff_checkList_recyclerViewItem> checkListList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,7 +213,7 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
 
         regFirstInit();
 
-        checkListRecyclerViewAdapter = new Home_Ceo_checkList_RecyclerViewAdpater(checkListList);
+        checkListRecyclerViewAdapter = new Home_Staff_checkList_RecyclerViewAdpater(checkListList);
         checkListRecyclerView.setAdapter(checkListRecyclerViewAdapter);
         checkListRecyclerView.setLayoutManager(new LinearLayoutManager(Home_staff.this, RecyclerView.VERTICAL, false)); //리사이클러뷰 양식지정
 
@@ -250,6 +250,17 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
                             @Override
                             public void run() {
                                 regOnResume(codeStaffs);
+                                LinearLayout checkListLL = findViewById(R.id.homestaff_checkListLL);
+                                if(checkListRecyclerViewAdapter.getItemCount() == 0){
+                                    checkListLL.setVisibility(View.VISIBLE);
+                                    checkListRecyclerView.setVisibility(View.GONE);
+                                }else{
+                                    TextView checkNumTv;
+                                    checkListLL.setVisibility(View.GONE);
+                                    checkListRecyclerView.setVisibility(View.VISIBLE);
+                                    checkNumTv = findViewById(R.id.homestaff_checkNumTv);
+                                    checkNumTv.setText(""+checkListRecyclerViewAdapter.getItemCount());
+                                }
                             }
                         });
                     } else {
@@ -268,19 +279,7 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
 
         }).start();
 
-        LinearLayout checkListLL = findViewById(R.id.homestaff_checkListLL);
-        if(checkListRecyclerViewAdapter.getItemCount() == 0){
-            checkListLL.setVisibility(View.VISIBLE);
-            checkListRecyclerView.setVisibility(View.GONE);
-        }else{
-            TextView checkNumTv;
-            checkListLL.setVisibility(View.GONE);
-            checkListRecyclerView.setVisibility(View.VISIBLE);
-            checkNumTv = findViewById(R.id.homestaff_checkNumTv);
-            checkNumTv.setText(checkListRecyclerViewAdapter.getItemCount());
 
-
-        }
 
         // 리사이클 뷰
         dateRecyclerView = (RecyclerView) findViewById(R.id.homestaff_date_recycleView);
@@ -380,7 +379,7 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
 
 
     public void RegAddItem(String name, String date,long id){
-        Home_Ceo_checkList_recyclerViewItem item = new Home_Ceo_checkList_recyclerViewItem();
+        Home_Staff_checkList_recyclerViewItem item = new Home_Staff_checkList_recyclerViewItem();
 
         item.setHome_Check_title(name);
         item.setHome_Check_date(date);
@@ -394,11 +393,11 @@ public class Home_staff extends AppCompatActivity implements View.OnClickListene
             RegAddItem(clRes.getTitle(), clRes.getDate(),clRes.getId());
         }
 
-        Home_Ceo_checkList_RecyclerViewAdpater.setOnItemClickListener(new Home_Ceo_checkList_RecyclerViewAdpater.OnItemClickListener() {
+        Home_Staff_checkList_RecyclerViewAdpater.setOnItemClickListener(new Home_Staff_checkList_RecyclerViewAdpater.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 // 해당 아이템 레이아웃 클릭 시 처리할 코드 이쪽 수정 필!
-                Home_Ceo_checkList_recyclerViewItem item = checkListList.get(position);
+                Home_Staff_checkList_recyclerViewItem item = checkListList.get(position);
                 Intent intent = new Intent(getApplicationContext(), Checklist_detail.class); //사장, 스테프 구분 필요
                 //체크리스트 id 받아서 넘기기
                 intent.putExtra("checkListId", item.getHome_Check_checkListId());
